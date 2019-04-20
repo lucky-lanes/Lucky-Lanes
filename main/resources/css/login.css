@@ -1,0 +1,76 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass
+{
+    
+}
+
+#inputFields
+{
+    //-fx-max-height:300px;
+
+}
+
+#inputFields .text-field
+{
+   -fx-background-color:#334048;
+   -fx-background-radius: 5px 5px 5px 5px;
+   -fx-border-color:white;
+   -fx-border-radius: 5px;
+   -fx-border-width:.5px;
+   -fx-text-fill:white;
+}
+
+#inputFields .text-field:hover
+{
+    -fx-border-color:lightgreen;
+}
+
+#inputFields .text-field:focused
+{
+    -fx-border-color:green;
+}
+
+#inputFields .button
+{
+    -fx-text-fill:white;
+    -fx-background-color:#334048;
+}
+
+#inputFields .button:hover
+{
+    -fx-background-color:#79ae37;
+}
+
+#inputFields .button:pressed
+{
+    -fx-background-color:#5e882b;
+}
+
+#inputFields .button:focused
+{
+    -fx-border-color:green;
+}
+
+#inputButtons
+{
+    -fx-spacing:50px;
+}
+
+#container
+{
+
+}
+
+#body
+{
+    //-fx-background-color:#455660;
+}
+
+#inputButtons .button
+{
+    -fx-min-width:45px;
+    -fx-min-height:35px;
+}
