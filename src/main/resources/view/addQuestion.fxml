@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.net.*?>
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="650.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.AddQuestionController">
+    <stylesheets>
+        <URL value="@../../resources/css/bowler.css" />
+    </stylesheets>
+    <GridPane alignment="center" hgap="10" vgap="10">
+        <padding><Insets top = "25" right = "25" bottom = "25" left = "25"/></padding>
+        <Label text = "Question to be asked:" textFill = "black" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label text = "Correct" GridPane.columnIndex="2" GridPane.rowIndex="0"/>  
+        <TextField fx:id = "mainQuestion" GridPane.columnIndex = "1" GridPane.rowIndex="0"/> 
+        <Label text="Option 1:" textFill = "black" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id = "option1" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <CheckBox fx:id = "option1Value" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <Label text="Option 2:" textFill = "black" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id = "option2" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <CheckBox fx:id = "option2Value" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+        <Label text="Option 3:" textFill = "black" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <TextField fx:id = "option3" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <CheckBox fx:id = "option3Value" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+        <Label text="Option 4:" textFill = "black" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <TextField fx:id = "option4" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <CheckBox fx:id = "option4Value" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+        <Button text = "Submit" onAction = "#questionToAdd" fx:id = "submitQuestion" GridPane.columnIndex="2" GridPane.rowIndex="5"/>  
+        <Button text = "Go Back" onAction = "#goBack" fx:id = "goBack" GridPane.columnIndex="1" GridPane.rowIndex="5"/>  
+    </GridPane> 
+</AnchorPane>

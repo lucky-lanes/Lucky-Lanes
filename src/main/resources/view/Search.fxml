@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?> 
+
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.SearchController">
+    <stylesheets>
+        <URL value="@../../resources/css/search.css" />
+    </stylesheets>
+    <children>
+        <BorderPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <left>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="212.0">
+                    <children>
+                        <VBox layoutX="25.0" layoutY="75.0" prefHeight="600.0" prefWidth="225.0" style="-fx-background-color: lightgray;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="49.0" prefWidth="274.0" style="-fx-background-color: black;" text="Search" textFill="WHITE">
+                                    <font>
+                                        <Font name="Georgia" size="20.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="30.0" />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" />
+                                    </padding>
+                                </Label>
+                                <VBox alignment="TOP_CENTER" prefHeight="521.0" prefWidth="181.0">
+                                    <children>
+                                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                                            <children>
+                                                <Label text="ID:" />
+                                                <TextField fx:id="txtID" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                                            <children>
+                                                <Label text="Name: " />
+                                                <TextField fx:id="txtName" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                                            <children>
+                                                <Label text="Address:" />
+                                                <TextField fx:id="txtAddress" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                                            <children>
+                                                <Label text="State" />
+                                                <TextField fx:id="txtState" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                                            <children>
+                                                <Label text="City:" />
+                                                <TextField fx:id="txtCity" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                                            <children>
+                                                <Label text="Zip:" />
+                                                <TextField fx:id="txtZip" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                                            <children>
+                                                <Label text="School:" />
+                                                <TextField fx:id="txtSchool" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                                            <children>
+                                                <Label text="Sport:" />
+                                                <TextField fx:id="txtSport" />
+                                            </children>
+                                        </HBox>
+                                        <Button fx:id="buttonSubmit" mnemonicParsing="false" onAction="#buildData" text="Submit" >
+                                            <VBox.margin>
+                                                <Insets bottom="20.0" top="10.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" onAction="#printAllReport" prefHeight="38.0" prefWidth="133.0" text="Save All Reports"/>                             
+                                        <Button mnemonicParsing="false" onAction="#printSelectedReport" prefHeight="38.0" prefWidth="133.0" text="Save Selected Reports" >
+                                            <VBox.margin>
+                                                <Insets bottom="20.0" top="10.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" onAction="#goBack" prefHeight="38.0" prefWidth="133.0" text="Go Back"/>
+                                    </children>
+                                    <padding>
+                                        <Insets right="10.0" top="50.0" />
+                                    </padding>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </left>
+            <center>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+                    <children>
+                        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <TableView fx:id="table" layoutY="30.0" prefHeight="545.0" prefWidth="588.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <VBox.margin>
+                                        <Insets top="30.0" />
+                                    </VBox.margin>
+                                </TableView>
+                                <ProgressIndicator fx:id="progressIndicator" maxHeight="250.0" maxWidth="250.0" minHeight="250.0" minWidth="250.0" prefHeight="250.0" prefWidth="250.0" visible="false">
+                                    <StackPane.margin>
+                                        <Insets />
+                                    </StackPane.margin>
+                                </ProgressIndicator>
+                            </children>
+                        </StackPane>
+                    </children>
+                </AnchorPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

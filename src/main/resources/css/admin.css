@@ -1,0 +1,34 @@
+
+/* 
+    Created on : Apr 12, 2018, 12:06:48 PM
+    Author     : Mario
+*/
+.button
+{
+    <!---fx-effect: dropshadow( gaussian , rgba(19, 24, 28,.5) , 10,0,1,1 )-->;
+    
+    -fx-effect: dropshadow( gaussian , rgba(19, 24, 28,1) , 10,0,2,2 );
+    -fx-min-height:125px;
+    -fx-min-width:125px;
+    -fx-pref-height:125px;
+    -fx-pref-width:125px;
+    -fx-max-height:125px;
+    -fx-max-width:125px;
+    
+    -fx-background-radius:90 90  90  90;
+    -fx-text-fill:white;
+    -fx-background-color:#334048;
+}
+
+.button:hover
+{
+    -fx-background-color:#79ae37;
+    -fx-text-fill:black;
+} 
+
+.button:pressed
+{
+    -fx-effect: null;
+    -fx-background-color:#5e882b;
+}
+

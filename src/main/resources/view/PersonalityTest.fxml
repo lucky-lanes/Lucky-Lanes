@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.net.*?>
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="650.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.PersonalityTestController">
+    <stylesheets>
+        <URL value="@../../resources/css/bowler.css" />
+    </stylesheets>
+    <GridPane alignment="center" hgap="10" vgap="10">
+        <padding><Insets top = "25" right = "25" bottom = "25" left = "25"/></padding>
+        <Label fx:id = 'mainQuestion' textFill = "black" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <HBox GridPane.columnIndex="0" GridPane.rowIndex="8">
+            <Label text = "Current Score "/>
+            <Label fx:id = "currentScore" />
+        </HBox>  
+        <HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <RadioButton fx:id = 'option1Value'>
+            <toggleGroup>
+               <ToggleGroup fx:id = 'personalityTest'/>
+            </toggleGroup>
+            </RadioButton>
+            <Label fx:id = 'option1' text = ""/>
+        </HBox>
+         <HBox GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <RadioButton toggleGroup = '$personalityTest' fx:id = 'option2Value'/>
+            <Label fx:id = 'option2' />
+        </HBox>
+        <Button text = "Next" onAction = "#next" fx:id = "nextQuestion" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <Button text = "Submit" onAction = "#submit" fx:id = "submitQuestion" GridPane.columnIndex="0" GridPane.rowIndex="6"/>  
+        <Button text = "Exit" onAction = "#goBack" fx:id = "goBack" GridPane.columnIndex="0" GridPane.rowIndex="7"/>  
+    </GridPane> 
+</AnchorPane>
