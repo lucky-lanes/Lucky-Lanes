@@ -1,0 +1,75 @@
+/*
+ * Empty Stylesheet file.
+ */
+.tab-pane .scroll-bar:vertical
+{
+    -fx-unit-increment: 10;
+    -fx-block-increment: 10;
+}
+
+.tab-pane .tab-valid
+{
+    -fx-background-color:rgba(26, 238, 11,.3);
+}
+
+.tab-pane .tab-valid:selected
+{
+    -fx-background-color:rgba(26, 238, 11,.1);
+}
+
+.tab-pane .tab-valid .tab-label
+{
+    
+}
+
+.tab-pane .tab-valid:selected .tab-label
+{
+    -fx-text-fill:darkgreen;
+}
+
+.tab-pane .tab-invalid
+{
+    -fx-background-color:rgba(238, 11, 11,.3);
+}
+
+.tab-pane .tab-invalid:selected
+{
+    -fx-background-color:rgba(238, 11, 11,.1);
+}
+
+.tab-pane .tab-invalid .tab-label
+{
+    
+}
+
+.tab-pane .tab-invalid:selected .tab-label
+{
+   
+}
+
+/*
+
+.tab-pane .tab
+{
+    -fx-background-color: #e6e6e6;
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #3c3c3c;
+}
+
+.tab .tab-label
+{ 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #828282;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label
+{ 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #96b946;
+}
+*/
