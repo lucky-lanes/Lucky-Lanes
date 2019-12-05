@@ -111,7 +111,7 @@ public class AddQuestionController implements Initializable
         //Question questionObj = new Question(option1Obj, option2Obj, option3Obj, option4Obj);
         
         //questionObj.saveToDataBase();
-        
+        //This will save the question and the answers into the database
         String sql = "INSERT INTO QUESTION VALUES (null,"
                 + "'" + mainQuestion.getText() + "'" + ","
                 + "'" + option1.getText() + "'" + ","

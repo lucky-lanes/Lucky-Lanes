@@ -10,7 +10,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import main.PDFCreator.Document_Creator;
+import main.formObjects.Document_Creator;
 import main.formObjects.Athlete;
 import main.formObjects.FMS;
 import main.formObjects.FitnessTest;

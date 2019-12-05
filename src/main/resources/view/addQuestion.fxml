@@ -29,6 +29,9 @@
         <Label text="Option 4:" textFill = "black" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
         <TextField fx:id = "option4" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
         <CheckBox fx:id = "option4Value" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+        <!--detail>
+            When the submit button is clicked you will go to the AddQuestionController script
+         </detail-->
         <Button text = "Submit" onAction = "#questionToAdd" fx:id = "submitQuestion" GridPane.columnIndex="2" GridPane.rowIndex="5"/>  
         <Button text = "Go Back" onAction = "#goBack" fx:id = "goBack" GridPane.columnIndex="1" GridPane.rowIndex="5"/>  
     </GridPane> 
