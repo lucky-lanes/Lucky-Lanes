@@ -32,3 +32,129 @@ org.h2.jdbc.JdbcSQLException: No data is available [2000-197]
 org.h2.jdbc.JdbcSQLException: No data is available [2000-197]
 2018-12-19 13:26:46 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: No data is available [2000-197]
+2019-12-09 15:07:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 17:15:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 17:18:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 18:54:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 18:55:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 18:56:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:00:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:01:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:03:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:06:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:08:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:08:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:09:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:10:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:11:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:17:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:21:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:22:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:25:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:28:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:29:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:49:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:58:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:00:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:01:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:05:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:23:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:24:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:25:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:26:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:27:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:27:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:29:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:30:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:31:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:44:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:45:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:53:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 22:05:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 22:25:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 22:35:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-12 21:40:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
