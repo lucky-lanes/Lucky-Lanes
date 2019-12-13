@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -35,6 +36,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import main.formObjects.QuestionObj;
 import main.java.Database;
 import main.java.LuckyLanes;
 import main.java.scene.control.TextFieldRequired;
@@ -63,6 +65,7 @@ public class BowlTestController implements Initializable
     private ResultSet rs;
     double score = 0;
     double testTotal = 1;
+    //ArrayList<QuestionObj> theQuestions; 
     @FXML
     Label mainQuestion;
     @FXML
@@ -148,7 +151,7 @@ public void createTest(){
     
     Database.connect();
     
-    String SQL = "SELECT q.Question, q.Option1, q.Option2, q.Option3, q.Option4, q.Option1Value, q.Option2Value, q.Option3Value, q.Option4Value FROM QUESTION q, TEST t WHERE t.QuestionID = q.ID;";
+    String SQL = "SELECT q.Question, q.Option1, q.Option2, q.Option3, q.Option4, q.Option1Value, q.Option2Value, q.Option3Value, q.Option4Value FROM QUESTION q, TEST t WHERE t.QuestionID = q.ID ORDER BY RAND();";
     this.rs = Database.searchQuery(SQL);
        try {
            rs.next();
