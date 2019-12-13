@@ -117,7 +117,7 @@ public class SearchController implements Initializable
     @FXML
     public void printAllReport(ActionEvent e)
     {
-        if (table.getItems().size() == 0)
+        if (table.getItems().size() ==0)
         {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Error Saving reports");
@@ -147,8 +147,8 @@ public class SearchController implements Initializable
                 @Override
                 public Void call() throws Exception
                 {
-                    progressIndicator.setVisible(true);//FUCK YES!!!!
-                    System.out.println("Creating Objets to save");
+                    progressIndicator.setVisible(false);//FUCK YES!!!!
+                    System.out.println("Creating Objects to save");
                     p.createObjects();
                     p.toDocs();
                     return null;
@@ -156,7 +156,7 @@ public class SearchController implements Initializable
             };
             
             progressIndicator.progressProperty().bind(print.progressProperty());
-            progressIndicator.setStyle(" -fx-progress-color: green;");
+            progressIndicator.setStyle(" -fx-progress-color: red;");
 
             progressIndicator.setOnMouseClicked(new EventHandler<MouseEvent>()
             {
@@ -185,6 +185,7 @@ public class SearchController implements Initializable
             });
 
             exec.execute(print);
+            progressIndicator.setVisible(false);
         }
     }
 
@@ -235,7 +236,7 @@ public class SearchController implements Initializable
             };
             
             progressIndicator.progressProperty().bind(print.progressProperty());
-            progressIndicator.setStyle(" -fx-progress-color: green;");
+            progressIndicator.setStyle(" -fx-progress-color: red;");
 
             progressIndicator.setOnMouseClicked(new EventHandler<MouseEvent>()
             {
@@ -253,16 +254,18 @@ public class SearchController implements Initializable
                     }
                 }
             });
-            print.setOnSucceeded(error ->
-            {
+            
                 //this.rs=databaseQuery.getValue();
-                
+              
                 System.out.println("It's Alive!!!");
                 progressIndicator.progressProperty().unbind();
                 progressIndicator.setProgress(1);
-            });
-
+                if (progressIndicator.getProgress() == 1)
+                {
+                    progressIndicator.setVisible(false);
+                }
             exec.execute(print);
+            progressIndicator.setVisible(false);
         }
     }
 

@@ -148,17 +148,19 @@ public class SearchController implements Initializable
                 @Override
                 public Void call() throws Exception
                 {
-                    progressIndicator.setVisible(true);//FUCK YES!!!!
+                    progressIndicator.setVisible(false);//FUCK YES!!!!
                     System.out.println("Creating Objets to save");
                     p.createObjects();
                     p.toDocs();
+                    
+//                    progressIndicator.setVisible(false);
                     return null;
                 }
             };
             
             progressIndicator.progressProperty().bind(print.progressProperty());
-            progressIndicator.setStyle(" -fx-progress-color: green;");
-
+            progressIndicator.setStyle(" -fx-progress-color: red;");
+            progressIndicator.setVisible(false);
             progressIndicator.setOnMouseClicked(new EventHandler<MouseEvent>()
             {
                 
@@ -182,6 +184,7 @@ public class SearchController implements Initializable
                 
                 System.out.println("It's Alive!!!");
                 progressIndicator.progressProperty().unbind();
+                progressIndicator.setVisible(false);
                 progressIndicator.setProgress(1);
             });
 
@@ -226,11 +229,16 @@ public class SearchController implements Initializable
                 @Override
                 public Void call() throws Exception
                 {
-                    progressIndicator.setVisible(true);//FUCK YES!!!!
+                    progressIndicator.setVisible(false);//FUCK YES!!!!
                     System.out.println("Creating Objets to save");
                     p.createObjects();
                     p.toDocs();
-                    
+                    Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Selected Report Saved");
+                    alert.setHeaderText("Selected Report Saved Successfully!");
+                    alert.setContentText("Successful");
+
+                     alert.showAndWait();
                     return null;
                 }
             };
