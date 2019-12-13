@@ -40,6 +40,7 @@ import java.util.concurrent.Executor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.concurrent.Task;
@@ -83,6 +84,7 @@ import main.java.scene.control.TextFieldRequired;
  * @author Mario
  * 
  */
+
 public class BowlerController implements Initializable
 {
     @FXML
@@ -525,7 +527,6 @@ public class BowlerController implements Initializable
     ToggleButton tbParQ6No;
     @FXML
     TextArea txtParQuest7;
-
     @FXML
     ScrollPane scrollPane;
     @FXML
@@ -551,6 +552,21 @@ public class BowlerController implements Initializable
     
     private boolean viewInfo = false;   //True when the user is viewing/editing the reports from the search option. False otherwise.
 
+    /*
+    ChangeListener<String> textFieldListener = (observable, oldValue, newValue) -> {
+        
+        //allow user to press the Finish button
+        if (newValue != oldValue){
+            System.out.println("Test");
+        }
+
+    };
+    
+    txfName.addListener(textFieldListener);
+    
+    textFieldListener.changed(null, null, textField.getText());
+    */
+    
     /**
      * Initializes the controller class.
      *
@@ -560,6 +576,8 @@ public class BowlerController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+        addChangeListeners();
+        
         /*
         WebEngine webEngine = webView.getEngine();
         URL xd =this.getClass().getResource("index.html"); 
@@ -1061,6 +1079,127 @@ public class BowlerController implements Initializable
         });
     }
 
+    public void addChangeListeners(){
+        //For validation upon change of text
+        ChangeListener<String> textFieldListener = (ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            validateTabs();
+        };
+        
+        //ChangeListener<Toggle> 
+        
+        /*Demographics Changes*/
+        //textfields
+        txfName.textProperty().addListener(textFieldListener);
+        txfAddress.textProperty().addListener(textFieldListener);
+        txfCity.textProperty().addListener(textFieldListener);
+        txfZip.textProperty().addListener(textFieldListener);
+        txfPhone.textProperty().addListener(textFieldListener);
+        txfSchool.textProperty().addListener(textFieldListener);
+        txfAge.textProperty().addListener(textFieldListener);
+        txfHeight.textProperty().addListener(textFieldListener);
+        txfWeight.textProperty().addListener(textFieldListener);
+        txfPrimaryPosition.textProperty().addListener(textFieldListener);
+        txfPrimarySport.textProperty().addListener(textFieldListener);
+        cbState.valueProperty().addListener(textFieldListener);
+        
+        //Not yet done...
+        //dpDate.valueProperty().addListener(textFieldListener);
+        
+        //detect change in radio button selection
+        //tgGender.selectedToggleProperty()?    .addListener(textFieldListener);
+        //dominance.selectedToggleProperty()?   .addListener(textFieldListener);
+       
+        //Y-Balance Test Changes
+        txfRightLimbLength.textProperty().addListener(textFieldListener);
+        txfA1Right.textProperty().addListener(textFieldListener);
+        txfA2Right.textProperty().addListener(textFieldListener);
+        txfA3Right.textProperty().addListener(textFieldListener);
+        txfA1Left.textProperty().addListener(textFieldListener);
+        txfA2Left.textProperty().addListener(textFieldListener);
+        txfA3Left.textProperty().addListener(textFieldListener);
+        txfPM1Right.textProperty().addListener(textFieldListener);
+        txfPM2Right.textProperty().addListener(textFieldListener);
+        txfPM3Right.textProperty().addListener(textFieldListener);
+        txfPL1Right.textProperty().addListener(textFieldListener);
+        txfPL2Right.textProperty().addListener(textFieldListener);
+        txfPL3Right.textProperty().addListener(textFieldListener);
+        txfPM1Left.textProperty().addListener(textFieldListener);
+        txfPM2Left.textProperty().addListener(textFieldListener);
+        txfPM3Left.textProperty().addListener(textFieldListener);
+        txfPL1Left.textProperty().addListener(textFieldListener);
+        txfPL2Left.textProperty().addListener(textFieldListener);
+        txfPL3Left.textProperty().addListener(textFieldListener);
+                
+        //FMS Score Sheet Changes
+        txfDeepSquat.textProperty().addListener(textFieldListener);
+        txfHurdleStep.textProperty().addListener(textFieldListener);
+        txfInlineLounge.textProperty().addListener(textFieldListener);
+        txfShoulderMobility.textProperty().addListener(textFieldListener);
+        txfTrunkStability.textProperty().addListener(textFieldListener);
+        txfActiveStraight.textProperty().addListener(textFieldListener);
+        txfRotaryStability.textProperty().addListener(textFieldListener);
+        txfDeepSquatComment.textProperty().addListener(textFieldListener);
+        txfHurdleStepComment.textProperty().addListener(textFieldListener);
+        txfInlineLoungeComment.textProperty().addListener(textFieldListener);
+        txfShoulderMobilityComment.textProperty().addListener(textFieldListener);
+        txfShoulderClearingComment.textProperty().addListener(textFieldListener);
+        txfLegRaiseComment.textProperty().addListener(textFieldListener);
+        txfTrunkStabilityComment.textProperty().addListener(textFieldListener);
+        txfExtensionClearingComment.textProperty().addListener(textFieldListener);
+        txfRotaryComment.textProperty().addListener(textFieldListener);
+        txfFlexionComment.textProperty().addListener(textFieldListener);
+        
+        //Fitness Testing Data Sheet Survey Changes
+        txfAge2.textProperty().addListener(textFieldListener);
+        txfHeight2.textProperty().addListener(textFieldListener);
+        txfWeight2.textProperty().addListener(textFieldListener);
+        txfRestingHR.textProperty().addListener(textFieldListener);
+        txfRestingBPA.textProperty().addListener(textFieldListener);
+        txfRestingBPB.textProperty().addListener(textFieldListener);
+        txfPeakFLow1.textProperty().addListener(textFieldListener);
+        txfPeakFLow2.textProperty().addListener(textFieldListener);
+        txfWCirc.textProperty().addListener(textFieldListener);
+        txfHipCirc.textProperty().addListener(textFieldListener);
+        txfMidTCirc.textProperty().addListener(textFieldListener);
+        txfFlexArmCirc.textProperty().addListener(textFieldListener);
+        txfAntThigh1.textProperty().addListener(textFieldListener);
+        txfAntThigh2.textProperty().addListener(textFieldListener);
+        txfStartDist.textProperty().addListener(textFieldListener);
+        txfEndDist1.textProperty().addListener(textFieldListener);
+        txfEndDist2.textProperty().addListener(textFieldListener);
+        txfEndDist3.textProperty().addListener(textFieldListener);
+        txfHGR1.textProperty().addListener(textFieldListener);
+        txfHGR2.textProperty().addListener(textFieldListener);
+        txfHGR3.textProperty().addListener(textFieldListener);
+        txfHGL1.textProperty().addListener(textFieldListener);
+        txfHGL2.textProperty().addListener(textFieldListener);
+        txfHGL3.textProperty().addListener(textFieldListener);
+        txfProneTime.textProperty().addListener(textFieldListener);
+        txfKneeExtForceR1.textProperty().addListener(textFieldListener);
+        txfKneeExtForceR2.textProperty().addListener(textFieldListener);
+        txfKneeExtForceL1.textProperty().addListener(textFieldListener);
+        txfKneeExtForceL2.textProperty().addListener(textFieldListener);
+        txfJH1.textProperty().addListener(textFieldListener);
+        txfJH2.textProperty().addListener(textFieldListener);
+        txfMedPass1.textProperty().addListener(textFieldListener);
+        txfMedPass2.textProperty().addListener(textFieldListener);
+        txfPostHR.textProperty().addListener(textFieldListener);
+        txfRockportHR.textProperty().addListener(textFieldListener);
+        txfRockportTime.textProperty().addListener(textFieldListener);
+        txfWalkDistance.textProperty().addListener(textFieldListener);
+        txfBicep.textProperty().addListener(textFieldListener);
+        txfTricep.textProperty().addListener(textFieldListener);
+        txfSubscapular.textProperty().addListener(textFieldListener);
+        txfAbdominal.textProperty().addListener(textFieldListener);
+        txfSuprailiac.textProperty().addListener(textFieldListener);
+        txfThigh.textProperty().addListener(textFieldListener);
+        txfPectoral.textProperty().addListener(textFieldListener);
+        txfWallsit.textProperty().addListener(textFieldListener);
+        
+        //Medical Survey Changes (currently missing changes to answers of questions)
+        txtParQuest7.textProperty().addListener(textFieldListener);
+    }
+    
     /**
      * *************************************************************************
      *                                                                         *
