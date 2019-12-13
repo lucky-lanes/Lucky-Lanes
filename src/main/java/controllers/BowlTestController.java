@@ -36,7 +36,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import main.formObjects.QuestionObj;
 import main.java.Database;
 import main.java.LuckyLanes;
 import main.java.scene.control.TextFieldRequired;
@@ -65,7 +64,6 @@ public class BowlTestController implements Initializable
     private ResultSet rs;
     double score = 0;
     double testTotal = 1;
-    //ArrayList<QuestionObj> theQuestions; 
     @FXML
     Label mainQuestion;
     @FXML
