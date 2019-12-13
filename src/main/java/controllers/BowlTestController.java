@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -113,7 +114,7 @@ public void updateScore(String id){
    // String SQL = "SELECT IQ FROM IQPSYCH;";
     System.out.println("id = "+id);
     String SQL = "SELECT * FROM IQPSYCH WHERE ID="+id+";";
-    ResultSet turkey = Database.searchQuery(SQL);
+    ResultSet turkey = Database.searchQuery(SQL);//3 Strikes? Why bowling terminology in programming for the psych test
         try {
           /*       
         try{
@@ -148,7 +149,7 @@ public void createTest(){
     
     Database.connect();
     
-    String SQL = "SELECT q.Question, q.Option1, q.Option2, q.Option3, q.Option4, q.Option1Value, q.Option2Value, q.Option3Value, q.Option4Value FROM QUESTION q, TEST t WHERE t.QuestionID = q.ID;";
+    String SQL = "SELECT q.Question, q.Option1, q.Option2, q.Option3, q.Option4, q.Option1Value, q.Option2Value, q.Option3Value, q.Option4Value FROM QUESTION q, TEST t WHERE t.QuestionID = q.ID ORDER BY RAND();";
     this.rs = Database.searchQuery(SQL);
        try {
            rs.next();
@@ -231,7 +232,7 @@ public void submit(ActionEvent e){
      * @param event 
      */
     //open up forms. Takes file path to form
-    
+    //Activates each time the next button is clicked
     @FXML
     private void next(ActionEvent event)
     {        

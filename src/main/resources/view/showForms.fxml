@@ -32,7 +32,7 @@
                                                     <graphic>
                                                         <VBox alignment="CENTER">
                                                             <children>
-                                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                                     <VBox.margin>
                                                                         <Insets left="10.0" />
                                                                     </VBox.margin>
@@ -53,7 +53,7 @@
                                                     <graphic>
                                                         <VBox alignment="CENTER">
                                                             <children>
-                                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                                  
                                                                     <VBox.margin>
                                                                         <Insets left="10.0" />
@@ -75,13 +75,13 @@
                                                     <graphic>
                                                         <VBox alignment="CENTER">
                                                             <children>
-                                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                                  
                                                                     <VBox.margin>
                                                                         <Insets left="10.0" />
                                                                     </VBox.margin>
                                                                 </ImageView>
-                                                                <Label text="Bowling Questions" textFill="WHITE">
+                                                                <Label text="Bowling IQ \n Questions" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="18.0" />
                                                                     </font>
@@ -97,7 +97,7 @@
                                                     <graphic>
                                                         <VBox alignment="CENTER">
                                                             <children>
-                                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                                    
                                                                     <VBox.margin>
                                                                         <Insets left="10.0" />
