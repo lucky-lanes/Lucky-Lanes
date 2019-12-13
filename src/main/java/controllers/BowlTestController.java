@@ -113,7 +113,7 @@ public void updateScore(String id){
    // String SQL = "SELECT IQ FROM IQPSYCH;";
     System.out.println("id = "+id);
     String SQL = "SELECT * FROM IQPSYCH WHERE ID="+id+";";
-    ResultSet turkey = Database.searchQuery(SQL);
+    ResultSet turkey = Database.searchQuery(SQL);//3 Strikes? Why bowling terminology in programming for the psych test
         try {
           /*       
         try{
@@ -231,7 +231,7 @@ public void submit(ActionEvent e){
      * @param event 
      */
     //open up forms. Takes file path to form
-    
+    //Activates each time the next button is clicked
     @FXML
     private void next(ActionEvent event)
     {        
