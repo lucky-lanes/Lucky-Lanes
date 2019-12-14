@@ -144,6 +144,9 @@ public class AthleteMenuController implements Initializable
             System.out.println(id);
             newBowler.setStage(stage);
             newBowler.createListeners();
+ 
+            //So correct errors can be displayed in BowlerController
+            newBowler.setSuccessful(true);
             
             //newBowler.setUpViewWindow();
         }
