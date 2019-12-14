@@ -542,7 +542,6 @@ public class BowlerController implements Initializable
     Date date = new Date();
 
     private boolean successful;
-    private boolean isIn;
     
     private FitnessTest tmp;   //Only this form object is a class variable because
     //data is not being validated on input.
@@ -584,7 +583,6 @@ public class BowlerController implements Initializable
         URL xd =this.getClass().getResource("index.html"); 
         webEngine.load(xd.toExternalForm());
          */
-        System.out.println("SUCCESSFUL SET TO FALSE");
         setSuccessful(false);
         errors = new boolean[NUM_TAB];
 
