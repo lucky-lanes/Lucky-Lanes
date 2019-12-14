@@ -542,6 +542,7 @@ public class BowlerController implements Initializable
     Date date = new Date();
 
     private boolean successful;
+    
     private FitnessTest tmp;   //Only this form object is a class variable because
     //data is not being validated on input.
     
@@ -551,7 +552,6 @@ public class BowlerController implements Initializable
     private String preTitle;            //The previous screens title.
     
     private boolean viewInfo = false;   //True when the user is viewing/editing the reports from the search option. False otherwise.
-
     /*
     ChangeListener<String> textFieldListener = (observable, oldValue, newValue) -> {
         
@@ -577,13 +577,12 @@ public class BowlerController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         addChangeListeners();
-        
+ 
         /*
         WebEngine webEngine = webView.getEngine();
         URL xd =this.getClass().getResource("index.html"); 
         webEngine.load(xd.toExternalForm());
          */
-
         setSuccessful(false);
         errors = new boolean[NUM_TAB];
 
@@ -1082,10 +1081,10 @@ public class BowlerController implements Initializable
     public void addChangeListeners(){
         //For validation upon change of text
         ChangeListener<String> textFieldListener = (ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-            validateTabs();
+            if(isSuccessful())
+                validateTabs();
+         
         };
-        
-        //ChangeListener<Toggle> 
         
         /*Demographics Changes*/
         //textfields
@@ -2013,14 +2012,13 @@ public class BowlerController implements Initializable
         }
 
         //IsValid activates the color effect. They all have to be called.
-        /*
-        txfName.isValid();
-        txfAddress.isValid();
-        txfWeight.isValid();
-        txfHeight.isValid();
+        //txfName.isValid();
+        //txfAddress.isValid();
+        //txfWeight.isValid();
+        //txfHeight.isValid();
         
-       return txfName.isValid() && txfAddress.isValid() && txfWeight.isValid() && txfHeight.isValid();
-         */
+       //return txfName.isValid() && txfAddress.isValid() && txfWeight.isValid() && txfHeight.isValid();
+         
         return flag;
     }
 
@@ -2332,7 +2330,7 @@ public class BowlerController implements Initializable
             tmp.addRow(viewInfo, DBindex);
             System.out.println("Inserted Objects to tables");
             setSuccessful(true);
-            
+           
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Data was created");
             alert.setHeaderText(null);
