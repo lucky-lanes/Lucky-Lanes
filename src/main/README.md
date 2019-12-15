@@ -3,20 +3,20 @@ This project is for the LuckyLanes bowling alley. Using Java and JavaFX.
 
 ## Setup
 1. You'll need to install the following libraries into your project (these libraries are in the google drive)
-    2. pdfblox-2.0.17.jar
-        3. This allows you to work with PDF documents, such as creation, manipulation, and extraction
-        3. This is within the project by default but you may have to relink it on downloading the project from github
-    4. boxable-1.5.jar
-        5. This used to create tables on top of Apache Pdfbox
-        5. This is within the project by default but you may have to relink it on downloading the project from github
-    6. h2-1.4.197.jar
-        7. This is a open source JDBC API
-        7. Embedded and server modes; in-memory databases
-        7. Browser base console application
-        7. This is within the project by default but you may have to relink it on downloading the project from github
-    8. Java SDK 8.1.161 
-        9. This is the development Environment we have standardized for the project
-        9. This is up on the google drive for the project if you don't have a development environment that runs JavaFX and JavaFXML.
+    1. pdfblox-2.0.17.jar
+        i. This allows you to work with PDF documents, such as creation, manipulation, and extraction
+        ii. This is within the project by default but you may have to relink it on downloading the project from github
+    2. boxable-1.5.jar
+        i. This used to create tables on top of Apache Pdfbox
+        ii. This is within the project by default but you may have to relink it on downloading the project from github
+    3. h2-1.4.197.jar
+        i. This is a open source JDBC API
+        ii. Embedded and server modes; in-memory databases
+        iii. Browser base console application
+        iv. This is within the project by default but you may have to relink it on downloading the project from github
+    4. Java SDK 8.1.161 
+        i. This is the development Environment we have standardized for the project
+        ii. This is up on the google drive for the project if you don't have a development environment that runs JavaFX and JavaFXML.
         
 ## Usage
  ```java
