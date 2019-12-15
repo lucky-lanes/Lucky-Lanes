@@ -4,11 +4,11 @@ This project is for the LuckyLanes bowling alley. Using Java and JavaFX.
 ## Setup
 1. You'll need to install the following libraries into your project (these libraries are in the google drive)
     1. pdfblox-2.0.17.jar
-        i. This allows you to work with PDF documents, such as creation, manipulation, and extraction
-        ii. This is within the project by default but you may have to relink it on downloading the project from github
+        a. This allows you to work with PDF documents, such as creation, manipulation, and extraction
+        a. This is within the project by default but you may have to relink it on downloading the project from github
     2. boxable-1.5.jar
-        i. This used to create tables on top of Apache Pdfbox
-        ii. This is within the project by default but you may have to relink it on downloading the project from github
+        a. This used to create tables on top of Apache Pdfbox
+        a. This is within the project by default but you may have to relink it on downloading the project from github
     3. h2-1.4.197.jar
         i. This is a open source JDBC API
         ii. Embedded and server modes; in-memory databases
