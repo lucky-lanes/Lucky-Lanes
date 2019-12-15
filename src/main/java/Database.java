@@ -1,26 +1,18 @@
-
 package main.java;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.sql.*;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author nicolenelson this class holds the functions pertaining to the
  * database, including creating a database, opening a connection to the
  * database, closing the connection to the database, executing an insert/delete
  * sql statement, and executing an sql query.
  */
-public class Database
-{
+public class Database {
     // driver name and database
     static final String DRIVER = "org.h2.Driver";
     static String URL = "jdbc:h2:~/LuckyLanes";
@@ -32,31 +24,27 @@ public class Database
     public static Connection conn = null;
     public static Statement state = null;
     private String u;//Just testing stuff...Relax
-    
+
     /**
-     * 
-     * @param u 
+     * @param u
      */
-    public Database(String u)
-    {
+    public Database(String u) {
         this.u = u;
     }
 
     /**
      * Used when creating/loading databases.
-     * 
+     * <p>
      * Function: Connect Return: Void Parameters: String - url Description: Will
      * set up a connection to the database.
      */
-    public static boolean connect(String url)
-    {
+    public static boolean connect(String url) {
         URL = "jdbc:h2:file:" + url;
         URL = URL.split("\\.", 2)[0];
         URL += ";IFEXISTS=TRUE";
         Trace.print("URL ON CONNECT:" + URL);
-        
-        try
-        {
+
+        try {
             Trace.print("Grabbing driver...");
             Class.forName(DRIVER);
 
@@ -65,14 +53,10 @@ public class Database
             Trace.print("Connected...");
             close();
             return true;
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             Trace.print("Connection was unsuccessful.");
             return false;
-        }
-        catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             Trace.print("Driver detection was unsuccessful.");
             return false;
         }
@@ -80,33 +64,25 @@ public class Database
 
     /**
      * Used when using search options for profiles.
-     * 
+     * <p>
      * Function: Connect Return: Void Parameters: None Description: Will set up
      * a connection to the database, no parameter needed.
      */
-    public static void connect()
-    {
+    public static void connect() {
         System.out.println("URL ON CONNECT, NO PARAM:" + URL);
-        
-        try
-        {
+
+        try {
             System.out.println("Grabbing driver...");
             Class.forName(DRIVER);
-            
+
             System.out.println("Connecting to the database...");
             conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             System.out.println("Connected...");
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             System.out.println("Connection was unsuccessful.");
-        }
-        catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             System.out.println("Driver detection was unsuccessful.");
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -116,15 +92,11 @@ public class Database
      * Function: Close Return: Void Parameters: None Description: Will close the
      * connection to the databse.
      */
-    public static void close()
-    {
-        try
-        {
+    public static void close() {
+        try {
             System.out.println("Closing the database...");
             conn.close();
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -133,19 +105,17 @@ public class Database
      * Function: createDatabase Return: Void, none. Parameters: None
      * Description: Will create the database and tables of the database
      */
-    public static void createDatabase(String url)
-    {
+    public static void createDatabase(String url) {
         // declare variables
         String sql;
-        
+
         // url = "C\:\\Users\\HomePC\\Desktop\\Database files\\database";
 
         URL = "jdbc:h2:file:" + url;
 
         System.out.println("The url upon creating: " + URL);
 
-        try
-        {
+        try {
             // grab driver
             Class.forName(DRIVER);
 
@@ -154,13 +124,13 @@ public class Database
 
             // add in athlete table
             state = conn.createStatement();
-            
+
             sql = "CREATE TABLE ATHLETE (ID INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255), "
                     + "date VARCHAR(255), dateOfBirth VARCHAR(255), address VARCHAR(255), city VARCHAR(255), "
                     + "state VARCHAR(255), zip int, phone VARCHAR(255), school VARCHAR(255), "
                     + "height double, weight double, age int, gender VARCHAR(255), handDominance "
                     + "VARCHAR(255), legDominance VARCHAR(255), primarySport VARCHAR(255), primaryPosition VARCHAR(255));";
-            
+
             state.execute(sql);
             System.out.println("Created a Athlete table.");
 
@@ -195,7 +165,7 @@ public class Database
 
             state.execute(sql);
             System.out.println("Created a YBalance table.");
-            
+
             // EDITED BY: JOSHUA BOLSTAD
 
             sql = "CREATE TABLE FITNESSDATA (ID INT PRIMARY KEY AUTO_INCREMENT, "
@@ -212,33 +182,33 @@ public class Database
 
             state.execute(sql);
             System.out.println("Created a Fitness Data table.");
-            
+
             // AUTHOR JOSHUA BOLSTAD
-            
+
             sql = "CREATE TABLE PARQ (ID INT PRIMARY KEY AUTO_INCREMENT, "
-            		+ "q1Ans boolean, q2Ans boolean, q3Ans boolean, q4Ans boolean, q5Ans boolean, q6Ans boolean, q7Ans VARCHAR(255));";
-            
+                    + "q1Ans boolean, q2Ans boolean, q3Ans boolean, q4Ans boolean, q5Ans boolean, q6Ans boolean, q7Ans VARCHAR(255));";
+
             state.execute(sql);
             System.out.println("Created Par-Q table");
-            
+
             sql = "CREATE TABLE IQPSYCH (ID INT PRIMARY KEY AUTO_INCREMENT, "
                     + "IQ double, Psych VARCHAR(255));";
-                    
-                    state.execute(sql);
+
+            state.execute(sql);
             System.out.println("Created a IQ AND Psych Test table");
-            
+
             sql = "CREATE TABLE TEST (ID INT PRIMARY KEY AUTO_INCREMENT, "
                     + "QuestionId INT);";
-                    
-                    state.execute(sql);
+
+            state.execute(sql);
             System.out.println("Created TEST table");
-            
-            
+
+
             sql = "CREATE TABLE QUESTION (ID INT PRIMARY KEY AUTO_INCREMENT, "
                     + "Question VARCHAR(255), Option1 VARCHAR(255), Option1Value boolean,"
-                    +"Option2 VARCHAR(255), Option2Value boolean, Option3 VARCHAR(255), Option3Value boolean, Option4 VARCHAR(255), Option4Value boolean);";
-                    
-                    state.execute(sql);
+                    + "Option2 VARCHAR(255), Option2Value boolean, Option3 VARCHAR(255), Option3Value boolean, Option4 VARCHAR(255), Option4Value boolean);";
+
+            state.execute(sql);
             System.out.println("Created a Question table");
             
 
@@ -262,37 +232,30 @@ public class Database
             ResultSet rs = state.executeQuery(sql);
             ResultSetMetaData rsmd = rs.getMetaData();
             int columns = rsmd.getColumnCount();
-            
-            while (rs.next())
-            {
-                for (int j = 1; j <= columns; j++)
-                {
-                    if (j > 1)
-                    {
+
+            while (rs.next()) {
+                for (int j = 1; j <= columns; j++) {
+                    if (j > 1) {
                         //          System.out.println(", "); 
                     }
-                    
+
                     String colVal = rs.getString(j);
-                    
+
                     //       System.out.print(colVal + " " + rsmd.getColumnName(j));
                 }
-                
+
                 //   System.out.println("");
             }
-            
+
             System.out.println("Executed Query....");
 
             // close database 
             System.out.println("Closing the database...");
             state.close();
             conn.close();
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             ex.printStackTrace();
-        }
-        catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             System.out.println("Driver detection was unsuccessful.");
         }
     }
@@ -302,12 +265,10 @@ public class Database
      * sql statement that will be executed. Description: insert, update, delete
      * functions of SQL statements will be executed
      */
-    public static void executeUpdate(String sql)
-    {
+    public static void executeUpdate(String sql) {
         System.out.println("THE ON EXECUTE: " + URL);
 
-        try
-        {
+        try {
             // connect
             connect();
 
@@ -317,50 +278,42 @@ public class Database
 
             // close the database
             close();
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     /**
      * Connection to database
+     *
      * @param sql
-     * @return 
+     * @return
      */
-    public static ResultSet searchQuery(String sql)
-    {
+    public static ResultSet searchQuery(String sql) {
         ResultSet rs = null;
 
-        try
-        {
+        try {
             // call the sql query, place in RS.
             state = conn.createStatement();
             rs = state.executeQuery(sql);
-            
+
             // close the database
             //close();
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return rs;
     }
-    
+
     /**
-     * 
-     * @param url 
+     * @param url
      */
-    public static void saveProperties(String url)
-    {
+    public static void saveProperties(String url) {
         Properties prop = new Properties();
         OutputStream output = null;
 
-        try
-        {
+        try {
 
             output = new FileOutputStream(new File("").getAbsolutePath() + "/config.properties");
 
@@ -368,62 +321,43 @@ public class Database
 
             prop.store(output, null);
 
-        }
-        catch (IOException io)
-        {
+        } catch (IOException io) {
             io.printStackTrace();
-        }
-        finally
-        {
-            if (output != null)
-            {
-                try
-                {
+        } finally {
+            if (output != null) {
+                try {
                     output.close();
-                }
-                catch (IOException e)
-                {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
 
         }
     }
-    
+
     /**
-     * 
-     * @return 
+     * @return
      */
-    public static String loadProperties()
-    {
+    public static String loadProperties() {
         Properties prop = new Properties();
         InputStream input = null;
         String url = "";
-        
-        try
-        {
+
+        try {
             input = new FileInputStream(new File("").getAbsolutePath() + "/config.properties");
             prop.load(input);
             url = prop.getProperty("url");
             System.out.println("Changed database path.");
-        }
-        catch (IOException ex)
-        {
+        } catch (IOException ex) {
             //A properties file was not found, create one with empty url.
             return null;
-            
+
             //ex.printStackTrace();
-        }
-        finally
-        {
-            if (input != null)
-            {
-                try
-                {
+        } finally {
+            if (input != null) {
+                try {
                     input.close();
-                }
-                catch (IOException e)
-                {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }

@@ -1,31 +1,25 @@
 package main.formObjects;
 
-import java.awt.Color;
-import java.io.IOException;
-
+import be.quodlibet.boxable.BaseTable;
+import be.quodlibet.boxable.Cell;
+import be.quodlibet.boxable.Row;
+import be.quodlibet.boxable.VerticalAlignment;
+import be.quodlibet.boxable.line.LineStyle;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
-import be.quodlibet.boxable.*;
-import be.quodlibet.boxable.line.LineStyle;
-import be.quodlibet.boxable.text.WrappingFunction;
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import main.formObjects.Athlete;
-import main.java.HTML;
+import java.awt.*;
+import java.io.IOException;
 //import main.java.Report;
 
-public class Document_Creator {    
+public class Document_Creator {
     public void createPDF(String string) throws IOException {
         String[] split = string.split("\\|");
 
         //Creating PDF document object 
-        PDDocument document = new PDDocument();    
+        PDDocument document = new PDDocument();
 
         //Adding page
         PDPage page1 = new PDPage();
@@ -34,17 +28,17 @@ public class Document_Creator {
         //Adding text
         PDPageContentStream contentStream = new PDPageContentStream(document, page1);
         contentStream.beginText();
-    
+
         //Setting up table
         float tableWidth = page1.getMediaBox().getWidth() - (2 * 50);
         float tableHeight2 = page1.getMediaBox().getHeight() - (2 * 50);
         BaseTable table = new BaseTable(750, tableHeight2, 70, tableWidth, 50, document, page1, true, true);
-        
+
         //HEADER
-       // Row<PDPage> headerRow = table.createRow(50);
+        // Row<PDPage> headerRow = table.createRow(50);
         Row<PDPage> row = table.createRow(50);
         Cell<PDPage> cell = row.createCell(100, "Lucky Lanes");
-       //Cell<PDPage> cell = headerRow.createCell(100, "Lucky Lanes");
+        //Cell<PDPage> cell = headerRow.createCell(100, "Lucky Lanes");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
         cell.setFontSize(24);
         cell.setValign(VerticalAlignment.MIDDLE);
@@ -52,7 +46,7 @@ public class Document_Creator {
         //table.addHeaderRow(headerRow);
 
         //ATHLETE INFO
-       // Row<PDPage> row = table.createRow(20);
+        // Row<PDPage> row = table.createRow(20);
         row = table.createRow(20);
         cell = row.createCell(100, "Bowler Information");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
@@ -142,7 +136,7 @@ public class Document_Creator {
         cell.setFontSize(12);
         cell = row.createCell(50, split[17]);
         cell.setFontSize(12);
-        
+
         //FMS
         row = table.createRow(20);
         cell = row.createCell(100, "Functional Movement Screen");
@@ -167,7 +161,7 @@ public class Document_Creator {
         cell = row.createCell(35, "Deep Squat: ");
         cell.setFontSize(12);
         cell = row.createCell(5, " ");
-        cell.setFontSize(12);        
+        cell.setFontSize(12);
         cell = row.createCell(20, split[19]);
         cell.setFontSize(12);
         cell = row.createCell(20, split[20]);
@@ -333,7 +327,7 @@ public class Document_Creator {
         cell.setFontSize(12);
         cell = row.createCell(60, split[52]);
         cell.setFontSize(12);
-        
+
         //Y-BALANCE
         row = table.createRow(20);
         cell = row.createCell(100, "Y-Balance");
@@ -464,7 +458,7 @@ public class Document_Creator {
         cell.setFontSize(12);
         cell = row.createCell(30, split[78]);
         cell.setFontSize(12);
-        
+
         //FITNESS TEST
         row = table.createRow(20);
         cell = row.createCell(100, "Fitness Test");
@@ -478,42 +472,42 @@ public class Document_Creator {
         cell = row.createCell(70, "Age ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[80]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Resting Heart Rate ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[81]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Resting Heart Rate 1 ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[82]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Resting Heart Rate 2 ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[83]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Height ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[84]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Body Weight ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[85]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Body Mass Index (BMI) ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[86]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Peak Flow ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[87]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(100, "Anthropometrics");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
@@ -522,52 +516,52 @@ public class Document_Creator {
         cell = row.createCell(70, "Anterior 1 ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[88]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Anterior 2 ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[89]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Anterior Average ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[90]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Waist Circumference ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[91]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Hip Circumference ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[92]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Mid Thigh Circumference ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[93]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Flexed Arm Circumference ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[94]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Hamstring CSA ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[95]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Quadriceps CSA ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[96]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Total Thigh CSA ");
         cell.setFontSize(12);
         cell = row.createCell(30, split[97]);
-        cell.setFontSize(12); 
+        cell.setFontSize(12);
         row = table.createRow(20);
         cell = row.createCell(70, "Bicep Circumference ");
         cell.setFontSize(12);
@@ -650,7 +644,7 @@ public class Document_Creator {
         cell.setFontSize(12);
         cell = row.createCell(30, split[111]);
         cell.setFontSize(12);
-        row = table.createRow(20); 
+        row = table.createRow(20);
         cell = row.createCell(70, "Right Hand Grip 2");
         cell.setFontSize(12);
         cell = row.createCell(30, split[112]);
@@ -812,18 +806,18 @@ public class Document_Creator {
         cell = row.createCell(70, "Question 7 Answer");
         cell.setFontSize(12);
 //        cell = row.createCell(30, split[143]);
- //       cell.setFontSize(12);
-       
+        //       cell.setFontSize(12);
+
         table.draw();
 
         contentStream.close();
         //Saving the document
-        String pdfName = "bowler-"+split[1]+".pdf";
+        String pdfName = "bowler-" + split[1] + ".pdf";
         document.save(pdfName);
         //File file = new File("Output Files"+"\\"+pdfName);
         //file.createNewFile();
-       // document.save("C:/Users/Oleander/Desktop/"+pdfName);
-        System.out.println("PDF created");  
+        // document.save("C:/Users/Oleander/Desktop/"+pdfName);
+        System.out.println("PDF created");
 
         //Closing the document  
         document.close();

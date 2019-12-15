@@ -1,15 +1,12 @@
-
 package main.formObjects;
 
 import main.java.Database;
 
 /**
- *
  * @author bentz
  * EDITED BY: Joshua Bolstad
  */
-public class FitnessTest
-{
+public class FitnessTest {
     ////////Global Variables
     //vitals
     private int age, restingHR, restingHR1, restingHR2;
@@ -18,14 +15,14 @@ public class FitnessTest
 
     //anthropomeetrics 
     private double ant1, ant2, antAvg, waistCirc, hipCirc, midThighCirc, flexArmCirc, hamCSA,
-            quadCSA, totalThighCSA, biCirc; 
-    
+            quadCSA, totalThighCSA, biCirc;
+
     //skinfold 
     private double triSkin, subSkin, abdSkin, supSkin, thighSkin, pecSkin, wallsit;
 
     //sit&reach
     private double startDist, endDist1, endDist2, endDist3, finalDist;
-    
+
     //Muscle strength & Endurance Power
     private double hgR1, hgR2, hgR3, hgL1, hgL2, hgL3,
             proneTime, kneeExtForceR1, kneeExtForceR2, kneeExtForceL1, kneeExtForceL2,
@@ -46,14 +43,14 @@ public class FitnessTest
     /**
      *
      */
-    public FitnessTest()
-    {
+    public FitnessTest() {
 
     }
 
     /**
      * ******************* MASS SETTERS **********************
      * Sets all variables under "Vitals."
+     *
      * @param age
      * @param restingHR
      * @param restingHR2
@@ -65,8 +62,7 @@ public class FitnessTest
      * @param peakFlow
      */
     public void setVitals(int age, int restingHR, int restingHR1, int restingHR2, double height,
-            double bodyWeight, double bmi, String gender, double peakFlow)
-    {
+                          double bodyWeight, double bmi, String gender, double peakFlow) {
         this.age = age;
         this.restingHR = restingHR;
         this.restingHR1 = restingHR1;
@@ -78,9 +74,10 @@ public class FitnessTest
         this.peakFlow = peakFlow;
     }
 
-    /** 
+    /**
      * Sets all vars under anthropomeetrics.
      * EDITED BY: Joshua Bolstad
+     *
      * @param ant1
      * @param ant2
      * @param waistCirc
@@ -93,8 +90,7 @@ public class FitnessTest
      * @param biCirc
      */
     public void setAnthro(double ant1, double ant2, double waistCirc, double hipCirc, double midThighCirc, double flexArmCirc,
-            double hamCSA, double quadCSA, double totalThighCSA, double biCirc)
-    {
+                          double hamCSA, double quadCSA, double totalThighCSA, double biCirc) {
         this.ant1 = ant1;
         this.ant2 = ant2;
         this.antAvg = (ant1 + ant2) / 2;
@@ -107,10 +103,10 @@ public class FitnessTest
         this.totalThighCSA = totalThighCSA;
         this.biCirc = biCirc;
     }
-    
-    /** 
+
+    /**
      * Sets all vars under skinfold
-     * @author Joshua Bolstad
+     *
      * @param triSkin
      * @param subSkin
      * @param abdSkin
@@ -118,28 +114,28 @@ public class FitnessTest
      * @param thighSkin
      * @param pecSkin
      * @param wallsit
+     * @author Joshua Bolstad
      */
-    public void setSkin(double triSkin, double subSkin, double abdSkin, double supSkin, double thighSkin, double pecSkin, double wallsit)
-    {
-    	this.triSkin = triSkin;
-    	this.subSkin = subSkin;
-    	this.abdSkin = abdSkin;
-    	this.supSkin = supSkin;
-    	this.thighSkin = thighSkin;
-    	this.pecSkin = pecSkin;
-    	this.wallsit = wallsit;
+    public void setSkin(double triSkin, double subSkin, double abdSkin, double supSkin, double thighSkin, double pecSkin, double wallsit) {
+        this.triSkin = triSkin;
+        this.subSkin = subSkin;
+        this.abdSkin = abdSkin;
+        this.supSkin = supSkin;
+        this.thighSkin = thighSkin;
+        this.pecSkin = pecSkin;
+        this.wallsit = wallsit;
     }
 
     /**
      * Sets all vars under sit and reach.
+     *
      * @param startDist
      * @param endDist1
      * @param endDist2
      * @param endDist3
      * @param finalDist
      */
-    public void setSitAndReach(double startDist, double endDist1, double endDist2, double endDist3, double finalDist)
-    {
+    public void setSitAndReach(double startDist, double endDist1, double endDist2, double endDist3, double finalDist) {
         this.startDist = startDist;
         this.endDist1 = endDist1;
         this.endDist2 = endDist2;
@@ -149,6 +145,7 @@ public class FitnessTest
 
     /**
      * Sets all vars under Muscle and Strength.
+     *
      * @param hgR1
      * @param hgR2
      * @param hgR3
@@ -166,9 +163,8 @@ public class FitnessTest
      * @param medPass2
      */
     public void setMuscleAndStrength(double hgR1, double hgR2, double hgR3, double hgL1, double hgL2,
-            double hgL3, double proneTime, double kneeExtForceR1, double kneeExtForceR2, double kneeExtForceL1,
-            double kneeExtForceL2, double jh1, double jh2, double medPass1, double medPass2)
-    {
+                                     double hgL3, double proneTime, double kneeExtForceR1, double kneeExtForceR2, double kneeExtForceL1,
+                                     double kneeExtForceL2, double jh1, double jh2, double medPass1, double medPass2) {
 
         this.hgR1 = hgR1;
         this.hgR2 = hgR2;
@@ -189,6 +185,7 @@ public class FitnessTest
 
     /**
      * Sets all vars in Aerobic Capacity.
+     *
      * @param vO2Max
      * @param postHR
      * @param postVO2Max
@@ -201,9 +198,8 @@ public class FitnessTest
      * @param ACSMpercentile
      */
     public void setAerobicCapacity(double vO2Max, int postHR, double postVO2Max,
-            double ageRating, int rockHR, double walkTime, double rockVO2Max,
-            double walkDistance, double walkVO2Max, double ACSMpercentile)
-    {
+                                   double ageRating, int rockHR, double walkTime, double rockVO2Max,
+                                   double walkDistance, double walkVO2Max, double ACSMpercentile) {
         this.vO2Max = vO2Max;
         this.postHR = postHR;
         this.postVO2Max = postVO2Max;
@@ -218,26 +214,26 @@ public class FitnessTest
     }
 
     /**
-     * Adds a row to the database (class). 
-     * It is used in conjunction with the other forms, since the value for 
-     * each table is autoincremented. 
+     * Adds a row to the database (class).
+     * It is used in conjunction with the other forms, since the value for
+     * each table is autoincremented.
      */
-   public void addRow(boolean viewInfo, String DBindex) {
+    public void addRow(boolean viewInfo, String DBindex) {
         if (viewInfo == false) {
             String sql;
             sql = "INSERT INTO FITNESSDATA VALUES ("
-                + "null,"
-                + age + "," + restingHR + "," + restingHR1 + "," + restingHR2 + "," + height + "," + bodyWeight + "," + bmi + ","
-                + peakFlow + ",'" + gender + "'," + ant1 + "," + ant2 + "," + antAvg + "," + waistCirc + "," + hipCirc + "," + midThighCirc
-                + "," + flexArmCirc + "," + hamCSA + "," +quadCSA + "," + totalThighCSA + "," + biCirc + "," + triSkin + "," + subSkin + "," 
-                + abdSkin + "," + supSkin + "," + thighSkin + "," + pecSkin + "," + wallsit + ", "+ startDist + "," + endDist1 + ","
-                + endDist2 + "," + endDist3 + "," + finalDist + "," + hgR1 + "," + hgR2 + "," + hgR3 + "," + hgL1 + "," + hgL2 + ","
-                + hgL3 + "," + proneTime + "," + kneeExtForceR1 + "," + kneeExtForceR2 + "," + kneeExtForceL1 + "," + kneeExtForceL2 + ","
-                + jh1 + "," + jh2 + "," + medPass1 + "," + medPass2 + "," + vO2Max + "," + postVO2Max + "," + ageRating + "," + postHR
-                + "," + walkTime + "," + rockVO2Max + "," + rockHR + "," + walkDistance + "," + walkVO2Max + "," + ACSMpercentile+ ");";
+                    + "null,"
+                    + age + "," + restingHR + "," + restingHR1 + "," + restingHR2 + "," + height + "," + bodyWeight + "," + bmi + ","
+                    + peakFlow + ",'" + gender + "'," + ant1 + "," + ant2 + "," + antAvg + "," + waistCirc + "," + hipCirc + "," + midThighCirc
+                    + "," + flexArmCirc + "," + hamCSA + "," + quadCSA + "," + totalThighCSA + "," + biCirc + "," + triSkin + "," + subSkin + ","
+                    + abdSkin + "," + supSkin + "," + thighSkin + "," + pecSkin + "," + wallsit + ", " + startDist + "," + endDist1 + ","
+                    + endDist2 + "," + endDist3 + "," + finalDist + "," + hgR1 + "," + hgR2 + "," + hgR3 + "," + hgL1 + "," + hgL2 + ","
+                    + hgL3 + "," + proneTime + "," + kneeExtForceR1 + "," + kneeExtForceR2 + "," + kneeExtForceL1 + "," + kneeExtForceL2 + ","
+                    + jh1 + "," + jh2 + "," + medPass1 + "," + medPass2 + "," + vO2Max + "," + postVO2Max + "," + ageRating + "," + postHR
+                    + "," + walkTime + "," + rockVO2Max + "," + rockHR + "," + walkDistance + "," + walkVO2Max + "," + ACSMpercentile + ");";
             Database.executeUpdate(sql);
         }
-        if(viewInfo == true){
+        if (viewInfo == true) {
             String sql;
             sql = "UPDATE FITNESSDATA SET"
                     + " age = " + age + ","
@@ -254,10 +250,10 @@ public class FitnessTest
                     + " antAvg = " + antAvg + ","
                     + " waistCirc = " + waistCirc + ","
                     + " hipCirc = " + hipCirc + ","
-                    + " midThighCirc = " + midThighCirc + ","  
+                    + " midThighCirc = " + midThighCirc + ","
                     + " flexArmCirc = " + flexArmCirc + ","
                     + " hamCSA = " + hamCSA + ","
-                    + " quadCSA = " + quadCSA+ ","
+                    + " quadCSA = " + quadCSA + ","
                     + " totalThighCSA = " + totalThighCSA + ","
                     + " biCirc = " + biCirc + ","
                     + " triSkin = " + triSkin + ","
@@ -267,26 +263,26 @@ public class FitnessTest
                     + " thighSkin = " + thighSkin + ","
                     + " pecSkin = " + pecSkin + ","
                     + " wallsit = " + wallsit + ","
-                    + " startDist = " + startDist + "," 
+                    + " startDist = " + startDist + ","
                     + " endDist1 = " + endDist1 + ","
-                    + " endDist2 = " + endDist2 + "," 
-                    + " endDist2 = " + endDist3 + "," 
-                    + " finalDist = " + finalDist + "," 
-                    + " hgR1 = " + hgR1 + "," 
-                    + " hgR2 = " + hgR2 + "," 
-                    + " hgR3 = " + hgR3 + "," 
-                    + " hgL1 = " + hgL1 + "," 
+                    + " endDist2 = " + endDist2 + ","
+                    + " endDist2 = " + endDist3 + ","
+                    + " finalDist = " + finalDist + ","
+                    + " hgR1 = " + hgR1 + ","
+                    + " hgR2 = " + hgR2 + ","
+                    + " hgR3 = " + hgR3 + ","
+                    + " hgL1 = " + hgL1 + ","
                     + " hgL2 = " + hgL2 + ","
-                    + " hgL3 = " + hgL3 + "," 
-                    + " proneTime = " + proneTime + "," 
-                    + " kneeExtForceR1 = " + kneeExtForceR1 + "," 
-                    + " kneeExtForceR2 = " + kneeExtForceR2 + "," 
-                    + " kneeExtForceL1 = " + kneeExtForceL1 + "," 
+                    + " hgL3 = " + hgL3 + ","
+                    + " proneTime = " + proneTime + ","
+                    + " kneeExtForceR1 = " + kneeExtForceR1 + ","
+                    + " kneeExtForceR2 = " + kneeExtForceR2 + ","
+                    + " kneeExtForceL1 = " + kneeExtForceL1 + ","
                     + " kneeExtFroceL2 = " + kneeExtForceL2 + ","
-                    + " jh1 = " + jh1 + "," 
-                    + " jh2 = " + jh2 + "," 
-                    + " medPass1 = " + medPass1 + "," 
-                    + " medPass2 = " + medPass2 + "," 
+                    + " jh1 = " + jh1 + ","
+                    + " jh2 = " + jh2 + ","
+                    + " medPass1 = " + medPass1 + ","
+                    + " medPass2 = " + medPass2 + ","
                     + " vO2Max = " + vO2Max + ","
                     + " postVO2Max = " + postVO2Max + ","
                     + " ageRating = " + ageRating + ","
@@ -296,41 +292,40 @@ public class FitnessTest
                     + " rockHR = " + rockHR + ","
                     + " walkDistance = " + walkDistance + ","
                     + " walkVO2Max = " + walkVO2Max + ","
-                    + " ACSMpercentile = " + ACSMpercentile 
+                    + " ACSMpercentile = " + ACSMpercentile
                     + " WHERE ID = " + DBindex + ";";
 
-        Database.executeUpdate(sql);
+            Database.executeUpdate(sql);
             Database.executeUpdate(sql);
         }
     }
 
     /**
-@@ -1282,4 +1346,4 @@ public void setACSMpercentile(double ACSMpercentile)
-    {
-        this.ACSMpercentile = ACSMpercentile;
-    }
-} 
-
-    /**
-     * String representation of an html table of this object.
      * @return
+     * @@ -1282,4 +1346,4 @@ public void setACSMpercentile(double ACSMpercentile)
+     * {
+     * this.ACSMpercentile = ACSMpercentile;
+     * }
+     * }
+     * <p>
+     * /**
+     * String representation of an html table of this object.
      */
-    public String toHTML()
-    {
+    public String toHTML() {
         String rowStart = "<tr><td>";
         String rowMid = "</td><td>";
         String rowEnd = "</td></tr>";
         String html = "<br><br><br><h2>Functional Movement Screen</h2>"
                 + "<table><tr><th>Vitals</th><th></th></tr>"
                 + "<tr><td>Age</td><td>" + this.age + "</td></tr>"
-                +"<tr><td>Resting HeartRate</td><td>"+restingHR1+"</td></tr>"
-                +"<tr><td>Resting HeartRate 1:</td><td>"+this.restingHR1+"</td></tr>"
-                +"<tr><td>Resting HeartRate 2:</td><td>"+this.restingHR2+"</td></tr>"
-                +rowStart +"Height:" + rowMid + this.height + rowEnd
-                +rowStart + "Body Weight" + rowMid + this.bodyWeight + rowEnd
-                +rowStart + "Body Mass Index (BMI)" + rowMid + this.bmi + rowEnd
+                + "<tr><td>Resting HeartRate</td><td>" + restingHR1 + "</td></tr>"
+                + "<tr><td>Resting HeartRate 1:</td><td>" + this.restingHR1 + "</td></tr>"
+                + "<tr><td>Resting HeartRate 2:</td><td>" + this.restingHR2 + "</td></tr>"
+                + rowStart + "Height:" + rowMid + this.height + rowEnd
+                + rowStart + "Body Weight" + rowMid + this.bodyWeight + rowEnd
+                + rowStart + "Body Mass Index (BMI)" + rowMid + this.bmi + rowEnd
                 + rowStart + "Peak Flow" + rowMid + this.peakFlow + rowEnd
-                + "</table>"+"<table><tr><th>Anthropometrics</th><th></th></tr>"
+                + "</table>" + "<table><tr><th>Anthropometrics</th><th></th></tr>"
                 + rowStart + "Anterior 1" + rowMid + this.ant1 + rowEnd
                 + rowStart + "Anterior 2" + rowMid + this.ant2 + rowEnd
                 + rowStart + "Anterior Average" + rowMid + this.antAvg + rowEnd
@@ -357,8 +352,8 @@ public class FitnessTest
                 + rowStart + "Ending Distance 3" + rowMid + this.endDist3 + rowEnd
                 + rowStart + "Final Distance" + rowMid + this.finalDist + rowEnd
                 + "</table>";
-        
-        html+= "<table><tr><th>Muscle & Strength</th><th></th></tr>"
+
+        html += "<table><tr><th>Muscle & Strength</th><th></th></tr>"
                 + rowStart + "Right Hand Grip 1" + rowMid + this.hgR1 + rowEnd
                 + rowStart + "Right Hand Grip 2" + rowMid + this.hgR2 + rowEnd
                 + rowStart + "Right Hand Grip 3" + rowMid + this.hgR3 + rowEnd
@@ -375,8 +370,8 @@ public class FitnessTest
                 + rowStart + "Medical Pass 1" + this.medPass1 + rowEnd
                 + rowStart + "Medical Pass 2" + this.medPass2 + rowEnd
                 + "</table>";
-        
-        html+= "<table><tr><th>Aerobic Capacity</th><th></th></tr>"
+
+        html += "<table><tr><th>Aerobic Capacity</th><th></th></tr>"
                 + rowStart + "VO2 Max" + rowMid + this.vO2Max + rowEnd
                 + rowStart + "Post Heart Rate" + rowMid + this.postHR + rowEnd
                 + rowStart + "Post VO2 Max" + rowMid + this.postVO2Max + rowEnd
@@ -390,980 +385,769 @@ public class FitnessTest
                 + "</table";
         return html;
     }
-    
-    public String toPDF(){
-        String pdf = "FitenessTest|"+this.age+"|"+restingHR1+"|"+this.restingHR1+"|"+this.restingHR2+"|"+this.height+"|"+this.bodyWeight+"|"
-                +this.bmi+"|"+this.peakFlow+"|"+this.ant1+"|"+this.ant2+"|"+this.antAvg+"|"+this.waistCirc+"|"+this.hipCirc+"|"+this.midThighCirc
-                +"|"+this.flexArmCirc+"|"+this.hamCSA+"|"+this.quadCSA+"|"+this.totalThighCSA+"|"+this.biCirc+"|"+this.triSkin+"|"+this.subSkin+"|"
-                +this.abdSkin+"|"+this.subSkin+"|"+this.thighSkin+"|"+this.pecSkin+"|"+this.wallsit+"|"+this.startDist+"|"+this.endDist1+"|"
-                +this.endDist2+"|"+this.endDist3+"|"+this.finalDist+"|"+this.hgR1+"|"+this.hgR2+"|"+this.hgR3+"|"+this.hgL1+"|"+this.hgL2+"|"+this.hgL3
-                +"|"+this.proneTime+"|"+this.kneeExtForceR1+"|"+this.kneeExtForceR2+"|"+this.kneeExtForceL1+"|"+this.kneeExtForceL2+"|"+this.jh1+"|"
-                +this.jh2+"|"+this.medPass1+"|"+this.medPass2+"|"+this.vO2Max+"|"+this.postHR+"|"+this.postVO2Max+"|"+this.ageRating+"|"+this.rockHR+"|"
-                +this.walkTime+"|"+this.rockVO2Max+"|"+this.walkDistance+"|"+this.walkVO2Max+"|"+this.ACSMpercentile;
+
+    public String toPDF() {
+        String pdf = "FitenessTest|" + this.age + "|" + restingHR1 + "|" + this.restingHR1 + "|" + this.restingHR2 + "|" + this.height + "|" + this.bodyWeight + "|"
+                + this.bmi + "|" + this.peakFlow + "|" + this.ant1 + "|" + this.ant2 + "|" + this.antAvg + "|" + this.waistCirc + "|" + this.hipCirc + "|" + this.midThighCirc
+                + "|" + this.flexArmCirc + "|" + this.hamCSA + "|" + this.quadCSA + "|" + this.totalThighCSA + "|" + this.biCirc + "|" + this.triSkin + "|" + this.subSkin + "|"
+                + this.abdSkin + "|" + this.subSkin + "|" + this.thighSkin + "|" + this.pecSkin + "|" + this.wallsit + "|" + this.startDist + "|" + this.endDist1 + "|"
+                + this.endDist2 + "|" + this.endDist3 + "|" + this.finalDist + "|" + this.hgR1 + "|" + this.hgR2 + "|" + this.hgR3 + "|" + this.hgL1 + "|" + this.hgL2 + "|" + this.hgL3
+                + "|" + this.proneTime + "|" + this.kneeExtForceR1 + "|" + this.kneeExtForceR2 + "|" + this.kneeExtForceL1 + "|" + this.kneeExtForceL2 + "|" + this.jh1 + "|"
+                + this.jh2 + "|" + this.medPass1 + "|" + this.medPass2 + "|" + this.vO2Max + "|" + this.postHR + "|" + this.postVO2Max + "|" + this.ageRating + "|" + this.rockHR + "|"
+                + this.walkTime + "|" + this.rockVO2Max + "|" + this.walkDistance + "|" + this.walkVO2Max + "|" + this.ACSMpercentile;
         return pdf;
     }
 
     /***
      * gets/sets each individual variable. 
-     * @return 
+     * @return
      */
-    public int getAge()
-    {
+    public int getAge() {
         return age;
     }
 
     /**
-     *
      * @param age
      */
-    public void setAge(int age)
-    {
+    public void setAge(int age) {
         this.age = age;
     }
 
     /**
-     *
      * @return
      */
-    public int getRestingHR()
-    {
+    public int getRestingHR() {
         return restingHR;
     }
 
     /**
-     *
      * @param restingHR
      */
-    public void setRestingHR(int restingHR)
-    {
+    public void setRestingHR(int restingHR) {
         this.restingHR = restingHR;
     }
 
     /**
-     *
      * @return
      */
-    public int getRestingHR1()
-    {
+    public int getRestingHR1() {
         return restingHR1;
     }
 
     /**
-     *
      * @param restingHR1
      */
-    public void setRestingHR1(int restingHR1)
-    {
+    public void setRestingHR1(int restingHR1) {
         this.restingHR1 = restingHR1;
     }
 
     /**
-     *
      * @return
      */
-    public int getRestingHR2()
-    {
+    public int getRestingHR2() {
         return restingHR2;
     }
 
     /**
-     *
      * @param restingHR2
      */
-    public void setRestingHR2(int restingHR2)
-    {
+    public void setRestingHR2(int restingHR2) {
         this.restingHR2 = restingHR2;
     }
 
     /**
-     *
      * @return
      */
-    public double getHeight()
-    {
+    public double getHeight() {
         return height;
     }
 
     /**
-     *
      * @param height
      */
-    public void setHeight(double height)
-    {
+    public void setHeight(double height) {
         this.height = height;
     }
 
     /**
-     *
      * @return
      */
-    public double getBodyWeight()
-    {
+    public double getBodyWeight() {
         return bodyWeight;
     }
 
     /**
-     *
      * @param bodyWeight
      */
-    public void setBodyWeight(double bodyWeight)
-    {
+    public void setBodyWeight(double bodyWeight) {
         this.bodyWeight = bodyWeight;
     }
 
     /**
-     *
      * @return
      */
-    public double getBmi()
-    {
+    public double getBmi() {
         return bmi;
     }
 
     /**
-     *
      * @param bmi
      */
-    public void setBmi(double bmi)
-    {
+    public void setBmi(double bmi) {
         this.bmi = bmi;
     }
 
     /**
-     *
      * @return
      */
-    public double getPeakFlow()
-    {
+    public double getPeakFlow() {
         return peakFlow;
     }
 
     /**
-     *
      * @param peakFlow
      */
-    public void setPeakFlow(double peakFlow)
-    {
+    public void setPeakFlow(double peakFlow) {
         this.peakFlow = peakFlow;
     }
 
     /**
-     *
      * @return
      */
-    public String getGender()
-    {
+    public String getGender() {
         return gender;
     }
 
     /**
-     *
      * @param gender
      */
-    public void setGender(String gender)
-    {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
     /**
-     *
      * @return
      */
-    public double getAnt1()
-    {
+    public double getAnt1() {
         return ant1;
     }
 
     /**
-     *
      * @param ant1
      */
-    public void setAnt1(double ant1)
-    {
+    public void setAnt1(double ant1) {
         this.ant1 = ant1;
     }
 
     /**
-     *
      * @return
      */
-    public double getAnt2()
-    {
+    public double getAnt2() {
         return ant2;
     }
 
     /**
-     *
      * @param ant2
      */
-    public void setAnt2(double ant2)
-    {
+    public void setAnt2(double ant2) {
         this.ant2 = ant2;
     }
 
     /**
-     *
      * @return
      */
-    public double getAntAvg()
-    {
+    public double getAntAvg() {
         return antAvg;
     }
 
     /**
-     *
      * @param antAvg
      */
-    public void setAntAvg(double antAvg)
-    {
+    public void setAntAvg(double antAvg) {
         this.antAvg = antAvg;
     }
 
     /**
-     *
      * @return
      */
-    public double getWaistCirc()
-    {
+    public double getWaistCirc() {
         return waistCirc;
     }
 
     /**
-     *
      * @param waistCirc
      */
-    public void setWaistCirc(double waistCirc)
-    {
+    public void setWaistCirc(double waistCirc) {
         this.waistCirc = waistCirc;
     }
 
     /**
-     *
      * @return
      */
-    public double getHipCirc()
-    {
+    public double getHipCirc() {
         return hipCirc;
     }
 
     /**
-     *
      * @param hipCirc
      */
-    public void setHipCirc(double hipCirc)
-    {
+    public void setHipCirc(double hipCirc) {
         this.hipCirc = hipCirc;
     }
 
     /**
-     *
      * @return
      */
-    public double getMidThighCirc()
-    {
+    public double getMidThighCirc() {
         return midThighCirc;
     }
 
     /**
-     *
      * @param midThighCirc
      */
-    public void setMidThighCirc(double midThighCirc) 
-    {
+    public void setMidThighCirc(double midThighCirc) {
         this.midThighCirc = midThighCirc;
     }
 
     /**
-     *
      * @return
      */
-    public double getFlexArmCirc() 
-    {
+    public double getFlexArmCirc() {
         return flexArmCirc;
     }
 
     /**
-     *
      * @param flexArmCirc
      */
-    public void setFlexArmCirc(double flexArmCirc)
-    {
+    public void setFlexArmCirc(double flexArmCirc) {
         this.flexArmCirc = flexArmCirc;
     }
 
     /**
-     *
      * @return
      */
-    public double getHamCSA()
-    {
+    public double getHamCSA() {
         return hamCSA;
     }
 
     /**
-     *
      * @param hamCSA
      */
-    public void setHamCSA(double hamCSA)
-    {
+    public void setHamCSA(double hamCSA) {
         this.hamCSA = hamCSA;
     }
 
     /**
-     *
      * @return
      */
-    public double getQuadCSA()
-    {
+    public double getQuadCSA() {
         return quadCSA;
     }
 
     /**
-     *
      * @param quadCSA
      */
-    public void setQuadCSA(double quadCSA)
-    {
+    public void setQuadCSA(double quadCSA) {
         this.quadCSA = quadCSA;
     }
 
     /**
-     *
      * @return
      */
-    public double getTotalThighCSA()
-    {
+    public double getTotalThighCSA() {
         return totalThighCSA;
     }
-    
+
     /**
-     *
      * @param totalThighCSA
      */
-    public void setTotalThighCSA(double totalThighCSA)
-    {
+    public void setTotalThighCSA(double totalThighCSA) {
         this.totalThighCSA = totalThighCSA;
     }
-    
-    public double getBiCirc() 
-    {
-		return biCirc;
-	}
-    
-    public void setBiCirc(double biCirc) 
-    {
-		this.biCirc = biCirc;
-	}
-    
-    public double getTriSkin() 
-    {
-		return triSkin;
-	}
-    
-    public void setTriSkin(double triSkin)
-    {
-		this.triSkin = triSkin;
-	}
-    
-    public double getSubSkin()
-    {
-		return subSkin;
-	}
-    
-    public void setSubSkin(double subSkin) 
-    {
-		this.subSkin = subSkin;
-	}
-    
-    public double getAbdSkin() 
-    {
-		return abdSkin;
-	}
-    
-    public void setAbdSkin(double abdSkin) 
-    {
-		this.abdSkin = abdSkin;
-	}
-    
-    public double getSupSkin() 
-    {
-		return supSkin;
-	}
-    
-    public void setSupSkin(double supSkin) 
-    {
-		this.supSkin = supSkin;
-	}
-    
-    public double getThighSkin() 
-    {
-		return thighSkin;
-	}
-    
-    public void setThighSkin(double thighSkin)
-    {
-		this.thighSkin = thighSkin;
-	}
-    
-    
-    public double getPecSkin() 
-    {
-		return pecSkin;
-	}
-    
-    public void setPecSkin(double pecSkin) 
-    {
-		this.pecSkin = pecSkin;
-	}
-    
 
-    public double getWallsit() 
-    {
-		return wallsit;
-	}
+    public double getBiCirc() {
+        return biCirc;
+    }
 
-    public void setWallsit(double wallsit) 
-    {
-		this.wallsit = wallsit;
-	}
-    
+    public void setBiCirc(double biCirc) {
+        this.biCirc = biCirc;
+    }
+
+    public double getTriSkin() {
+        return triSkin;
+    }
+
+    public void setTriSkin(double triSkin) {
+        this.triSkin = triSkin;
+    }
+
+    public double getSubSkin() {
+        return subSkin;
+    }
+
+    public void setSubSkin(double subSkin) {
+        this.subSkin = subSkin;
+    }
+
+    public double getAbdSkin() {
+        return abdSkin;
+    }
+
+    public void setAbdSkin(double abdSkin) {
+        this.abdSkin = abdSkin;
+    }
+
+    public double getSupSkin() {
+        return supSkin;
+    }
+
+    public void setSupSkin(double supSkin) {
+        this.supSkin = supSkin;
+    }
+
+    public double getThighSkin() {
+        return thighSkin;
+    }
+
+    public void setThighSkin(double thighSkin) {
+        this.thighSkin = thighSkin;
+    }
+
+
+    public double getPecSkin() {
+        return pecSkin;
+    }
+
+    public void setPecSkin(double pecSkin) {
+        this.pecSkin = pecSkin;
+    }
+
+
+    public double getWallsit() {
+        return wallsit;
+    }
+
+    public void setWallsit(double wallsit) {
+        this.wallsit = wallsit;
+    }
+
     /**
-     *
      * @return
      */
-    public double getStartDist()
-    {
+    public double getStartDist() {
         return startDist;
     }
 
     /**
-     *
      * @param startDist
      */
-    public void setStartDist(double startDist)
-    {
+    public void setStartDist(double startDist) {
         this.startDist = startDist;
     }
 
     /**
-     *
      * @return
      */
-    public double getEndDist1()
-    {
+    public double getEndDist1() {
         return endDist1;
     }
 
     /**
-     *
      * @param endDist1
      */
-    public void setEndDist1(double endDist1)
-    {
+    public void setEndDist1(double endDist1) {
         this.endDist1 = endDist1;
     }
 
     /**
-     *
      * @return
      */
-    public double getEndDist2()
-    {
+    public double getEndDist2() {
         return endDist2;
     }
 
     /**
-     *
      * @param endDist2
      */
-    public void setEndDist2(double endDist2)
-    {
+    public void setEndDist2(double endDist2) {
         this.endDist2 = endDist2;
     }
 
     /**
-     *
      * @return
      */
-    public double getEndDist3()
-    {
+    public double getEndDist3() {
         return endDist3;
     }
 
     /**
-     *
      * @param endDist3
      */
-    public void setEndDist3(double endDist3)
-    {
+    public void setEndDist3(double endDist3) {
         this.endDist3 = endDist3;
     }
 
     /**
-     *
      * @return
      */
-    public double getFinalDist()
-    {
+    public double getFinalDist() {
         return finalDist;
     }
 
     /**
-     *
      * @param finalDist
      */
-    public void setFinalDist(double finalDist)
-    {
+    public void setFinalDist(double finalDist) {
         this.finalDist = finalDist;
     }
 
     /**
-     *
      * @return
      */
-    public double getHgR1()
-    {
+    public double getHgR1() {
         return hgR1;
     }
 
     /**
-     *
      * @param hgR1
      */
-    public void setHgR1(double hgR1)
-    {
+    public void setHgR1(double hgR1) {
         this.hgR1 = hgR1;
     }
 
     /**
-     *
      * @return
      */
-    public double getHgR2()
-    {
+    public double getHgR2() {
         return hgR2;
     }
 
     /**
-     *
      * @param hgR2
      */
-    public void setHgR2(double hgR2)
-    {
+    public void setHgR2(double hgR2) {
         this.hgR2 = hgR2;
     }
 
     /**
-     *
      * @return
      */
-    public double getHgR3()
-    {
+    public double getHgR3() {
         return hgR3;
     }
 
     /**
-     *
      * @param hgR3
      */
-    public void setHgR3(double hgR3)
-    {
+    public void setHgR3(double hgR3) {
         this.hgR3 = hgR3;
     }
 
     /**
-     *
      * @return
      */
-    public double getHgL1()
-    {
+    public double getHgL1() {
         return hgL1;
     }
 
     /**
-     *
      * @param hgL1
      */
-    public void setHgL1(double hgL1)
-    {
+    public void setHgL1(double hgL1) {
         this.hgL1 = hgL1;
     }
 
     /**
-     *
      * @return
      */
-    public double getHgL2()
-    {
+    public double getHgL2() {
         return hgL2;
     }
 
     /**
-     *
      * @param hgL2
      */
-    public void setHgL2(double hgL2)
-    {
+    public void setHgL2(double hgL2) {
         this.hgL2 = hgL2;
     }
 
     /**
-     *
      * @return
      */
-    public double getHgL3()
-    {
+    public double getHgL3() {
         return hgL3;
     }
 
     /**
-     *
      * @param hgL3
      */
-    public void setHgL3(double hgL3)
-    {
+    public void setHgL3(double hgL3) {
         this.hgL3 = hgL3;
     }
 
     /**
-     *
      * @return
      */
-    public double getProneTime()
-    {
+    public double getProneTime() {
         return proneTime;
     }
 
     /**
-     *
      * @param proneTime
      */
-    public void setProneTime(double proneTime)
-    {
+    public void setProneTime(double proneTime) {
         this.proneTime = proneTime;
     }
 
     /**
-     *
      * @return
      */
-    public double getKneeExtForceR1()
-    {
+    public double getKneeExtForceR1() {
         return kneeExtForceR1;
     }
 
     /**
-     *
      * @param kneeExtForceR1
      */
-    public void setKneeExtForceR1(double kneeExtForceR1)
-    {
+    public void setKneeExtForceR1(double kneeExtForceR1) {
         this.kneeExtForceR1 = kneeExtForceR1;
     }
 
     /**
-     *
      * @return
      */
-    public double getKneeExtForceR2()
-    {
+    public double getKneeExtForceR2() {
         return kneeExtForceR2;
     }
 
     /**
-     *
      * @param kneeExtForceR2
      */
-    public void setKneeExtForceR2(double kneeExtForceR2)
-    {
+    public void setKneeExtForceR2(double kneeExtForceR2) {
         this.kneeExtForceR2 = kneeExtForceR2;
     }
 
     /**
-     *
      * @return
      */
-    public double getKneeExtForceL1()
-    {
+    public double getKneeExtForceL1() {
         return kneeExtForceL1;
     }
 
     /**
-     *
      * @param kneeExtForceL1
      */
-    public void setKneeExtForceL1(double kneeExtForceL1)
-    {
+    public void setKneeExtForceL1(double kneeExtForceL1) {
         this.kneeExtForceL1 = kneeExtForceL1;
     }
 
     /**
-     *
      * @return
      */
-    public double getKneeExtForceL2()
-    {
+    public double getKneeExtForceL2() {
         return kneeExtForceL2;
     }
 
     /**
-     *
      * @param kneeExtForceL2
      */
-    public void setKneeExtForceL2(double kneeExtForceL2)
-    {
+    public void setKneeExtForceL2(double kneeExtForceL2) {
         this.kneeExtForceL2 = kneeExtForceL2;
     }
 
     /**
-     *
      * @return
      */
-    public double getJh1()
-    {
+    public double getJh1() {
         return jh1;
     }
 
     /**
-     *
      * @param jh1
      */
-    public void setJh1(double jh1)
-    {
+    public void setJh1(double jh1) {
         this.jh1 = jh1;
     }
 
     /**
-     *
      * @return
      */
-    public double getJh2()
-    {
+    public double getJh2() {
         return jh2;
     }
 
     /**
-     *
      * @param jh2
      */
-    public void setJh2(double jh2)
-    {
+    public void setJh2(double jh2) {
         this.jh2 = jh2;
     }
 
     /**
-     *
      * @return
      */
-    public double getMedPass1()
-    {
+    public double getMedPass1() {
         return medPass1;
     }
 
     /**
-     *
      * @param medPass1
      */
-    public void setMedPass1(double medPass1)
-    {
+    public void setMedPass1(double medPass1) {
         this.medPass1 = medPass1;
     }
 
     /**
-     *
      * @return
      */
-    public double getMedPass2()
-    {
+    public double getMedPass2() {
         return medPass2;
     }
 
     /**
-     *
      * @param medPass2
      */
-    public void setMedPass2(double medPass2)
-    {
+    public void setMedPass2(double medPass2) {
         this.medPass2 = medPass2;
     }
 
     /**
-     *
      * @return
      */
-    public double getvO2Max()
-    {
+    public double getvO2Max() {
         return vO2Max;
     }
 
     /**
-     *
      * @param vO2Max
      */
-    public void setvO2Max(double vO2Max)
-    {
+    public void setvO2Max(double vO2Max) {
         this.vO2Max = vO2Max;
     }
 
     /**
-     *
      * @return
      */
-    public double getPostVO2Max()
-    {
+    public double getPostVO2Max() {
         return postVO2Max;
     }
 
     /**
-     *
      * @param postVO2Max
      */
-    public void setPostVO2Max(double postVO2Max)
-    {
+    public void setPostVO2Max(double postVO2Max) {
         this.postVO2Max = postVO2Max;
     }
 
     /**
-     *
      * @return
      */
-    public double getAgeRating()
-    {
+    public double getAgeRating() {
         return ageRating;
     }
 
     /**
-     *
      * @param ageRating
      */
-    public void setAgeRating(double ageRating)
-    {
+    public void setAgeRating(double ageRating) {
         this.ageRating = ageRating;
     }
 
     /**
-     *
      * @return
      */
-    public int getPostHR()
-    {
+    public int getPostHR() {
         return postHR;
     }
 
     /**
-     *
      * @param postHR
      */
-    public void setPostHR(int postHR)
-    {
+    public void setPostHR(int postHR) {
         this.postHR = postHR;
     }
 
     /**
-     *
      * @return
      */
-    public int getRockHR()
-    {
+    public int getRockHR() {
         return rockHR;
     }
 
     /**
-     *
      * @param rockHR
      */
-    public void setRockHR(int rockHR)
-    {
+    public void setRockHR(int rockHR) {
         this.rockHR = rockHR;
     }
 
     /**
-     *
      * @return
      */
-    public double getWalkTime()
-    {
+    public double getWalkTime() {
         return walkTime;
     }
 
     /**
-     *
      * @param walkTime
      */
-    public void setWalkTime(double walkTime)
-    {
+    public void setWalkTime(double walkTime) {
         this.walkTime = walkTime;
     }
 
     /**
-     *
      * @return
      */
-    public double getRockVO2Max()
-    {
+    public double getRockVO2Max() {
         return rockVO2Max;
     }
 
     /**
-     *
      * @param rockVO2Max
      */
-    public void setRockVO2Max(double rockVO2Max)
-    {
+    public void setRockVO2Max(double rockVO2Max) {
         this.rockVO2Max = rockVO2Max;
     }
 
     /**
-     *
      * @return
      */
-    public double getWalkDistance()
-    {
+    public double getWalkDistance() {
         return walkDistance;
     }
 
     /**
-     *
      * @param walkDistance
      */
-    public void setWalkDistance(double walkDistance)
-    {
+    public void setWalkDistance(double walkDistance) {
         this.walkDistance = walkDistance;
     }
 
     /**
-     *
      * @return
      */
-    public double getWalkVO2Max()
-    {
+    public double getWalkVO2Max() {
         return walkVO2Max;
     }
 
     /**
-     *
      * @param walkVO2Max
      */
-    public void setWalkVO2Max(double walkVO2Max)
-    {
+    public void setWalkVO2Max(double walkVO2Max) {
         this.walkVO2Max = walkVO2Max;
     }
 
     /**
-     *
      * @return
      */
-    public double getACSMpercentile()
-    {
+    public double getACSMpercentile() {
         return ACSMpercentile;
     }
 
     /**
-     *
      * @param ACSMpercentile
      */
-    public void setACSMpercentile(double ACSMpercentile)
-    {
+    public void setACSMpercentile(double ACSMpercentile) {
         this.ACSMpercentile = ACSMpercentile;
     }
 }

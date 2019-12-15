@@ -1,14 +1,12 @@
-
 package main.formObjects;
 //This is a test designed to determine the personality of an athlete
-import java.io.IOException;
-import java.io.FileReader;
-import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 public class personalityTest {
 
     //move the pointer up one
@@ -24,9 +22,10 @@ public class personalityTest {
     //Variable for path to file
     File file = new File("./src/main/DocumentsPDF/personalityT.txt");
     //test result
-    private String testResults ="";
+    private String testResults = "";
+
     //constructor
-    public personalityTest(){
+    public personalityTest() {
         //Will create the test once called
         //Read the file into a string
         String[] fileRead = new String[70];
@@ -34,23 +33,23 @@ public class personalityTest {
         Scanner s;
         try {
             s = new Scanner(file);
-            while(s.hasNextLine()){
-            //System.out.println(s.nextLine());
-            fileRead[count++] = s.nextLine();
+            while (s.hasNextLine()) {
+                //System.out.println(s.nextLine());
+                fileRead[count++] = s.nextLine();
             }//while
-        }catch (FileNotFoundException ex) {
+        } catch (FileNotFoundException ex) {
             System.out.println("File error");
             Logger.getLogger(personalityTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //check to make sure file was read correctly
-        for(int i = 0; i < count; i++){
+        for (int i = 0; i < count; i++) {
             System.out.println(fileRead[i]);
         }//for
-        
+
         //System.out.println(count);
         //Split up the array by a. and b.
-        for(int i = 0; i < 70; i++){
+        for (int i = 0; i < 70; i++) {
             String[] data = fileRead[i].split("a\\.");
             personalityTest[i][0] = data[0];
             String[] newData = data[1].split("b\\.");
@@ -61,110 +60,121 @@ public class personalityTest {
             for(int y = 0; y < 3; y++){
                 System.out.println(personalityTest[i][y]);
             }
-            */       
+            */
         }//for
-        
+
     }//personailtyTestResults
-    //calls all the methods for grading the test 
+
+    //calls all the methods for grading the test
     //returns the test results
-    public String createTestResults(){
+    public String createTestResults() {
         testResultsC1();
         testResultsC2();
         testResultsC3();
         testResultsC4();
         return testResults;
     }//createTestResults
+
     //grade first column
-    public void testResultsC1(){
-        int countA =0;
-        int countB =0;
-        for(int i =0; i <63; i=i+7){
-            if(personalityTestResults[i].equals("a")){
+    public void testResultsC1() {
+        int countA = 0;
+        int countB = 0;
+        for (int i = 0; i < 63; i = i + 7) {
+            if (personalityTestResults[i].equals("a")) {
                 countA++;
-            }else{
+            } else {
                 countB++;
             }
-        }if(countA > countB){
+        }
+        if (countA > countB) {
             testResults += "E";
-        }else{
+        } else {
             testResults += "I";
         }
     }
+
     //grade second column
-        public void testResultsC2(){
-        int countA =0;
-        int countB =0;
-        for(int i =1; i <64; i=i+7){
-            if(personalityTestResults[i].equals("a")){
+    public void testResultsC2() {
+        int countA = 0;
+        int countB = 0;
+        for (int i = 1; i < 64; i = i + 7) {
+            if (personalityTestResults[i].equals("a")) {
                 countA++;
-            }else{
+            } else {
                 countB++;
             }
         }
-        for(int i =2; i <65; i=i+7){
-            if(personalityTestResults[i].equals("a")){
+        for (int i = 2; i < 65; i = i + 7) {
+            if (personalityTestResults[i].equals("a")) {
                 countA++;
-            }else{
+            } else {
                 countB++;
             }
-        }if(countA > countB){
+        }
+        if (countA > countB) {
             testResults += "S";
-        }else{
+        } else {
             testResults += "N";
         }
     }
+
     //grade third column
-    public void testResultsC3(){
-        int countA =0;
-        int countB =0;
-        for(int i =3; i <66; i=i+7){
-            if(personalityTestResults[i].equals("a")){
+    public void testResultsC3() {
+        int countA = 0;
+        int countB = 0;
+        for (int i = 3; i < 66; i = i + 7) {
+            if (personalityTestResults[i].equals("a")) {
                 countA++;
-            }else{
+            } else {
                 countB++;
             }
         }
-        for(int i =4; i <67; i=i+7){
-            if(personalityTestResults[i].equals("a")){
+        for (int i = 4; i < 67; i = i + 7) {
+            if (personalityTestResults[i].equals("a")) {
                 countA++;
-            }else{
+            } else {
                 countB++;
             }
-        }if(countA > countB){
+        }
+        if (countA > countB) {
             testResults += "T";
-        }else{
+        } else {
             testResults += "F";
         }
     }
+
     //grade fourth column
-    public void testResultsC4(){
-        int countA =0;
-        int countB =0;
-        for(int i =5; i <68; i=i+7){
-            if(personalityTestResults[i].equals("a")){
+    public void testResultsC4() {
+        int countA = 0;
+        int countB = 0;
+        for (int i = 5; i < 68; i = i + 7) {
+            if (personalityTestResults[i].equals("a")) {
                 countA++;
-            }else{
+            } else {
                 countB++;
             }
         }
-        for(int i =6; i <69; i=i+7){
-            if(personalityTestResults[i].equals("a")){
+        for (int i = 6; i < 69; i = i + 7) {
+            if (personalityTestResults[i].equals("a")) {
                 countA++;
-            }else{
+            } else {
                 countB++;
             }
-        }if(countA > countB){
+        }
+        if (countA > countB) {
             testResults += "J";
-        }else{
+        } else {
             testResults += "P";
         }
     }
+
     /**
      * @return the count
      */
-    public String getTestResult(){
+    public String getTestResult() {
         return testResults;
     }
+
     public int getCount() {
         return count;
     }
@@ -202,7 +212,7 @@ public class personalityTest {
      */
     public void setPersonalityTest(String[][] personalityTest) {
         this.personalityTest = personalityTest;
-    } 
+    }
 }
 
 

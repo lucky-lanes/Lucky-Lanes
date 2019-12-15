@@ -1,10 +1,6 @@
-
 package main.java.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,20 +10,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import main.java.LuckyLanes;
 
-/**@deprecated 
- * FXML Controller class
- *
- * This class handles the interaction from the user in the Administration scene.
+import java.net.URL;
+import java.util.ResourceBundle;
+
+/**
  * @author Mario
+ * @deprecated FXML Controller class
+ * <p>
+ * This class handles the interaction from the user in the Administration scene.
  */
-public class LoginController implements Initializable
-{
+public class LoginController implements Initializable {
     //Application used to go back to main scene.
     private LuckyLanes app;
 
@@ -52,34 +49,29 @@ public class LoginController implements Initializable
     /**
      *
      */
-    public void createListeners()
-    {
+    public void createListeners() {
         Stage stage = (Stage) root.getScene().getWindow();
-        
-        root.setOnMousePressed(new EventHandler<MouseEvent>()
-        {
-            
+
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+
             /**
-             * 
-             * @param me 
+             *
+             * @param me
              */
-            public void handle(MouseEvent me)
-            {
+            public void handle(MouseEvent me) {
                 initX = me.getScreenX() - stage.getX();
                 initY = me.getScreenY() - stage.getY();
             }
         });
 
         //when screen is dragged, translate it accordingly
-        root.setOnMouseDragged(new EventHandler<MouseEvent>()
-        {
-            
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+
             /**
-             * 
-             * @param me 
+             *
+             * @param me
              */
-            public void handle(MouseEvent me)
-            {
+            public void handle(MouseEvent me) {
                 stage.setX(me.getScreenX() - initX);
                 stage.setY(me.getScreenY() - initY);
             }
@@ -88,85 +80,68 @@ public class LoginController implements Initializable
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb)
-    {
+    public void initialize(URL url, ResourceBundle rb) {
         txfUsername.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) ->
         {
-            if (txfPassword.getText().equals("") || newValue.equals(""))
-            {
+            if (txfPassword.getText().equals("") || newValue.equals("")) {
                 btnLogin.setDisable(true);
-            }
-            else
-            {
+            } else {
                 btnLogin.setDisable(false);
             }
         });
-        
+
         txfPassword.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) ->
         {
-            if (newValue.equals("") || txfUsername.getText().equals(""))
-            {
+            if (newValue.equals("") || txfUsername.getText().equals("")) {
                 btnLogin.setDisable(true);
-            }
-            else
-            {
+            } else {
                 btnLogin.setDisable(false);
             }
         });
-        
+
     }
 
     /**
-     *
      * @param app
      */
-    public void setApp(LuckyLanes app)
-    {
+    public void setApp(LuckyLanes app) {
         this.app = app;
     }
-    
+
     /**
-     * 
-     * @param event 
+     * @param event
      */
     @FXML
-    private void exit(ActionEvent event)
-    {
+    private void exit(ActionEvent event) {
         Platform.exit();
     }
-    
+
     /**
-     * 
-     * @param event 
+     * @param event
      */
     @FXML
-    private void authenticateUser(ActionEvent event)
-    {
-        if (txfPassword.getText().equals("admin") && txfUsername.getText().equals("admin"))
-        {
+    private void authenticateUser(ActionEvent event) {
+        if (txfPassword.getText().equals("admin") && txfUsername.getText().equals("admin")) {
             //Go to admin scene.
             lblMsgError.setVisible(false);
             this.app.gotoAdmin();
-        }
-        else
-        {
+        } else {
             //Invalid password or username.
             lblMsgError.setText("Invalid username or password");
             lblMsgError.setVisible(true);
         }
     }
-    
+
     /**
-     * 
-     * @param event 
+     * @param event
      */
     @FXML
-    private void demo(ActionEvent event)
-    {
+    private void demo(ActionEvent event) {
         this.app.gotoAdmin();
     }
 }

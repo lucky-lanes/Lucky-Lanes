@@ -2,12 +2,10 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass
-{
+.mainFxmlClass {
 
 }
 
-#test
-{
-    -fx-backgound-color:red;
+#test {
+    -fx-backgound-color: red;
 }
