@@ -7,7 +7,7 @@ This project is for the LuckyLanes bowling alley. Using Java and JavaFX.
         1. This allows you to work with PDF documents, such as creation, manipulation, and extraction
         2. This is within the project by default but you may have to relink it on downloading the project from github
     B. boxable-1.5.jar
-        1. This used to creat tables on top of Apache Pdfbox
+        1. This used to create tables on top of Apache Pdfbox
         2. This is within the project by default but you may have to relink it on downloading the project from github
     C. h2-1.4.197.jar
         1. This is a open source JDBC API
