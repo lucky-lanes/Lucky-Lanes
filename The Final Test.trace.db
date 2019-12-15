@@ -32,3 +32,885 @@ org.h2.jdbc.JdbcSQLException: No data is available [2000-197]
 org.h2.jdbc.JdbcSQLException: No data is available [2000-197]
 2018-12-19 13:26:46 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: No data is available [2000-197]
+2019-12-09 15:07:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 17:15:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 17:18:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 18:54:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 18:55:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 18:56:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:00:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:01:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:03:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:06:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:08:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:08:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:09:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:10:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:11:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:17:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:21:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:22:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:25:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:28:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:29:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:49:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 19:58:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:00:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:01:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:05:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:23:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:24:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:25:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:26:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:27:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:27:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:29:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:30:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:31:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:44:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:45:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 21:53:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 22:05:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 22:25:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-09 22:35:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-12 21:40:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-14 17:05:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-14 17:11:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-14 17:11:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+INSERT INTO QUESTION VALUES (null,'aaa','aaa','true','ssss','false','ddd','false','fff','false'); [42102-197]
+2019-12-14 17:11:46 jdbc[5]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.SearchController$5.call(SearchController.java:323)
+	at main.java.controllers.SearchController$5.call(SearchController.java:308)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 17 more
+2019-12-14 17:11:48 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-14 17:11:54 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-14 17:13:01 jdbc[8]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:64)
+	at main.java.controllers.AdminController.loadDatabase(AdminController.java:141)
+	at main.java.controllers.AdminController.openDatabase(AdminController.java:209)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71)
+	at sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275)
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1769)
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1657)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.control.MenuItem.fire(MenuItem.java:462)
+	at com.sun.javafx.scene.control.skin.ContextMenuContent$MenuItemContainer.doSelect(ContextMenuContent.java:1405)
+	at com.sun.javafx.scene.control.skin.ContextMenuContent$MenuItemContainer.lambda$createChildren$343(ContextMenuContent.java:1358)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3757)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:394)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$353(GlassViewEventHandler.java:432)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:431)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 65 more
+2019-12-14 17:13:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-14 17:17:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-14 17:17:11 jdbc[5]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:100)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:138)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:147)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:136)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.AthleteMenuController.checkQuestions(AthleteMenuController.java:75)
+	at main.java.controllers.AthleteMenuController.initialize(AthleteMenuController.java:66)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.java.controllers.SearchController.editAthlete(SearchController.java:490)
+	at main.java.controllers.SearchController.access$100(SearchController.java:53)
+	at main.java.controllers.SearchController$5$1$2$1.lambda$new$0(SearchController.java:409)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Node.fireEvent(Node.java:8413)
+	at javafx.scene.control.Button.fire(Button.java:185)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:182)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:96)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:89)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3757)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:394)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$353(GlassViewEventHandler.java:432)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:431)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 80 more
+2019-12-14 17:17:11 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-14 17:17:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "IQPSYCH" not found; SQL statement:
+SELECT * FROM IQPSYCH WHERE ID=5; [42102-197]
+2019-12-14 17:17:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+INSERT INTO QUESTION VALUES (null,'111','222','true','22222','false','222222','false','2222','false'); [42102-197]
+2019-12-14 17:17:34 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-14 17:17:38 jdbc[5]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:100)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:138)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.Database.executeUpdate(Database.java:312)
+	at main.java.controllers.AddQuestionController.questionToAdd(AddQuestionController.java:126)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71)
+	at sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275)
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1769)
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1657)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Node.fireEvent(Node.java:8413)
+	at javafx.scene.control.Button.fire(Button.java:185)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:182)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:96)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:89)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3757)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:394)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$353(GlassViewEventHandler.java:432)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:431)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:147)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:136)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 17 more
+2019-12-14 17:17:38 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-14 17:17:41 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-14 17:17:43 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-14 17:17:54 jdbc[10]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:100)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:138)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:147)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:136)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.AthleteMenuController.checkQuestions(AthleteMenuController.java:75)
+	at main.java.controllers.AthleteMenuController.initialize(AthleteMenuController.java:66)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.java.controllers.SearchController.editAthlete(SearchController.java:490)
+	at main.java.controllers.SearchController.access$100(SearchController.java:53)
+	at main.java.controllers.SearchController$5$1$2$1.lambda$new$0(SearchController.java:409)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Node.fireEvent(Node.java:8413)
+	at javafx.scene.control.Button.fire(Button.java:185)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:182)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:96)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:89)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3757)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:394)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$353(GlassViewEventHandler.java:432)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:431)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 80 more
+2019-12-14 17:17:54 jdbc[10]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:100)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:138)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:147)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:136)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.AthleteMenuController.checkQuestions(AthleteMenuController.java:75)
+	at main.java.controllers.AthleteMenuController.initialize(AthleteMenuController.java:66)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.java.controllers.SearchController.editAthlete(SearchController.java:490)
+	at main.java.controllers.SearchController.access$100(SearchController.java:53)
+	at main.java.controllers.SearchController$5$1$2$1.lambda$new$0(SearchController.java:409)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Node.fireEvent(Node.java:8413)
+	at javafx.scene.control.Button.fire(Button.java:185)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:182)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:96)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:89)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3757)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:394)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$353(GlassViewEventHandler.java:432)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:431)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 80 more
+2019-12-14 17:17:54 jdbc[10]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:100)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:138)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:147)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:136)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.AthleteMenuController.checkQuestions(AthleteMenuController.java:75)
+	at main.java.controllers.AthleteMenuController.initialize(AthleteMenuController.java:66)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.java.controllers.SearchController.editAthlete(SearchController.java:490)
+	at main.java.controllers.SearchController.access$100(SearchController.java:53)
+	at main.java.controllers.SearchController$5$1$2$1.lambda$new$0(SearchController.java:409)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Node.fireEvent(Node.java:8413)
+	at javafx.scene.control.Button.fire(Button.java:185)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:182)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:96)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:89)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3757)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:394)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$353(GlassViewEventHandler.java:432)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:431)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 80 more
+2019-12-14 17:17:54 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-14 17:18:04 jdbc[11]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-14 17:18:13 jdbc[13]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:100)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:138)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:147)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:136)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:97)
+	at main.java.controllers.SearchController$5.call(SearchController.java:323)
+	at main.java.controllers.SearchController$5.call(SearchController.java:308)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 17 more
+2019-12-14 17:18:14 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-14 17:18:54 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-14 17:18:57 jdbc[17]: exception
+org.h2.jdbc.JdbcSQLException: Table "IQPSYCH" not found; SQL statement:
+SELECT * FROM IQPSYCH WHERE ID=7; [42102-197]
+2019-12-14 17:19:22 jdbc[18]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-15 11:23:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-15 11:23:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "IQPSYCH" not found; SQL statement:
+SELECT * FROM IQPSYCH WHERE ID=5; [42102-197]
+2019-12-15 11:23:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "IQPSYCH" not found; SQL statement:
+SELECT * FROM IQPSYCH WHERE ID=5; [42102-197]
+2019-12-15 11:23:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "IQPSYCH" not found; SQL statement:
+SELECT * FROM IQPSYCH WHERE ID=5; [42102-197]
+2019-12-15 11:23:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-15 11:24:03 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+INSERT INTO QUESTION VALUES (null,'test','test','true','tset','false','sad','false','fasd','false'); [42102-197]
+2019-12-15 11:24:04 jdbc[5]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:79)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:127)
+	at main.java.controllers.UpdateQuestionController$1.call(UpdateQuestionController.java:117)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 17 more
+2019-12-15 11:24:04 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-15 11:24:22 jdbc[6]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:79)
+	at main.java.controllers.SearchController$5.call(SearchController.java:286)
+	at main.java.controllers.SearchController$5.call(SearchController.java:272)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 17 more
+2019-12-15 11:50:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-15 11:50:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+INSERT INTO QUESTION VALUES (null,'test','test','true','sasd','false','asdz','false','zxcv','false'); [42102-197]
+2019-12-15 11:50:56 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-15 11:51:02 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
