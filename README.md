@@ -8,7 +8,7 @@ You'll need to install the following libraries into your project (these librarie
         2. This is within the project by default but you may have to relink it on downloading the project from github
         
    2. boxable-1.5.jar
-        1. This used to create tables on top of Apache Pdfbox
+        1. This used to create tables on top of Apache pdfbox
         2. This is within the project by default but you may have to relink it on downloading the project from github
     
    3. h2-1.4.197.jar
@@ -32,16 +32,15 @@ import be.quodlibet.boxable.*;
 
 ## On launch
 A prompt will appear asking you to connect to a database you have the option to dismiss this for the time being and add 
-one later. There is a database that is inside the repository named "The Final Test.mv.db". That database has people 
-entered already. You can at any point switch databases or create new ones by using the settings drop down.
-
+one later. There is a database that is inside the the project files from the repository named "The Final Test.mv.db". 
+That database has people entered already. You can at any point switch databases or create new ones by using the settings
+ drop down.
 
 
 ## Know problems 
 1. when using the included The Final Test.mv.db database there is a problem creating questions for the test. they do not
 show up in update questions.
-    1. This does not happen when you create a new database on your computer.
-
+    1. This does not happen when you create a new database on your computer through the program.
 
 
 
