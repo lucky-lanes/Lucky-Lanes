@@ -914,3 +914,59 @@ SELECT ID, Question FROM QUESTION [42102-197]
 2019-12-15 11:51:02 jdbc[6]: exception
 org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
 SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-16 10:40:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2019-12-16 10:40:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+INSERT INTO QUESTION VALUES (null,'test','test','true','asdf','false','zxcv','false','qwerq','false'); [42102-197]
+2019-12-16 10:40:20 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUESTION" not found; SQL statement:
+SELECT ID, Question FROM QUESTION [42102-197]
+2019-12-16 10:48:06 jdbc[6]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:79)
+	at main.java.controllers.SearchController$5.call(SearchController.java:286)
+	at main.java.controllers.SearchController$5.call(SearchController.java:272)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 17 more
+2019-12-16 10:48:06 jdbc[6]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at main.java.Database.connect(Database.java:79)
+	at main.java.controllers.SearchController$5.call(SearchController.java:286)
+	at main.java.controllers.SearchController$5.call(SearchController.java:272)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 17 more
+2019-12-16 10:48:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
