@@ -37,7 +37,7 @@ That database has people entered already. You can at any point switch databases 
  drop down.
 
 
-## Know problems 
+## Known problems 
 1. when using the included The Final Test.mv.db database there is a problem creating questions for the test. they do not
 show up in update questions.
     1. This does not happen when you create a new database on your computer through the program.
