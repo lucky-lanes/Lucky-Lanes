@@ -6,7 +6,7 @@ You'll need to install the following libraries into your project (these librarie
    1. pdfblox-2.0.17.jar
         1. This allows you to work with PDF documents, such as creation, manipulation, and extraction
         2. This is within the project by default but you may have to relink it on downloading the project from github
-        ****
+        
    2. boxable-1.5.jar
         1. This used to create tables on top of Apache Pdfbox
         2. This is within the project by default but you may have to relink it on downloading the project from github
@@ -20,6 +20,9 @@ You'll need to install the following libraries into your project (these librarie
    4. Java SDK 8.1.161 
         1. This is the development Environment we have standardized for the project
         2. This is up on the google drive for the project if you don't have a development environment that runs JavaFX and JavaFXML.
+ 
+[Setup Video for netbeans](https://www.youtube.com/watch?v=RXoIOWlP0dY)<br>
+[Setup Video for Intellij](https://youtu.be/BkzNg47k8DQ)
         
 ## Usage
  ```java
