@@ -37,22 +37,13 @@
                                                     <graphic>
                                                         <VBox alignment="CENTER">
                                                             <children>
-<<<<<<< Updated upstream
                                                                 <ImageView fitHeight="50.0" fitWidth="50.0"
                                                                            pickOnBounds="true" preserveRatio="true">
                                                                     <VBox.margin>
                                                                         <Insets left="10.0"/>
-=======
-                                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                                                    <image>
-                                                                        <Image url="@../icons/plus.png" />
-                                                                    </image>
-                                                                    <VBox.margin>
-                                                                        <Insets left="5.0" />
->>>>>>> Stashed changes
                                                                     </VBox.margin>
                                                                 </ImageView>
-                                                                <Label text="Add Question" textFill="WHITE">
+                                                                <Label text="Add Q." textFill="WHITE">
                                                                     <font>
                                                                         <Font size="18.0"/>
                                                                     </font>
@@ -70,21 +61,14 @@
                                                     <graphic>
                                                         <VBox alignment="CENTER">
                                                             <children>
-<<<<<<< Updated upstream
                                                                 <ImageView fitHeight="50.0" fitWidth="50.0"
                                                                            pickOnBounds="true" preserveRatio="true">
 
-=======
-                                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                                                    <image>
-                                                                        <Image url="@../icons/pencil-edit-button.png" />
-                                                                    </image>
->>>>>>> Stashed changes
                                                                     <VBox.margin>
                                                                         <Insets left="10.0"/>
                                                                     </VBox.margin>
                                                                 </ImageView>
-                                                                <Label text="Update Question" textFill="WHITE">
+                                                                <Label text="Update Q." textFill="WHITE">
                                                                     <font>
                                                                         <Font size="18.0"/>
                                                                     </font>
@@ -118,19 +102,7 @@
                                         <Button fx:id="btnBack" mnemonicParsing="false" onAction="#goBack">
                                             <graphic>
                                                 <VBox alignment="CENTER">
-<<<<<<< Updated upstream
                                                     <children>
-=======
-                                                    <children> 
-                                                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@../icons/back-button.png" />
-                                                            </image>
-                                                            <VBox.margin>
-                                                                <Insets left="0.0" />
-                                                            </VBox.margin>
-                                                        </ImageView>
->>>>>>> Stashed changes
                                                         <Label text="Back" textFill="WHITE">
                                                             <font>
                                                                 <Font size="23.0"/>

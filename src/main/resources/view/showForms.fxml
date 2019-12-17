@@ -48,16 +48,6 @@
                                                                         <Font size="18.0"/>
                                                                     </font>
                                                                 </Label>
-                                                                <Label text="(Athletic Coping Skills" textFill="WHITE">
-                                                                    <font>
-                                                                        <Font size="18.0" />
-                                                                    </font>
-                                                                </Label>
-                                                                <Label text="Iventory)" textFill="WHITE">
-                                                                    <font>
-                                                                        <Font size="18.0" />
-                                                                    </font>
-                                                                </Label>
                                                             </children>
                                                             <padding>
                                                                 <Insets bottom="15.0"/>
@@ -103,7 +93,7 @@
                                                                         <Insets left="10.0"/>
                                                                     </VBox.margin>
                                                                 </ImageView>
-                                                                <Label text="Bowling IQ Questions" textFill="WHITE">
+                                                                <Label text="Bowling IQ \n Questions" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="18.0"/>
                                                                     </font>
@@ -126,7 +116,7 @@
                                                                         <Insets left="10.0"/>
                                                                     </VBox.margin>
                                                                 </ImageView>
-                                                                <Label text="MBTI Personality Test" textFill="WHITE">
+                                                                <Label text="MBTI" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="18.0"/>
                                                                     </font>

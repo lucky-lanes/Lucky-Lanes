@@ -75,14 +75,10 @@
                                                                 <ImageView fitHeight="33.0" fitWidth="40.0"
                                                                            pickOnBounds="true" preserveRatio="true">
                                                                     <image>
-<<<<<<< Updated upstream
                                                                         <Image url="@../icons/edit.png"/>
-=======
-                                                                        <Image url="@../icons/search.png" />
->>>>>>> Stashed changes
                                                                     </image>
                                                                 </ImageView>
-                                                                <Label text="Search Athletes" textFill="WHITE">
+                                                                <Label text="Search" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="20.0"/>
                                                                     </font>
@@ -100,14 +96,10 @@
                                                                 <ImageView fitHeight="33.0" fitWidth="40.0"
                                                                            pickOnBounds="true" preserveRatio="true">
                                                                     <image>
-<<<<<<< Updated upstream
                                                                         <Image url="@../icons/plus-circle.png"/>
-=======
-                                                                        <Image url="@../icons/plus.png" />
->>>>>>> Stashed changes
                                                                     </image>
                                                                 </ImageView>
-                                                                <Label text="Add New Athlete" textFill="WHITE">
+                                                                <Label text="New" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="20.0"/>
                                                                     </font>
@@ -116,7 +108,6 @@
                                                         </HBox>
                                                     </graphic>
                                                 </Button>
-<<<<<<< Updated upstream
                                                 <Button fx:id="btnForms" onAction="#showForms" GridPane.rowIndex="2"
                                                         GridPane.columnIndex="1">
                                                     <graphic>
@@ -162,46 +153,6 @@
 
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0"
                                                             GridPane.columnSpan="2">
-=======
-                                                    <Button fx:id="btnForms" onAction="#showForms" GridPane.rowIndex="2" GridPane.columnIndex="1" >
-                                                            <graphic>
-                                                                <HBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
-                                                                    <children>
-                                                                        <ImageView fitHeight="33.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                                                            <image>
-                                                                                <Image url="@../icons/pdf.png" />
-                                                                            </image>
-                                                                        </ImageView>
-                                                                        <Label text="Printable Forms" textFill="WHITE">
-                                                                            <font>
-                                                                                <Font size="20.0" />
-                                                                            </font>
-                                                                        </Label>
-                                                                    </children>
-                                                                </HBox>
-                                                            </graphic>
-                                                        </Button>
-                                                         <Button fx:id="btnManageQuestions" onAction="#manageQuestions" GridPane.rowIndex="2" >
-                                                            <graphic>
-                                                                <HBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" spacing="5.0">
-                                                                    <children>
-                                                                        <ImageView fitHeight="33.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                                                            <image>
-                                                                                <Image url="@../icons/questionaire.png" />
-                                                                            </image>
-                                                                        </ImageView>
-                                                                        <Label text="Questionaire Editor" textFill="WHITE">
-                                                                            <font>
-                                                                                <Font size="20.0" />
-                                                                            </font>
-                                                                        </Label>
-                                                                    </children>
-                                                                </HBox>
-                                                            </graphic>
-                                                        </Button>
-                                                
-                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2">
->>>>>>> Stashed changes
                                                     <children>
                                                         <VBox alignment="CENTER" layoutX="188.0" layoutY="-30.0"
                                                               prefHeight="200.0" prefWidth="100.0"
@@ -218,11 +169,7 @@
                                                         </VBox>
                                                     </children>
                                                 </AnchorPane>
-<<<<<<< Updated upstream
                                                 <AnchorPane BorderPane.alignment="TOP_RIGHT" GridPane.columnSpan="1">
-=======
-                                                <AnchorPane BorderPane.alignment="TOP_LEFT" GridPane.columnSpan="1"  >
->>>>>>> Stashed changes
                                                     <children>
                                                         <HBox alignment="BOTTOM_LEFT" prefHeight="75.0" prefWidth="75.0"
                                                               AnchorPane.bottomAnchor="10.0"
