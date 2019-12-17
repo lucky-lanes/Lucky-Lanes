@@ -3,6 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.net.URL?>
@@ -151,6 +152,12 @@
                                             <graphic>
                                                 <VBox alignment="CENTER">
                                                     <children>
+                                                        <ImageView fitHeight="33.0" fitWidth="40.0"
+                                                                           pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                               <Image url="@../icons/back-button.png"/>
+                                                           </image>
+                                                        </ImageView>
                                                         <Label text="Back" textFill="WHITE">
                                                             <font>
                                                                 <Font size="23.0"/>

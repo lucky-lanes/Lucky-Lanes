@@ -75,10 +75,10 @@
                                                                 <ImageView fitHeight="33.0" fitWidth="40.0"
                                                                            pickOnBounds="true" preserveRatio="true">
                                                                     <image>
-                                                                        <Image url="@../icons/edit.png"/>
+                                                                        <Image url="@../icons/search.png"/>
                                                                     </image>
                                                                 </ImageView>
-                                                                <Label text="Search" textFill="WHITE">
+                                                                <Label text="Search Athletes" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="20.0"/>
                                                                     </font>
@@ -96,10 +96,10 @@
                                                                 <ImageView fitHeight="33.0" fitWidth="40.0"
                                                                            pickOnBounds="true" preserveRatio="true">
                                                                     <image>
-                                                                        <Image url="@../icons/plus-circle.png"/>
+                                                                        <Image url="@../icons/plus.png"/>
                                                                     </image>
                                                                 </ImageView>
-                                                                <Label text="New" textFill="WHITE">
+                                                                <Label text="Add New Athlete" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="20.0"/>
                                                                     </font>
@@ -117,10 +117,10 @@
                                                                 <ImageView fitHeight="33.0" fitWidth="40.0"
                                                                            pickOnBounds="true" preserveRatio="true">
                                                                     <image>
-                                                                        <Image url="@../icons/edit.png"/>
+                                                                        <Image url="@../icons/pdf.png"/>
                                                                     </image>
                                                                 </ImageView>
-                                                                <Label text="Form" textFill="WHITE">
+                                                                <Label text="Printable Forms" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="20.0"/>
                                                                     </font>
@@ -138,10 +138,10 @@
                                                                 <ImageView fitHeight="33.0" fitWidth="40.0"
                                                                            pickOnBounds="true" preserveRatio="true">
                                                                     <image>
-                                                                        <Image url="@../icons/edit.png"/>
+                                                                        <Image url="@../icons/questionaire.png"/>
                                                                     </image>
                                                                 </ImageView>
-                                                                <Label text="Bowl Q." textFill="WHITE">
+                                                                <Label text="Questionaire Editor" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="20.0"/>
                                                                     </font>

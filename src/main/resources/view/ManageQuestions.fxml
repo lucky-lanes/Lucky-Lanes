@@ -3,6 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import java.net.URL?>
@@ -39,11 +40,11 @@
                                                             <children>
                                                                 <ImageView fitHeight="50.0" fitWidth="50.0"
                                                                            pickOnBounds="true" preserveRatio="true">
-                                                                    <VBox.margin>
-                                                                        <Insets left="10.0"/>
-                                                                    </VBox.margin>
+                                                                    <image>
+                                                                        <Image url="@../icons/plus.png"/>
+                                                                    </image>
                                                                 </ImageView>
-                                                                <Label text="Add Q." textFill="WHITE">
+                                                                <Label text="Add Question" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="18.0"/>
                                                                     </font>
@@ -64,11 +65,11 @@
                                                                 <ImageView fitHeight="50.0" fitWidth="50.0"
                                                                            pickOnBounds="true" preserveRatio="true">
 
-                                                                    <VBox.margin>
-                                                                        <Insets left="10.0"/>
-                                                                    </VBox.margin>
+                                                                    <image>
+                                                                        <Image url="@../icons/pencil-edit-button.png"/>
+                                                                    </image>
                                                                 </ImageView>
-                                                                <Label text="Update Q." textFill="WHITE">
+                                                                <Label text="Update Question" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="18.0"/>
                                                                     </font>
@@ -103,6 +104,13 @@
                                             <graphic>
                                                 <VBox alignment="CENTER">
                                                     <children>
+                                                        <ImageView fitHeight="50.0" fitWidth="50.0"
+                                                                           pickOnBounds="true" preserveRatio="true">
+
+                                                                    <image>
+                                                                        <Image url="@../icons/back-button.png"/>
+                                                                    </image>
+                                                        </ImageView>
                                                         <Label text="Back" textFill="WHITE">
                                                             <font>
                                                                 <Font size="23.0"/>

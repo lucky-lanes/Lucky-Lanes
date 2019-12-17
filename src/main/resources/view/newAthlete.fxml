@@ -109,6 +109,13 @@
                                             <graphic>
                                                 <VBox alignment="CENTER">
                                                     <children>
+                                                        <ImageView fitHeight="50.0" fitWidth="50.0"
+                                                                           pickOnBounds="true" preserveRatio="true">
+
+                                                                    <image>
+                                                                        <Image url="@../icons/back-button.png"/>
+                                                                    </image>
+                                                        </ImageView>
                                                         <Label text="Back" textFill="WHITE">
                                                             <font>
                                                                 <Font size="23.0"/>
