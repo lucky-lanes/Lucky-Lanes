@@ -84,7 +84,7 @@
                                             </children>
                                         </HBox>
                                         <Button fx:id="buttonSubmit" mnemonicParsing="false" onAction="#buildData"
-                                                text="Submit">
+                                                text="Submit/Refresh">
                                             <VBox.margin>
                                                 <Insets bottom="20.0" top="10.0"/>
                                             </VBox.margin>
