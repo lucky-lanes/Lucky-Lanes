@@ -9,9 +9,9 @@
     -fx-min-height: 125px;
     -fx-min-width: 125px;
     -fx-pref-height: 125px;
-    -fx-pref-width: 125px;
+    -fx-pref-width: 300px;
     -fx-max-height: 125px;
-    -fx-max-width: 125px;
+    -fx-max-width: 300px;
 
     -fx-background-radius: 90 90 90 90;
     -fx-text-fill: white;
