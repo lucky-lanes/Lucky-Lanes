@@ -16,6 +16,23 @@
     -fx-background-radius: 90 90 90 90;
     -fx-text-fill: white;
     -fx-background-color: #334048;
+=======
+.button
+{
+    <!---fx-effect: dropshadow( gaussian , rgba(19, 24, 28,.5) , 10,0,1,1 )-->;
+    
+    -fx-effect: dropshadow( gaussian , rgba(19, 24, 28,1) , 10,0,2,2 );
+    -fx-min-height:125px;
+    -fx-min-width:0px;
+    -fx-pref-height:125px;
+    -fx-pref-width:250px;
+    -fx-max-height:125px;
+    -fx-max-width:250px;
+    
+    -fx-background-radius:90 90  90  90;
+    -fx-text-fill:white;
+    -fx-background-color:#334048;
+>>>>>>> Stashed changes
 }
 
 .button:hover {

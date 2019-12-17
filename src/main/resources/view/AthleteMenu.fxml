@@ -37,13 +37,20 @@
                                                     <graphic>
                                                         <VBox alignment="CENTER">
                                                             <children>
+<<<<<<< Updated upstream
                                                                 <ImageView fitHeight="50.0" fitWidth="50.0"
                                                                            pickOnBounds="true" preserveRatio="true">
+=======
+                                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../icons/search.png" />
+                                                                    </image>
+>>>>>>> Stashed changes
                                                                     <VBox.margin>
                                                                         <Insets left="10.0"/>
                                                                     </VBox.margin>
                                                                 </ImageView>
-                                                                <Label text="Athlete Info" textFill="WHITE">
+                                                                <Label text="View/Edit Athlete Info" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="18.0"/>
                                                                     </font>
@@ -61,9 +68,16 @@
                                                     <graphic>
                                                         <VBox alignment="CENTER">
                                                             <children>
+<<<<<<< Updated upstream
                                                                 <ImageView fitHeight="50.0" fitWidth="50.0"
                                                                            pickOnBounds="true" preserveRatio="true">
 
+=======
+                                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../icons/brain.png" />
+                                                                    </image>
+>>>>>>> Stashed changes
                                                                     <VBox.margin>
                                                                         <Insets left="10.0"/>
                                                                     </VBox.margin>
@@ -85,11 +99,20 @@
                                                     <graphic>
                                                         <VBox alignment="CENTER">
                                                             <children>
+<<<<<<< Updated upstream
                                                                 <ImageView fitHeight="50.0" fitWidth="50.0"
                                                                            pickOnBounds="true" preserveRatio="true">
 
                                                                     <VBox.margin>
                                                                         <Insets left="10.0"/>
+=======
+                                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../icons/back-button.png" />
+                                                                    </image>
+                                                                    <VBox.margin>
+                                                                        <Insets left="0.0" />
+>>>>>>> Stashed changes
                                                                     </VBox.margin>
                                                                 </ImageView>
                                                                 <Label text="Back" textFill="WHITE">
@@ -109,14 +132,21 @@
                                                     <graphic>
                                                         <VBox alignment="CENTER">
                                                             <children>
+<<<<<<< Updated upstream
                                                                 <ImageView fitHeight="50.0" fitWidth="50.0"
                                                                            pickOnBounds="true" preserveRatio="true">
 
+=======
+                                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../icons/questionaire.png" />
+                                                                    </image>
+>>>>>>> Stashed changes
                                                                     <VBox.margin>
                                                                         <Insets left="10.0"/>
                                                                     </VBox.margin>
                                                                 </ImageView>
-                                                                <Label text="Bowl Test" textFill="WHITE">
+                                                                <Label text="Bowler Questionaire" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="18.0"/>
                                                                     </font>
