@@ -36,6 +36,8 @@ one later. There is a database that is inside the the project files from the rep
 That database has people entered already. You can at any point switch databases or create new ones by using the settings
  drop down.
 
+## Complete documentation
+[Documentation Station](https://docs.google.com/document/d/1VRP-lc39cR5_L7LiJJJuGJgJt4UlZgB-YhaaTuhSCf8/edit#)
 
 ## Known problems 
 1. when using the included The Final Test.mv.db database there is a problem creating questions for the test. they do not
