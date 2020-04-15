@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import java.net.URL?>
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #455660;"
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="600.0" style="-fx-background-color: #455660;"
             styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="main.java.controllers.ManageQuestionsController">
     <stylesheets>

@@ -10,7 +10,7 @@
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.AdminController">
     <children>
         <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                    prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    prefHeight="650.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                     AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <stylesheets>
                 <URL value="@../../resources/css/admin.css"/>
@@ -50,7 +50,7 @@
                             <children>
                                 <AnchorPane>
                                     <children>
-                                        <GridPane alignment="CENTER" layoutY="14.0" minWidth="640.0" prefHeight="480.0"
+                                        <GridPane alignment="CENTER" layoutY="14.0" minWidth="640.0" prefHeight="600.0"
                                                   prefWidth="640.0" AnchorPane.bottomAnchor="0.0"
                                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                                                   AnchorPane.topAnchor="20.0">
@@ -61,6 +61,7 @@
                                                                    prefWidth="100.0"/>
                                             </columnConstraints>
                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
@@ -142,6 +143,48 @@
                                                                     </image>
                                                                 </ImageView>
                                                                 <Label text="Questionaire Editor" textFill="WHITE">
+                                                                    <font>
+                                                                        <Font size="20.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                        </HBox>
+                                                    </graphic>
+                                                </Button>
+                                                <Button fx:id="btnAssessment" onAction="#bowlerAssessment"
+                                                        GridPane.rowIndex="3">
+                                                    <graphic>
+                                                        <HBox alignment="CENTER" prefHeight="300.0" prefWidth="200.0"
+                                                              spacing="5.0">
+                                                            <children>
+                                                                <ImageView fitHeight="33.0" fitWidth="40.0"
+                                                                           pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../icons/assessment.png"/>
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Label text="Bowler Assessment" textFill="WHITE">
+                                                                    <font>
+                                                                        <Font size="20.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                        </HBox>
+                                                    </graphic>
+                                                </Button>
+                                                <Button fx:id="btnIBBSN" onAction="#IBBSNData"
+                                                        GridPane.rowIndex="3" GridPane.columnIndex="1">
+                                                    <graphic>
+                                                        <HBox alignment="CENTER" prefHeight="300.0" prefWidth="200.0"
+                                                              spacing="5.0">
+                                                            <children>
+                                                                <ImageView fitHeight="33.0" fitWidth="40.0"
+                                                                           pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../icons/IBBSNData.png"/>
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Label text="IBBSN Data" textFill="WHITE">
                                                                     <font>
                                                                         <Font size="20.0"/>
                                                                     </font>
