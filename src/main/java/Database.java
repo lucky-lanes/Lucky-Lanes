@@ -7,22 +7,44 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * @author nicolenelson this class holds the functions pertaining to the
- * database, including creating a database, opening a connection to the
- * database, closing the connection to the database, executing an insert/delete
- * sql statement, and executing an sql query.
+ * This class holds the functions pertaining to the database, including creating a database, 
+ * opening a connection to the database, closing the connection to the database, executing
+ * an insert/delete sql statement, and executing an sql query.
+ *
+ * @author nicolenelson
  */
 public class Database {
-    // driver name and database
+    /**
+     * Driver name of the database
+     */
     static final String DRIVER = "org.h2.Driver";
+    /**
+     * URL of the database
+     */
     static String URL = "jdbc:h2:~/LuckyLanes";
 
-    // database credentials
+    /**
+     * Database username
+     */
     static String USERNAME = "luckylanes";
+    /**
+     * Database password
+     */
     static String PASSWORD = "lucky";
 
+    /**
+     * The connection to the database
+     */
     public static Connection conn = null;
+    /**
+     * The statement to be executed on the database
+     */
     public static Statement state = null;
+    
+    /**
+     * Sems to have been left here by a previous semester. Can anyone see a reason why we need to keep this?
+     * -Grey
+     */
     private String u;//Just testing stuff...Relax
 
     /**
@@ -33,10 +55,10 @@ public class Database {
     }
 
     /**
-     * Used when creating/loading databases.
-     * <p>
-     * Function: Connect Return: Void Parameters: String - url Description: Will
-     * set up a connection to the database.
+     * Used when creating/loading databases. Will set up a connection to the database
+     * 
+     * @param url
+     * @return boolean
      */
     public static boolean connect(String url) {
         URL = "jdbc:h2:file:" + url;
@@ -63,10 +85,7 @@ public class Database {
     }
 
     /**
-     * Used when using search options for profiles.
-     * <p>
-     * Function: Connect Return: Void Parameters: None Description: Will set up
-     * a connection to the database, no parameter needed.
+     * Used when using search options for profiles. Will set up a connection to the database
      */
     public static void connect() {
         System.out.println("URL ON CONNECT, NO PARAM:" + URL);
@@ -88,9 +107,7 @@ public class Database {
     }
 
     /**
-     * Close database
-     * Function: Close Return: Void Parameters: None Description: Will close the
-     * connection to the databse.
+     * Closes the connection to the database
      */
     public static void close() {
         try {
@@ -102,8 +119,7 @@ public class Database {
     }
 
     /**
-     * Function: createDatabase Return: Void, none. Parameters: None
-     * Description: Will create the database and tables of the database
+     * Will create the database and tables of the database
      */
     public static void createDatabase(String url) {
         // declare variables
@@ -261,9 +277,10 @@ public class Database {
     }
 
     /**
-     * Function: executeUpdate Return: Void, none. Parameters: String sql - the
-     * sql statement that will be executed. Description: insert, update, delete
-     * functions of SQL statements will be executed
+     * Takes an SQL statement sent in as a parameter and executes that statement. Use this for
+     * the insert, update, and delete functions
+     *
+     * @param sql An SQL insert, update, or delete statement that will be executed on the database
      */
     public static void executeUpdate(String sql) {
         System.out.println("THE ON EXECUTE: " + URL);
@@ -284,10 +301,11 @@ public class Database {
     }
 
     /**
-     * Connection to database
+     * Takes an SQL statement sent in as a parameter and executes that statement. The resulting
+     * set will then be returned. Use this for a search query
      *
-     * @param sql
-     * @return
+     * @param sql An SQL query statement that will be executed on the database
+     * @return ResultSet The resulting data returned from the search query
      */
     public static ResultSet searchQuery(String sql) {
         ResultSet rs = null;
@@ -307,7 +325,9 @@ public class Database {
     }
 
     /**
-     * @param url
+     * Saves the properties to the config.properties file
+     * 
+     * @param url The database URL to be saved in the properties file
      */
     public static void saveProperties(String url) {
         Properties prop = new Properties();
@@ -336,7 +356,9 @@ public class Database {
     }
 
     /**
-     * @return
+     * Loads the properties from the config.properties file
+     *
+     * @return database URL stored in the properties file
      */
     public static String loadProperties() {
         Properties prop = new Properties();
