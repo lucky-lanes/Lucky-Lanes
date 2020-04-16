@@ -123,7 +123,6 @@ public class BowlTestController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(BowlTestController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     public void createTest() {
@@ -187,7 +186,6 @@ public class BowlTestController implements Initializable {
         } catch (Exception Turkey) {
             System.out.println("BYE");
             Database.close();
-
         }
         try {
             //once added go back
@@ -211,10 +209,9 @@ public class BowlTestController implements Initializable {
     }
 
     /**
+     * Open up Forms, Takes file path to form. Activates each time the next button is clicked
      * @param event
      */
-    //open up forms. Takes file path to form
-    //Activates each time the next button is clicked
     @FXML
     private void next(ActionEvent event) {
         System.out.println("NEXT PRESS");
@@ -242,11 +239,9 @@ public class BowlTestController implements Initializable {
             System.out.println("CATCH");
             Logger.getLogger(BowlTestController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     @FXML
-
     protected void setPreScene(Scene pre) {
         preScene = pre;
     }
@@ -265,70 +260,5 @@ public class BowlTestController implements Initializable {
         stage.setScene(preScene);
         stage.sizeToScene();
         stage.setTitle(preTitle);
-
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
