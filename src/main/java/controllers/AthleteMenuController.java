@@ -123,7 +123,6 @@ public class AthleteMenuController implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
 
-
             BowlerController newBowler = (BowlerController) ((Initializable) loader.getController());
             newBowler.setFromRecord(id);
             newBowler.setUpViewWindow();
@@ -164,14 +163,12 @@ public class AthleteMenuController implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
 
-
             BowlTestController newBowler = (BowlTestController) ((Initializable) loader.getController());
             newBowler.setId(id);
             newBowler.updateScore(id);
             System.out.println(id);
             newBowler.setStage(stage);
             newBowler.setPreScene(preScene);
-
 
             stage.setOnCloseRequest((WindowEvent we) ->
             {
@@ -207,14 +204,12 @@ public class AthleteMenuController implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
 
-
             PersonalityTestController newBowler = (PersonalityTestController) ((Initializable) loader.getController());
             newBowler.setId(id);
             newBowler.updateScore(id);
             System.out.println(id);
             newBowler.setStage(stage);
             newBowler.setPreScene(preScene);
-
 
             stage.setOnCloseRequest((WindowEvent we) ->
             {
@@ -223,7 +218,6 @@ public class AthleteMenuController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
@@ -250,29 +244,4 @@ public class AthleteMenuController implements Initializable {
         stage.setTitle(preTitle);
         stage.close();
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
