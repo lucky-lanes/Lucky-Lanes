@@ -21,11 +21,34 @@ import java.util.logging.Logger;
  * EDITED BY: Joshua Bolstad
  */
 public class Report {
+    /**
+     * Array holding all ID numbers of bowlers to generate report on
+     */
     ArrayList<Integer> ids;
+    
+    /**
+     * Array to hold all FMS objects of the bowlers
+     */
     ArrayList<FMS> fms;
+    
+    /**
+     * Array to hold all Athlete objects of the bowlers
+     */
     ArrayList<Athlete> athlete;
+    
+    /**
+     * Array to hold all YBalance objects of the bowlers
+     */
     ArrayList<YBalance> yBalance;
+    
+    /**
+     * Array to hold all FitnessData objects of the bowlers
+     */
     ArrayList<FitnessTest> fitnessData;
+    
+    /**
+     * Array to hold all ParQ objects of the bowlers
+     */
     ArrayList<ParQ> parQ;
     private Executor exec;
 
@@ -52,14 +75,14 @@ public class Report {
     /**
      * Use to keep track of the bowlers to be printed.
      *
-     * @param id
+     * @param id ID number of the bowler to be printed
      */
     public void addID(int id) {
         ids.add(id);
     }
 
     /**
-     * This method handles the HTML class to generate the output files.
+     * This method uses the HTML class to generate the output file.
      */
     public void toDocs() throws IOException {
         System.out.println("Saving Documents");
@@ -69,6 +92,7 @@ public class Report {
 
         Document_Creator dc = new Document_Creator();
 
+        //generate a pdf for each id number in the ids list
         for (int i = 0; i < ids.size(); i++) {
             String html = "";
             FMS fmsOut = fms.get(i);
@@ -102,7 +126,10 @@ public class Report {
     }
 
     /**
-     * This method creates all the objects from the database.
+     * This method gets the data on each bowler, from the database, whose ID number is in the ids ArrayList
+     * <p>
+     * It also calls the appropriate helper methods to generate an FMS, Athlete, FitnessData, YBalance, and ParQ object
+     * which it adds to the appropriate ArrayList
      */
     public void createObjects() {
         Database.connect();
@@ -127,8 +154,10 @@ public class Report {
     }
 
     /**
-     * @param rs
-     * @return
+     * Pulls the bowler's FMS data from the FMS ResultSet and makes/returns a FMS object
+     *
+     * @param rs A ResultSet object (from a query on the database) which contains a bowler's FMS data
+     * @return An FMS object which contains a bowler's FMS data
      */
     private FMS fetchFMS(ResultSet rs) {
         FMS temp = null;
@@ -178,7 +207,7 @@ public class Report {
             //int rotaryFinal= Integer.parseInt(rs.getString("rotaryFinal"));
 
             int total = Integer.parseInt(rs.getString("total"));
-            ;
+            
 
             temp = (new FMS(deepSquatRaw, hurdleStepRawL, hurdleStepRawR, inlineLoungeRawL, inlineLoungeRawR,
                     shoulderMobilityRawL, shoulderMobilityRawR, shoulderClearingL, shoulderClearingR,
@@ -192,38 +221,10 @@ public class Report {
     }
 
     /**
-     * @param rs
-     * @return
-     * @author Joshua Bolstad
-     */
-    private ParQ fetchParQ(ResultSet rs) {
-        ParQ temp = null;
-
-        try {
-            if (!rs.next()) {
-
-            }
-
-            boolean q1Ans = rs.getBoolean("q1Ans");
-            boolean q2Ans = rs.getBoolean("q2Ans");
-            boolean q3Ans = rs.getBoolean("q3Ans");
-            boolean q4Ans = rs.getBoolean("q4Ans");
-            boolean q5Ans = rs.getBoolean("q5Ans");
-            boolean q6Ans = rs.getBoolean("q6Ans");
-            String q7Ans = rs.getString("q7Ans");
-
-
-            temp = (new ParQ(q1Ans, q2Ans, q3Ans, q4Ans, q5Ans, q6Ans, q7Ans));
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return temp;
-    }
-
-    /**
-     * @param rs
-     * @return
+     * Pulls the bowler's personal data from the personal data ResultSet and makes/returns an Athlete object
+     *
+     * @param rs A ResultSet object (from a query on the database) which contains a bowler's personal data
+     * @return An Athlete object which contains a bowler's personal data
      */
     private Athlete fetchAthlete(ResultSet rs) {
         Athlete temp = null;
@@ -260,55 +261,10 @@ public class Report {
     }
 
     /**
-     * @param rs
-     * @return
-     */
-    private YBalance fetchYBalance(ResultSet rs) {
-        YBalance temp = null;
-
-        try {
-            while (rs.next()) {
-                double rightLimbLength, antR1, antR2, antR3, antL1, antL2, antL3, pmR1, pmR2, pmR3,
-                        pmL1, pmL2, pmL3, plR1, plR2, plR3, plL1, plL2, plL3;
-
-                rightLimbLength = Double.parseDouble(rs.getString("rightLimbLength"));
-
-                antR1 = Double.parseDouble(rs.getString("antR1"));
-                antR2 = Double.parseDouble(rs.getString("antR2"));
-                antR3 = Double.parseDouble(rs.getString("antR3"));
-                antL1 = Double.parseDouble(rs.getString("antL1"));
-                antL2 = Double.parseDouble(rs.getString("antL2"));
-                antL3 = Double.parseDouble(rs.getString("antL3"));
-
-                pmR1 = Double.parseDouble(rs.getString("pmR1"));
-                pmR2 = Double.parseDouble(rs.getString("pmR2"));
-                pmR3 = Double.parseDouble(rs.getString("pmR3"));
-                pmL1 = Double.parseDouble(rs.getString("pmL1"));
-                pmL2 = Double.parseDouble(rs.getString("pmL2"));
-                pmL3 = Double.parseDouble(rs.getString("pmL3"));
-
-                plL1 = Double.parseDouble(rs.getString("plL1"));
-                plL2 = Double.parseDouble(rs.getString("plL2"));
-                plL3 = Double.parseDouble(rs.getString("plL3"));
-                plR1 = Double.parseDouble(rs.getString("plR1"));
-                plR2 = Double.parseDouble(rs.getString("plR2"));
-                plR3 = Double.parseDouble(rs.getString("plR3"));
-
-                temp = (new YBalance(rightLimbLength, antR1, antR2, antR3, antL1, antL2, antL3, pmR1, pmR2, pmR3,
-                        pmL1, pmL2, pmL3, plR1, plR2, plR3, plL1, plL2, plL3));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return temp;
-    }
-
-    /**
-     * EDITED BY: Joshua Bolstad
+     * Pulls the bowler's fitness test data from the fitnesstest ResultSet and makes/returns a FitnessTest object
      *
-     * @param rs
-     * @return
+     * @param rs A ResultSet object (from a query on the database) which contains a bowler's FitnessTest data
+     * @return A FitnessTest object which contains a bowler's FitnessTest data
      */
     private FitnessTest fetchFitnessTest(ResultSet rs) {
         FitnessTest temp = null;
@@ -347,7 +303,6 @@ public class Report {
                 double hgR1 = Double.parseDouble(rs.getString("hgR1"));
                 double hgR2 = Double.parseDouble(rs.getString("hgR2"));
                 double hgR3 = Double.parseDouble(rs.getString("hgR3"));
-
 
                 double hgL1 = Double.parseDouble(rs.getString("hgL1"));
                 double hgL2 = Double.parseDouble(rs.getString("hgL2"));
@@ -397,6 +352,86 @@ public class Report {
             Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        return temp;
+    }
+    
+    /**
+     * Pulls the bowler's Y-Balance test data from the Y-Balance ResultSet and makes/returns a YBalance object
+     *
+     * @param rs A ResultSet object (from a query on the database) which contains a bowler's Y-Balance test data
+     * @return A YBalance object which contains a bowler's Y-Balance test data
+     */
+    private YBalance fetchYBalance(ResultSet rs) {
+        YBalance temp = null;
+
+        try {
+            while (rs.next()) {
+                double rightLimbLength, antR1, antR2, antR3, antL1, antL2, antL3, pmR1, pmR2, pmR3,
+                        pmL1, pmL2, pmL3, plR1, plR2, plR3, plL1, plL2, plL3;
+
+                rightLimbLength = Double.parseDouble(rs.getString("rightLimbLength"));
+
+                antR1 = Double.parseDouble(rs.getString("antR1"));
+                antR2 = Double.parseDouble(rs.getString("antR2"));
+                antR3 = Double.parseDouble(rs.getString("antR3"));
+                antL1 = Double.parseDouble(rs.getString("antL1"));
+                antL2 = Double.parseDouble(rs.getString("antL2"));
+                antL3 = Double.parseDouble(rs.getString("antL3"));
+
+                pmR1 = Double.parseDouble(rs.getString("pmR1"));
+                pmR2 = Double.parseDouble(rs.getString("pmR2"));
+                pmR3 = Double.parseDouble(rs.getString("pmR3"));
+                pmL1 = Double.parseDouble(rs.getString("pmL1"));
+                pmL2 = Double.parseDouble(rs.getString("pmL2"));
+                pmL3 = Double.parseDouble(rs.getString("pmL3"));
+
+                plL1 = Double.parseDouble(rs.getString("plL1"));
+                plL2 = Double.parseDouble(rs.getString("plL2"));
+                plL3 = Double.parseDouble(rs.getString("plL3"));
+                plR1 = Double.parseDouble(rs.getString("plR1"));
+                plR2 = Double.parseDouble(rs.getString("plR2"));
+                plR3 = Double.parseDouble(rs.getString("plR3"));
+
+                temp = (new YBalance(rightLimbLength, antR1, antR2, antR3, antL1, antL2, antL3, pmR1, pmR2, pmR3,
+                        pmL1, pmL2, pmL3, plR1, plR2, plR3, plL1, plL2, plL3));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return temp;
+    }
+    
+    /**
+     * Pulls the bowler's answers from the PAR-Q (PHYSICAL ACTIVITY READINESS QUESTIONNAIRE) ResultSet 
+     * and makes/returns a ParQ object
+     *
+     * @param rs A ResultSet object (from a query on the database) which contains a bowler's PAR-Q answers
+     * @return A ParQ object which contains a bowler's PAR-Q answers
+     * @author Joshua Bolstad
+     */
+    private ParQ fetchParQ(ResultSet rs) {
+        ParQ temp = null;
+
+        try {
+            if (!rs.next()) {
+
+            }
+
+            boolean q1Ans = rs.getBoolean("q1Ans");
+            boolean q2Ans = rs.getBoolean("q2Ans");
+            boolean q3Ans = rs.getBoolean("q3Ans");
+            boolean q4Ans = rs.getBoolean("q4Ans");
+            boolean q5Ans = rs.getBoolean("q5Ans");
+            boolean q6Ans = rs.getBoolean("q6Ans");
+            String q7Ans = rs.getString("q7Ans");
+
+
+            temp = (new ParQ(q1Ans, q2Ans, q3Ans, q4Ans, q5Ans, q6Ans, q7Ans));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return temp;
     }
 }
