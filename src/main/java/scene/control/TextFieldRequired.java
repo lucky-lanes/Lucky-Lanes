@@ -7,15 +7,43 @@ import javafx.scene.control.Tooltip;
  * @author Mario
  */
 public class TextFieldRequired extends TextField {
+    /**
+     * Regular expression containing all alphabet characters and space. Can be zero or more occurances of these characters
+     */
     public static String ALPHA = "^[a-zA-Z ]+$";
+    
+    /**
+     * Regular expression containing all alphabet characters, space, and 1-9. Can be zero or more occurances of these characters
+     */
     public static String ALPHANUMERIC = "^[a-zA-Z0-9 ]+$";
+    
+    /**
+     * Regular expression containing one or more occurances of 1-9 or zero or more occurances of 0-9
+     */
     public static String NUMERIC = "^[1-9]+[0-9]*$";
+    
+    /**
+     * Regular expression containing zero or more occurances of 0-9, followed by a period, followed by one or more occurances of 0-9
+     */
     public static String NUMERICDEC = "^[0-9]\\d*(\\.\\d+)?$";
 
+    
+    /**
+     * The regular expression that will be used when validating
+     */
     private String validationRegex;
+    
+    /**
+     * The prompt that will display when hovering over the TextField
+     */
     private String validationPrompt;
+    
+    /**
+     * Boolean variable as to if the TextField is set to required or not
+     */
     private boolean isRequired;
 
+    
     /**
      * Constructor
      */
