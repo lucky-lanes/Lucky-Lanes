@@ -23,11 +23,20 @@ import java.util.logging.Logger;
  * @author Mario
  */
 public class LuckyLanes extends Application {
+    /**
+     * The window of the application
+     */
     private Stage stage;
+    
+    /**
+     * The database used in the application
+     */
     public static Database db;
 
     /**
-     * @param primaryStage
+     * When the application is opened, the start method is called.
+     *
+     * @param primaryStage Stage to open up the application in
      * @throws Exception
      */
     @Override
@@ -134,7 +143,7 @@ public class LuckyLanes extends Application {
      * an AnchorPane is used to create the new scene.
      *
      * @param fxml The path to the fxml file to display.
-     * @return returns a new instance of the controller class associated with the fxml file.
+     * @return A new instance of the controller class associated with the fxml file.
      * @throws IOException
      */
     public Initializable replaceSceneContent(String fxml) throws IOException {
@@ -161,6 +170,8 @@ public class LuckyLanes extends Application {
     }
 
     /**
+     * Creates the database and launches the JavaFX runtime and the JavaFX Application
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
