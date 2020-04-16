@@ -10,18 +10,29 @@ import java.io.PrintWriter;
 
 /**
  * This class is used to generate html files using the objects the user selects.
- * It creates a directory and then saves all the docs representing the
- * bowlers.
+ * It creates a directory and then saves all the docs representing the bowlers.
  *
  * @author Mario
  */
 public class HTML {
+    
+    /**
+     * File object that will be used for writing to
+     */
     static File file;
+    
+    /**
+     * The text to be written to the file
+     */
     static String text;
+    
+    /**
+     * Directory that will be created and where the files will be saved
+     */
     static String directory;
 
     /**
-     * Creates a direcotry to save the files
+     * Creates a directory to save the files
      */
     public static void mkdir() {
         directory = "Output Files";
@@ -39,7 +50,7 @@ public class HTML {
     /**
      * Creates a file to be able to write to it.
      *
-     * @param name
+     * @param name Name of the file to be created
      */
     public static void createFile(String name) {
         try {
@@ -77,17 +88,17 @@ public class HTML {
     /**
      * Used to print the html report for each bowler.
      *
-     * @param html
+     * @param html A string of text which will be put between the opening/closing tags for the html file
      */
     public static void print(String html) {
         PrintWriter out = null;
 
         try {
-            open();
+            open(); //add opening tags for the html file
 
             text += html;
 
-            close();
+            close(); //add closing tags for the html file
 
             out = new PrintWriter(file);
             out.println(text);
