@@ -9,8 +9,17 @@ import java.io.*;
  * @author Mario
  */
 public class Trace {
+    /**
+     * The file where the trace will be written to
+     */
     static File file;
 
+    /**
+     * Creates the file with the name Trace.txt.
+     * <p>
+     * Will print to System.out as to if the file has been created successfully or 
+     * if it already exists
+     */
     public static void createFile() {
         try {
             file = new File("Trace.txt");
@@ -27,6 +36,11 @@ public class Trace {
         }
     }
 
+    /**
+     * Writes text to the file
+     *
+     * @param text The String of text that will be written to the file
+     */
     public static void print(String text) {
         PrintWriter out = null;
         try {
