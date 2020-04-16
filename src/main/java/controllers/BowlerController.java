@@ -50,7 +50,6 @@ import static javax.swing.JOptionPane.showMessageDialog;
  *
  * @author Mario
  */
-
 public class BowlerController implements Initializable {
     @FXML
     TableView table;
@@ -89,9 +88,7 @@ public class BowlerController implements Initializable {
     Button btnSceneBack;
 
     /**
-     * *************************************************************************
-     * *
-     * Bowler Information Tab Injected Objects **************************************************************************
+     * Bowler Information Tab Injected Objects
      */
     @FXML
     TextFieldRequired txfName;
@@ -133,9 +130,7 @@ public class BowlerController implements Initializable {
     RadioButton radFemale;
 
     /**
-     * *************************************************************************
-     * *
-     * Y-Balance Test Injected Objects **************************************************************************
+     * Y-Balance Test Injected Objects
      */
     @FXML
     VBox vbYBalanceRoot;
@@ -222,9 +217,7 @@ public class BowlerController implements Initializable {
 
 
     /**
-     * *************************************************************************
-     * *
-     * FMS Score Sheet Injected Objects **************************************************************************
+     * FMS Score Sheet Injected Objects
      */
     @FXML
     VBox vbFMSRoot;
@@ -305,9 +298,7 @@ public class BowlerController implements Initializable {
     TextArea txfFlexionComment;
 
     /**
-     * *************************************************************************
-     * *
-     * Fitness Testing Data Sheet Injected Objects **************************************************************************
+     * Fitness Testing Data Sheet Injected Objects
      */
     @FXML
     VBox vbFitnessTestingRoot;
@@ -449,9 +440,7 @@ public class BowlerController implements Initializable {
     TextFieldRequired txfWallsit;
 
     /**
-     * **************************************************************************
-     * <p>
-     * Medical Survey **************************************************************************
+     * Medical Survey
      */
     @FXML
     ToggleGroup tgParQuest1;
@@ -495,7 +484,7 @@ public class BowlerController implements Initializable {
     ScrollPane scrollPane;
     @FXML
     Button btnFinish;
-    //THis is used to change the Tabs in the gui.
+    //This is used to change the Tabs in the gui.
 
     SingleSelectionModel<Tab> selectionModel;
     String DBindex;
@@ -589,13 +578,11 @@ public class BowlerController implements Initializable {
             rsFitData.next();
             rsParQ.next();
 
-
             /*
              * Following code sets athlete data
              * These values can not have errors when importing, already validated when saved to database
              * Values saved as doubles must still be fixed and implemented
              */
-
             txfName.setText(rsAth.getString(2));
             txfAddress.setText(rsAth.getString(5));
             txfCity.setText(rsAth.getString(6));
@@ -886,8 +873,6 @@ public class BowlerController implements Initializable {
     /**
      * @author Joshua Bolstad
      */
-
-
     private void initializeFitnessData() {
         txfAge2.setValidation("^[0-9]+$", "Age must be in years and can only contain digits.");
         txfHeight2.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Height must be in centimeters and can only contain digits or decimal.");
@@ -935,7 +920,6 @@ public class BowlerController implements Initializable {
         txfPectoral.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Skinfold must be in milimeters and can only contain digits or decimal.");
         txfWallsit.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Wallsit must be in centimeters and can only contain digits or decimal.");
 
-
         for (TextFieldRequired txf : getAllTextFieldRequired(vbFitnessTestingRoot)) {
             txf.setRequired(true);
         }
@@ -954,7 +938,6 @@ public class BowlerController implements Initializable {
         for (TextFieldRequired txf : getAllTextFieldRequired(vbEstAerActRoot)) {
             txf.setRequired(true);
         }
-
     }
 
     /**
@@ -1032,7 +1015,6 @@ public class BowlerController implements Initializable {
         ChangeListener<String> textFieldListener = (ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             if (isSuccessful())
                 validateTabs();
-
         };
 
         /*Demographics Changes*/
@@ -1149,9 +1131,7 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * *************************************************************************
-     * *
-     * GUI Handlers * * ************************************************************************
+     * GUI Handlers
      */
     @FXML
     private void nextTab(ActionEvent event) {
@@ -1272,9 +1252,7 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * *************************************************************************
-     *                                                                         *
-     * Auxiliary methods ************************************************************************
+     * Auxiliary methods
      */
     /**
      * Returns maxValue of three strings
@@ -1903,7 +1881,7 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * Validates allt he textfields in the tab and returns true ifk if the information entered is correct.
+     * Validates all the textfields in the tab and returns true if the information entered is correct.
      *
      * @return
      */
@@ -1985,7 +1963,6 @@ public class BowlerController implements Initializable {
      * @return
      * @author Joshua Bolstad
      */
-
     private boolean validateTabParQ() {
         boolean flag = true;
 
@@ -1999,26 +1976,27 @@ public class BowlerController implements Initializable {
             flag = false;
         }
 
-        // Question 1 check
+        // Question 3 check
         if (!tbParQ3Yes.isSelected() && !tbParQ3No.isSelected()) {
             flag = false;
         }
 
-        // Question 1 check
+        // Question 4 check
         if (!tbParQ4Yes.isSelected() && !tbParQ4No.isSelected()) {
             flag = false;
         }
 
-        // Question 1 check
+        // Question 5 check
         if (!tbParQ5Yes.isSelected() && !tbParQ5No.isSelected()) {
             flag = false;
         }
 
-        // Question 1 check
+        // Question 6 check
         if (!tbParQ6Yes.isSelected() && !tbParQ6No.isSelected()) {
             flag = false;
         }
 
+        // Question 7 check
         if (txtParQuest7.getText().equals("")) {
             flag = false;
         }
@@ -2094,7 +2072,6 @@ public class BowlerController implements Initializable {
         return false;
     }
 
-
     /**
      * @param e
      */
@@ -2148,7 +2125,6 @@ public class BowlerController implements Initializable {
     @FXML
     private void testingData(ActionEvent e) throws SQLException {
 
-
         String height = "";
         String weight = "";
         String age = "";
@@ -2196,7 +2172,6 @@ public class BowlerController implements Initializable {
 
             //table.getColumns().clear();
             System.out.println("Running");
-
 
             String hRange = " a.height > " + (h - 5) + " AND a.height < " + (h + 5);
             String wRange = " a.weight > " + (w - 10) + " AND a.weight < " + (w + 10);
@@ -2267,8 +2242,6 @@ public class BowlerController implements Initializable {
                      * These values can not have errors when importing, already validated when saved to database
                      * Values saved as doubles must still be fixed and implemented
                      */
-
-
                     if (rsAth.getString(15).matches("Right")) {
                         radDominance2Right.setSelected(true);
                     } else {
@@ -2277,7 +2250,6 @@ public class BowlerController implements Initializable {
                     if (txfSchool.getText().equals("")) {
                         txfSchool.setText("Enter School");
                     }
-
 
                     if (txfPrimaryPosition.getText().equals("")) {
                         txfPrimaryPosition.setText("Enter Position");
@@ -2394,10 +2366,8 @@ public class BowlerController implements Initializable {
                         lblCompositeRight.setText(rsYBal.getString(28 + 18));
                     }
 
-
                     // FMS Data
                     // Comments are not being saved
-
                     tgHurdleStepR.selectToggle(tgHurdleStepR.getToggles().get(rsFMS.getInt(5 + 18)));
                     tgHurdleStepL.selectToggle(tgHurdleStepL.getToggles().get(rsFMS.getInt(4 + 18)));
                     tgDeepSquat.selectToggle(tgDeepSquat.getToggles().get(rsFMS.getInt(2 + 18)));
@@ -2502,7 +2472,6 @@ public class BowlerController implements Initializable {
 
                     // Fitness Testing data
                     // Found data is not being saved....
-
                     if (txfRestingHR.getText().equals("")) {
                         txfRestingHR.setText(rsFitData.getString(3 + 18));
                     }
@@ -2683,7 +2652,6 @@ public class BowlerController implements Initializable {
 
                     // Medical Survey
                     // Always retrieves Q1 as false?
-
                     if (tbParQ1Yes.isSelected() || tbParQ1No.isSelected()) {
                         //do nothing
                     } else {
@@ -2748,7 +2716,6 @@ public class BowlerController implements Initializable {
                         txtParQuest7.setText(rsParQ.getString(8 + 18));
                     }
 
-
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 } finally {
@@ -2756,8 +2723,6 @@ public class BowlerController implements Initializable {
                 }
             }
         }
-
-
     }
 
     /**
@@ -3286,7 +3251,6 @@ public class BowlerController implements Initializable {
     /**
      * @author Joshua Bolstad
      */
-
     public void createParQ() {
         boolean ans = true;
 
@@ -3373,17 +3337,3 @@ public class BowlerController implements Initializable {
         viewInfo = true;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
