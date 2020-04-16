@@ -64,7 +64,6 @@ public class AddQuestionController implements Initializable {
      *
      * @param stage The window.
      */
-
     protected void setStage(Stage stage) {
         preTitle = stage.getTitle();
         this.stage = stage;
@@ -109,12 +108,9 @@ public class AddQuestionController implements Initializable {
         } catch (Exception e) {
             System.out.print("failed");
         }
-
-
     }
 
     @FXML
-
     protected void setPreScene(Scene pre) {
         preScene = pre;
     }
@@ -133,71 +129,5 @@ public class AddQuestionController implements Initializable {
         stage.sizeToScene();
         stage.setTitle(preTitle);
         stage.close();
-
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
