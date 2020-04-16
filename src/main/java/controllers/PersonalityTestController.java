@@ -193,21 +193,3 @@ public class PersonalityTestController implements Initializable {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
