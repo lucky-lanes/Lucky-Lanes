@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * FXML Controller class
+ * FXML Controller class for addQuestion.fxml
  * <p>
  * This is the controller for the creation of a question in the questionaire.
  * To navigate to this page. Start the application, click the "Questionaire Editor" button
