@@ -425,6 +425,21 @@ public class AdminController implements Initializable {
     }
 
     /**
+     * Can be removed once the Bowler Assessment button has been removed from the admin screen
+     */
+    @FXML
+    private void bowlerAssessment(ActionEvent event) {
+        
+    }
+    /**
+     * Can be removed once the Bowler Assessment button has been removed from the admin screen
+     */
+    @FXML
+    private void IBBSNData(ActionEvent event) {
+        
+    }
+    
+    /**
      * FXML calls this to close the application from the title bar close option.
      * Closes the application.
      */
