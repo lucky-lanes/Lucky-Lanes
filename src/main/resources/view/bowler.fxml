@@ -3368,7 +3368,12 @@
                                 </ScrollPane>
                             </content>
                         </Tab>
-
+                        <Tab id="tab" fx:id="tabAssessment" text="Assessment">
+                            <!--insert new Questions-->
+                        </Tab>
+                        <Tab id="tab" fx:id="tabIBSSN" text="IBSSN">
+                            <!--insert new Questions-->
+                        </Tab>
                     </tabs>
                 </TabPane>
                 <AnchorPane layoutY="547.0" prefHeight="53.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0"
