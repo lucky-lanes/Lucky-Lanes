@@ -24,25 +24,49 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * FXML Controller class
+ * FXML Controller class for AthleteMenu.fxml
  * <p>
  * This is the controller for the creation of an athlete. It gives the user
  * the option to choose between a list of specific athletes.
+ * The form that this is for is when you start up the application, click Search 
+ * Athletes, and then click open on a bowler
  *
  * @author Mario
  */
 public class AthleteMenuController implements Initializable {
     @FXML
     Button btnBowlTest;
-    private Stage stage;                //The window.
-
-    private Scene preScene;             //The previous screens scene while using the back button.
-    private Scene nextScene;            //The to be next scene.
-    private double preMinHeight;        //The previous minimum screens height.
-    private double preMinWidth;         //The previous minimum screens width.
-
-    private String preTitle;            //The previous screens title.
-    protected final String title = "Menu";       //The current stages title.
+    /**
+     * The window
+     */
+    private Stage stage;
+    /**
+     * The previous screen's scene while using the back button.
+     */
+    private Scene preScene;
+    /**
+     * The to be next scene
+     */
+    private Scene nextScene;   
+    /**
+     * The previous screen's minimum height.
+     */
+    private double preMinHeight;
+    /**
+     * The previous screen's minimum width.
+     */
+    private double preMinWidth;
+    /**
+     * The previous screen's title.
+     */
+    private String preTitle;
+    /**
+     * The current stage's title.
+     */
+    protected final String title = "Menu";
+    /**
+     * The bowler's ID
+     */
     String id;
 
     /**
@@ -58,7 +82,10 @@ public class AthleteMenuController implements Initializable {
     }
 
     /**
-     * Puts things in the current window. Changes the scene to the current one.
+     * Enables the Take Questionaire button if there is results from the sql query
+     * "SELECT * FROM TEST;". Otherwise it stays disabled
+     * <p>
+     * Ran when the controller class is initialized
      *
      * @param stage The window.
      */
@@ -79,10 +106,20 @@ public class AthleteMenuController implements Initializable {
         Database.close();
     }
 
+    /**
+     * Sets the id of the bowler you are in right now
+     *
+     * @param id ID number of a bowler
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * Puts things in the current window. Changes the scene to the current one.
+     *
+     * @param stage The window.
+     */
     protected void setStage(Stage stage) {
         preTitle = stage.getTitle();
         this.stage = stage;
@@ -96,9 +133,14 @@ public class AthleteMenuController implements Initializable {
     }
 
     /**
+     * This is an injected method used by JAVAFX,
+     * It creates a new stage to display the form with the bowler's information,
+     * Y Balance test, fms score,  fitness testing data sheet, and medical survey 
+     * <p>
+     * Ran when the View/Edit Athlete Info button is clicked
+     *
      * @param event
      */
-    //open up forms. Takes file path to form
     @FXML
     private void athleteInfo(ActionEvent event) {
         String fxml = "/main/resources/view/bowler.fxml";
@@ -139,6 +181,14 @@ public class AthleteMenuController implements Initializable {
         }
     }
 
+    /**
+     * This is an injected method used by JAVAFX,
+     * It creates a new stage to display the form to take the questionaire
+     * <p>
+     * Ran when the Take Questionaire button is clicked
+     *
+     * @param event
+     */
     @FXML
     private void bowlTest(ActionEvent event) {
         String fxml = "/main/resources/view/bowlTest.fxml";
@@ -179,6 +229,14 @@ public class AthleteMenuController implements Initializable {
         }
     }
 
+    /**
+     * This is an injected method used by JAVAFX,
+     * It creates a new stage to display the form to take the psych test
+     * <p>
+     * Ran when the Psych Test button is clicked
+     *
+     * @param event
+     */
     @FXML
     private void psychTest(ActionEvent event) {
 
