@@ -21,54 +21,135 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * FXML Controller class
+ * FXML Controller class for BowlTest.fxml
  * <p>
- * This is the controller for the creation of an athlete. It gives the user
- * the option to choose between a list of specific athletes.
+ * This is the controller for taking the questionaire when inside a bowler.
+ * The form that this is for is when you start up the application, click Search 
+ * Athletes, and then click open on a bowler, and then would click take questionaire
  *
  * @author Mario
  */
 public class BowlTestController implements Initializable {
-    private Stage stage;                //The window.
-
-    private Scene preScene;             //The previous screens scene while using the back button.
-    private Scene nextScene;            //The to be next scene.
-    private double preMinHeight;        //The previous minimum screens height.
-    private double preMinWidth;         //The previous minimum screens width.
+    /**
+     * The window
+     */
+    private Stage stage;
+    /**
+     * The previous screen's scene while using the back button
+     */
+    private Scene preScene;
+    /**
+     * The to be next scene
+     */
+    private Scene nextScene;
+    /**
+     * The previous screen's minimum height.
+     */
+    private double preMinHeight;
+    /**
+     * The previous screen's minimum width.
+     */
+    private double preMinWidth;
+    /**
+     * The home scene
+     */
     private Scene homeScene;
+    /**
+     * Unknown what this variable is because it only shows up here inside of this class
+     */
     private ObservableList<ObservableList> data;
+    /**
+     * The bowler's ID
+     */
     String id;
-    private String preTitle;            //The previous screens title.
-    protected final String title = "Add Question";       //The current stages title.
+    /**
+     * The previous screen's title.
+     */
+    private String preTitle;
+    /**
+     * The current stage's title
+     */
+    protected final String title = "Add Question";
+    /**
+     * The result set from an SQL query
+     */
     private ResultSet rs;
+    /**
+     * The score for a bowler taking the test
+     */
     double score = 0;
+    /**
+     * Unknown what this variable is because it only shows up here inside of this class
+     */
     double testTotal = 1;
+    /**
+     * The question being asked
+     */
     @FXML
     Label mainQuestion;
+    /**
+     * The first option to choose from
+     */
     @FXML
     Label option1;
+    /**
+     * The second option to choose from
+     */
     @FXML
     Label option2;
+    /**
+     * The third option to choose from
+     */
     @FXML
     Label option3;
+    /**
+     * The fourth option to choose from
+     */
     @FXML
     Label option4;
+    /**
+     * The checkbox for the first option
+     */
     @FXML
     CheckBox option1Value;
+    /**
+     * The checkbox for the second option
+     */
     @FXML
     CheckBox option2Value;
+    /**
+     * The checkbox for the third option
+     */
     @FXML
     CheckBox option3Value;
+    /**
+     * The checkbox for the fourth option
+     */
     @FXML
     CheckBox option4Value;
+    /**
+     * The button to submit your answer
+     */
     @FXML
     Button submitQuestion;
+    /**
+     * The button to load the next question
+     */
     @FXML
     Button nextQuestion;
+    /**
+     * Label showing your current score
+     */
     @FXML
     Label currentScore;
     private Executor exec;
 
+    /**
+     * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         /*exec = Executors.newCachedThreadPool(runnable ->
@@ -82,16 +163,20 @@ public class BowlTestController implements Initializable {
     }
 
     /**
-     * Puts things in the current window. Changes the scene to the current one.
+     * Sets the id of the bowler you are in right now
      *
-     * @param stage The window.
+     * @param id ID number of a bowler
      */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * Updates the score shown in the currentScore label
+     *
+     * @param id ID of the bowler
+     */
     public void updateScore(String id) {
-
         // String SQL = "SELECT IQ FROM IQPSYCH;";
         System.out.println("id = " + id);
         String SQL = "SELECT * FROM IQPSYCH WHERE ID=" + id + ";";
@@ -125,6 +210,9 @@ public class BowlTestController implements Initializable {
         }
     }
 
+    /**
+     * Gets a questionaire question from the database and displays it
+     */
     public void createTest() {
         submitQuestion.setDisable(true);
         //updateScore();
@@ -162,6 +250,12 @@ public class BowlTestController implements Initializable {
     */
     }
 
+    /**
+     * Calculates the total score by finding the percent of the points they scored. It then updates the database and
+     * calls the goBack method to exit this scene
+     *
+     * @param event
+     */
     public void submit(ActionEvent e) {
 
         double totalScore = (score / testTotal) * 100;
@@ -196,6 +290,11 @@ public class BowlTestController implements Initializable {
         Database.close();
     }
 
+    /**
+     * Puts things in the current window. Changes the scene to the current one.
+     *
+     * @param stage The window.
+     */
     protected void setStage(Stage stage) {
         preTitle = stage.getTitle();
         this.stage = stage;
@@ -209,7 +308,10 @@ public class BowlTestController implements Initializable {
     }
 
     /**
-     * Open up Forms, Takes file path to form. Activates each time the next button is clicked
+     * Clears the previous answers, and loads up the next questionaire question.
+     * <p>
+     * Ran when the Next button is clicked
+     *
      * @param event
      */
     @FXML
@@ -241,6 +343,11 @@ public class BowlTestController implements Initializable {
         }
     }
 
+    /**
+     * Adds the previous scene into the object to allow the user to go back to it with the back button.
+     *
+     * @param pre The previous scene.
+     */
     @FXML
     protected void setPreScene(Scene pre) {
         preScene = pre;
