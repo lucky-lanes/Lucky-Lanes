@@ -17,40 +17,93 @@ import java.util.ResourceBundle;
 /**
  * FXML Controller class
  * <p>
- * This is the controller for the creation of an athlete. It gives the user
- * the option to choose between a list of specific athletes.
+ * This is the controller for the creation of a question in the questionaire.
+ * To navigate to this page. Start the application, click the "Questionaire Editor" button
+ * and then the "Add Question" button
  *
  * @author Mario
  */
 public class AddQuestionController implements Initializable {
-    private Stage stage;                //The window.
-
-    private Scene preScene;             //The previous screens scene while using the back button.
-    private Scene nextScene;            //The to be next scene.
-    private double preMinHeight;        //The previous minimum screens height.
-    private double preMinWidth;         //The previous minimum screens width.
+    /**
+     * The window
+     */
+    private Stage stage;
+    /**
+     * The previous screen's scene while using the back button
+     */
+    private Scene preScene;
+    /**
+     * The to be next scene
+     */
+    private Scene nextScene; 
+    /**
+     * The previous screen's minimum height
+     */
+    private double preMinHeight;  
+    /**
+     * The previous screen's minimum width
+     */
+    private double preMinWidth;
+    /**
+     * The home screen
+     */
     private Scene homeScene;
-
-    private String preTitle;            //The previous screens title.
-    protected final String title = "Add Question";       //The current stages title.
+    /**
+     * The previous screen's title
+     */
+    private String preTitle;
+    /**
+     * The current screen's title
+     */
+    protected final String title = "Add Question";
+    /**
+     * Textfield next to the "Question to be asked" label
+     */
     @FXML
     TextField mainQuestion;
+    /**
+     * Textfield next to the "Option 1" label
+     */
     @FXML
     TextField option1;
+    /**
+     * Textfield next to the "Option 2" label
+     */
     @FXML
     TextField option2;
+    /**
+     * Textfield next to the "Option 3" label
+     */
     @FXML
     TextField option3;
+    /**
+     * Textfield next to the "Option 4" label
+     */
     @FXML
     TextField option4;
+    /**
+     * Checkbox, under the "Correct" column, which is next to the Option1 textfield
+     */
     @FXML
     CheckBox option1Value;
+    /**
+     * Checkbox, under the "Correct" column, which is next to the Option2 textfield
+     */
     @FXML
     CheckBox option2Value;
+    /**
+     * Checkbox, under the "Correct" column, which is next to the Option3 textfield
+     */
     @FXML
     CheckBox option3Value;
+    /**
+     * Checkbox, under the "Correct" column, which is next to the Option4 textfield
+     */
     @FXML
     CheckBox option4Value;
+    /**
+     * The submit button
+     */
     @FXML
     Button Submit;
 
@@ -69,17 +122,22 @@ public class AddQuestionController implements Initializable {
         this.stage = stage;
         this.stage.setTitle(title);
 
+        //save the previous scene's height and width
         preMinHeight = stage.getMinHeight();
         preMinWidth = stage.getMinWidth();
 
+        //set the scene's height and width for the new scene
         stage.setMinHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
     }
 
     /**
+     * Ran when the submit button is clicked. Adds the input question/answers to the database
+     * <p>
+     * Previous Group's Comment: Open up forms. Takes file path to form
+     *
      * @param event
      */
-    //open up forms. Takes file path to form
     @FXML
     private void questionToAdd(ActionEvent event) {
         //Option option1Obj = new Option(option1.getText(), option1Value.isSelected());
