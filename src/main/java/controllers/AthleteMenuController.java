@@ -26,8 +26,9 @@ import java.util.logging.Logger;
 /**
  * FXML Controller class for AthleteMenu.fxml
  * <p>
- * This is the controller for the creation of an athlete. It gives the user
- * the option to choose between a list of specific athletes.
+ * This is the controller for displaying the options to either take the questionaire, 
+ * view/edit athlete info, or take the psych test. Opened when you click open on an athlete
+ * in the Search Athletes window
  * The form that this is for is when you start up the application, click Search 
  * Athletes, and then click open on a bowler
  *
