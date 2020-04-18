@@ -366,14 +366,6 @@ public class AdminController implements Initializable {
     }
 
     @FXML
-    public void bowlerAssessment(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void IBBSNData(ActionEvent actionEvent) {
-    }
-
-    @FXML
     private void testing(ActionEvent event) {
         ((Button) event.getSource()).setStyle("-fx-background-color:red;");
     }
