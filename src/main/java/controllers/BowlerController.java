@@ -39,14 +39,15 @@ import java.util.logging.Logger;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
- * FXML Controller class
+ * FXML Controller class for bowler.fxml
  * <p>
  * This class handles the interaction from the user in the bowler.fxml file.
  * <p>
  * It shows the forms needed to register a new bowler. Athlete information, FMS Score Sheet, etc.
  * <p>
+ * This form pulls up when you are inside a bowler's info at their menu, and then you click View/Edit Athlete Info.
  * <p>
- * This class requires refacotring. It contains most of the data used for this program
+ * This class requires refactoring. It contains most of the data used for this program
  *
  * @author Mario
  */
@@ -57,145 +58,338 @@ public class BowlerController implements Initializable {
     ProgressIndicator progressIndicator;
     private Executor exec;
     private ObservableList<ObservableList> data;
-    /**
-     * *************************************************************************
-     * *
-     * Root Injected Objects **************************************************************************
-     */
 
+    //Root Injected Objects
+    /**
+     * WebView object
+     */
     @FXML
     WebView webView;
+    /**
+     * The tab pane with the different tabs in it
+     */
     @FXML
     TabPane tabPane;
+    /**
+     * StackPane object for the different panes
+     */
     @FXML
     StackPane stackPane;
+    /**
+     * The button on the bottom of the page to take you back to the previous tab
+     */
     @FXML
     Button btnBack;
+    /**
+     * The button on the bottom of the page to take you next tab
+     */
     @FXML
     Button btnNext;
+    /**
+     * The tab for the demographics form
+     */
     @FXML
     Tab tabDemographics;
+    /**
+     * The tab for the Y Balance Form
+     */
     @FXML
     Tab tabYBalance;
+    /**
+     * The tab for the FMS form
+     */
     @FXML
     Tab tabFMS;
+    /**
+     * The tab for the Fitness Data form
+     */
     @FXML
     Tab tabFitnessData;
+    /**
+     * The tab for the Par-Q form
+     */
     @FXML
     Tab tabParQ;
-
+    /**
+     * The button on the far bottom left of the page to take you back to the menu
+     */
     @FXML
     Button btnSceneBack;
-
     /**
-     * Bowler Information Tab Injected Objects
+     * The button on the far bottom right of the page
+     */
+    @FXML
+    Button btnFinish;
+
+    //**************************************************
+    // Bowler Information Tab Injected Objects
+    //**************************************************
+    /**
+     * The textfield for name on the demographics tab
      */
     @FXML
     TextFieldRequired txfName;
-    @FXML
-    Label lblDate;
-    @FXML
-    DatePicker dpDate;
-    @FXML
-    TextFieldRequired txfAddress;
-    @FXML
-    TextFieldRequired txfCity;
-    @FXML
-    ComboBox cbState;
-    @FXML
-    TextFieldRequired txfZip;
-    @FXML
-    TextFieldRequired txfPhone;
-    @FXML
-    TextFieldRequired txfSchool;
-    @FXML
-    TextFieldRequired txfAge;
-    @FXML
-    TextFieldRequired txfHeight;
-    @FXML
-    TextFieldRequired txfWeight;
-    @FXML
-    TextFieldRequired txfGender;
-    @FXML
-    TextFieldRequired txfPrimaryPosition;
-    @FXML
-    TextFieldRequired txfPrimarySport;
-    @FXML
-    ToggleGroup tgGender;
-    @FXML
-    ToggleGroup dominance;
-    @FXML
-    RadioButton radMale;
-    @FXML
-    RadioButton radFemale;
-
     /**
-     * Y-Balance Test Injected Objects
+     * The date label on the demographics tab
      */
     @FXML
+    Label lblDate;
+    /**
+     * The Date of Birth (DOB) field on the demographics tab
+     */
+    @FXML
+    DatePicker dpDate;
+    /**
+     * The textfield for address on the demographics tab
+     */
+    @FXML
+    TextFieldRequired txfAddress;
+    /**
+     * The textfield for city on the demographics tab
+     */
+    @FXML
+    TextFieldRequired txfCity;
+    /**
+     * The list of states to choose from on the demographics tab
+     */
+    @FXML
+    ComboBox cbState;
+    /**
+     * The textfield for zip code on the demographics tab
+     */
+    @FXML
+    TextFieldRequired txfZip;
+    /**
+     * The textfield for phone number on the demographics tab
+     */
+    @FXML
+    TextFieldRequired txfPhone;
+    /**
+     * The textfield for school on the demographics tab
+     */
+    @FXML
+    TextFieldRequired txfSchool;
+    /**
+     * The textfield for age on the demographics tab
+     */
+    @FXML
+    TextFieldRequired txfAge;
+    /**
+     * The textfield for height in centimeters on the demographics tab
+     */
+    @FXML
+    TextFieldRequired txfHeight;
+    /**
+     * The textfield for weight in kilograms on the demographics tab
+     */
+    @FXML
+    TextFieldRequired txfWeight;
+    /**
+     * The options for gender on the demographics tab. I do not think this is used as the ToggleGroup tgGender seems to be
+     * the one that is being used for gender
+     */
+    @FXML
+    TextFieldRequired txfGender;
+    /**
+     * The textfield for primary position in your sport listed in the primary sport spot on the demographics tab
+     */
+    @FXML
+    TextFieldRequired txfPrimaryPosition;
+    /**
+     * The textfield for primary sport on the demographics tab
+     */
+    @FXML
+    TextFieldRequired txfPrimarySport;
+    /**
+     * The toggle group for choosing gender on the demographics tab
+     */
+    @FXML
+    ToggleGroup tgGender;
+    /**
+     * The toggle group for choosing hand/leg dominance on the demographics tab
+     */
+    @FXML
+    ToggleGroup dominance;
+    /**
+     * The button for choosing male as a gender on the demographics tab
+     */
+    @FXML
+    RadioButton radMale;
+    /**
+     * The button for choosing female as a gender on the demographics tab
+     */
+    @FXML
+    RadioButton radFemale;
+    /**
+     * The button for right dominance on the demographics tab
+     */
+    @FXML
+    RadioButton radDominanceRight;
+    /**
+     * The button for left dominance on the demographics tab
+     */
+    @FXML
+    RadioButton radDominanceLeft;
+
+    //**************************************************
+    // Y-Balance Test Injected Objects
+    //**************************************************
+    @FXML
     VBox vbYBalanceRoot;
+    /**
+     * The textfield for the right limb length in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfRightLimbLength;
+    /**
+     * The textfield for the A1 measurement for the right in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfA1Right;
+    /**
+     * The textfield for the A2 measurement for the right in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfA2Right;
+    /**
+     * The textfield for the A3 measurement for the right in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfA3Right;
+    /**
+     * The textfield for the A1 measurement for the left in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfA1Left;
+    /**
+     * The textfield for the A2 measurement for the left in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfA2Left;
+    /**
+     * The textfield for the A3 measurement for the left in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfA3Left;
+    /**
+     * The textfield for the PM1 measurement for the right in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPM1Right;
+    /**
+     * The textfield for the PM2 measurement for the right in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPM2Right;
+    /**
+     * The textfield for the PM3 measurement for the right in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPM3Right;
+    /**
+     * The textfield for the PL1 measurement for the right in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPL1Right;
+    /**
+     * The textfield for the PL2 measurement for the right in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPL2Right;
+    /**
+     * The textfield for the PL3 measurement for the right in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPL3Right;
+    /**
+     * The textfield for the PM1 measurement for the left in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPM1Left;
+    /**
+     * The textfield for the PM2 measurement for the left in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPM2Left;
+    /**
+     * The textfield for the PM3 measurement for the left in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPM3Left;
+    /**
+     * The textfield for the PL1 measurement for the left in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPL1Left;
+    /**
+     * The textfield for the PL2 measurement for the left in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPL2Left;
+    /**
+     * The textfield for the PL3 measurement for the left in centimeters on the Y-Balance Test tab
+     */
     @FXML
     TextFieldRequired txfPL3Left;
+    /**
+     * The label of A for the right on the Y-Balance Test tab
+     */
     @FXML
     Label lblARight;
+    /**
+     * The label of A for the left on the Y-Balance Test tab
+     */
     @FXML
     Label lblALeft;
+    /**
+     * The label of PM for the right on the Y-Balance Test tab
+     */
     @FXML
     Label lblPMRight;
+    /**
+     * The label of PL for the right on the Y-Balance Test tab
+     */
     @FXML
     Label lblPLRight;
+    /**
+     * The label of PM for the left on the Y-Balance Test tab
+     */
     @FXML
     Label lblPMLeft;
+    /**
+     * The label of PL for the left on the Y-Balance Test tab
+     */
     @FXML
     Label lblPLLeft;
+    /**
+     * The label for the difference of A on the Y-Balance Test tab
+     */
     @FXML
     Label lblADif;
+    /**
+     * The label for the difference of PM on the Y-Balance Test tab
+     */
     @FXML
     Label lblPMDif;
+    /**
+     * The label for the difference of PL on the Y-Balance Test tab
+     */
     @FXML
     Label lblPLDif;
+    /**
+     * The label for the composite score of the left on the Y-Balance Test tab
+     */
     @FXML
     Label lblCompositeLeft;
+    /**
+     * The label for the composite score of the right on the Y-Balance Test tab
+     */
     @FXML
     Label lblCompositeRight;
 
-
+    //**************************************************
+    // Not sure if these are used? I think they might be old?
+    //**************************************************
     @FXML
     TextField txtName;
     @FXML
@@ -216,295 +410,717 @@ public class BowlerController implements Initializable {
     Button buttonSubmit;
 
 
-    /**
-     * FMS Score Sheet Injected Objects
-     */
+    //**************************************************
+    // FMS Score Sheet Injected Objects
+    //**************************************************
     @FXML
     VBox vbFMSRoot;
-    @FXML
-    ScrollPane spDataSheet;
+    /**
+     * The toggle group for Hurdle Step for the Right on the FMS Score Sheet tab. It has the options of 0-3
+     */
     @FXML
     ToggleGroup tgHurdleStepR;
+    /**
+     * The toggle group for Hurdle Step for the Left on the FMS Score Sheet tab. It has the options of 0-3
+     */
     @FXML
     ToggleGroup tgHurdleStepL;
+    /**
+     * The toggle group for Deep Squat on the FMS Score Sheet tab. It has the options of 0-3
+     */
     @FXML
-
     ToggleGroup tgDeepSquat;
+    /**
+     * The toggle group for Inline Lounge for the Left on the FMS Score Sheet tab. It has the options of 0-3
+     */
     @FXML
     ToggleGroup tgInlineLoungeL;
+    /**
+     * The toggle group for Inline Lounge for the Right on the FMS Score Sheet tab. It has the options of 0-3
+     */
     @FXML
     ToggleGroup tgInlineLoungeR;
+    /**
+     * The toggle group for Shoulder Mobility for the Left on the FMS Score Sheet tab. It has the options of 0-3
+     */
     @FXML
     ToggleGroup tgShoulderMobilityL;
+    /**
+     * The toggle group for Shoulder Mobility for the Right on the FMS Score Sheet tab. It has the options of 0-3
+     */
     @FXML
     ToggleGroup tgShoulderMobilityR;
+    /**
+     * The toggle group for Active Straight-Leg Raise for the Left on the FMS Score Sheet tab. It has the options of 0-3
+     */
     @FXML
     ToggleGroup tgActiveStraightL;
+    /**
+     * The toggle group for Active Straight-Leg Raise for the Right on the FMS Score Sheet tab. It has the options of 0-3
+     */
     @FXML
     ToggleGroup tgActiveStraightR;
+    /**
+     * The toggle group for trunk stability push-up on the FMS Score Sheet tab. It has the options of - or +
+     */
     @FXML
     ToggleGroup tgTrunkStability;
+    /**
+     * The toggle group for rotary stability for the left on the FMS Score Sheet tab. It has the options of 0-3
+     */
     @FXML
     ToggleGroup tgRotaryStabilityL;
+    /**
+     * The toggle group for rotary stability for the right on the FMS Score Sheet tab. It has the options of 0-3
+     */
     @FXML
     ToggleGroup tgRotaryStabilityR;
+    /**
+     * The toggle group for Shoulder Clearing for the Left on the FMS Score Sheet tab. It has the options of - or +
+     */
     @FXML
     ToggleGroup tgShoulderClearingL;
+    /**
+     * The toggle group for Shoulder Clearing for the Right on the FMS Score Sheet tab. It has the options of - or +
+     */
     @FXML
     ToggleGroup tgShoulderClearingR;
+    /**
+     * The toggle group for the extension clearing test on the FMS Score Sheet tab. It has the options of - or +
+     */
     @FXML
     ToggleGroup tgExtensionClearing;
+    /**
+     * The toggle group for the flexion clearing test on the FMS Score Sheet tab. It has the options of - or +
+     */
     @FXML
     ToggleGroup tgFlexionClearing;
 
+    /**
+     * The text field showing the score for the trunk stability push up on the FMS Score Sheet tab
+     */
     @FXML
     TextFieldRequired txfTrunkStability;
+    /**
+     * The text field showing the score for the inline lounge on the FMS Score Sheet tab
+     */
     @FXML
     TextFieldRequired txfInlineLounge;
+    /**
+     * The text field showing the score for the shoulder mobility on the FMS Score Sheet tab
+     */
     @FXML
     TextFieldRequired txfShoulderMobility;
+    /**
+     * The text field showing the score for the active straight-leg raise on the FMS Score Sheet tab
+     */
     @FXML
     TextFieldRequired txfActiveStraight;
+    /**
+     * The text field showing the score for the rotary stability on the FMS Score Sheet tab
+     */
     @FXML
     TextFieldRequired txfRotaryStability;
+    /**
+     * The text field showing the score for the hurdle step on the FMS Score Sheet tab
+     */
     @FXML
     TextFieldRequired txfHurdleStep;
+    /**
+     * The text field showing the score for the deep squat on the FMS Score Sheet tab
+     */
     @FXML
     TextFieldRequired txfDeepSquat;
+    /**
+     * The text field showing the total FMS score on the FMS Score Sheet tab
+     */
     @FXML
     TextField txfFMSTotal;
 
+    /**
+     * The text area for comments on deep squat on the FMS score on the FMS Score Sheet tab
+     */
     @FXML
     TextArea txfDeepSquatComment;
+    /**
+     * The text area for comments on hurdle step on the FMS score on the FMS Score Sheet tab
+     */
     @FXML
     TextArea txfHurdleStepComment;
+    /**
+     * The text area for comments on inline lounge on the FMS score on the FMS Score Sheet tab
+     */
     @FXML
     TextArea txfInlineLoungeComment;
-
+    /**
+     * The text area for comments on shoulder mobility on the FMS score on the FMS Score Sheet tab
+     */
     @FXML
     TextArea txfShoulderMobilityComment;
+    /**
+     * The text area for comments on shoulder clearing on the FMS score on the FMS Score Sheet tab
+     */
     @FXML
     TextArea txfShoulderClearingComment;
+    /**
+     * The text area for comments on active straight-leg raise on the FMS score on the FMS Score Sheet tab
+     */
     @FXML
     TextArea txfLegRaiseComment;
-
+    /**
+     * The text area for comments on trunk stability push-up on the FMS score on the FMS Score Sheet tab
+     */
     @FXML
     TextArea txfTrunkStabilityComment;
+    /**
+     * The text area for comments on the extension clearing test on the FMS score on the FMS Score Sheet tab
+     */
     @FXML
     TextArea txfExtensionClearingComment;
+    /**
+     * The text area for comments on rotary stability on the FMS score on the FMS Score Sheet tab
+     */
     @FXML
     TextArea txfRotaryComment;
+    /**
+     * The text area for comments on the flexion clearing test on the FMS score on the FMS Score Sheet tab
+     */
     @FXML
     TextArea txfFlexionComment;
 
-    /**
-     * Fitness Testing Data Sheet Injected Objects
-     */
+    
+    
+    //**************************************************
+    // Fitness Testing Data Sheet Injected Objects
+    //**************************************************
     @FXML
     VBox vbFitnessTestingRoot;
+    /**
+     * The scroll pane for the Fitness Testing Data Sheet tab
+     */
+    @FXML
+    ScrollPane spDataSheet;
+    /**
+     * The Anthropometrics drop down area on the Fitness Testing Data Sheet tab
+     */
     @FXML
     VBox vbAnthroRoot;
+    /**
+     * The Skinfold drop down area on the Fitness Testing Data Sheet tab
+     */
     @FXML
     VBox vbSkinfoldRoot;
+    /**
+     * The Sit & Reach drop down area on the Fitness Testing Data Sheet tab
+     */
     @FXML
     VBox vbSitReachRoot;
+    /**
+     * The Muscle Strength & Endurance & Power drop down area on the Fitness Testing Data Sheet tab
+     */
     @FXML
     VBox vbMSEPRoot;
+    /**
+     * The Estemated Aerobic Activity drop down area on the Fitness Testing Data Sheet tab
+     */
     @FXML
     VBox vbEstAerActRoot;
+    /**
+     * The textfield for age on the Fitness Testing Data Sheet tab
+     */
     @FXML
     TextFieldRequired txfAge2;
+    /**
+     * The textfield for height in centimeters on the Fitness Testing Data Sheet tab
+     */
     @FXML
     TextFieldRequired txfHeight2;
+    /**
+     * The textfield for body weight in kilograms on the Fitness Testing Data Sheet tab
+     */
     @FXML
     TextFieldRequired txfWeight2;
+    /**
+     * The toggle group for gender on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleGroup gender2;
+    /**
+     * The button for male on the Fitness Testing Data Sheet tab
+     */
     @FXML
     RadioButton radMale2;
+    /**
+     * The button for female on the Fitness Testing Data Sheet tab
+     */
     @FXML
     RadioButton radFemale2;
-    @FXML
-    RadioButton radDominanceRight;
-    @FXML
-    RadioButton radDominanceLeft;
-    @FXML
-    RadioButton radDominance2Right;
-    @FXML
-    RadioButton radDominance2Left;
+    /**
+     * The textfield for the resting heart rate in beats/minute (bmp) on the Fitness Testing Data Sheet tab
+     */
     @FXML
     TextFieldRequired txfRestingHR;
+    /**
+     * The textfield for the resting bp, measured in mmHg, on the Fitness Testing Data Sheet tab. This is the part before the "/"
+     */
     @FXML
     TextFieldRequired txfRestingBPA;
+    /**
+     * The textfield for the resting bp, measured in mmHg, on the Fitness Testing Data Sheet tab. This is the part after the "/"
+     */
     @FXML
     TextFieldRequired txfRestingBPB;
+    /**
+     * The textfield for the BMI, measured in kg/square meter, on the Fitness Testing Data Sheet tab
+     */
     @FXML
     TextField txfBMI;
+    /**
+     * The textfield for the first peak flow trial, measured in liters/minute, on the Fitness Testing Data Sheet tab
+     */
     @FXML
     TextFieldRequired txfPeakFLow1;
+    /**
+     * The textfield for the second peak flow trial, measured in liters/minute, on the Fitness Testing Data Sheet tab
+     */
     @FXML
     TextFieldRequired txfPeakFLow2;
+    
+    //Anthropometrics drop down section
+    /**
+     * The textfield for the waist circumference measured in centimeters on the Fitness Testing Data 
+     * Sheet tab under the anthropometrics drop down section
+     */
     @FXML
     TextFieldRequired txfWCirc;
+    /**
+     * The textfield for the hip circumference measured in centimeters on the Fitness Testing Data 
+     * Sheet tab under the anthropometrics drop down section
+     */
     @FXML
     TextFieldRequired txfHipCirc;
+    /**
+     * The textfield for the mid-thigh circumference measured in centimeters on the Fitness Testing Data 
+     * Sheet tab under the anthropometrics drop down section
+     */
     @FXML
     TextFieldRequired txfMidTCirc;
+    /**
+     * The textfield for the flexed arm circumference measured in centimeters on the Fitness Testing Data 
+     * Sheet tab under the anthropometrics drop down section
+     */
     @FXML
     TextFieldRequired txfFlexArmCirc;
+    /**
+     * The textfield for the first anterior thigh measured in millimeters on the Fitness Testing Data 
+     * Sheet tab under the anthropometrics drop down section
+     */
     @FXML
     TextFieldRequired txfAntThigh1;
+    /**
+     * The textfield for the second anterior thigh measured in millimeters on the Fitness Testing Data 
+     * Sheet tab under the anthropometrics drop down section
+     */
     @FXML
     TextFieldRequired txfAntThigh2;
+    /**
+     * The textfield for the average anterior thigh measurement in millimeters on the Fitness Testing Data 
+     * Sheet tab under the anthropometrics drop down section
+     */
     @FXML
     TextField txfAntThighAVG;
+    /**
+     * The textfield for the hamstrings CSA on the Fitness Testing Data Sheet tab under the anthropometrics drop down section
+     */
     @FXML
     TextField txfHamCSA;
+    /**
+     * The textfield for the quadriceps CSA on the Fitness Testing Data Sheet tab under the anthropometrics drop down section
+     */
     @FXML
     TextField txfQuadCSA;
+    /**
+     * The textfield for the total thigh CSA on the Fitness Testing Data Sheet tab under the anthropometrics drop down section
+     */
     @FXML
     TextField txfTotalCSA;
+    
+    //Skinfold Dropdown Section
+    /**
+     * The textfield for the tricep on the Fitness Testing Data Sheet tab under the skinfold drop down section
+     */
+    @FXML
+    TextFieldRequired txfTricep;
+    /**
+     * The textfield for the subscapular on the Fitness Testing Data Sheet tab under the skinfold drop down section
+     */
+    @FXML
+    TextFieldRequired txfSubscapular;
+    /**
+     * The textfield for the abdominal on the Fitness Testing Data Sheet tab under the skinfold drop down section
+     */
+    @FXML
+    TextFieldRequired txfAbdominal;
+    /**
+     * The textfield for the suprailiac on the Fitness Testing Data Sheet tab under the skinfold drop down section
+     */
+    @FXML
+    TextFieldRequired txfSuprailiac;
+    /**
+     * The textfield for the thigh on the Fitness Testing Data Sheet tab under the skinfold drop down section
+     */
+    @FXML
+    TextFieldRequired txfThigh;
+    /**
+     * The textfield for the pectoral on the Fitness Testing Data Sheet tab under the skinfold drop down section
+     */
+    @FXML
+    TextFieldRequired txfPectoral;
+    /**
+     * The textfield for the wallsit on the Fitness Testing Data Sheet tab under the skinfold drop down section
+     */
+    @FXML
+    TextFieldRequired txfWallsit;
+    
+    //Sit & Reach
+    /**
+     * The textfield for the start distance on the Fitness Testing Data Sheet tab under the sit & reach drop down section
+     */
     @FXML
     TextFieldRequired txfStartDist;
+    /**
+     * The textfield for the end distance for the first trial on the Fitness Testing Data Sheet tab under the sit & reach drop down section
+     */
     @FXML
     TextFieldRequired txfEndDist1;
+    /**
+     * The textfield for the end distance for the second trial on the Fitness Testing Data Sheet tab under the sit & reach drop down section
+     */
     @FXML
     TextFieldRequired txfEndDist2;
+    /**
+     * The textfield for the end distance for the third trial on the Fitness Testing Data Sheet tab under the sit & reach drop down section
+     */
     @FXML
     TextFieldRequired txfEndDist3;
+    /**
+     * The textfield for the best difference between start and one of the end distances on the Fitness Testing Data 
+     * Sheet tab under the sit & reach drop down section
+     */
     @FXML
     TextField txfFinalDist;
+    
+    //Muscle Strength & Endurance & Power drop down section
+    /**
+     * The textfield for the first trial of hand grip for the right hand on the Fitness Testing Data 
+     * Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfHGR1;
+    /**
+     * The textfield for the second trial of hand grip for the right hand on the Fitness Testing Data 
+     * Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfHGR2;
+    /**
+     * The textfield for the third trial of hand grip for the right hand on the Fitness Testing Data 
+     * Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfHGR3;
+    /**
+     * The textfield for the first trial of hand grip for the left hand on the Fitness Testing Data 
+     * Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfHGL1;
+    /**
+     * The textfield for the second trial of hand grip for the left hand on the Fitness Testing Data 
+     * Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfHGL2;
+    /**
+     * The textfield for the third trial of hand grip for the left hand on the Fitness Testing Data 
+     * Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfHGL3;
+    /**
+     * The button for right hand/leg dominance on the Fitness Testing Data Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
+    @FXML
+    RadioButton radDominance2Right;
+    /**
+     * The button for left hand/leg dominance on the Fitness Testing Data Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
+    @FXML
+    RadioButton radDominance2Left;
+    /**
+     * The textfield for the prone plank time on the Fitness Testing Data Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfProneTime;
+    /**
+     * The textfield for the first trial of knee extension isometric force output for the right, measured in kilograms, on the Fitness 
+     * Testing Data Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfKneeExtForceR1;
+    /**
+     * The textfield for the second trial of knee extension isometric force output for the right, measured in kilograms, on the Fitness 
+     * Testing Data Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfKneeExtForceR2;
+    /**
+     * The textfield for the first trial of knee extension isometric force output for the left, measured in kilograms, on the Fitness 
+     * Testing Data Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfKneeExtForceL1;
+    /**
+     * The textfield for the second trial of knee extension isometric force output for the left, measured in kilograms, on the Fitness 
+     * Testing Data Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfKneeExtForceL2;
+    /**
+     * The textfield for the first trial of vertical jump height, measured in centimeters, on the Fitness 
+     * Testing Data Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfJH1;
+    /**
+     * The textfield for the second trial of vertical jump height, measured in centimeters, on the Fitness 
+     * Testing Data Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfJH2;
+    /**
+     * The textfield for the first trial of medicine ball chest pass, measured in meters, on the Fitness 
+     * Testing Data Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfMedPass1;
+    /**
+     * The textfield for the second trial of medicine ball chest pass, measured in meters, on the Fitness 
+     * Testing Data Sheet tab under the Muscle Strength & Endurance & Power drop down section
+     */
     @FXML
     TextFieldRequired txfMedPass2;
+    
+    //Estimated Aeorobic Capacity
+    /**
+     * The textfield for YMCA Step Test post 15s HR on the Fitness Testing Data Sheet tab under the Estimated Aerobic Capacity drop down section
+     */
     @FXML
     TextFieldRequired txfPostHR;
     @FXML
     TextField txfVO2Max;
     @FXML
     TextField txfPostVO2Max;
+    /**
+     * The textfield for YMCA Step Test age adjusted rating on the Fitness Testing Data Sheet tab under the Estimated Aerobic Capacity drop down section
+     */
     @FXML
     TextField txfAgeAdj;
+    /**
+     * The textfield for Rockport walk test HR after 1 mile on the Fitness Testing Data Sheet tab under the Estimated Aerobic Capacity drop down section
+     */
     @FXML
     TextFieldRequired txfRockportHR;
+    /**
+     * The textfield for Rockport walk test walk time on the Fitness Testing Data Sheet tab under the Estimated Aerobic Capacity drop down section
+     */
     @FXML
     TextFieldRequired txfRockportTime;
+    /**
+     * The textfield for Rockport walk test estimated VO2 max on the Fitness Testing Data Sheet tab under the Estimated Aerobic Capacity drop down section
+     */
     @FXML
     TextField txfRockportVO2Max;
+    /**
+     * The textfield for 12-minute walk test distance covered on the Fitness Testing Data Sheet tab under the Estimated Aerobic Capacity drop down section
+     */
     @FXML
     TextFieldRequired txfWalkDistance;
+    /**
+     * The textfield for 12-minute walk test estimated VO2 max on the Fitness Testing Data Sheet tab under the Estimated Aerobic Capacity drop down section
+     */
     @FXML
     TextField txfWalkVO2;
+    /**
+     * Not sure where this text field is used
+     */
     @FXML
     TextFieldRequired txfBicep;
-    @FXML
-    TextFieldRequired txfTricep;
-    @FXML
-    TextFieldRequired txfSubscapular;
-    @FXML
-    TextFieldRequired txfAbdominal;
-    @FXML
-    TextFieldRequired txfSuprailiac;
-    @FXML
-    TextFieldRequired txfThigh;
-    @FXML
-    TextFieldRequired txfPectoral;
-    @FXML
-    TextFieldRequired txfWallsit;
+    
 
+    //**************************************************
+    // Medical Survey
+    //**************************************************
     /**
-     * Medical Survey
+     * The toggle group for question 1 on the Fitness Testing Data Sheet tab
      */
     @FXML
     ToggleGroup tgParQuest1;
+    /**
+     * The yes toggle button for question 1 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ1Yes;
+    /**
+     * The no toggle button for question 1 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ1No;
+    /**
+     * The toggle group for question 2 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleGroup tgParQuest2;
+    /**
+     * The yes toggle button for question 2 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ2Yes;
+    /**
+     * The no toggle button for question 1 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ2No;
+    /**
+     * The toggle group for question 3 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleGroup tgParQuest3;
+    /**
+     * The yes toggle button for question 3 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ3Yes;
+    /**
+     * The no toggle button for question 3 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ3No;
+    /**
+     * The toggle group for question 4 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleGroup tgParQuest4;
+    /**
+     * The yes toggle button for question 4 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ4Yes;
+    /**
+     * The no toggle button for question 4 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ4No;
+    /**
+     * The toggle group for question 5 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleGroup tgParQ5;
+    /**
+     * The yes toggle button for question 5 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ5Yes;
+    /**
+     * The no toggle button for question 5 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ5No;
+    /**
+     * The toggle group for question 6 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleGroup tgParQuest6;
+    /**
+     * The yes toggle button for question 6 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ6Yes;
+    /**
+     * The no toggle button for question 6 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     ToggleButton tbParQ6No;
+    /**
+     * The text area for question 7 on the Fitness Testing Data Sheet tab
+     */
     @FXML
     TextArea txtParQuest7;
+    /**
+     * The scroll pane that the Fitness Testing Data Sheet tab items are on
+     */
     @FXML
     ScrollPane scrollPane;
-    @FXML
-    Button btnFinish;
-    //This is used to change the Tabs in the gui.
-
+    
+    //Other variables
+    /**
+     * Used to change the tabs in the GUI
+     */
     SingleSelectionModel<Tab> selectionModel;
+    /**
+     * The database index
+     */
     String DBindex;
+    /**
+     * The number of tabs
+     */
     private int NUM_TAB = 5;
-    private Stage stage;                //The window.
+    /**
+     * The window
+     */
+    private Stage stage;
+    /**
+     * Array to hold boolean values for errors
+     */
     private boolean[] errors;
+    /**
+     * The date format used
+     */
     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+    /**
+     * The date
+     */
     Date date = new Date();
-
+    /**
+     * Unknown what this variable is for as it only shows up here in this document
+     */
     private boolean successful;
+    /**
+     * Form object for the FitnessTest.
+     * This is the only form object that is a class variable because the data is not being validated on input
+     */
+    private FitnessTest tmp;
+    /**
+     * The previous screen's scene while using the back button.
+     */
+    private Scene preScene;
+    /**
+     * The previous screen's minimum height.
+     */
+    private double preMinHeight;
+    /**
+     * The previous screen's minimum width.
+     */
+    private double preMinWidth;
+    /**
+     * The previous screen's title.
+     */
+    private String preTitle;
 
-    private FitnessTest tmp;   //Only this form object is a class variable because
-    //data is not being validated on input.
-
-    private Scene preScene;             //The previous screens data while using the back button.
-    private double preMinHeight;        //The previous minimum screens height.
-    private double preMinWidth;         //The previous minimum screens width.
-    private String preTitle;            //The previous screens title.
-
-    private boolean viewInfo = false;   //True when the user is viewing/editing the reports from the search option. False otherwise.
+    /**
+     * True when the user is viewing/editing the reports from the search option. False otherwise.
+     */
+    private boolean viewInfo = false;
     /*
     ChangeListener<String> textFieldListener = (observable, oldValue, newValue) -> {
         
