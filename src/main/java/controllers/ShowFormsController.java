@@ -94,6 +94,16 @@ public class ShowFormsController implements Initializable {
     private void mbti(ActionEvent event) {
         handle("./src/main/DocumentsPDF/MBTI_Personality_Type_Test.pdf");
     }
+    
+    @FXML
+    private void ibssn(ActionEvent event) {
+        handle("./src/main/DocumentsPDF/IBSSN_International_Bowling_Skill_Score_Number.xlsx");
+    }
+    
+    @FXML
+    private void ybalance(ActionEvent event) {
+        handle("./src/main/DocumentsPDF/Y_Balance_Test.pdf");
+    }
 
     /**
      * Adds the previous scene into the object to allow the user to go back to it with the back button.

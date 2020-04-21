@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.net.URL?>
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="600.0" style="-fx-background-color: #455660;"
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="600.0" style="-fx-background-color: #455660;"
             styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="main.java.controllers.ShowFormsController">
     <stylesheets>
@@ -15,7 +15,7 @@
     </stylesheets>
     <children>
         <BorderPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                    minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0"
+                    minWidth="-Infinity" prefHeight="780.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0"
                     AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <bottom>
                 <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
@@ -29,10 +29,35 @@
                                 <AnchorPane>
                                     <children>
                                         <GridPane alignment="CENTER" layoutX="14.0" layoutY="13.0" minWidth="640.0"
-                                                  prefHeight="370.0" prefWidth="640.0" AnchorPane.bottomAnchor="12.0"
+                                                  prefHeight="470.0" prefWidth="640.0" AnchorPane.bottomAnchor="12.0"
                                                   AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.0"
                                                   AnchorPane.topAnchor="13.0">
                                             <children>
+                                                
+                                                <Button fx:id="btnMBTI" mnemonicParsing="false" onAction="#mbti">
+                                                    <graphic>
+                                                        <VBox alignment="CENTER">
+                                                            <children>
+                                                                <ImageView fitHeight="40.0" fitWidth="40.0"
+                                                                           pickOnBounds="true" preserveRatio="true">
+
+                                                                    <VBox.margin>
+                                                                        <Insets left="10.0"/>
+                                                                    </VBox.margin>
+                                                                </ImageView>
+                                                                <Label text="MBTI" textFill="WHITE">
+                                                                    <font>
+                                                                        <Font size="18.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                            <padding>
+                                                                <Insets bottom="15.0"/>
+                                                            </padding>
+                                                        </VBox>
+                                                    </graphic>
+                                                </Button>
+                                                
                                                 <Button fx:id="ACSI" mnemonicParsing="false" onAction="#acsi"
                                                         GridPane.columnIndex="1">
                                                     <graphic>
@@ -56,6 +81,87 @@
                                                         </VBox>
                                                     </graphic>
                                                 </Button>
+                                                
+                                                <Button fx:id="btnIBSSN" mnemonicParsing="false"
+                                                        onAction="#ibssn" GridPane.columnIndex="0"
+                                                        GridPane.rowIndex="1">
+                                                    <graphic>
+                                                        <VBox alignment="CENTER">
+                                                            <children>
+                                                                <ImageView fitHeight="40.0" fitWidth="40.0"
+                                                                           pickOnBounds="true" preserveRatio="true">
+
+                                                                    <VBox.margin>
+                                                                        <Insets left="10.0"/>
+                                                                    </VBox.margin>
+                                                                </ImageView>
+                                                                <Label text="IBSSN" textFill="WHITE">
+                                                                    <font>
+                                                                        <Font size="18.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                            <padding>
+                                                                <Insets bottom="15.0"/>
+                                                            </padding>
+                                                        </VBox>
+                                                    </graphic>
+                                                </Button>
+                                                
+                                                
+                                                <Button fx:id="btnYbalance" mnemonicParsing="false"
+                                                        onAction="#ybalance" GridPane.columnIndex="1"
+                                                        GridPane.rowIndex="1">
+                                                    <graphic>
+                                                        <VBox alignment="CENTER">
+                                                            <children>
+                                                                <ImageView fitHeight="40.0" fitWidth="40.0"
+                                                                           pickOnBounds="true" preserveRatio="true">
+
+                                                                    <VBox.margin>
+                                                                        <Insets left="10.0"/>
+                                                                    </VBox.margin>
+                                                                </ImageView>
+                                                                <Label text="Y-Balance" textFill="WHITE">
+                                                                    <font>
+                                                                        <Font size="18.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                            <padding>
+                                                                <Insets bottom="15.0"/>
+                                                            </padding>
+                                                        </VBox>
+                                                    </graphic>
+                                                </Button>
+                                                
+                                                <Button fx:id="btnBowlingQuestion" mnemonicParsing="false"
+                                                        onAction="#bowlingQuestion" GridPane.columnIndex="0"
+                                                        GridPane.rowIndex="2">
+                                                    <graphic>
+                                                        <VBox alignment="CENTER">
+                                                            <children>
+                                                                <ImageView fitHeight="40.0" fitWidth="40.0"
+                                                                           pickOnBounds="true" preserveRatio="true">
+
+                                                                    <VBox.margin>
+                                                                        <Insets left="10.0"/>
+                                                                    </VBox.margin>
+                                                                </ImageView>
+                                                                <Label text="Bowling IQ Questions" textFill="WHITE">
+                                                                    <font>
+                                                                        <Font size="18.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                            <padding>
+                                                                <Insets bottom="15.0"/>
+                                                            </padding>
+                                                        </VBox>
+                                                    </graphic>
+                                                </Button>
+                                                
+                                                
                                                 <Button fx:id="btnBowlerAssessment" mnemonicParsing="false"
                                                         onAction="#bowlerAssessment" GridPane.columnIndex="1"
                                                         GridPane.rowIndex="2">
@@ -81,54 +187,7 @@
                                                         </VBox>
                                                     </graphic>
                                                 </Button>
-                                                <Button fx:id="btnBowlingQuestion" mnemonicParsing="false"
-                                                        onAction="#bowlingQuestion" GridPane.columnIndex="0"
-                                                        GridPane.rowIndex="2">
-                                                    <graphic>
-                                                        <VBox alignment="CENTER">
-                                                            <children>
-                                                                <ImageView fitHeight="40.0" fitWidth="40.0"
-                                                                           pickOnBounds="true" preserveRatio="true">
-
-                                                                    <VBox.margin>
-                                                                        <Insets left="10.0"/>
-                                                                    </VBox.margin>
-                                                                </ImageView>
-                                                                <Label text="Bowling IQ \n Questions" textFill="WHITE">
-                                                                    <font>
-                                                                        <Font size="18.0"/>
-                                                                    </font>
-                                                                </Label>
-                                                            </children>
-                                                            <padding>
-                                                                <Insets bottom="15.0"/>
-                                                            </padding>
-                                                        </VBox>
-                                                    </graphic>
-                                                </Button>
-                                                <Button fx:id="btnMBTI" mnemonicParsing="false" onAction="#mbti">
-                                                    <graphic>
-                                                        <VBox alignment="CENTER">
-                                                            <children>
-                                                                <ImageView fitHeight="40.0" fitWidth="40.0"
-                                                                           pickOnBounds="true" preserveRatio="true">
-
-                                                                    <VBox.margin>
-                                                                        <Insets left="10.0"/>
-                                                                    </VBox.margin>
-                                                                </ImageView>
-                                                                <Label text="MBTI" textFill="WHITE">
-                                                                    <font>
-                                                                        <Font size="18.0"/>
-                                                                    </font>
-                                                                </Label>
-                                                            </children>
-                                                            <padding>
-                                                                <Insets bottom="15.0"/>
-                                                            </padding>
-                                                        </VBox>
-                                                    </graphic>
-                                                </Button>
+                                            
                                             </children>
                                             <columnConstraints>
                                                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0"
@@ -148,6 +207,7 @@
                                 </AnchorPane>
                                 <VBox alignment="CENTER">
                                     <HBox alignment="CENTER">
+                                        
                                         <Button fx:id="btnBack" mnemonicParsing="false" onAction="#goBack">
                                             <graphic>
                                                 <VBox alignment="CENTER">
@@ -170,6 +230,7 @@
                                                 </VBox>
                                             </graphic>
                                         </Button>
+                                    
                                     </HBox>
                                 </VBox>
                             </children>

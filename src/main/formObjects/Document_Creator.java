@@ -11,7 +11,11 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+
+import org.apache.pdfbox.*;
+import be.quodlibet.boxable.*;
 //import main.java.Report;
 
 public class Document_Creator {
@@ -20,7 +24,7 @@ public class Document_Creator {
 
         //Creating PDF document object 
         PDDocument document = new PDDocument();
-
+                
         //Adding page
         PDPage page1 = new PDPage();
         document.addPage(page1);
@@ -811,18 +815,13 @@ public class Document_Creator {
         table.draw();
 
         contentStream.close();
+        
         //Saving the document
         String pdfName = "bowler-" + split[1] + ".pdf";
-        document.save(pdfName);
-        //File file = new File("Output Files"+"\\"+pdfName);
-        //file.createNewFile();
-        // document.save("C:/Users/Oleander/Desktop/"+pdfName);
+        document.save(new File(System.getProperty("user.dir")+ "/Output Files/" + pdfName));
         System.out.println("PDF created");
 
         //Closing the document  
         document.close();
     }
 }
-
-
-
