@@ -25,7 +25,6 @@ public class Report {
      * Array holding all ID numbers of bowlers to generate report on
      */
     ArrayList<Integer> ids;
-    
     /**
      * Array to hold all FMS objects of the bowlers
      */
@@ -56,7 +55,7 @@ public class Report {
      * Instantiates the arraylists to store all the objects to be printed.
      */
     public Report() {
-        ids = new ArrayList<>();
+    	ids = new ArrayList<>();
         fms = new ArrayList<>();
         athlete = new ArrayList<>();
         yBalance = new ArrayList<>();
@@ -86,10 +85,7 @@ public class Report {
      */
     public void toDocs() throws IOException {
         System.out.println("Saving Documents");
-
         HTML.mkdir();
-        System.out.println("Saving Documents");
-
         Document_Creator dc = new Document_Creator();
 
         //generate a pdf for each id number in the ids list
@@ -99,14 +95,20 @@ public class Report {
             Athlete athOut = athlete.get(i);
             FitnessTest ftdOut = fitnessData.get(i);
             YBalance ybOut = yBalance.get(i);
-            ParQ parqOut = parQ.get(i);
-            String athString = athOut.toPDF();
+            ParQ parqOut = parQ.get(i);            
+            String athString = athOut.toPDF();            
             String fmsString = fmsOut.toPDF();
             String yBString = ybOut.toPDF();
             String ftdString = ftdOut.toPDF();
             String parqString = parqOut.toPDF();
             String allPDF = athString + "|" + fmsString + "|" + yBString + "|" + ftdString + "|" + parqString;
-            dc.createPDF(allPDF);
+            
+            if(ids.size() > 1) {
+            	dc.createPDF(allPDF, true);
+            }
+            else {
+            	dc.createPDF(allPDF, false);
+            }
             
 
           /*  html += athOut.toHTML();
@@ -232,6 +234,7 @@ public class Report {
         try {
             while (rs.next()) {
                 String name = rs.getString("name");
+                String id = rs.getString("id");
                 String date = rs.getString("date");
 
                 String address = rs.getString("address");

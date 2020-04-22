@@ -128,7 +128,7 @@ public class SearchController implements Initializable {
                  */
                 @Override
                 public Void call() throws Exception {
-                    progressIndicator.setVisible(false);//FUCK YES!!!!
+                    progressIndicator.setVisible(false);
                     System.out.println("Creating Objets to save");
                     p.createObjects();
                     p.toDocs();
@@ -159,7 +159,6 @@ public class SearchController implements Initializable {
             {
                 //this.rs=databaseQuery.getValue();
 
-                System.out.println("It's Alive!!!");
                 progressIndicator.progressProperty().unbind();
                 progressIndicator.setVisible(false);
                 progressIndicator.setProgress(1);
@@ -198,7 +197,7 @@ public class SearchController implements Initializable {
                  */
                 @Override
                 public Void call() throws Exception {
-                    progressIndicator.setVisible(false);//FUCK YES!!!!
+                    progressIndicator.setVisible(false);
                     System.out.println("Creating Objets to save");
                     p.createObjects();
                     p.toDocs();
@@ -278,7 +277,6 @@ public class SearchController implements Initializable {
              */
             @Override
             public Void call() throws Exception {
-                System.out.print("fasldfkj;asldfkj");
                 //BEHOLD
                 progressIndicator.setVisible(true);//FUCK YES!!!!
 

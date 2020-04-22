@@ -19,9 +19,9 @@ import be.quodlibet.boxable.*;
 //import main.java.Report;
 
 public class Document_Creator {
-    public void createPDF(String string) throws IOException {
+    public void createPDF(String string, boolean multipleDocs) throws IOException {
         String[] split = string.split("\\|");
-
+       
         //Creating PDF document object 
         PDDocument document = new PDDocument();
                 
@@ -32,7 +32,7 @@ public class Document_Creator {
         //Adding text
         PDPageContentStream contentStream = new PDPageContentStream(document, page1);
         contentStream.beginText();
-
+        
         //Setting up table
         float tableWidth = page1.getMediaBox().getWidth() - (2 * 50);
         float tableHeight2 = page1.getMediaBox().getHeight() - (2 * 50);
@@ -42,6 +42,7 @@ public class Document_Creator {
         // Row<PDPage> headerRow = table.createRow(50);
         Row<PDPage> row = table.createRow(50);
         Cell<PDPage> cell = row.createCell(100, "Lucky Lanes");
+        
         //Cell<PDPage> cell = headerRow.createCell(100, "Lucky Lanes");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
         cell.setFontSize(24);
@@ -809,19 +810,40 @@ public class Document_Creator {
         row = table.createRow(20);
         cell = row.createCell(70, "Question 7 Answer");
         cell.setFontSize(12);
-//        cell = row.createCell(30, split[143]);
-        //       cell.setFontSize(12);
+        cell = row.createCell(30, split[143]);
+        cell.setFontSize(12);
 
         table.draw();
 
+        contentStream.endText();
         contentStream.close();
         
         //Saving the document
-        String pdfName = "bowler-" + split[1] + ".pdf";
-        document.save(new File(System.getProperty("user.dir")+ "/Output Files/" + pdfName));
+        String pdfName = System.getProperty("user.dir") + "/Output Files/" + split[1] + "_Bowler.pdf";
+        document.save(new File(pdfName));
+        
+        if(!multipleDocs) {
+        	handle(pdfName);
+        }
+
         System.out.println("PDF created");
 
         //Closing the document  
         document.close();
+    }
+    
+    /**
+     * @param event
+     */
+    //open up forms. Takes file path to form
+    public void handle(String fileName) {
+        Desktop desktop = Desktop.getDesktop();
+        File file = new File(fileName);
+        try {
+            desktop.open(file);
+            System.out.println(fileName);
+        } catch (IOException ex) {
+            System.out.println("failed");
+        }
     }
 }

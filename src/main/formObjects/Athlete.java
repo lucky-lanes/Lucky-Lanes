@@ -53,7 +53,8 @@ public class Athlete {
                 + rowStart + "Hand Dominance" + rowMid + this.handDominance + rowEnd
                 + rowStart + "Leg Dominance" + rowMid + this.legDominance + rowEnd
                 + rowStart + "Primary Sport" + rowMid + this.primarySport + rowEnd
-                + rowStart + "Primary Position" + rowMid + this.primaryPosition + rowEnd + "</table>";
+                + rowStart + "Primary Position" + rowMid + this.primaryPosition + rowEnd  
+                	+ "</table>";
         return html;
     }
 

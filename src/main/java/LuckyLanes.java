@@ -12,10 +12,13 @@ import javafx.stage.StageStyle;
 import main.java.controllers.AdminController;
 import main.java.controllers.LoginController;
 
+import java.awt.Color;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 /**
  * This is the main class to start the application.
@@ -174,8 +177,8 @@ public class LuckyLanes extends Application {
      *
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Database.createDatabase("~/LuckyLanes");
+    public static void main(String[] args) {        
+    	Database.createDatabase("~/LuckyLanes");
         launch(args);
     }
 
