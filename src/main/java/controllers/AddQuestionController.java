@@ -107,6 +107,12 @@ public class AddQuestionController implements Initializable {
     @FXML
     Button Submit;
 
+    /**
+     * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -168,6 +174,11 @@ public class AddQuestionController implements Initializable {
         }
     }
 
+    /**
+     * Adds the previous scene into the object to allow the user to go back to it with the back button.
+     *
+     * @param pre The previous scene.
+     */
     @FXML
     protected void setPreScene(Scene pre) {
         preScene = pre;
