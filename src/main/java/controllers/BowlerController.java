@@ -1172,9 +1172,11 @@ public class BowlerController implements Initializable {
     }
 
     /*
-     *  Initializes all values from existing record
-     *  Designed to create a new record for an existing athlete
-     *  @Author JacobMatuszak
+     * Initializes all values from existing record
+     * Designed to create a new record for an existing athlete
+     * 
+     * @param id ID of the bowler 
+     * @Author JacobMatuszak
      */
     public void setFromRecord(String id) {
         Database.connect();
@@ -1427,11 +1429,18 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * Initializes all the required fields for the demographics tabs. It sets all the regex expressions for the textfields to avoid invalid
-     * input.
+     * Initializes all the required fields for the demographics tab.
+     * It sets all the regex expressions for the textfields to avoid invalid input.
      */
     private void initializeDemographics() {
-        ObservableList<String> options = FXCollections.observableArrayList("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Conneticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Indiana", "Iowa", "Kansas", "Kentucky", "Lousiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississipii", "Missouri", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennesse", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming");
+        ObservableList<String> options = FXCollections.observableArrayList("Alabama", "Alaska", "Arizona", "Arkansas", "California", 
+                                                      "Colorado", "Conneticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", 
+                                                      "Indiana", "Iowa", "Kansas", "Kentucky", "Lousiana", "Maine", "Maryland", 
+                                                      "Massachusetts", "Michigan", "Minnesota", "Mississipii", "Missouri", "Nebraska", 
+                                                      "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", 
+                                                      "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", 
+                                                      "South Carolina", "South Dakota", "Tennesse", "Texas", "Utah", "Vermont", "Virginia", 
+                                                      "Washington", "West Virginia", "Wisconsin", "Wyoming");
         cbState.getItems().setAll(options);
 
         //TextField Required 
@@ -1463,7 +1472,8 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * Initializes regex expressions and all the required textfields are set to true.
+     * Initializes all the required fields for the Y-Balance Test tab.
+     * It sets all the regex expressions for the textfields to avoid invalid input.
      */
     private void initializeYBalance() {
         //Initialize all YBalanace textfield boxes to be required and to validate to only digits.
@@ -1475,7 +1485,8 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * Initializes regex expressions and all the required textfields are set to true.
+     * Initializes all the required fields for the FMS Score Sheet tab.
+     * It sets all the regex expressions for the textfields to avoid invalid input.
      */
     private void initializeFMS() {
         //Initialize all YBalanace textfield boxes to be required and to validate to only digits.
@@ -1487,6 +1498,9 @@ public class BowlerController implements Initializable {
     }
 
     /**
+     * Initializes all the required fields for the Fitness Testing Data Sheet tab.
+     * It sets all the regex expressions for the textfields to avoid invalid input.
+     *
      * @author Joshua Bolstad
      */
     private void initializeFitnessData() {
@@ -1574,6 +1588,7 @@ public class BowlerController implements Initializable {
 
     /**
      * Creates event handlers to provide a better user experience: It binds properties like the title of the form to the name of the user.
+     * Binds several text fields, that should hold the same numbers, together so that they are both modified when one is modified.
      */
     public void createListeners() {
         // stage.setOnCloseRequest(null);
@@ -1626,6 +1641,9 @@ public class BowlerController implements Initializable {
         });
     }
 
+    /**
+     * Adds listeners to several text fields to check for a change in value
+     */
     public void addChangeListeners() {
         //For validation upon change of text
         ChangeListener<String> textFieldListener = (ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
@@ -1747,7 +1765,8 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * GUI Handlers
+     * GUI Handler for the Next Tab button. If required information is missing, it will display a prompt to the user stating that
+     * required text is missing.
      */
     @FXML
     private void nextTab(ActionEvent event) {
@@ -1772,7 +1791,8 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * @param event
+     * GUI Handler for the Previous Tab button. If required information is missing, it will display a prompt to the user stating that
+     * required text is missing.
      */
     @FXML
     private void prevTab(ActionEvent event) {
@@ -1849,7 +1869,8 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * @return
+     * Generates and displays an alert if there are required text fields without data in them.
+     * @return True if the cancel button is hit and false if the OK button is hit
      */
     private boolean showMissingInformationAlert() {
         Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -1867,11 +1888,14 @@ public class BowlerController implements Initializable {
         return alert.getResult() == ButtonType.CANCEL;
     }
 
+    // Additional Helper Methods for this controller
     /**
-     * Auxiliary methods
-     */
-    /**
-     * Returns maxValue of three strings
+     * Returns the highest value of three numbers which are held inside of String variables
+     *
+     * @param t1 A number
+     * @param t2 A number
+     * @param t3 A number
+     * @return The String (number) which is the highest
      */
     private String maxValue(String t1, String t2, String t3) {
         try {
@@ -1883,7 +1907,11 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * @Returns Minimum value of two strings
+     * Returns the lowest value of two numbers which are held inside of String variables
+     *
+     * @param t1 A number
+     * @param t2 A number
+     * @return The String (number) which had the lowest value
      */
     private String minValue(String t1, String t2) {
         try {
@@ -1895,7 +1923,11 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * Returns the difference between two strings.
+     * Returns the difference between two numbers which are held in string variables
+     *
+     * @param t1 A number
+     * @param t2 A number
+     * @return A number inside a string variable which is the difference between the two parameters
      */
     private String difValue(String t1, String t2) {
         try {
@@ -1906,7 +1938,13 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * Returns the composite score used in YBalance between two strings.
+     * Calculates the composite score used in YBalance
+     *
+     * @param The length of the right limb in centimeters
+     * @param t1 The anterior, posteromedial, or posterolateral value
+     * @param t2 One of the two values not used in t1
+     * @param t3 The value not used in t1 or t2
+     * @return The composite score
      */
     private String compositeValue(String rightLimbLength, String t1, String t2, String t3) {
         double a, b, c, dblRightLimbLength;
@@ -1927,7 +1965,8 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * Event Handlers that calculate the values when the user enters any information.
+     * Event Handlers that calculate the values when the user enters any information into any of the text fields
+     * on the Y-Balance Test tab
      */
     private void setYBalanceHandlers() {
         //Composite Scores
@@ -2106,7 +2145,10 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     *
+     * Event Handlers that calculate the values when the user enters any information into any of the text fields
+     * on the FMS Score Sheet tab
+     * <p>
+     * Sets the Final Score for each test based upon the input in the Raw Score section
      */
     private void setFMSScoreSheetHandlers() {
         for (TextFieldRequired txf : getAllTextFieldRequired(vbFMSRoot)) {
@@ -2397,8 +2439,10 @@ public class BowlerController implements Initializable {
     }
 
     /**
+     * Gets an array list of all required text fields
+     *
      * @param root
-     * @return
+     * @return An ArrayList of all TextFieldRequired objects
      */
     public static ArrayList<TextFieldRequired> getAllTextFieldRequired(Parent root) {
         ArrayList<TextFieldRequired> nodes = new ArrayList<>();
@@ -2408,8 +2452,9 @@ public class BowlerController implements Initializable {
     }
 
     /**
+     * Adds required textfields to the ArrayList 
      * @param parent
-     * @param nodes
+     * @param nodes An ArrayList of required textfields
      */
     private static void addAllTextFIeldRequired(Parent parent, ArrayList<TextFieldRequired> nodes) {
         for (Node node : parent.getChildrenUnmodifiable()) {
@@ -2422,9 +2467,9 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * Validates allt he textfields in the tab and returns true ifk if the information entered is correct.
+     * Validates the data in all the textfields in the Demographics tab
      *
-     * @return
+     * @return True if the information entered is valid and false otherwise
      */
     private boolean validateDemographics() {
         boolean flag = true;
@@ -2461,9 +2506,9 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * Validates allt he textfields in the tab and returns true ifk if the information entered is correct.
+     * Validates the data in all the textfields in the Y-Balance Test tab
      *
-     * @return
+     * @return True if the information entered is valid and false otherwise
      */
     private boolean validateTabYBalanceTest() {
         boolean flag = true;
@@ -2497,9 +2542,9 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * Validates all the textfields in the tab and returns true if the information entered is correct.
+     * Validates the data in all the textfields in the FMS Score Sheet tab
      *
-     * @return
+     * @return True if the information entered is valid and false otherwise
      */
     private boolean validateFMS() {
         boolean flag = true;
@@ -2524,8 +2569,9 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * @return
-     * @author Joshua Bolstad
+     * Validates the data in all the textfields in the Fitness Testing Data Sheet tab
+     *
+     * @return True if the information entered is valid and false otherwise
      */
     private boolean validateTabFitnessData() {
         Parent root = (Parent) tabFitnessData.getContent();
@@ -2576,8 +2622,9 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * @return
-     * @author Joshua Bolstad
+     * Validates the data in all the fields in the Medical Survey tab
+     *
+     * @return True if the information entered is valid and false otherwise
      */
     private boolean validateTabParQ() {
         boolean flag = true;
@@ -2630,6 +2677,12 @@ public class BowlerController implements Initializable {
         return flag;
     }
 
+    /**
+     * Validates the data in a certain tab
+     *
+     * @param index The tab you want to check with 0 being the Demographics tab, 1 being the Y-Balance test tab, and so on for all tabs
+     * @return True if the information entered on the tab specified by index is valid and false otherwise
+     */
     private boolean validateTabs(int index) {
         if (index == -1) {
             index = selectionModel.getSelectedIndex();
@@ -2674,7 +2727,9 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * @return
+     * Validates the data in all tabs
+     *
+     * @return True if the information entered on all tabs is valid and false otherwise
      */
     private boolean validateTabs() {
 
@@ -2689,7 +2744,9 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * @param e
+     * Ran when the finish button is clicked
+     *
+     * @param 
      */
     @FXML
     private void finishDataCollection(ActionEvent e) {
@@ -2736,6 +2793,7 @@ public class BowlerController implements Initializable {
     }
 
     /**
+     * Ran when the fill in data button is clicked
      * @param e
      */
     @FXML
@@ -3342,7 +3400,7 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * Create Athlete object.
+     * Create Athlete object from the information inside of the Demographics tab
      */
     private void createAthlete() {
         /**
@@ -3392,9 +3450,45 @@ public class BowlerController implements Initializable {
 
         System.out.println("Created Athlete");
     }
+    
+    /**
+     * Create YBalance object from the information inside of the Demographics tab
+     */
+    private void createYBalance() {
+        double rightLimbLength, antR1, antR2, antR3, antL1, antL2, antL3, pmR1, pmR2, pmR3,
+                pmL1, pmL2, pmL3, plR1, plR2, plR3, plL1, plL2, plL3;
+
+        //At this point all the data has been validated by the TextFieldRequired. No need to check for invalid input.
+        rightLimbLength = Double.parseDouble(txfRightLimbLength.getText());
+        antR1 = Double.parseDouble(txfA1Right.getText());
+        antR2 = Double.parseDouble(txfA2Right.getText());
+        antR3 = Double.parseDouble(txfA3Right.getText());
+        antL1 = Double.parseDouble(txfA1Left.getText());
+        antL2 = Double.parseDouble(txfA2Left.getText());
+        antL3 = Double.parseDouble(txfA3Left.getText());
+
+        pmR1 = Double.parseDouble(txfPM1Right.getText());
+        pmR2 = Double.parseDouble(txfPM2Right.getText());
+        pmR3 = Double.parseDouble(txfPM3Right.getText());
+        pmL1 = Double.parseDouble(txfPM1Left.getText());
+        pmL2 = Double.parseDouble(txfPM2Left.getText());
+        pmL3 = Double.parseDouble(txfPM3Left.getText());
+
+        plL1 = Double.parseDouble(txfPL1Left.getText());
+        plL2 = Double.parseDouble(txfPL2Left.getText());
+        plL3 = Double.parseDouble(txfPL3Left.getText());
+        plR1 = Double.parseDouble(txfPL1Right.getText());
+        plR2 = Double.parseDouble(txfPL2Right.getText());
+        plR3 = Double.parseDouble(txfPL3Right.getText());
+
+        YBalance temp = new YBalance(rightLimbLength, antR1, antR2, antR3, antL1, antL2, antL3, pmR1, pmR2, pmR3,
+                pmL1, pmL2, pmL3, plR1, plR2, plR3, plL1, plL2, plL3);
+
+        temp.addRow(viewInfo, DBindex);
+    }
 
     /**
-     *
+     * Create FMS object from the information inside of the FMS Score Sheet tab
      */
     private void createFMS() {
         int deepSquatRaw = Integer.parseInt(((ToggleButton) tgDeepSquat.getSelectedToggle()).getText());
@@ -3431,43 +3525,8 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     *
-     */
-    private void createYBalance() {
-        double rightLimbLength, antR1, antR2, antR3, antL1, antL2, antL3, pmR1, pmR2, pmR3,
-                pmL1, pmL2, pmL3, plR1, plR2, plR3, plL1, plL2, plL3;
-
-        //At this point all the data has been validated by the TextFieldRequired. No need to check for invalid input.
-        rightLimbLength = Double.parseDouble(txfRightLimbLength.getText());
-        antR1 = Double.parseDouble(txfA1Right.getText());
-        antR2 = Double.parseDouble(txfA2Right.getText());
-        antR3 = Double.parseDouble(txfA3Right.getText());
-        antL1 = Double.parseDouble(txfA1Left.getText());
-        antL2 = Double.parseDouble(txfA2Left.getText());
-        antL3 = Double.parseDouble(txfA3Left.getText());
-
-        pmR1 = Double.parseDouble(txfPM1Right.getText());
-        pmR2 = Double.parseDouble(txfPM2Right.getText());
-        pmR3 = Double.parseDouble(txfPM3Right.getText());
-        pmL1 = Double.parseDouble(txfPM1Left.getText());
-        pmL2 = Double.parseDouble(txfPM2Left.getText());
-        pmL3 = Double.parseDouble(txfPM3Left.getText());
-
-        plL1 = Double.parseDouble(txfPL1Left.getText());
-        plL2 = Double.parseDouble(txfPL2Left.getText());
-        plL3 = Double.parseDouble(txfPL3Left.getText());
-        plR1 = Double.parseDouble(txfPL1Right.getText());
-        plR2 = Double.parseDouble(txfPL2Right.getText());
-        plR3 = Double.parseDouble(txfPL3Right.getText());
-
-        YBalance temp = new YBalance(rightLimbLength, antR1, antR2, antR3, antL1, antL2, antL3, pmR1, pmR2, pmR3,
-                pmL1, pmL2, pmL3, plR1, plR2, plR3, plL1, plL2, plL3);
-
-        temp.addRow(viewInfo, DBindex);
-    }
-
-    /**
-     * @param e
+     * Create FitnessTest object from the information inside of the Fitness Testing Data Sheet tab.
+     * Ran when the Calculate button is clicked on the Fitness Testing Data Sheet Tab
      */
     @FXML
     private void createFitnessData(ActionEvent e) {
@@ -3865,7 +3924,7 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * @author Joshua Bolstad
+     * Create ParQ object from the information inside of the Medical Survey tab
      */
     public void createParQ() {
         boolean ans = true;
@@ -3932,14 +3991,18 @@ public class BowlerController implements Initializable {
     }
 
     /**
-     * @return the successful
+     * Getter method for the variable successful
+     *
+     * @return The value of the successful variable
      */
     public boolean isSuccessful() {
         return successful;
     }
 
     /**
-     * @param successful the successful to set
+     * Setter method for the variable successful
+     *
+     * @param successful The value to set the variable successful to
      */
     public void setSuccessful(boolean successful) {
         this.successful = successful;
