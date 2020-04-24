@@ -27,22 +27,39 @@ import java.util.logging.Logger;
  * @author Mario
  */
 public class EditQuestionsController implements Initializable {
-    private Stage stage;                //The window.
-    String id;
-    private Scene preScene;             //The previous screens scene while using the back button.
-    private Scene nextScene;            //The to be next scene.
-    private double preMinHeight;        //The previous minimum screens height.
-    private double preMinWidth;         //The previous minimum screens width.
-
-    private String preTitle;            //The previous screens title.
-    protected final String title = "Forms";       //The current stages title.
-
     /**
-     * Initializes the controller class.
-     *
-     * @param url
-     * @param rb
+     * The window
      */
+    private Stage stage;
+    /**
+     * Question id number
+     */
+    String id;
+    /**
+     * The previous screen's scene while using the back button
+     */
+    private Scene preScene;
+    /**
+     * The to be next scene
+     */
+    private Scene nextScene;
+    /**
+     * The previous screen's minimum height
+     */
+    private double preMinHeight;
+    /**
+     * The previous screen's minimum width
+     */
+    private double preMinWidth;
+    /**
+     * The previous screen's title
+     */
+    private String preTitle;
+    /**
+     * The current screen's title
+     */
+    protected final String title = "Forms";
+
     @FXML
     TextField mainQuestion;
     @FXML
@@ -76,6 +93,12 @@ public class EditQuestionsController implements Initializable {
     boolean option4V = false;
     boolean testQ = false;
 
+    /**
+     * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
+     */
     @Override
     //Use sql statement to populate ResultSet
     //Initialize all values declared above with the result test
@@ -86,21 +109,23 @@ public class EditQuestionsController implements Initializable {
     }
 
     /**
-     * Puts things in the current window. Changes the scene to the current one.
-     *
-     * @param stage The window.
+     * Sets the question ID
      */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * Gets the question from the database and loads it into the form
+     *
+     * @param id The ID number of the question you want to load
+     */
     public void setFromRecord(String id) {
         setId(id);
         System.out.println(id);
         Database.connect();
         //Fix statement to work for questions
         ResultSet questionInfo = Database.searchQuery("SELECT * FROM QUESTION WHERE ID=" + this.id + ";");
-
 
         try {
             questionInfo.next();
@@ -148,6 +173,11 @@ public class EditQuestionsController implements Initializable {
         }
     }
 
+    /**
+     * Puts things in the current window. Changes the scene to the current one.
+     *
+     * @param stage The window.
+     */
     protected void setStage(Stage stage) {
         preTitle = stage.getTitle();
         this.stage = stage;
@@ -161,6 +191,10 @@ public class EditQuestionsController implements Initializable {
     }
 
     /**
+     * Deletes the question with the ID in the variable id
+     * <p>
+     * Ran when the delete button is clicked
+     *
      * @param event
      */
     public void delete(ActionEvent event) {
@@ -179,6 +213,11 @@ public class EditQuestionsController implements Initializable {
         Database.close();
     }
 
+    /**
+     * Updates the question with id that is the same as the one in the id class variable
+     * <p>
+     * Ran when the Submit button is clicked
+     */
     @FXML
     public void confirm(ActionEvent event) {
         int id1 = Integer.parseInt(id);
@@ -240,6 +279,11 @@ public class EditQuestionsController implements Initializable {
         }
     }
 
+    /**
+     * Adds the previous scene into the object to allow the user to go back to it with the back button.
+     *
+     * @param pre The previous scene.
+     */
     @FXML
     protected void setPreScene(Scene pre) {
         preScene = pre;
