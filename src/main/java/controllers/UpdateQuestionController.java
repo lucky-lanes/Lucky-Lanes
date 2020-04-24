@@ -34,27 +34,48 @@ import java.util.concurrent.Executors;
 /**
  * FXML Controller class
  * <p>
- * This is the controller for the creation of an athlete. It gives the user
- * the option to choose between a list of specific athletes.
+ * This is the controller for the window that appears when you click the Update Questions button
  *
  * @author Mario
  */
 public class UpdateQuestionController implements Initializable {
+    /**
+     * Table to hold the questions
+     */
     @FXML
     TableView table;
     @FXML
     ProgressIndicator progressIndicator;
     private Executor exec;
     private ObservableList<ObservableList> data;
-    private Stage stage;                //The window.
-
-    private Scene preScene;             //The previous screens scene while using the back button.
-    private Scene nextScene;            //The to be next scene.
-    private double preMinHeight;        //The previous minimum screens height.
-    private double preMinWidth;         //The previous minimum screens width.
-
-    private String preTitle;            //The previous screens title.
-    protected final String title = "Update Questions";       //The current stages title.
+    /**
+     * The window
+     */
+    private Stage stage;
+    /**
+     * The previous screen's scene while using the back button
+     */
+    private Scene preScene;
+    /**
+     * The to be next scene
+     */
+    private Scene nextScene; 
+    /**
+     * The previous screen's minimum height
+     */
+    private double preMinHeight;  
+    /**
+     * The previous screen's minimum width
+     */
+    private double preMinWidth;
+    /**
+     * The previous screen's title
+     */
+    private String preTitle;
+    /**
+     * The current screen's title
+     */
+    protected final String title = "Update Questions";
 
     /**
      * Initializes the controller class.
@@ -97,9 +118,10 @@ public class UpdateQuestionController implements Initializable {
     }
 
     /**
+     * Gets ids and questions from the database and populates the table.
+     *
      * @param event
      */
-    //open up forms. Takes file path to form
     @FXML
     public void buildData(/*ActionEvent e*/) {
         //table.getItems().clear();
@@ -115,7 +137,6 @@ public class UpdateQuestionController implements Initializable {
         //ResultSet rs = Database.searchQuery(SQL);
 
         Task<Void> databaseQuery = new Task<Void>() {
-
 
             @Override
             public Void call() throws Exception {
@@ -262,6 +283,9 @@ public class UpdateQuestionController implements Initializable {
         exec.execute(databaseQuery);
     }
 
+    /**
+     * Opens the Edit Questons window when the open button is clicked for a question
+     */
     public void editQuestion(String id) {
         String fxml = "/main/resources/view/EditQuestions.fxml";
 
@@ -302,6 +326,11 @@ public class UpdateQuestionController implements Initializable {
         }
     }
 
+    /**
+     * Adds the previous scene into the object to allow the user to go back to it with the back button.
+     *
+     * @param pre The previous scene.
+     */
     @FXML
     protected void setPreScene(Scene pre) {
         preScene = pre;
@@ -315,7 +344,6 @@ public class UpdateQuestionController implements Initializable {
      */
     @FXML
     private void goBack() throws IOException {
-
         stage.close();
     }
 }
