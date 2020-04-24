@@ -19,21 +19,44 @@ import java.util.ResourceBundle;
 /**
  * FXML Controller class
  * <p>
- * This is the controller for the creation of an athlete. It gives the user
- * the option to choose between a list of specific athletes.
+ * This is the controller for the window that appears when you click on the Questionaire Editor button
+ * on the administrator screen. 
  *
  * @author Mario
  */
 public class ManageQuestionsController implements Initializable {
-    private Stage stage;                //The window.
+    /**
+     * The window
+     */
+    private Stage stage;
+    /**
+     * The previous screen's previous screen's scene
+     */
     private Scene prepre;
-    private Scene preScene;             //The previous screens scene while using the back button.
-    private Scene nextScene;            //The to be next scene.
-    private double preMinHeight;        //The previous minimum screens height.
-    private double preMinWidth;         //The previous minimum screens width.
-
-    private String preTitle;            //The previous screens title.
-    protected final String title = "Manage Questions";       //The current stages title.
+    /**
+     * The previous screen's scene while using the back button
+     */
+    private Scene preScene;
+    /**
+     * The to be next scene
+     */
+    private Scene nextScene;
+    /**
+     * The previous screen's minimum height
+     */
+    private double preMinHeight;  
+    /**
+     * The previous screen's minimum width
+     */
+    private double preMinWidth;
+    /**
+     * The previous screen's title
+     */
+    private String preTitle;
+    /**
+     * The current screen's title
+     */
+    protected final String title = "Manage Questions";
 
     /**
      * Initializes the controller class.
@@ -64,9 +87,12 @@ public class ManageQuestionsController implements Initializable {
     }
 
     /**
+     * Open up the Add Question window. Takes file path to form
+     * <p>
+     * Ran when the Add Question button is clicked
+     *
      * @param event
      */
-    //open up forms. Takes file path to form
     @FXML
     private void addQuestion(ActionEvent event) {
 
@@ -109,6 +135,13 @@ public class ManageQuestionsController implements Initializable {
         }
     }
 
+    /**
+     * Open up the Update Question window. Takes file path to form
+     * <p>
+     * Ran when the Update Question button is clicked
+     *
+     * @param event
+     */
     @FXML
     private void updateQuestion(ActionEvent event) {
 
