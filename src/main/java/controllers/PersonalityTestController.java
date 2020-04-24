@@ -25,49 +25,114 @@ import java.util.logging.Logger;
 /**
  * FXML Controller class
  * <p>
- * This is the controller for the creation of an athlete. It gives the user
- * the option to choose between a list of specific athletes.
+ * This is the controller for the psych test. This is opened when, from the Admin screen, you click 
+ * Search Athletes, then open on an athlete, and then psych test
  *
  * @author Mario
  */
 public class PersonalityTestController implements Initializable {
-    private Stage stage;                //The window.
+    /**
+     * The window
+     */
+    private Stage stage;
     personalityTest pt = new personalityTest();
-    private Scene preScene;             //The previous screens scene while using the back button.
-    private Scene nextScene;            //The to be next scene.
-    private double preMinHeight;        //The previous minimum screens height.
-    private double preMinWidth;         //The previous minimum screens width.
+    /**
+     * The previous screen's scene while using the back button
+     */
+    private Scene preScene;
+    /**
+     * The to be next scene
+     */
+    private Scene nextScene; 
+    /**
+     * The previous screen's minimum height
+     */
+    private double preMinHeight;  
+    /**
+     * The previous screen's minimum width
+     */
+    private double preMinWidth;
+    /**
+     * The home screen
+     */
     private Scene homeScene;
     private ObservableList<ObservableList> data;
     String id;
-    private String preTitle;            //The previous screens title.
-    protected final String title = "Personality Test";       //The current stages title.
+    /**
+     * The previous screen's title
+     */
+    private String preTitle;
+    /**
+     * The current screen's title
+     */
+    protected final String title = "Personality Test";
     private ResultSet rs;
+    /**
+     * Variable to hold the number of questions answered
+     */
     int questionCount = 0;
+    /**
+     * String array to hold the questions and the two answer options
+     */
     String[][] test = new String[70][3];
+    /**
+     * String array to hold the selected answers to the questions
+     */
     String[] anwsers = new String[70];
 
+    /**
+     * Label to display the queston
+     */
     @FXML
     Label mainQuestion;
+    /**
+     * First answer option text
+     */
     @FXML
     Label option1;
+    /**
+     * Second answer option text
+     */
     @FXML
     Label option2;
+    /**
+     * First answer option radio button
+     */
     @FXML
     RadioButton option1Value;
+    /**
+     * Second answer option radio button
+     */
     @FXML
     RadioButton option2Value;
-
+    /**
+     * ToggleGroup to hold the two radio buttons in
+     */
     @FXML
     ToggleGroup personalityTest;
+    /**
+     * The submit button
+     */
     @FXML
     Button submitQuestion;
+    /**
+     * The next button
+     */
     @FXML
     Button nextQuestion;
+    /**
+     * The label holding your current score
+     */
     @FXML
     Label currentScore;
     private Executor exec;
 
+    /**
+     * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         option1Value.setSelected(true);
@@ -75,10 +140,16 @@ public class PersonalityTestController implements Initializable {
         createTest();
     }
 
+    /**
+     * Setter for the id variable
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * Method to update the score. From what I can tell this method is not called anywhere
+     */
     public void updateScore(String id) {
         Database.connect();
         String SQL = "SELECT * FROM IQPSYCH WHERE ID=" + id + ";";
@@ -99,7 +170,9 @@ public class PersonalityTestController implements Initializable {
 
     }
 
-    //create the test and display the first question
+    /**
+     * Create the test and display the first queston. Ran when the window opens
+     */
     public void createTest() {
 
         //disable submit button until test is completed
@@ -116,7 +189,9 @@ public class PersonalityTestController implements Initializable {
         option2.setText(test[questionCount][2]);
     }
 
-    //submit the test
+    /**
+     * Submits the test. Ran when the submit button is clicked.
+     */
     public void submit(ActionEvent e) {
         Database.connect();
         pt.setPersonalityTestResults(anwsers);
@@ -151,6 +226,11 @@ public class PersonalityTestController implements Initializable {
         Database.close();
     }
 
+    /**
+     * Puts things in the current window. Changes the scene to the current one.
+     *
+     * @param stage The window.
+     */
     protected void setStage(Stage stage) {
         preTitle = stage.getTitle();
         this.stage = stage;
@@ -163,6 +243,9 @@ public class PersonalityTestController implements Initializable {
         stage.setMinWidth(stage.getWidth());
     }
 
+    /**
+     * Loads up the next question of the test. Ran when the next button is clicked
+     */
     @FXML
     private void next(ActionEvent event) {
         System.out.println("NEXT PRESS");
@@ -177,11 +260,22 @@ public class PersonalityTestController implements Initializable {
 
     }
 
+    /**
+     * Adds the previous scene into the object to allow the user to go back to it with the back button.
+     *
+     * @param pre The previous scene.
+     */
     @FXML
     protected void setPreScene(Scene pre) {
         preScene = pre;
     }
 
+    /**
+     * Method called by the FXML after the user pushes the back button.
+     * It sets the scene to the previous one.
+     *
+     * @throws IOException
+     */
     @FXML
     private void goBack() throws IOException {
         Database.close();
@@ -190,6 +284,5 @@ public class PersonalityTestController implements Initializable {
         stage.setScene(preScene);
         stage.sizeToScene();
         stage.setTitle(preTitle);
-
     }
 }
