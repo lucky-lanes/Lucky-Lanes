@@ -21,19 +21,40 @@ import java.util.ResourceBundle;
  * <p>
  * This is the controller for the creation of an athlete. It gives the user
  * the option to choose between a list of specific athletes.
+ * <p>
+ * This window is the window that comes up when you click the Add New Athlete button from the administration screen
  *
  * @author Mario
  */
 public class NewAthleteController implements Initializable {
-    private Stage stage;                //The window.
-
-    private Scene preScene;             //The previous screens scene while using the back button.
-    private Scene nextScene;            //The to be next scene.
-    private double preMinHeight;        //The previous minimum screens height.
-    private double preMinWidth;         //The previous minimum screens width.
-
-    private String preTitle;            //The previous screens title.
-    protected final String title = "New Athlete";       //The current stages title.
+    /**
+     * The window
+     */
+    private Stage stage;
+    /**
+     * The previous screen's scene while using the back button
+     */
+    private Scene preScene;
+    /**
+     * The to be next scene
+     */
+    private Scene nextScene; 
+    /**
+     * The previous screen's minimum height
+     */
+    private double preMinHeight;  
+    /**
+     * The previous screen's minimum width
+     */
+    private double preMinWidth;
+    /**
+     * The previous screen's title
+     */
+    private String preTitle;
+    /**
+     * The current screen's title
+     */
+    protected final String title = "New Athlete";
 
     /**
      * Initializes the controller class.
@@ -64,6 +85,9 @@ public class NewAthleteController implements Initializable {
     }
 
     /**
+     * Loads up the form for adding a bowler to the database.
+     * Ran when the Bowling button is clicked.
+     *
      * @param event
      */
     @FXML
@@ -107,10 +131,17 @@ public class NewAthleteController implements Initializable {
     }
 
     /**
+     * Loads up the form for adding a baseball player to the database.
+     * Ran when the Baseball button is clicked.
+     *
      * @param event
      */
     @FXML
     private void createBaseballPlayer(ActionEvent event) {
+        //NOTE: Currently it will load up the add bowler page. You need to modify the fxml
+        //      variable below in order to get it to go to the baseball page when one is made.
+        //      When implementing that, you will also need to modify the controller created in
+        //      the class
         String fxml = "/main/resources/view/bowler.fxml";
 
         BorderPane root;
