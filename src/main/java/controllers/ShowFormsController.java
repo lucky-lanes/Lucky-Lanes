@@ -13,23 +13,42 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * FXML Controller class
+ * FXML Controller class for showForms.fxml
  * <p>
- * This is the controller for the creation of an athlete. It gives the user
- * the option to choose between a list of specific athletes.
+ * This is the controller for the Forms window that comes up when from 
+ * the administrator window you click the Printable Forms button
  *
  * @author Mario
  */
 public class ShowFormsController implements Initializable {
-    private Stage stage;                //The window.
-
-    private Scene preScene;             //The previous screens scene while using the back button.
-    private Scene nextScene;            //The to be next scene.
-    private double preMinHeight;        //The previous minimum screens height.
-    private double preMinWidth;         //The previous minimum screens width.
-
-    private String preTitle;            //The previous screens title.
-    protected final String title = "Forms";       //The current stages title.
+    /**
+     * The window
+     */
+    private Stage stage;
+    /**
+     * The previous screen's scene while using the back button
+     */
+    private Scene preScene;
+    /**
+     * The to be next scene
+     */
+    private Scene nextScene; 
+    /**
+     * The previous screen's minimum height
+     */
+    private double preMinHeight;  
+    /**
+     * The previous screen's minimum width
+     */
+    private double preMinWidth;
+    /**
+     * The previous screen's title
+     */
+    private String preTitle;
+    /**
+     * The current screen's title
+     */
+    protected final String title = "Forms";
 
     /**
      * Initializes the controller class.
@@ -60,9 +79,10 @@ public class ShowFormsController implements Initializable {
     }
 
     /**
-     * @param event
+     * Open up a form. Takes file path to form
+     *
+     * @param fileName the file path to a form
      */
-    //open up forms. Takes file path to form
     public void handle(String fileName) {
         Desktop desktop = Desktop.getDesktop();
         File file = new File(fileName);
@@ -74,32 +94,50 @@ public class ShowFormsController implements Initializable {
         }
     }
 
+    /**
+     * Open up the ASCI form. Ran when the ASCI button is clicked
+     */
     @FXML
     private void acsi(ActionEvent event) {
         handle("./src/main/DocumentsPDF/ACSI.pdf");
     }
 
+    /**
+     * Open up the Bowler Assessment form. Ran when the Bowler Assessment button is clicked
+     */
     @FXML
     private void bowlerAssessment(ActionEvent event) {
         handle("./src/main/DocumentsPDF/Bowler_Assessment.pdf");
     }
 
+    /**
+     * Open up the Bowling IQ Questions form. Ran when the Bowler IQ Questions button is clicked
+     */
     @FXML
     private void bowlingQuestion(ActionEvent event) {
         handle("./src/main/DocumentsPDF/Bowling_IQ_Topics.pdf");
 
     }
 
+    /**
+     * Open up the MBTI form. Ran when the MBTI button is clicked
+     */
     @FXML
     private void mbti(ActionEvent event) {
         handle("./src/main/DocumentsPDF/MBTI_Personality_Type_Test.pdf");
     }
     
+    /**
+     * Open up the IBSSN form. Ran when the IBSSN button is clicked
+     */
     @FXML
     private void ibssn(ActionEvent event) {
         handle("./src/main/DocumentsPDF/IBSSN_International_Bowling_Skill_Score_Number.xlsx");
     }
     
+    /**
+     * Open up the Y-Balance form. Ran when the Y-Balance button is clicked
+     */
     @FXML
     private void ybalance(ActionEvent event) {
         handle("./src/main/DocumentsPDF/Y_Balance_Test.pdf");
