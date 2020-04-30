@@ -1061,7 +1061,685 @@ public class BowlerController implements Initializable {
      */
     @FXML
     ScrollPane scrollPane;
-    
+
+    //**************************************************
+    // Medical Survey
+    //**************************************************
+    /**
+     * The scroll pane that the Bowler Assessment tab items are on
+     */
+    @FXML
+    ScrollPane spBowlerAssessment;
+
+    /**
+     * Vertical column holding the items for the Bowler Assessment tab
+     */
+    @FXML
+    VBox vbBowlerAssessmentRoot;
+
+    /**
+     * Required Text Field for the lane condition under the Spare Shooting section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfLaneCondition;
+
+    /**
+     * Required TextField for the number of spares made for 7
+     */
+    @FXML
+    TextFieldRequired txfNumSparesMade7;
+
+    /**
+     * Required TextField for the number of spares made for 10
+     */
+    @FXML
+    TextFieldRequired txfNumSparesMade10;
+
+    /**
+     * Required TextField for the number of spares made for 3-7-10
+     */
+    @FXML
+    TextFieldRequired txfNumSparesMade3_7_10;
+
+    /**
+     * Label to hold the percentage of sprares made for 7
+     */
+    @FXML
+    Label lblSparePercent7;
+
+    /**
+     * Label to hold the percentage of sprares made for 10
+     */
+    @FXML
+    Label lblSparePercent10;
+
+    /**
+     * Label to hold the percentage of sprares made for 3_7_10
+     */
+    @FXML
+    Label lblSparePercent3_7_10;
+
+    /**
+     * The textfield for the lane condition for the accuracy section of the bowler assessment tab
+     */
+    @FXML
+    TextFieldRequired txfLaneConditionAccuracy;
+
+    /**
+     * Textfield for entering the intended board to hit at arrows on the accuracy section of the bowler assessment tab
+     */
+    @FXML
+    TextFieldRequired txfIntendedAtArrows;
+
+    /**
+     * Textfield for entering the intended board to hit at break point on the accuracy section of the bowler assessment tab
+     */
+    @FXML
+    TextFieldRequired txfIntendedAtBreak;
+
+    /**
+     * Text field to input your actual arrows for your first shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows1;
+
+    /**
+     * Text field to input your actual arrows for your second shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows2;
+
+    /**
+     * Text field to input your actual arrows for your third shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows3;
+
+    /**
+     * Text field to input your actual arrows for your fourth shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows4;
+
+    /**
+     * Text field to input your actual arrows for your fifth shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows5;
+
+    /**
+     * Text field to input your actual arrows for your sixth shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows6;
+
+    /**
+     * Text field to input your actual arrows for your seventh shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows7;
+
+    /**
+     * Text field to input your actual arrows for your eighth shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows8;
+
+    /**
+     * Text field to input your actual arrows for your nineth shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows9;
+
+    /**
+     * Text field to input your actual arrows for your tenth shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows10;
+
+    /**
+     * Text field to input your actual arrows for your 11th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows11;
+
+    /**
+     * Text field to input your actual arrows for your 12th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows12;
+
+    /**
+     * Text field to input your actual arrows for your 13th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows13;
+
+    /**
+     * Text field to input your actual arrows for your 14th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows14;
+
+    /**
+     * Text field to input your actual arrows for your 15th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows15;
+
+    /**
+     * Text field to input your actual arrows for your 16th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows16;
+
+    /**
+     * Text field to input your actual arrows for your 17th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows17;
+
+    /**
+     * Text field to input your actual arrows for your 18th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows18;
+
+    /**
+     * Text field to input your actual arrows for your 19th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows19;
+
+    /**
+     * Text field to input your actual arrows for your 20th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualArrows20;
+
+    /**
+     * Label for the error number of arrows for the 1st shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows1;
+
+    /**
+     * Label for the error number of arrows for the 2st shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows2;
+
+    /**
+     * Label for the error number of arrows for the 3rd shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows3;
+
+    /**
+     * Label for the error number of arrows for the 4th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows4;
+
+    /**
+     * Label for the error number of arrows for the 5th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows5;
+
+    /**
+     * Label for the error number of arrows for the 6th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows6;
+
+    /**
+     * Label for the error number of arrows for the 7th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows7;
+
+    /**
+     * Label for the error number of arrows for the 8th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows8;
+
+    /**
+     * Label for the error number of arrows for the 9th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows9;
+
+    /**
+     * Label for the error number of arrows for the 10th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows10;
+
+    /**
+     * Label for the error number of arrows for the 11th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows11;
+
+    /**
+     * Label for the error number of arrows for the 12th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows12;
+
+    /**
+     * Label for the error number of arrows for the 13th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows13;
+
+    /**
+     * Label for the error number of arrows for the 14th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows14;
+
+    /**
+     * Label for the error number of arrows for the 15th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows15;
+
+    /**
+     * Label for the error number of arrows for the 16th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows16;
+
+    /**
+     * Label for the error number of arrows for the 17th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows17;
+
+    /**
+     * Label for the error number of arrows for the 18th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows18;
+
+    /**
+     * Label for the error number of arrows for the 19th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows19;
+
+    /**
+     * Label for the error number of arrows for the 20th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorArrows20;
+
+    /**
+     * TextField for entering your Actual Break Point for the 1st shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt1;
+
+    /**
+     * TextField for entering your Actual Break Point for the 2nd shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt2;
+
+    /**
+     * TextField for entering your Actual Break Point for the 3rd shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt3;
+
+    /**
+     * TextField for entering your Actual Break Point for the 4th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt4;
+
+    /**
+     * TextField for entering your Actual Break Point for the 5th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt5;
+
+    /**
+     * TextField for entering your Actual Break Point for the 6th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt6;
+
+    /**
+     * TextField for entering your Actual Break Point for the 7th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt7;
+
+    /**
+     * TextField for entering your Actual Break Point for the 8th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt8;
+
+    /**
+     * TextField for entering your Actual Break Point for the 9th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt9;
+
+    /**
+     * TextField for entering your Actual Break Point for the 10th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt10;
+
+    /**
+     * TextField for entering your Actual Break Point for the 11th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt11;
+
+    /**
+     * TextField for entering your Actual Break Point for the 12th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt12;
+
+    /**
+     * TextField for entering your Actual Break Point for the 13th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt13;
+
+    /**
+     * TextField for entering your Actual Break Point for the 14th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt14;
+
+    /**
+     * TextField for entering your Actual Break Point for the 15th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt15;
+
+    /**
+     * TextField for entering your Actual Break Point for the 16th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt16;
+
+    /**
+     * TextField for entering your Actual Break Point for the 17th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt17;
+
+    /**
+     * TextField for entering your Actual Break Point for the 18th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt18;
+
+    /**
+     * TextField for entering your Actual Break Point for the 19th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt19;
+
+    /**
+     * TextField for entering your Actual Break Point for the 20th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfActualBreakPt20;
+
+    /**
+     * Label for the Error in Break Point for the 1st shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt1;
+
+    /**
+     * Label for the Error in Break Point for the 2nd shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt2;
+
+    /**
+     * Label for the Error in Break Point for the 3rd shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt3;
+
+    /**
+     * Label for the Error in Break Point for the 4th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt4;
+
+    /**
+     * Label for the Error in Break Point for the 5th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt5;
+
+    /**
+     * Label for the Error in Break Point for the 6th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt6;
+
+    /**
+     * Label for the Error in Break Point for the 7th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt7;
+
+    /**
+     * Label for the Error in Break Point for the 8th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt8;
+
+    /**
+     * Label for the Error in Break Point for the 9th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt9;
+
+    /**
+     * Label for the Error in Break Point for the 10th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt10;
+
+    /**
+     * Label for the Error in Break Point for the 11th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt11;
+
+    /**
+     * Label for the Error in Break Point for the 12th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt12;
+
+    /**
+     * Label for the Error in Break Point for the 13th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt13;
+
+    /**
+     * Label for the Error in Break Point for the 14th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt14;
+
+    /**
+     * Label for the Error in Break Point for the 15th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt15;
+
+    /**
+     * Label for the Error in Break Point for the 16th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt16;
+
+    /**
+     * Label for the Error in Break Point for the 17th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt17;
+
+    /**
+     * Label for the Error in Break Point for the 18th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt18;
+
+    /**
+     * Label for the Error in Break Point for the 19th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt19;
+
+    /**
+     * Label for the Error in Break Point for the 20th shot in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblErrorBreakPt20;
+
+    /**
+     * Label for the Arrows avg miss out in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblArrowsAvgMissOut;
+
+    /**
+     * Label for the Arrows avg miss in, in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblArrowsAvgMissIn;
+
+    /**
+     * Label for the Arrows accuracy, in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblArrowsAccuracy;
+
+    /**
+     * Label for the Break Pt avg miss out in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblBreakAvgMissOut;
+
+    /**
+     * Label for the Break Pt avg miss in, in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblBreakAvgMissIn;
+
+    /**
+     * Label for the Break Pt accuracy, in the accuracy section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblBreakAccuracy;
+
+    /**
+     * TextField for inputting the baseline speed under the speed section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfBaselineSpeed;
+
+    /**
+     * TextField for inputting the maximum speed under the speed section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfMaximumSpeed;
+
+    /**
+     * TextField for inputting the minimum speed under the speed section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfMinimumSpeed;
+
+    /**
+     * TextField for inputting the speed variability under the speed section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfSpeedVariability;
+
+    /**
+     * TextField for inputting the baseline axis rotation under the speed section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfBaselineAR;
+
+    /**
+     * TextField for inputting the maximum axis rotation under the speed section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfMaximumAR;
+
+    /**
+     * TextField for inputting the minimum axis rotation under the speed section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfMinimumAR;
+
+    /**
+     * TextField for inputting the axis rotation variability under the speed section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfARVariability;
+
+    /**
+     * TextField for inputting the # in range for the 0-2 distance under the loft section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfLoftInRange0_2;
+
+    /**
+     * TextField for inputting the # in range for the 2-5 distance under the loft section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfLoftInRange2_5;
+
+    /**
+     * TextField for inputting the # in range for the 5-8 distance under the loft section of the Bowler Assessment Tab
+     */
+    @FXML
+    TextFieldRequired txfLoftInRange5_8;
+
+    /**
+     * Label for the percentage of the 0-2 distance under the loft section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblPcntInRange0_2;
+
+    /**
+     * Label for the percentage of the 2-5 distance under the loft section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblPcntInRange2_5;
+
+    /**
+     * Label for the percentage of the 5-8 distance under the loft section of the Bowler Assessment Tab
+     */
+    @FXML
+    Label lblPcntInRange5_8;
+
+
+
+
     //Other variables
     /**
      * Used to change the tabs in the GUI
@@ -1074,7 +1752,7 @@ public class BowlerController implements Initializable {
     /**
      * The number of tabs
      */
-    private int NUM_TAB = 5;
+    private int NUM_TAB = 7;
     /**
      * The window
      */
@@ -1940,7 +2618,7 @@ public class BowlerController implements Initializable {
     /**
      * Calculates the composite score used in YBalance
      *
-     * @param The length of the right limb in centimeters
+     * @param rightLimbLength The length of the right limb in centimeters
      * @param t1 The anterior, posteromedial, or posterolateral value
      * @param t2 One of the two values not used in t1
      * @param t3 The value not used in t1 or t2

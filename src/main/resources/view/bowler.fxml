@@ -3368,8 +3368,1670 @@
                                 </ScrollPane>
                             </content>
                         </Tab>
-                        <Tab id="tab" fx:id="tabAssessment" text="Assessment">
-                            <!--insert new Questions-->
+                        <Tab id="tab" fx:id="tabAssessment" text="Bowler Assessment">
+                            <content>
+                                <ScrollPane fx:id="spBowlerAssessment" fitToWidth="true" hbarPolicy="NEVER" minHeight="520.0"
+                                            minWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
+                                    <content>
+                                        <VBox fx:id="vbBowlerAssessmentRoot" alignment="CENTER" fillWidth="false">
+                                            <children>
+                                                <VBox>
+                                                    <children>
+                                                        <HBox alignment="CENTER" prefHeight="40.0"
+                                                              prefWidth="736.0">
+                                                            <children>
+                                                                <Label text="Bowler Assessment Tab">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="22.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER" prefHeight="25.0"
+                                                              prefWidth="736.0">
+                                                            <children>
+                                                                <Label text="* Indicates calculations are required based on formulas ">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="14.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                        </HBox>
+
+                                                        <HBox alignment="BOTTOM_CENTER" prefHeight="60.0"
+                                                              prefWidth="736.0">
+                                                            <children>
+                                                                <Label text="Spare Shooting (Percentage)">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="20.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER">
+                                                            <Label prefHeight="17.0"
+                                                                   prefWidth="700.0" text="Instructions: Spare Shooting - Record the number of successful attempts for each spare.">
+                                                                <font>
+                                                                    <Font name="System Bold"
+                                                                          size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER">
+                                                            <Label text="Lane Condition: ">
+                                                                <font>
+                                                                    <Font name="System Bold" size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <TextFieldRequired fx:id="txfLaneCondition" prefHeight="25.0"
+                                                                               prefWidth="125.0">
+                                                                <HBox.margin>
+                                                                    <Insets right="15.0"/>
+                                                                </HBox.margin>
+                                                            </TextFieldRequired>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER" prefHeight="50.0"
+                                                              prefWidth="751.0">
+                                                            <children>
+                                                                <GridPane gridLinesVisible="true"
+                                                                          prefHeight="189.0" prefWidth="449.0">
+                                                                    <children>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="Spare">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="7"
+                                                                               GridPane.rowIndex="1">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="10"
+                                                                               GridPane.rowIndex="2">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="3-6-10"
+                                                                               GridPane.rowIndex="3">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="# Shots"
+                                                                               GridPane.columnIndex="1">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="30"
+                                                                               GridPane.rowIndex="1"
+                                                                               GridPane.columnIndex="1">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="30"
+                                                                               GridPane.rowIndex="2"
+                                                                               GridPane.columnIndex="1">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="30"
+                                                                               GridPane.rowIndex="3"
+                                                                               GridPane.columnIndex="1">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="# Made"
+                                                                               GridPane.columnIndex="2">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfNumSparesMade7" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfNumSparesMade10" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfNumSparesMade3_6_10" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+
+                                                                        </TextFieldRequired>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="Percent"
+                                                                               GridPane.columnIndex="3">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblSparePercent7"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="214.0"
+                                                                               GridPane.columnIndex="3"
+                                                                               GridPane.rowIndex="1">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblSparePercent10"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="214.0"
+                                                                               GridPane.columnIndex="3"
+                                                                               GridPane.rowIndex="2">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblSparePercent3_7_10"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="214.0"
+                                                                               GridPane.columnIndex="3"
+                                                                               GridPane.rowIndex="3">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                    </children>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="SOMETIMES"
+                                                                                           minWidth="10.0"
+                                                                                           prefWidth="100.0"/>
+                                                                        <ColumnConstraints hgrow="SOMETIMES"
+                                                                                           minWidth="10.0"
+                                                                                           prefWidth="100.0"/>
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints maxHeight="40.0"
+                                                                                        minHeight="10.0"
+                                                                                        percentHeight="30.0"
+                                                                                        prefHeight="30.0"
+                                                                                        vgrow="SOMETIMES"/>
+                                                                    </rowConstraints>
+                                                                </GridPane>
+                                                            </children>
+                                                        </HBox>
+
+                                                        <VBox alignment="CENTER">
+                                                            <HBox alignment="BOTTOM_CENTER" prefHeight="60.0"
+                                                                  prefWidth="736.0">
+                                                                <children>
+                                                                    <Label text="Accuracy">
+                                                                        <font>
+                                                                            <Font name="System Bold" size="20.0"/>
+                                                                        </font>
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER">
+                                                                <children>
+                                                                    <VBox alignment="CENTER">
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="Instructions: Accuracy - Fill in the board you intend to hit at the arrows and the break">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="point. For each shot, fill in the actual board you hit at the arrows and the break">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                    </VBox>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER">
+                                                                <Label text="Lane Condition: ">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="15.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                                <TextFieldRequired fx:id="txfLaneConditionAccuracy" prefHeight="25.0"
+                                                                                   prefWidth="125.0">
+                                                                    <HBox.margin>
+                                                                        <Insets right="15.0"/>
+                                                                    </HBox.margin>
+                                                                </TextFieldRequired>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER">
+                                                                <Label text="Intended Board at Arrows: ">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="15.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                                <TextFieldRequired fx:id="txfIntendedAtArrows" prefHeight="25.0"
+                                                                                   prefWidth="125.0">
+                                                                    <HBox.margin>
+                                                                        <Insets right="15.0"/>
+                                                                    </HBox.margin>
+                                                                </TextFieldRequired>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER">
+                                                                <Label text="Intended Board at Break Point: ">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="15.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                                <TextFieldRequired fx:id="txfIntendedAtBreak" prefHeight="25.0"
+                                                                                   prefWidth="125.0">
+                                                                    <HBox.margin>
+                                                                        <Insets right="15.0"/>
+                                                                    </HBox.margin>
+                                                                </TextFieldRequired>
+                                                            </HBox>
+                                                        </VBox>
+                                                        <HBox alignment="CENTER" prefHeight="50.0"
+                                                              prefWidth="751.0">
+                                                            <children>
+                                                                <GridPane gridLinesVisible="true"
+                                                                          prefHeight="189.0" prefWidth="650.0">
+                                                                    <children>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="Shot">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="1"
+                                                                               GridPane.rowIndex="1">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="2"
+                                                                               GridPane.rowIndex="2">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="3"
+                                                                               GridPane.rowIndex="3">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="4"
+                                                                               GridPane.rowIndex="4">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="5"
+                                                                               GridPane.rowIndex="5">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="6"
+                                                                               GridPane.rowIndex="6">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="7"
+                                                                               GridPane.rowIndex="7">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="8"
+                                                                               GridPane.rowIndex="8">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="9"
+                                                                               GridPane.rowIndex="9">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="10"
+                                                                               GridPane.rowIndex="10">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="11"
+                                                                               GridPane.rowIndex="11">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="12"
+                                                                               GridPane.rowIndex="12">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="13"
+                                                                               GridPane.rowIndex="13">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="14"
+                                                                               GridPane.rowIndex="14">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="15"
+                                                                               GridPane.rowIndex="15">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="16"
+                                                                               GridPane.rowIndex="16">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="17"
+                                                                               GridPane.rowIndex="17">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="18"
+                                                                               GridPane.rowIndex="18">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="19"
+                                                                               GridPane.rowIndex="19">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="20"
+                                                                               GridPane.rowIndex="20">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="190.0" text="Actual-Arrows"
+                                                                               GridPane.columnIndex="1">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfActualArrows1" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows2" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows3" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows4" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows5" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows6" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows7" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows8" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows9" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows10" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows11" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows12" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows13" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows14" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows15" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows16" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="16">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows17" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="17">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows18" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="18">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows19" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="19">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualArrows20" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="20">
+                                                                        </TextFieldRequired>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0" text="Error-Arrows"
+                                                                               GridPane.columnIndex="2">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows1"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="1">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows2"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="2">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows3"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="3">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows4"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="4">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows5"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="5">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows6"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="6">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows7"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="7">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows8"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="8">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows9"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="9">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows10"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="10">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows11"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="11">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows12"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="12">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows13"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="13">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows14"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="14">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows15"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="15">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows16"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="16">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows17"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="17">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows18"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="18">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows19"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="19">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorArrows20"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="2"
+                                                                               GridPane.rowIndex="20">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="170.0" text="Actual-BreakPt"
+                                                                               GridPane.columnIndex="3">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt1" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt2" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt3" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt4" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt5" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt6" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt7" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt8" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt9" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt10" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="10">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt11" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="11">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt12" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="12">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt13" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="13">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt14" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="14">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt15" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="15">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt16" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="16">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt17" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="17">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt18" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="18">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt19" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="19">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfActualBreakPt20" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="3" GridPane.rowIndex="20">
+                                                                        </TextFieldRequired>
+                                                                        <Label alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0" text="Error-BreakPt"
+                                                                               GridPane.columnIndex="4">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt1"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="1">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt2"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="2">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt3"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="3">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt4"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="4">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt5"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="5">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt6"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="6">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt7"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="7">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt8"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="8">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt9"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="9">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt10"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="10">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt11"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="11">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt12"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="12">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt13"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="13">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt14"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="14">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt15"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="15">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt16"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="16">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt17"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="17">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt18"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="18">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt19"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="19">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrorBreakPt20"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="4"
+                                                                               GridPane.rowIndex="20">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                    </children>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="SOMETIMES"
+                                                                                           minWidth="10.0"
+                                                                                           prefWidth="100.0"/>
+                                                                        <ColumnConstraints hgrow="SOMETIMES"
+                                                                                           minWidth="10.0"
+                                                                                           prefWidth="100.0"/>
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints maxHeight="40.0"
+                                                                                        minHeight="10.0"
+                                                                                        percentHeight="10.0"
+                                                                                        prefHeight="30.0"
+                                                                                        vgrow="SOMETIMES"/>
+                                                                    </rowConstraints>
+                                                                </GridPane>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER">
+                                                            <Label text="Arrows Avg Miss Out: ">
+                                                                <font>
+                                                                    <Font name="System" size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label fx:id="lblArrowsAvgMissOut"
+                                                                   alignment="CENTER"
+                                                                   prefHeight="30.0"
+                                                                   prefWidth="100.0"
+                                                                   text="0">
+                                                                <font>
+                                                                    <Font size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label text=" board(s)">
+                                                                <font>
+                                                                    <Font name="System" size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER">
+                                                            <Label text="Arrows Avg Miss In: ">
+                                                                <font>
+                                                                    <Font name="System" size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label fx:id="lblArrowsAvgMissIn"
+                                                                   alignment="CENTER"
+                                                                   prefHeight="30.0"
+                                                                   prefWidth="100.0"
+                                                                   text="0">
+                                                                <font>
+                                                                    <Font size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label text=" board(s)">
+                                                                <font>
+                                                                    <Font name="System" size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER">
+                                                            <Label text="Arrows - Accuracy: ">
+                                                                <font>
+                                                                    <Font name="System Bold" size="16.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label fx:id="lblArrowsAccuracy"
+                                                                   alignment="CENTER"
+                                                                   prefHeight="30.0"
+                                                                   prefWidth="100.0"
+                                                                   text="0">
+                                                                <font>
+                                                                    <Font name="System Bold" size="16.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label text=" board(s)">
+                                                                <font>
+                                                                    <Font name="System Bold" size="16.0"/>
+                                                                </font>
+                                                            </Label>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER">
+                                                            <Label text="Break Avg Miss Out: ">
+                                                                <font>
+                                                                    <Font name="System" size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label fx:id="lblBreakAvgMissOut"
+                                                                   alignment="CENTER"
+                                                                   prefHeight="30.0"
+                                                                   prefWidth="100.0"
+                                                                   text="0">
+                                                                <font>
+                                                                    <Font size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label text=" board(s)">
+                                                                <font>
+                                                                    <Font name="System" size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER">
+                                                            <Label text="Break Avg Miss In: ">
+                                                                <font>
+                                                                    <Font name="System" size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label fx:id="lblBreakAvgMissIn"
+                                                                   alignment="CENTER"
+                                                                   prefHeight="30.0"
+                                                                   prefWidth="100.0"
+                                                                   text="0">
+                                                                <font>
+                                                                    <Font size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label text=" board(s)">
+                                                                <font>
+                                                                    <Font name="System" size="15.0"/>
+                                                                </font>
+                                                            </Label>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER">
+                                                            <Label text="Break Pt - Accuracy: ">
+                                                                <font>
+                                                                    <Font name="System Bold" size="16.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label fx:id="lblBreakAccuracy"
+                                                                   alignment="CENTER"
+                                                                   prefHeight="30.0"
+                                                                   prefWidth="100.0"
+                                                                   text="0">
+                                                                <font>
+                                                                    <Font name="System Bold" size="16.0"/>
+                                                                </font>
+                                                            </Label>
+                                                            <Label text=" board(s)">
+                                                                <font>
+                                                                    <Font name="System Bold" size="16.0"/>
+                                                                </font>
+                                                            </Label>
+                                                        </HBox>
+
+                                                        <VBox alignment="CENTER">
+                                                            <HBox alignment="BOTTOM_CENTER" prefHeight="60.0"
+                                                                  prefWidth="736.0">
+                                                                <children>
+                                                                    <Label text="Speed (in MPH)">
+                                                                        <font>
+                                                                            <Font name="System Bold" size="20.0"/>
+                                                                        </font>
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER">
+                                                                <children>
+                                                                    <VBox alignment="CENTER">
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="Instructions: Find your baseline speed with the help of an instructor. Using the speed detection">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="in the center, roll shots with your maximum REPEATABLE ball speed. Take the difference in speed">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="and add it to your baseline speed to get your maximum ball speed. Repeat using your slowest">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="REPEATABLE ball speed to get your minimum actual ball speed.">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                    </VBox>
+                                                                </children>
+                                                            </HBox>
+                                                        </VBox>
+                                                        <HBox alignment="CENTER" prefHeight="50.0"
+                                                              prefWidth="751.0">
+                                                            <children>
+                                                                <GridPane gridLinesVisible="false"
+                                                                          prefHeight="120.0" prefWidth="350.0">
+                                                                    <children>
+                                                                        <Label text="Baseline Speed: " GridPane.rowIndex="1">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfBaselineSpeed" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                        </TextFieldRequired>
+                                                                        <Label text=" MPH" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="Maximum Speed: " GridPane.rowIndex="2">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfMaximumSpeed" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                                        </TextFieldRequired>
+                                                                        <Label text=" MPH" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="Minimum Speed: " GridPane.rowIndex="3">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfMinimumSpeed" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                                        </TextFieldRequired>
+                                                                        <Label text=" MPH" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="Variability: " GridPane.rowIndex="4">
+                                                                            <font>
+                                                                                <Font name="System Bold" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfSpeedVariability" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                                        </TextFieldRequired>
+                                                                        <Label text=" MPH" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                                                            <font>
+                                                                                <Font name="System Bold" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                    </children>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="SOMETIMES"
+                                                                                           minWidth="10.0"
+                                                                                           prefWidth="100.0"/>
+                                                                        <ColumnConstraints hgrow="SOMETIMES"
+                                                                                           minWidth="10.0"
+                                                                                           prefWidth="100.0"/>
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints maxHeight="40.0"
+                                                                                        minHeight="50.0"
+                                                                                        percentHeight="25.0"
+                                                                                        prefHeight="30.0"
+                                                                                        vgrow="SOMETIMES"/>
+                                                                    </rowConstraints>
+                                                                </GridPane>
+                                                            </children>
+                                                        </HBox>
+
+                                                        <VBox alignment="CENTER">
+                                                            <HBox alignment="BOTTOM_CENTER" prefHeight="60.0"
+                                                                  prefWidth="736.0">
+                                                                <children>
+                                                                    <Label text="Axis Rotation (0 - 90 degrees)">
+                                                                        <font>
+                                                                            <Font name="System Bold" size="20.0"/>
+                                                                        </font>
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER">
+                                                                <children>
+                                                                    <VBox alignment="CENTER">
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="Instructions: Axis Rotation - This is best done with the aid of an instructor. Using a good">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="quality camera, tape the ball from your positive axis point to a point above the fingers.">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="This should be the minimum and maximum axis rotation you can repeat in competition! You can">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="measure axis rotation using an overlay template placed over the image of the ball at release.">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                    </VBox>
+                                                                </children>
+                                                            </HBox>
+                                                        </VBox>
+                                                        <HBox alignment="CENTER" prefHeight="50.0"
+                                                              prefWidth="751.0">
+                                                            <children>
+                                                                <GridPane gridLinesVisible="false"
+                                                                          prefHeight="120.0" prefWidth="350.0">
+                                                                    <children>
+                                                                        <Label text="Baseline AR: " GridPane.rowIndex="1">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfBaselineAR" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                        </TextFieldRequired>
+                                                                        <Label text=" degrees" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="Maximum AR: " GridPane.rowIndex="2">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfMaximumAR" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                                        </TextFieldRequired>
+                                                                        <Label text=" degrees" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="Minimum AR: " GridPane.rowIndex="3">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfMinimumAR" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                                        </TextFieldRequired>
+                                                                        <Label text=" degrees" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="Variability: " GridPane.rowIndex="4">
+                                                                            <font>
+                                                                                <Font name="System Bold" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfARVariability" prefHeight="30.0"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                                        </TextFieldRequired>
+                                                                        <Label text=" degrees" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                                                            <font>
+                                                                                <Font name="System Bold" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                    </children>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="SOMETIMES"
+                                                                                           minWidth="10.0"
+                                                                                           prefWidth="100.0"/>
+                                                                        <ColumnConstraints hgrow="SOMETIMES"
+                                                                                           minWidth="10.0"
+                                                                                           prefWidth="100.0"/>
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints maxHeight="40.0"
+                                                                                        minHeight="50.0"
+                                                                                        percentHeight="25.0"
+                                                                                        prefHeight="30.0"
+                                                                                        vgrow="SOMETIMES"/>
+                                                                    </rowConstraints>
+                                                                </GridPane>
+                                                            </children>
+                                                        </HBox>
+
+                                                        <VBox alignment="CENTER">
+                                                            <HBox alignment="BOTTOM_CENTER" prefHeight="60.0"
+                                                                  prefWidth="736.0">
+                                                                <children>
+                                                                    <Label text="Loft (Percent Controlled)">
+                                                                        <font>
+                                                                            <Font name="System Bold" size="20.0"/>
+                                                                        </font>
+                                                                    </Label>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER">
+                                                                <children>
+                                                                    <VBox alignment="CENTER">
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="Instructions: Loft - Using an end lane (and permission from the center) place tape on the channel">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="at 2', 5' and 8' from the foul line. Have a spotter watch as you attempt the desired amount of loft">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="17.0"
+                                                                               prefWidth="700.0" text="for 10 shots. Record the number of shots that fell within the desired distance from the foul line.">
+                                                                            <font>
+                                                                                <Font name="System Bold"
+                                                                                      size="15.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                    </VBox>
+                                                                </children>
+                                                            </HBox>
+                                                        </VBox>
+                                                        <HBox>
+                                                            <Label text="" minHeight="5">
+                                                                <font>
+                                                                    <Font name="System Bold" size="14.0"/>
+                                                                </font>
+                                                            </Label>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER" prefHeight="50.0"
+                                                              prefWidth="751.0">
+                                                            <children>
+                                                                <GridPane gridLinesVisible="true"
+                                                                          prefHeight="120.0" prefWidth="350.0">
+                                                                    <children>
+                                                                        <Label text="Distance" alignment="CENTER" minWidth="75">
+                                                                            <font>
+                                                                                <Font name="System Bold" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="0'-2'" GridPane.rowIndex="1" alignment="CENTER" minWidth="75">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="2'-5''" GridPane.rowIndex="2" alignment="CENTER" minWidth="75">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="5'-8''" GridPane.rowIndex="3" alignment="CENTER" minWidth="75">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="# Shots" GridPane.columnIndex="1" alignment="CENTER" minWidth="75">
+                                                                            <font>
+                                                                                <Font name="System Bold" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="10" GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="CENTER" minWidth="75">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="10" GridPane.columnIndex="1" GridPane.rowIndex="2" alignment="CENTER" minWidth="75">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="10" GridPane.columnIndex="1" GridPane.rowIndex="3" alignment="CENTER" minWidth="75">
+                                                                            <font>
+                                                                                <Font name="System" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="# In Range" GridPane.columnIndex="2" alignment="CENTER" minWidth="120">
+                                                                            <font>
+                                                                                <Font name="System Bold" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <TextFieldRequired fx:id="txfLoftInRange0_2" prefHeight="30.0" alignment="CENTER"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfLoftInRange2_5" prefHeight="30.0" alignment="CENTER"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                                        </TextFieldRequired>
+                                                                        <TextFieldRequired fx:id="txfLoftInRange5_8" prefHeight="30.0" alignment="CENTER"
+                                                                                           prefWidth="78.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                                        </TextFieldRequired>
+                                                                        <Label text="Percent %" GridPane.columnIndex="3" alignment="CENTER" minWidth="75">
+                                                                            <font>
+                                                                                <Font name="System Bold" size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblPcntInRange0_2"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblPcntInRange2_5"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label fx:id="lblPcntInRange5_8"
+                                                                               alignment="CENTER"
+                                                                               prefHeight="30.0"
+                                                                               prefWidth="100.0"
+                                                                               text="0"
+                                                                               GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                                                            <font>
+                                                                                <Font size="14.0"/>
+                                                                            </font>
+                                                                        </Label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                    </children>
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="SOMETIMES"
+                                                                                           minWidth="10.0"
+                                                                                           prefWidth="100.0"/>
+                                                                        <ColumnConstraints hgrow="SOMETIMES"
+                                                                                           minWidth="10.0"
+                                                                                           prefWidth="100.0"/>
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints maxHeight="40.0"
+                                                                                        minHeight="50.0"
+                                                                                        percentHeight="25.0"
+                                                                                        prefHeight="30.0"
+                                                                                        vgrow="SOMETIMES"/>
+                                                                    </rowConstraints>
+                                                                </GridPane>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets left="25.0"/>
+                                                    </VBox.margin>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </content>
+                                    <VBox.margin>
+                                        <Insets right="15.0"/>
+                                    </VBox.margin>
+                                </ScrollPane>
+                            </content>
                         </Tab>
                         <Tab id="tab" fx:id="tabIBSSN" text="IBSSN">
                             <!--insert new Questions-->
