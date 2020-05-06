@@ -7,45 +7,66 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * PersonalityTest object.
+ * <p>
+ * Used for holding the questions and answers when an athlete is taking the personality test.
+ * </p>
+ */
 public class personalityTest {
-
-    //move the pointer up one
+    /**
+     * Pointer for the current question
+     */
     private int count = 0;
-    //Define an array to hold all results
-    //Will only hold values a or b
-    //methods will count up the correct questions to determine dominate type
-    private String[] personalityTestResults = new String[70]; //70 questions
-    //All test questions will be in an 2d Array
-    // [i][0] will hold Test question
-    // [i][1] and [i][2] Will hold the options
+    /**
+     * Array to hold the athlete's answers for the personality test.
+     * <p>
+     * It will only hold values of "a" or "b"
+     * </p>
+     */
+    private String[] personalityTestResults = new String[70];
+    /**
+     * Array to hold the questions as well as possible answers for the personality test
+     * <p>
+     * [i][0] holds the test question while [i][1] and [i][2] hold the available answers
+     * </p>
+     */
     private String[][] personalityTest = new String[70][3];
-    //Variable for path to file
+    /**
+     * File path for the personality test
+     */
     File file = new File("./src/main/DocumentsPDF/personalityT.txt");
-    //test result
+    /**
+     * String for the results of the test
+     */
     private String testResults = "";
 
-    //constructor
+    /**
+     * Constructor for the personality test object.
+     * <p>
+     * Creates the test when called by reading it in from the location heald in the file variable.
+     * </p>
+     */
     public personalityTest() {
         //Will create the test once called
         //Read the file into a string
         String[] fileRead = new String[70];
-        //Read in file
         Scanner s;
         try {
             s = new Scanner(file);
             while (s.hasNextLine()) {
                 //System.out.println(s.nextLine());
                 fileRead[count++] = s.nextLine();
-            }//while
+            } //end while
         } catch (FileNotFoundException ex) {
             System.out.println("File error");
             Logger.getLogger(personalityTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } //end try catch
 
         //check to make sure file was read correctly
         for (int i = 0; i < count; i++) {
             System.out.println(fileRead[i]);
-        }//for
+        }//end for loop
 
         //System.out.println(count);
         //Split up the array by a. and b.
@@ -61,21 +82,31 @@ public class personalityTest {
                 System.out.println(personalityTest[i][y]);
             }
             */
-        }//for
+        }//end for loop
+    }
 
-    }//personailtyTestResults
-
-    //calls all the methods for grading the test
-    //returns the test results
+    /**
+     * Calls the methods for grading the test
+     *
+     * @return The test results
+     */
     public String createTestResults() {
         testResultsC1();
         testResultsC2();
         testResultsC3();
         testResultsC4();
         return testResults;
-    }//createTestResults
+    }
 
     //grade first column
+
+    /**
+     * Method for grading the first column.
+     * <p>
+     * Doesn't return anything, but adds either the character "E" or character "I" to the end of the string
+     * held in the variable testResults
+     * </p>
+     */
     public void testResultsC1() {
         int countA = 0;
         int countB = 0;
@@ -93,7 +124,13 @@ public class personalityTest {
         }
     }
 
-    //grade second column
+    /**
+     * Method for grading the second column.
+     * <p>
+     * Doesn't return anything, but adds either the character "S" or character "N" to the end of the string
+     * held in the variable testResults
+     * </p>
+     */
     public void testResultsC2() {
         int countA = 0;
         int countB = 0;
@@ -118,7 +155,13 @@ public class personalityTest {
         }
     }
 
-    //grade third column
+    /**
+     * Method for grading the third column.
+     * <p>
+     * Doesn't return anything, but adds either the character "T" or character "F" to the end of the string
+     * held in the variable testResults
+     * </p>
+     */
     public void testResultsC3() {
         int countA = 0;
         int countB = 0;
@@ -143,7 +186,13 @@ public class personalityTest {
         }
     }
 
-    //grade fourth column
+    /**
+     * Method for grading the fourth column.
+     * <p>
+     * Doesn't return anything, but adds either the character "J" or character "P" to the end of the string
+     * held in the variable testResults
+     * </p>
+     */
     public void testResultsC4() {
         int countA = 0;
         int countB = 0;
@@ -169,82 +218,65 @@ public class personalityTest {
     }
 
     /**
-     * @return the count
+     * Getter method for the variable testResults
+     *
+     * @return The string holding the characters from the results from the test
      */
     public String getTestResult() {
         return testResults;
     }
 
+    /**
+     * Getter method for the counter variable (which holds the index of the current question)
+     *
+     * @return The index of the current question
+     */
     public int getCount() {
         return count;
     }
 
     /**
-     * @param count the count to set
+     * Setter method for the counter variable (which holds the index of the current question)
+     *
+     * @param count The index of the next question to ask
      */
     public void setCount(int count) {
         this.count = count;
     }
 
     /**
-     * @return the personalityTestResults
+     * Getter method for the athlete's results of the personality test.
+     *
+     * @return The athlete's results of the personality test. It will be an array of answers. An answer can be either "a" or "b"
      */
     public String[] getPersonalityTestResults() {
         return personalityTestResults;
     }
 
     /**
-     * @param personalityTestResults the personalityTestResults to set
+     * Setter method for the athlete's results of the personality test
+     *
+     * @param personalityTestResults An array of answers to the personality test
      */
     public void setPersonalityTestResults(String[] personalityTestResults) {
         this.personalityTestResults = personalityTestResults;
     }
 
     /**
-     * @return the personalityTest
+     * Getter method for the personality test.
+     *
+     * @return The array holding the questions and possible answers of the personality test
      */
     public String[][] getPersonalityTest() {
         return personalityTest;
     }
 
     /**
-     * @param personalityTest the personalityTest to set
+     * Setter method for the personality test
+     *
+     * @param personalityTest An array of questions and possible answers
      */
     public void setPersonalityTest(String[][] personalityTest) {
         this.personalityTest = personalityTest;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

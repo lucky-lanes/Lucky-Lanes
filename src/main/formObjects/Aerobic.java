@@ -8,15 +8,40 @@ import java.io.FileNotFoundException;
  * pdf document.
  */
 public class Aerobic {
-    private int sexInt, age;
-    private double v02bench, v02walk, v02Rockport;
-    private String sex, benchRating;
+    /**
+     * The sex of the athlete. Is set in the constructor. 0 = female, 1 = male
+     */
+    private int sexInt;
+    /**
+     * The age of the athlete
+     */
+    private int age;
+    /**
+     * v02max for the YMCA bench test
+     */
+    private double v02bench;
+    /**
+     * v02max for the rockport walk test
+     */
+    private double v02Rockport;
+    /**
+     * v02max for the 12-minute walk test
+     */
+    private double v02walk;
+    /**
+     * String to hold the sex of the athlete
+     */
+    private String sex;
+    /**
+     * The age adjusted bench rating of the athlete. Ex. poor, very poor, excellent, etc.
+     */
+    private String benchRating;
 
     /**
      * Constructor takes an integer age, and string sex.
      *
-     * @param age
-     * @param sex
+     * @param age age of the athlete
+     * @param sex sex of the gender
      * @throws FileNotFoundException
      */
     public Aerobic(int age, String sex) throws FileNotFoundException {
@@ -32,13 +57,14 @@ public class Aerobic {
     /**
      * Sets the v02max for the benchtest.(15 second test)
      *
-     * @param heartRate
+     * @param heartRate Heart rate of the athlete after the test
      */
     public void setBench(int heartRate) {
         this.v02bench = (-0.9675 * heartRate) + 76.710;
     }
 
     /**
+     * Gets the v02max for the benchtest
      * @return The bench rating (v02max for the benchtest).
      */
     public double getBench() {
@@ -46,10 +72,10 @@ public class Aerobic {
     }
 
     /**
-     * Determines the bench rating. Ex: poor, very poor, excellent, etc.
+     * Determines and sets the bench rating based off the results from the YMCA Step test. Ex: poor, very poor, excellent, etc.
      *
-     * @param heartRate
-     * @param fileName
+     * @param heartRate The heart rate after the test
+     * @param fileName Location of a heart beat file
      * @throws FileNotFoundException
      */
     public void setBenchRating(int heartRate, String fileName) throws FileNotFoundException {
@@ -73,6 +99,8 @@ public class Aerobic {
     }
 
     /**
+     * Getter method for the bench rating determined in setBenchRating(). Ex: poor, very poor, excellent, etc.
+     *
      * @return The rating, Ex: Excellent, Good, etc.
      */
     public String getBenchRating() {
@@ -82,9 +110,9 @@ public class Aerobic {
     /**
      * Sets the v02max for the RockPort test.
      *
-     * @param weight
-     * @param walkTime
-     * @param heartRate
+     * @param weight Weight of the athlete
+     * @param walkTime Time it took the athlete to walk 1 mile
+     * @param heartRate Heart rate of the athlete after their 1 mile walk
      */
     public void setRockport(double weight, double walkTime, int heartRate) {
         double a, b, c, d, e;
@@ -107,22 +135,26 @@ public class Aerobic {
     }
 
     /**
-     * @return The v02max for the rockport test.
+     * Getter for the v02max after the rockport walk test
+     *
+     * @return The v02max for the rockport test. Unit is mL/kg/min
      */
     public double getRockport() {
         return this.v02Rockport;
     }
 
     /**
-     * Calculates 12 min walk in meters.
+     * Calculates v02max for the 12-minute walk test
      *
-     * @param distance
+     * @param distance The distance walked in meters
      */
     public void set12minWalk(double distance) {
         this.v02walk = (distance - 504.9) / 44.73;
     }
 
     /**
+     * Getter for the v02max of the 12-minute walk test
+     *
      * @return The v02max for the 12 min walk test.
      */
     public double get12minWalk() {
@@ -133,9 +165,10 @@ public class Aerobic {
      * Helper method: calculates the age demographic of an athlete to determine
      * appropriate range of heart beats for a given score.
      *
-     * @param num
-     * @param arr
-     * @return
+     * @param num Number to test for inside the arr array parameter
+     * @param arr Array of values to determine what section the num parameter fits inside of
+     * @return The value of the section the num parameter fits inside of. Doesn't return the index
+     * of the spot, but rather the value held at a spot.
      */
     private int calcIndex(int num, int[] arr) {
         for (int i = 0; i < arr.length; i++) {
@@ -149,17 +182,23 @@ public class Aerobic {
                 }
             }
         }
-
         return -1;
     }
 
     /**
-     * Method takes in 3 numbers: mid, low  high; method returns if mid is >= low and < high.
+     * Helper method for calcIndex(). Determines if the input variables, low, med, and high are in order.
+     * <p>
+     * For example, if low is 1, med is 2, and high is 3, then they are in order (1, 2, 3).
+     * Another example, if low is 2, med is 1, and high is 3, then they are not in order (2, 1, 3).
+     * </p><p>
+     * In this, the low and mid variables can be the exact same number. For example, if low is 1, med is 1, and
+     * high is 3, they are in order (1, 1, 2). 1 <= 1.
+     * </p>
      *
      * @param mid
      * @param low
      * @param high
-     * @return
+     * @return True if low is <= mid and mid < high. False if one (or both) of those conditions are not met
      */
     private boolean compareNums(int mid, int low, int high) {
         return low <= mid && mid < high;

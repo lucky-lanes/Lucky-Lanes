@@ -42,13 +42,16 @@ public class Database {
     public static Statement state = null;
     
     /**
-     * Sems to have been left here by a previous semester. Can anyone see a reason why we need to keep this?
-     * -Grey
+     * Seems to have been left here by a previous semester. Can anyone see a reason why we need to keep this?
+     *
+     * Previous Semester Comment: "Just testing stuff...Relax"
      */
-    private String u;//Just testing stuff...Relax
+    private String u;
 
     /**
-     * @param u
+     * Constructor for the Database class
+     *
+     * @param u Unsure what this parameter does
      */
     public Database(String u) {
         this.u = u;
@@ -57,8 +60,8 @@ public class Database {
     /**
      * Used when creating/loading databases. Will set up a connection to the database
      * 
-     * @param url
-     * @return boolean
+     * @param url The URL of the database
+     * @return True if the database was successfully opened, false if an exception occured when opening the database
      */
     public static boolean connect(String url) {
         URL = "jdbc:h2:file:" + url;
@@ -120,6 +123,8 @@ public class Database {
 
     /**
      * Will create the database and tables of the database
+     *
+     * @param url The URL of the database
      */
     public static void createDatabase(String url) {
         // declare variables

@@ -1817,8 +1817,8 @@ public class BowlerController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url URL of the database
+     * @param rb Resource bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -3119,7 +3119,7 @@ public class BowlerController implements Initializable {
     /**
      * Gets an array list of all required text fields
      *
-     * @param root
+     * @param root The root that the text field required is in
      * @return An ArrayList of all TextFieldRequired objects
      */
     public static ArrayList<TextFieldRequired> getAllTextFieldRequired(Parent root) {

@@ -130,8 +130,8 @@ public class PersonalityTestController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url URL of the database
+     * @param rb Resource bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -142,6 +142,8 @@ public class PersonalityTestController implements Initializable {
 
     /**
      * Setter for the id variable
+     *
+     * @param id Id of question
      */
     public void setId(String id) {
         this.id = id;
@@ -149,6 +151,8 @@ public class PersonalityTestController implements Initializable {
 
     /**
      * Method to update the score. From what I can tell this method is not called anywhere
+     *
+     * @param id Id of question
      */
     public void updateScore(String id) {
         Database.connect();
@@ -191,6 +195,8 @@ public class PersonalityTestController implements Initializable {
 
     /**
      * Submits the test. Ran when the submit button is clicked.
+     *
+     * @param e Action event
      */
     public void submit(ActionEvent e) {
         Database.connect();

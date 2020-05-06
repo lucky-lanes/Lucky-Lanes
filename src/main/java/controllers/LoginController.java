@@ -81,8 +81,8 @@ public class LoginController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url URL of the database
+     * @param rb Resource Bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -107,14 +107,14 @@ public class LoginController implements Initializable {
     }
 
     /**
-     * @param app
+     * @param app Current application
      */
     public void setApp(LuckyLanes app) {
         this.app = app;
     }
 
     /**
-     * @param event
+     * @param event Action event
      */
     @FXML
     private void exit(ActionEvent event) {
@@ -122,7 +122,7 @@ public class LoginController implements Initializable {
     }
 
     /**
-     * @param event
+     * @param event Action event
      */
     @FXML
     private void authenticateUser(ActionEvent event) {
@@ -138,7 +138,7 @@ public class LoginController implements Initializable {
     }
 
     /**
-     * @param event
+     * @param event Action event
      */
     @FXML
     private void demo(ActionEvent event) {

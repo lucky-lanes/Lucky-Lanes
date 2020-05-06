@@ -16,9 +16,9 @@ public class HeartBeatFileReader {
     private ArrayList<ArrayList<Integer>> list;
 
     /**
-     * Constructor
+     * Constructor for the class
      *
-     * @param fileName
+     * @param fileName Filepath for the file of numbers associated with the range of heart rates
      * @throws FileNotFoundException
      */
     public HeartBeatFileReader(String fileName) throws FileNotFoundException {
@@ -44,7 +44,9 @@ public class HeartBeatFileReader {
     }
 
     /**
-     * @param index
+     * Gets and returns an array of integers associated with the range of heart rates
+     *
+     * @param index Unsure what this is an index for
      * @return The array of integers.
      */
     public int[] getArr(int index) {

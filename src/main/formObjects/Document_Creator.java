@@ -18,7 +18,18 @@ import org.apache.pdfbox.*;
 import be.quodlibet.boxable.*;
 //import main.java.Report;
 
+/**
+ * Class for generating PDF reports on bowlers
+ */
 public class Document_Creator {
+    /**
+     * Method that generates a pdf report of an athlete based off of the string passed into the method.
+     *
+     * @param string String containing information about the bowler. Information is delimited by "|"
+     * @param multipleDocs Boolean value for if multiple docs are being generated. If false, it will open the pdf after it is made.
+     *                     If true, it will not open the pdf after it is made
+     * @throws IOException
+     */
     public void createPDF(String string, boolean multipleDocs) throws IOException {
         String[] split = string.split("\\|");
        
@@ -50,7 +61,7 @@ public class Document_Creator {
         cell.setTopBorderStyle(new LineStyle(Color.BLACK, 10));
         //table.addHeaderRow(headerRow);
 
-        //ATHLETE INFO
+        //Info from the Demographics tab
         // Row<PDPage> row = table.createRow(20);
         row = table.createRow(20);
         cell = row.createCell(100, "Bowler Information");
@@ -142,7 +153,7 @@ public class Document_Creator {
         cell = row.createCell(50, split[17]);
         cell.setFontSize(12);
 
-        //FMS
+        //Info from the FMS Score Sheet tab
         row = table.createRow(20);
         cell = row.createCell(100, "Functional Movement Screen");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
@@ -333,7 +344,7 @@ public class Document_Creator {
         cell = row.createCell(60, split[52]);
         cell.setFontSize(12);
 
-        //Y-BALANCE
+        //Info from the Y-Balance Test tab
         row = table.createRow(20);
         cell = row.createCell(100, "Y-Balance");
         cell.setFontSize(15);
@@ -464,7 +475,7 @@ public class Document_Creator {
         cell = row.createCell(30, split[78]);
         cell.setFontSize(12);
 
-        //FITNESS TEST
+        //Info from the Fitness Testing Data Sheet tab
         row = table.createRow(20);
         cell = row.createCell(100, "Fitness Test");
         cell.setFontSize(15);
@@ -514,6 +525,7 @@ public class Document_Creator {
         cell = row.createCell(30, split[87]);
         cell.setFontSize(12);
         row = table.createRow(20);
+        //Information from the Fitness Testing Data Sheet tab, under the Anthropometrics section
         cell = row.createCell(100, "Anthropometrics");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
         cell.setFontSize(12);
@@ -573,6 +585,7 @@ public class Document_Creator {
         cell = row.createCell(30, split[98]);
         cell.setFontSize(12);
         row = table.createRow(20);
+        //Information from the Fitness Testing Data Sheet tab, under the Skinfold section
         cell = row.createCell(100, "Skinfold ");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
         cell.setFontSize(12);
@@ -597,7 +610,7 @@ public class Document_Creator {
         cell = row.createCell(30, split[102]);
         cell.setFontSize(12);
         row = table.createRow(20);
-        cell = row.createCell(70, "Thing Skinfold");
+        cell = row.createCell(70, "Thigh Skinfold");
         cell.setFontSize(12);
         cell = row.createCell(30, split[103]);
         cell.setFontSize(12);
@@ -612,6 +625,7 @@ public class Document_Creator {
         cell = row.createCell(30, split[105]);
         cell.setFontSize(12);
         row = table.createRow(20);
+        //Information from the Fitness Testing Data Sheet tab, under the Sit & Reach section
         cell = row.createCell(100, "Sit & Reach");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
         cell.setFontSize(12);
@@ -641,6 +655,7 @@ public class Document_Creator {
         cell = row.createCell(30, split[110]);
         cell.setFontSize(12);
         row = table.createRow(20);
+        //Information from the Fitness Testing Data Sheet tab, under the Muscle Strength & Endurance & Power
         cell = row.createCell(100, "Muscle & Strength");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
         cell.setFontSize(12);
@@ -720,6 +735,7 @@ public class Document_Creator {
         cell = row.createCell(30, split[125]);
         cell.setFontSize(12);
         row = table.createRow(20);
+        //Information from the Fitness Testing Data Sheet tab, under the Estimated Aerobic Capacity section
         cell = row.createCell(100, "Aerobic Capacity");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
         cell.setFontSize(12);
@@ -774,6 +790,8 @@ public class Document_Creator {
         cell = row.createCell(30, split[135]);
         cell.setFontSize(12);
         row = table.createRow(20);
+
+        //Information from the Medical Survey tab
         cell = row.createCell(100, "Par-Q and You");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
         cell.setFontSize(12);
@@ -833,9 +851,10 @@ public class Document_Creator {
     }
     
     /**
-     * @param event
+     * Opens up file. Takes file path to the form.
+     *
+     * @param fileName File name of the file to be opened
      */
-    //open up forms. Takes file path to form
     public void handle(String fileName) {
         Desktop desktop = Desktop.getDesktop();
         File file = new File(fileName);

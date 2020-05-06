@@ -130,8 +130,8 @@ public class SearchController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url URL of the database
+     * @param rb Resource bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -153,7 +153,7 @@ public class SearchController implements Initializable {
      * <p>
      * Ran when the Save all Reports button is clicked
      *
-     * @param e
+     * @param e Action event
      */
     @FXML
     public void printAllReport(ActionEvent e) {
@@ -227,7 +227,7 @@ public class SearchController implements Initializable {
      * <p>
      * Ran when the Save Selected Reports button is clicked
      *
-     * @param e
+     * @param e Action event
      */
     @FXML
     public void printSelectedReport(ActionEvent e) {
@@ -302,8 +302,6 @@ public class SearchController implements Initializable {
      * Ran when the Submit/Refresh button is clicked
      * <p>
      * Note from prev Semester: Does it need a parameter? Action Events can only be created by event handlers tied to ui elements
-     *
-     * @param e
      */
     @FXML
     public void buildData(/*ActionEvent e*/) {
@@ -537,6 +535,7 @@ public class SearchController implements Initializable {
      * Sets the stage object with data so the back button can change the scene to go back.
      *
      * @param stage The window.
+     * @param title Title of the current stage
      */
     protected void setStage(Stage stage, String title) {
         preTitle = title;

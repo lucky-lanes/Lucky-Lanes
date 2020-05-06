@@ -1405,3 +1405,15 @@ SELECT * FROM TEST; [42102-197]
 2020-04-30 13:23:18 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
 SELECT * FROM TEST; [42102-197]
+2020-05-05 16:59:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2020-05-05 17:05:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2020-05-05 17:08:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
+2020-05-05 17:26:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+SELECT * FROM TEST; [42102-197]
