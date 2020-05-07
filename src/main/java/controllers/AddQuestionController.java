@@ -110,8 +110,8 @@ public class AddQuestionController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url URL of the database
+     * @param rb Resource bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {

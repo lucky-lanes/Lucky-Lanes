@@ -147,8 +147,8 @@ public class BowlTestController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url URL of the database
+     * @param rb Resource bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -254,7 +254,7 @@ public class BowlTestController implements Initializable {
      * Calculates the total score by finding the percent of the points they scored. It then updates the database and
      * calls the goBack method to exit this scene
      *
-     * @param event
+     * @param e Action event
      */
     public void submit(ActionEvent e) {
 

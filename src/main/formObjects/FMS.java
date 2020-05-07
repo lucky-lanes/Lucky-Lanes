@@ -6,54 +6,172 @@ import main.java.Database;
  * FMS Score Sheet Model Object.
  * <p>
  * It represents the form used to score each athlete.
+ * </p>
  * <p>
- * It contains a total of 7 tests and uses their final score to generate a final
- * report or score.
+ * It contains a total of 10 tests and uses their final score to generate a final report or score.
+ * </p>
  */
 public class FMS {
-    private int deepSquatRaw, deepSquatFinal;
-    private int hurdleStepRawL, hurdleStepRawR, hurdleStepFinal;
-    private int inlineLoungeRawL, inlineLoungeRawR, inlineLoungeFinal;
-    private int shoulderMobilityRawL, shoulderMobilityRawR, shoulderMobilityFinal;
-    private boolean shoulderClearingL, shoulderClearingR;
-    private int legRaiseRawL, legRaiseRawR, legRaiseFinal;
-    private int trunkStabilityRaw, trunkStabilityFinal;
+    /**
+     * Raw score for the deep squat test
+     */
+    private int deepSquatRaw;
+    /**
+     * Final score for the deep squat test
+     */
+    private int deepSquatFinal;
+    /**
+     * Raw score for the left for the hurdle step test
+     */
+    private int hurdleStepRawL;
+    /**
+     * Raw score for the right for the hurdle step test
+     */
+    private int hurdleStepRawR;
+    /**
+     * Final score for the hurdle step test
+     */
+    private int hurdleStepFinal;
+    /**
+     * Raw score for the left for the inline lounge test
+     */
+    private int inlineLoungeRawL;
+    /**
+     * Raw score for the right for the inline lounge test
+     */
+    private int inlineLoungeRawR;
+    /**
+     * Final score for the inline lounge test
+     */
+    private int inlineLoungeFinal;
+    /**
+     * Raw score for the left for the shoulder mobility test
+     */
+    private int shoulderMobilityRawL;
+    /**
+     * Raw score for the left for the shoulder mobility test
+     */
+    private int shoulderMobilityRawR;
+    /**
+     * Final score for the shoulder mobility test
+     */
+    private int shoulderMobilityFinal;
+    /**
+     * Raw score for the left for the shoulder clearing test
+     */
+    private boolean shoulderClearingL;
+    /**
+     * Raw score for the right for the shoulder clearing test
+     */
+    private boolean shoulderClearingR;
+    /**
+     * Raw score for the left for the active straight-leg raise test
+     */
+    private int legRaiseRawL;
+    /**
+     * Raw score for the right for the active straight-leg raise test
+     */
+    private int legRaiseRawR;
+    /**
+     * Final score for the active straight-leg raise test
+     */
+    private int legRaiseFinal;
+    /**
+     * Raw score for the Trunk Stability Push-Up test
+     */
+    private int trunkStabilityRaw;
+    /**
+     * Final score for the Trunk Stability Push-Up test
+     */
+    private int trunkStabilityFinal;
+    /**
+     * Boolean raw score for the extension clearing test
+     */
     private boolean extensionClearing;
-    private int rotaryRawL, rotaryRawR, rotaryFinal;
+    /**
+     * Raw score for the left for the rotary stability test
+     */
+    private int rotaryRawL;
+    /**
+     * Raw score for the right for the rotary stability test
+     */
+    private int rotaryRawR;
+    /**
+     * Final score for the rotary stability test
+     */
+    private int rotaryFinal;
+    /**
+     * Boolean raw score for the flexion clearing test
+     */
     private boolean flexionClearing;
+    /**
+     * Total final score for the FMS Score Sheet
+     */
     private int total;
-
-    private String deepSquatComment, hurdleStepComment, inlineLoungeComment, shoulderMobilityComment, shoulderClearingComment,
-            legRaiseComment, trunkStabilityComment, extensionClearingComment, rotaryComment, flexionComment;
+    /**
+     * Comments on the Deep Squat test
+     */
+    private String deepSquatComment;
+    /**
+     * Comments on the Hurdle Step test
+     */
+    private String hurdleStepComment;
+    /**
+     * Comments on the Inline Lounge test
+     */
+    private String inlineLoungeComment;
+    /**
+     * Comments on the Shoulder Mobility test
+     */
+    private String shoulderMobilityComment;
+    /**
+     * Comments on the Shoulder Clearing test
+     */
+    private String shoulderClearingComment;
+    /**
+     * Comments on the Active Straight-leg Raise test
+     */
+    private String legRaiseComment;
+    /**
+     * Comments on the Trunk Stability Push-up test
+     */
+    private String trunkStabilityComment;
+    /**
+     * Comments on the Extension Clearing test
+     */
+    private String extensionClearingComment;
+    /**
+     * Comments on the Rotary Stability test
+     */
+    private String rotaryComment;
+    /**
+     * Comments on the Flexion Clearing test
+     */
+    private String flexionComment;
 
     /**
-     * @param deepSquatRaw
-     * @param deepSquatRaw
-     * @param hurdleStepRawL
-     * @param hurdleStepRawR
-     * @param hurdleStepRawR
-     * @param inlineLoungeRawL
-     * @param inlineLoungeRawR
-     * @param shoulderMobilityRawL
-     * @param shoulderMobilityRawR
-     * @param shoulderMobilityRawR
-     * @param shoulderClearingR
-     * @param trunkStabilityRaw
-     * @param shoulderClearingL
-     * @param shoulderClearingR
-     * @param rotaryRawR
-     * @param legRaiseRawL
-     * @param legRaiseRawR
-     * @param legRaiseRawL
-     * @param legRaiseRawR
-     * @param trunkStabilityRaw
-     * @param extensionClearing
-     * @param rotaryRawL
-     * @param rotaryRawL
-     * @param rotaryRawR
-     * @param total
-     * @param flexionClearing
-     * @param total
+     * Constructor for the class.
+     * <p>
+     * Sets all variables under the "Raw Score" and "Final Score" sections. Additionally, sets the comments to be cleared out
+     * </p>
+     *
+     * @param deepSquatRaw Raw score for the deep squat test
+     * @param hurdleStepRawL Raw score for the left for the hurdle step test
+     * @param hurdleStepRawR Raw score for the right for the hurdle step test
+     * @param inlineLoungeRawL Raw score for the left for the inline lounge test
+     * @param inlineLoungeRawR Raw score for the right for the inline lounge test
+     * @param shoulderMobilityRawL Raw score for the left for the shoulder mobility test
+     * @param shoulderMobilityRawR Raw score for the right for the shoulder mobility test
+     * @param shoulderClearingL Raw score for the left for the shoulder clearing test
+     * @param shoulderClearingR Raw score for the right for the shoulder clearing test
+     * @param legRaiseRawL Raw score for the left for the active straight-leg raise test
+     * @param legRaiseRawR Raw score for the right for the active straight-leg raise test
+     * @param trunkStabilityRaw Raw score for the Trunk Stability Push-Up test
+     * @param extensionClearing Boolean raw score for the extension clearing test
+     * @param rotaryRawL Raw score for the left for the rotary stability test
+     * @param rotaryRawR Raw score for the right for the rotary stability test
+     * @param flexionClearing Boolean raw score for the flexion clearing test
+     * @param total Total final score for the FMS Score Sheet
      */
     public FMS(int deepSquatRaw, int hurdleStepRawL, int hurdleStepRawR, int inlineLoungeRawL, int inlineLoungeRawR,
                int shoulderMobilityRawL, int shoulderMobilityRawR, boolean shoulderClearingL, boolean shoulderClearingR,
@@ -87,7 +205,6 @@ public class FMS {
         this.rotaryFinal = (flexionClearing) ? 0 : Math.min(rotaryRawL, rotaryRawR);
         this.total = total;
 
-
         this.deepSquatComment = "none";   // deepSquatComment;
         this.hurdleStepComment = "none";   // hurdleStepComment;
         this.inlineLoungeComment = "none";   // inlineLoungeComment;
@@ -101,16 +218,18 @@ public class FMS {
     }
 
     /**
-     * @param deepSquatComment
-     * @param hurdleStepComment
-     * @param inlineLoungeComment
-     * @param shoulderMobilityComment
-     * @param shoulderClearingComment
-     * @param legRaiseComment
-     * @param trunkStabilityComment
-     * @param extensionClearingComment
-     * @param rotaryComment
-     * @param flexionComment
+     * Sets all variables under the "Comments" sections
+     *
+     * @param deepSquatComment Comments on the Deep Squat test
+     * @param hurdleStepComment Comments on the Hurdle Step test
+     * @param inlineLoungeComment Comments on the Inline Lounge test
+     * @param shoulderMobilityComment Comments on the Shoulder Mobility test
+     * @param shoulderClearingComment Comments on the Shoulder Clearing test
+     * @param legRaiseComment Comments on the Active Straight-leg Raise test
+     * @param trunkStabilityComment Comments on the Trunk Stability Push-up test
+     * @param extensionClearingComment Comments on the Extension Clearing test
+     * @param rotaryComment Comments on the Rotary Stability test
+     * @param flexionComment Comments on the Flexion Clearing test
      */
     public void setComments(String deepSquatComment, String hurdleStepComment, String inlineLoungeComment, String shoulderMobilityComment,
                             String shoulderClearingComment, String legRaiseComment, String trunkStabilityComment, String extensionClearingComment,
@@ -129,8 +248,12 @@ public class FMS {
 
     /**
      * Adds a row to the database class.
-     * It is used in conjunction with the other forms, since the value for
-     * each table is autoincremented.
+     * It is used in conjunction with the other forms, since the value for each table is autoincremented.
+     *
+     * @param viewInfo Boolean value for if you should insert the data into the database (false), or if
+     *                 you should update the athlete in the database (true)
+     * @param DBindex Index of the athlete in the database. The Athlete's ID. Used when updating the athlete
+     *                in teh database (when the viewInfo param holds value of true)
      */
     public void addRow(boolean viewInfo, String DBindex) {
         if (viewInfo == false) {
@@ -185,7 +308,9 @@ public class FMS {
     }
 
     /**
-     * @return
+     * Creates an html table representation of the FMS Score sheet object
+     *
+     * @return String with the HTML table representation of the FMS Score Sheet object.
      */
     public String toHTML() {
         String html = "<br><br><br><h2>Functional Movement Screen</h2>"
@@ -220,6 +345,11 @@ public class FMS {
         return html;
     }
 
+    /**
+     * Method to generate a string representation of the FMS Score Sheet for use in generating a pdf report on the athlete.
+     *
+     * @return A string containing all of the information of the FMS Score Sheet. Each field is separated by a "|" character
+     */
     public String toPDF() {
         String pdf = "Functional Movement Screen|" + deepSquatRaw + "|" + deepSquatFinal + "|" + deepSquatComment + "|" + hurdleStepRawL + "|" + hurdleStepFinal
                 + "|" + hurdleStepComment + "|" + hurdleStepRawR + "|" + inlineLoungeRawL + "|" + inlineLoungeFinal + "|" + inlineLoungeComment + "|" + inlineLoungeRawR
@@ -229,8 +359,4 @@ public class FMS {
                 + rotaryRawL + "|" + rotaryFinal + "|" + rotaryComment + "|" + rotaryRawR + "|" + flexionClearing + "|" + flexionComment + "|" + total;
         return pdf;
     }
-
 }
-
-
-

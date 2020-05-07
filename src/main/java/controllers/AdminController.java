@@ -85,8 +85,8 @@ public class AdminController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url URL of the database
+     * @param rb ResourceBundle Object
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -171,7 +171,7 @@ public class AdminController implements Initializable {
     }
 
     /**
-     * @param e
+     * @param e Action event
      */
     @FXML
     public void testThis(ActionEvent e) {
@@ -182,7 +182,7 @@ public class AdminController implements Initializable {
      * Creates a database in the location specified by the user.
      * Used when the user clicks the Settings option in the menu bar, then Database, and then Create 
      *
-     * @param e
+     * @param e Action event
      */
     @FXML
     public void createDatabase(ActionEvent e) {
@@ -205,7 +205,7 @@ public class AdminController implements Initializable {
      * Opens the database specified by the user.
      * Used when the user clicks the Settings option in the menu bar, then Database, and then Open 
      *
-     * @param e
+     * @param e Action event
      */
     @FXML
     public void openDatabase(ActionEvent e) {

@@ -73,8 +73,8 @@ public class AthleteMenuController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url URL of the database
+     * @param rb Resource bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -87,8 +87,6 @@ public class AthleteMenuController implements Initializable {
      * "SELECT * FROM TEST;". Otherwise it stays disabled
      * <p>
      * Ran when the controller class is initialized
-     *
-     * @param stage The window.
      */
     public void checkQuestions() {
         btnBowlTest.setDisable(true);

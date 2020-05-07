@@ -80,8 +80,8 @@ public class UpdateQuestionController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url URL of the database
+     * @param rb Resource bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -119,8 +119,6 @@ public class UpdateQuestionController implements Initializable {
 
     /**
      * Gets ids and questions from the database and populates the table.
-     *
-     * @param event
      */
     @FXML
     public void buildData(/*ActionEvent e*/) {
@@ -285,6 +283,8 @@ public class UpdateQuestionController implements Initializable {
 
     /**
      * Opens the Edit Questons window when the open button is clicked for a question
+     *
+     * @param id ID of the question
      */
     public void editQuestion(String id) {
         String fxml = "/main/resources/view/EditQuestions.fxml";

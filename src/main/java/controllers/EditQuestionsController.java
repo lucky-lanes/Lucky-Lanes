@@ -21,8 +21,7 @@ import java.util.logging.Logger;
 /**
  * FXML Controller class
  * <p>
- * This is the controller for the creation of an athlete. It gives the user
- * the option to choose between a list of specific athletes.
+ * This is the controller for editing questions
  *
  * @author Mario
  */
@@ -96,8 +95,8 @@ public class EditQuestionsController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url URL of the database
+     * @param rb Resource bundle
      */
     @Override
     //Use sql statement to populate ResultSet
@@ -110,6 +109,8 @@ public class EditQuestionsController implements Initializable {
 
     /**
      * Sets the question ID
+     *
+     * @param id The ID number of the question you want to load
      */
     public void setId(String id) {
         this.id = id;
@@ -195,7 +196,7 @@ public class EditQuestionsController implements Initializable {
      * <p>
      * Ran when the delete button is clicked
      *
-     * @param event
+     * @param event Action event
      */
     public void delete(ActionEvent event) {
         Database.connect();
@@ -217,6 +218,8 @@ public class EditQuestionsController implements Initializable {
      * Updates the question with id that is the same as the one in the id class variable
      * <p>
      * Ran when the Submit button is clicked
+     *
+     * @param event Action event
      */
     @FXML
     public void confirm(ActionEvent event) {

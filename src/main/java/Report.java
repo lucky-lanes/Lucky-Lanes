@@ -82,6 +82,8 @@ public class Report {
 
     /**
      * This method uses the HTML class to generate the output file.
+     *
+     * @throws IOException
      */
     public void toDocs() throws IOException {
         System.out.println("Saving Documents");
