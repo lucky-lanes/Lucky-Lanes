@@ -1,5 +1,7 @@
 package main.formObjects;
 
+import main.java.Database;
+
 /**
  * IBSSN object
  * <p>
@@ -128,7 +130,7 @@ public class IBSSN {
     /**
      * Gender of the bowler. 0 = female, 1 = male
      */
-    int gender = 0;
+    private int gender = 0;
 
     /**
      * Rev rates at release for 10 shots on the short pattern
@@ -145,10 +147,204 @@ public class IBSSN {
      */
     private int totalPoints;
 
+    /**
+     * Constructor method for the IBSSN object
+     *
+     * @param targetAccuracyShortPattern Array of 10 values to hold the short pattern target accuracy
+     * @param targetAccuracyLongPattern Array of 10 values to hold the long pattern target accuracy
+     * @param pocketPercentageShortPattern Array of 10 values to hold the short pattern pocket hits
+     * @param pocketPercentageLongPattern Array of 10 values to hold the long pattern pocket hits
+     * @param singlePinShortPattern Array of 9 values to hold the short pattern single-pin spare hits
+     * @param singlePinLongPattern Array of 9 values to hold the long pattern single-pin spare hits
+     * @param multiPinShortPattern Array of 10 values to hold the short pattern multi-pin spare hits
+     * @param multiPinLongPattern Array of 10 values to hold the long pattern multi-pin spare hits
+     * @param versatilityQuickToPocketShortPattern The number of shots (out of 10 max) that it takes to hit the pocket on the short pattern
+     * @param versatilityQuickToPocketLongPattern The number of shots (out of 10 max) that it takes to hit the pocket on the long pattern
+     * @param versatilityMove3BoardsShortPattern The number of shots (out of 10 max) that it takes to hit the pocket on the short pattern after moving over 3 boards
+     * @param versatilityMove3BoardsLongPattern The number of shots (out of 10 max) that it takes to hit the pocket on the long pattern after moving over 3 boards
+     * @param versatilityMove5BoardsShortPattern The number of shots (out of 10 max) that it takes to hit the pocket on the short pattern after moving over 5 boards
+     * @param versatilityMove5BoardsLongPattern The number of shots (out of 10 max) that it takes to hit the pocket on the long pattern after moving over 5 boards
+     * @param entryAngleShortPattern Array holding angle of entry into the pocket for 10 shots on the short pattern
+     * @param entryAngleLongPattern Array holding angle of entry into the pocket for 10 shots on the long pattern
+     * @param ballSpeedConsistShortPattern Array holding ball speeds over 10 shots for the short pattern
+     * @param ballSpeedConsistLongPattern Array holding ball speeds over 10 shots for the long pattern
+     * @param ballSpeedReleaseShortPattern Array holding ball speeds at release for 10 shots on the short pattern
+     * @param ballSpeedReleaseLongPattern Array holding ball speeds at release for 10 shots on the long pattern
+     * @param gender Gender of the bowler. 0 = female, 1 = male
+     * @param revRateReleaseShortPattern Array holding rev rates at release for 10 shots on the short pattern
+     * @param revRateReleaseLongPattern Array holding rev rates at release for 10 shots on the long pattern
+     */
+    public IBSSN(int[] targetAccuracyShortPattern, int[] targetAccuracyLongPattern, boolean[] pocketPercentageShortPattern,
+                 boolean[] pocketPercentageLongPattern, boolean[] singlePinShortPattern, boolean[] singlePinLongPattern,
+                 boolean[] multiPinShortPattern, boolean[] multiPinLongPattern, int versatilityQuickToPocketShortPattern,
+                 int versatilityQuickToPocketLongPattern, int versatilityMove3BoardsShortPattern, int versatilityMove3BoardsLongPattern,
+                 int versatilityMove5BoardsShortPattern, int versatilityMove5BoardsLongPattern, double[] entryAngleShortPattern,
+                 double[] entryAngleLongPattern, double[] ballSpeedConsistShortPattern, double[] ballSpeedConsistLongPattern,
+                 double[] ballSpeedReleaseShortPattern, double[] ballSpeedReleaseLongPattern, int gender,
+                 double[] revRateReleaseShortPattern, double[] revRateReleaseLongPattern){
+        //copy contents of the passed in arrays into the class' private arrays
+        copyArray(targetAccuracyShortPattern, this.targetAccuracyShortPattern);
+        copyArray(targetAccuracyLongPattern, this.targetAccuracyLongPattern);
+        copyArray(pocketPercentageShortPattern, this.pocketPercentageShortPattern, false);
+        copyArray(pocketPercentageLongPattern, this.pocketPercentageLongPattern, false);
+        copyArray(singlePinShortPattern, this.singlePinShortPattern, true);
+        copyArray(singlePinLongPattern, this.singlePinLongPattern, false);
+        copyArray(multiPinShortPattern, this.multiPinShortPattern, false);
+        copyArray(multiPinLongPattern, this.multiPinLongPattern, false);
+        this.versatilityQuickToPocketShortPattern = versatilityQuickToPocketShortPattern;
+        this.versatilityQuickToPocketLongPattern = versatilityQuickToPocketLongPattern;
+        this.versatilityMove3BoardsShortPattern = versatilityMove3BoardsShortPattern;
+        this.versatilityMove3BoardsLongPattern = versatilityMove3BoardsLongPattern;
+        this.versatilityMove5BoardsShortPattern = versatilityMove5BoardsShortPattern;
+        this.versatilityMove5BoardsLongPattern = versatilityMove5BoardsLongPattern;
+        copyArray(entryAngleShortPattern, this.entryAngleShortPattern);
+        copyArray(entryAngleLongPattern, this.entryAngleLongPattern);
+        copyArray(ballSpeedConsistShortPattern, this.ballSpeedConsistShortPattern);
+        copyArray(ballSpeedConsistLongPattern, this.ballSpeedConsistLongPattern);
+        copyArray(ballSpeedReleaseShortPattern, this.ballSpeedReleaseShortPattern);
+        copyArray(ballSpeedReleaseLongPattern, this.ballSpeedReleaseLongPattern);
+        this.gender = gender;
+        copyArray(revRateReleaseShortPattern, this.revRateReleaseShortPattern);
+        copyArray(revRateReleaseLongPattern, this.revRateReleaseLongPattern);
 
+        //calculate total points. This method sets the total points based off the info put into all the other vars
+        setTotalPoints();
+    }
 
+    /**
+     * Adds a row to the database class.
+     * It is used in conjunction with the other forms, since the value for each table is autoincremented.
+     *
+     * @param viewInfo Boolean value for if you should insert the data into the database (false), or if
+     *                 you should update the athlete in the database (true)
+     * @param DBindex Index of the athlete in the database. The Athlete's ID. Used when updating the athlete
+     *                in teh database (when the viewInfo param holds value of true)
+     */
+    public void addRow(boolean viewInfo, String DBindex) {
+        if (viewInfo == false) {
+            String sql;
+            sql = "INSERT INTO IBSSN VALUES ("
+                    + "null, ";
+            for(int i = 0; i < 10; i++){
+                sql.concat(targetAccuracyShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat(targetAccuracyLongPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat(pocketPercentageShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat(pocketPercentageLongPattern[i] + ", ");
+            }
+            for(int i = 0; i < 9; i++){
+                sql.concat(singlePinShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 9; i++){
+                sql.concat(singlePinLongPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat(multiPinShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat(multiPinLongPattern[i] + ", ");
+            }
+            sql.concat(versatilityQuickToPocketShortPattern + ", " + versatilityQuickToPocketLongPattern + ", " + versatilityMove3BoardsShortPattern +
+                    ", " + versatilityMove3BoardsLongPattern + ", " + versatilityMove5BoardsShortPattern + ", " + versatilityMove5BoardsLongPattern + ", ");
+            for(int i = 0; i < 10; i++){
+                sql.concat(entryAngleShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat(entryAngleLongPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat(ballSpeedConsistShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat(ballSpeedConsistLongPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat(ballSpeedReleaseShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat(ballSpeedReleaseLongPattern[i] + ", ");
+            }
+            sql.concat(gender + ", ");
+            for(int i = 0; i < 10; i++){
+                sql.concat(revRateReleaseShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 9; i++){
+                sql.concat(revRateReleaseLongPattern[i] + ", ");
+            }
+            sql.concat("revRateReleaseLongPattern9 = " + revRateReleaseLongPattern[9] + ");");
 
+            Database.executeUpdate(sql);
+        }
+        if (viewInfo == true) {
+            String sql;
+            sql = "UPDATE IBSSN SET ";
+            for(int i = 0; i < 10; i++){
+                sql.concat("targetAccuracyShortPattern" + i + " = " + targetAccuracyShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("targetAccuracyShortPattern" + i + " = " + targetAccuracyLongPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("pocketPercentageShortPattern" + i + " = " + pocketPercentageShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("pocketPercentageLongPattern" + i + " = " + pocketPercentageLongPattern[i] + ", ");
+            }
+            for(int i = 0; i < 9; i++){
+                sql.concat("singlePinShortPattern" + i + " = " + singlePinShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 9; i++){
+                sql.concat("singlePinLongPattern" + i + " = " + singlePinLongPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("multiPinShortPattern" + i + " = " + multiPinShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("multiPinLongPattern" + i + " = " + multiPinLongPattern[i] + ", ");
+            }
+            sql.concat("versatilityQuickToPocketShortPattern = " + versatilityQuickToPocketShortPattern +
+                    ", versatilityQuickToPocketLongPattern = " + versatilityQuickToPocketLongPattern +
+                    ", versatilityMove3BoardsShortPattern = " + versatilityMove3BoardsShortPattern +
+                    ", versatilityMove3BoardsLongPattern = " + versatilityMove3BoardsLongPattern +
+                    ", versatilityMove5BoardsShortPattern = " + versatilityMove5BoardsShortPattern +
+                    ", versatilityMove5BoardsLongPattern = " + versatilityMove5BoardsLongPattern + ", ");
+            for(int i = 0; i < 10; i++){
+                sql.concat("entryAngleShortPattern" + i + " = " + entryAngleShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("entryAngleLongPattern" + i + " = " + entryAngleLongPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("ballSpeedConsistShortPattern" + i + " = " + ballSpeedConsistShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("ballSpeedConsistLongPattern" + i + " = " + ballSpeedConsistLongPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("ballSpeedReleaseShortPattern" + i + " = " + ballSpeedReleaseShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("ballSpeedReleaseLongPattern" + i + " = " + ballSpeedReleaseLongPattern[i] + ", ");
+            }
+            sql.concat("gender = " + gender + ", ");
+            for(int i = 0; i < 10; i++){
+                sql.concat("revRateReleaseShortPattern" + i + " = " + revRateReleaseShortPattern[i] + ", ");
+            }
+            for(int i = 0; i < 9; i++){
+                sql.concat("revRateReleaseLongPattern" + i + " = " + revRateReleaseLongPattern[i] + ", ");
+            }
+            sql.concat("revRateReleaseLongPattern9 = " + revRateReleaseLongPattern[9]);
+            sql.concat(" WHERE ID = " + DBindex + ";");
 
+            Database.executeUpdate(sql);
+            Database.executeUpdate(sql);
+        }
+    }
 
     /**
      * Method to calculate the points earned from the target accuracy
@@ -271,6 +467,7 @@ public class IBSSN {
         for(int i = 0; i < 10; i++){
             if(lowerBound <= multiPinSparePercentage && upperBound < multiPinSparePercentage){
                 //if it is between the bounds, break from the for loop
+                break;
             } else {
                 lowerBound = upperBound;
                 upperBound += 5;
@@ -329,7 +526,7 @@ public class IBSSN {
         double averageEntryAngle = (sumEntryAngles / 20.0);
 
         //determine the points earned
-        int pointsEarned = 0;
+        int pointsEarned;
 
         if(averageEntryAngle < 2.0){
             pointsEarned = 1;
@@ -522,17 +719,22 @@ public class IBSSN {
      *
      * @param array1 Array to be copied into array2
      * @param array2 Array to hold the information being copied in
-     * @param only9 set to true if the array only has 9 values, otherwise it defaults to arrays of size 10
      */
-    private void copyArray(double[] array1, double[] array2, boolean only9){
-        if(only9){
-            for(int i = 0; i < 9; i++){
-                array2[i] = array1[i];
-            }
-        } else {
-            for(int i = 0; i < 10; i++){
-                array2[i] = array1[i];
-            }
+    private void copyArray(double[] array1, double[] array2){
+        for(int i = 0; i < 10; i++){
+            array2[i] = array1[i];
+        }
+    }
+
+    /**
+     * Takes two int arrays in and copies array1 into array2
+     *
+     * @param array1 Array to be copied into array2
+     * @param array2 Array to hold the information being copied in
+     */
+    private void copyArray(int[] array1, int[] array2){
+        for(int i = 0; i < 10; i++){
+            array2[i] = array1[i];
         }
     }
 
@@ -541,10 +743,17 @@ public class IBSSN {
      *
      * @param array1 Array to be copied into array2
      * @param array2 Array to hold the information being copied in
+     * @param only9 set to true if the array only has 9 values, otherwise it defaults to arrays of size 10
      */
-    private void copyArray(boolean[] array1, boolean[] array2){
-        for(int i = 0; i < 10; i++){
-            array2[i] = array1[i];
+    private void copyArray(boolean[] array1, boolean[] array2, boolean only9) {
+        if (only9) {
+            for (int i = 0; i < 9; i++) {
+                array2[i] = array1[i];
+            }
+        } else {
+            for (int i = 0; i < 10; i++) {
+                array2[i] = array1[i];
+            }
         }
     }
 }

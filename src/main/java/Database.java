@@ -212,6 +212,64 @@ public class Database {
             state.execute(sql);
             System.out.println("Created Par-Q table");
 
+            sql = "CREATE TABLE IBSSN (ID INT PRIMARY KEY AUTO_INCREMENT, ";
+            for(int i = 0; i < 10; i++){
+                sql.concat("targetAccuracyShortPattern" + i + " int, ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("targetAccuracyLongPattern" + i + " int, ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("pocketPercentageShortPattern" + i + " boolean, ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("pocketPercentageLongPattern" + i + " boolean, ");
+            }
+            for(int i = 0; i < 9; i++){
+                sql.concat("singlePinShortPattern" + i + " boolean, ");
+            }
+            for(int i = 0; i < 9; i++){
+                sql.concat("singlePinLongPattern" + i + " boolean, ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("multiPinShortPattern" + i + " boolean, ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("multiPinLongPattern" + i + " boolean, ");
+            }
+            sql.concat("versatilityQuickToPocketShortPattern int, versatilityQuickToPocketLongPattern int, versatilityMove3BoardsShortPattern int, " +
+                    "versatilityMove3BoardsLongPattern int, versatilityMove5BoardsShortPattern int, versatilityMove5BoardsLongPattern int, ");
+            for(int i = 0; i < 10; i++){
+                sql.concat("entryAngleShortPattern" + i + " double, ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("entryAngleLongPattern" + i + " double, ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("ballSpeedConsistShortPattern" + i + " double, ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("ballSpeedConsistLongPattern" + i + " double, ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("ballSpeedReleaseShortPattern" + i + " double, ");
+            }
+            for(int i = 0; i < 10; i++){
+                sql.concat("ballSpeedReleaseLongPattern" + i + " double, ");
+            }
+            sql.concat("gender int, ");
+            for(int i = 0; i < 10; i++){
+                sql.concat("revRateReleaseShortPattern" + i + " double, ");
+            }
+            for(int i = 0; i < 9; i++){
+                sql.concat("revRateReleaseLongPattern" + i + " double, ");
+            }
+            sql.concat("revRateReleaseLongPattern9 double");
+            sql.concat(");");
+
+            state.execute(sql);
+            System.out.println("Created IBSSN table");
+
             sql = "CREATE TABLE IQPSYCH (ID INT PRIMARY KEY AUTO_INCREMENT, "
                     + "IQ double, Psych VARCHAR(255));";
 
@@ -393,7 +451,3 @@ public class Database {
         return url;
     }
 }
-
-
-
-
