@@ -111,6 +111,11 @@ public class BowlerController implements Initializable {
     @FXML
     Tab tabParQ;
     /**
+     * The tab for the IBSSN form
+     */
+    @FXML
+    Tab tabIBSSN;
+    /**
      * The button on the far bottom left of the page to take you back to the menu
      */
     @FXML
@@ -1063,7 +1068,7 @@ public class BowlerController implements Initializable {
     ScrollPane scrollPane;
 
     //**************************************************
-    // Medical Survey
+    // Bowler Assessment
     //**************************************************
     /**
      * The scroll pane that the Bowler Assessment tab items are on
@@ -1737,931 +1742,135 @@ public class BowlerController implements Initializable {
     @FXML
     Label lblPcntInRange5_8;
 
-    /**
-     * TextField for inputting the Target Accuracy short pattern of shot 1 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortAccuracy1;
-
-    /**
-     * TextField for inputting the Target Accuracy short pattern of shot 2 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortAccuracy2;
-
-    /**
-     * TextField for inputting the Target Accuracy short pattern of shot 3 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortAccuracy3;
-
-    /**
-     * TextField for inputting the Target Accuracy short pattern of shot 4 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortAccuracy4;
-
-    /**
-     * TextField for inputting the Target Accuracy short pattern of shot 5 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortAccuracy5;
-
-    /**
-     * TextField for inputting the Target Accuracy short pattern of shot 6 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortAccuracy6;
-
-    /**
-     * TextField for inputting the Target Accuracy short pattern of shot 7 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortAccuracy7;
-
-    /**
-     * TextField for inputting the Target Accuracy short pattern of shot 8 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortAccuracy8;
-
-    /**
-     * TextField for inputting the Target Accuracy short pattern of shot 9 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortAccuracy9;
-
-    /**
-     * TextField for inputting the Target Accuracy short pattern of shot 10 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortAccuracy10;
-
-    /**
-     * TextField for inputting the Target Accuracy long pattern of shot 1 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongAccuracy1;
-
-    /**
-     * TextField for inputting the Target Accuracy long pattern of shot 2 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongAccuracy2;
-
-    /**
-     * TextField for inputting the Target Accuracy long pattern of shot 3 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongAccuracy3;
-
-    /**
-     * TextField for inputting the Target Accuracy long pattern of shot 4 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongAccuracy4;
-
-    /**
-     * TextField for inputting the Target Accuracy long pattern of shot 5 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongAccuracy5;
-
-    /**
-     * TextField for inputting the Target Accuracy long pattern of shot 6 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongAccuracy6;
-
-    /**
-     * TextField for inputting the Target Accuracy long pattern of shot 7 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongAccuracy7;
-
-    /**
-     * TextField for inputting the Target Accuracy long pattern of shot 8 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongAccuracy8;
-
-    /**
-     * TextField for inputting the Target Accuracy long pattern of shot 9 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongAccuracy9;
-
-    /**
-     * TextField for inputting the Target Accuracy long pattern of shot 10 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongAccuracy10;
-
-    /**
-     * TextField for inputting the Pocket Percentages short pattern of shot 1 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortPocket1;
-
-    /**
-     * TextField for inputting the Pocket Percentages short pattern of shot 2 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortPocket2;
-
-    /**
-     * TextField for inputting the Pocket Percentages short pattern of shot 3 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortPocket3;
-
-    /**
-     * TextField for inputting the Pocket Percentages short pattern of shot 4 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortPocket4;
-
-    /**
-     * TextField for inputting the Pocket Percentages short pattern of shot 5 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortPocket5;
-
-    /**
-     * TextField for inputting the Pocket Percentages short pattern of shot 6 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortPocket6;
-
-    /**
-     * TextField for inputting the Pocket Percentages short pattern of shot 7 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortPocket7;
-
-    /**
-     * TextField for inputting the Pocket Percentages short pattern of shot 8 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortPocket8;
-
-    /**
-     * TextField for inputting the Pocket Percentages short pattern of shot 9 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortPocket9;
-
-    /**
-     * TextField for inputting the Pocket Percentages short pattern of shot 10 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortPocket10;
-
-    /**
-     * TextField for inputting the Pocket Percentages Long pattern of shot 1 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongPocket1;
-
-    /**
-     * TextField for inputting the Pocket Percentages Long pattern of shot 2 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongPocket2;
-
-    /**
-     * TextField for inputting the Pocket Percentages Long pattern of shot 3 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongPocket3;
-
-    /**
-     * TextField for inputting the Pocket Percentages Long pattern of shot 4 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongPocket4;
-
-    /**
-     * TextField for inputting the Pocket Percentages Long pattern of shot 5 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongPocket5;
-
-    /**
-     * TextField for inputting the Pocket Percentages Long pattern of shot 6 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongPocket6;
-
-    /**
-     * TextField for inputting the Pocket Percentages Long pattern of shot 7 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongPocket7;
-
-    /**
-     * TextField for inputting the Pocket Percentages Long pattern of shot 8 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongPocket8;
-
-    /**
-     * TextField for inputting the Pocket Percentages Long pattern of shot 9 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongPocket9;
-
-    /**
-     * TextField for inputting the Pocket Percentages Long pattern of shot 10 in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongPocket10;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion short pattern of 2 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSingleConv1;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion short pattern of 3 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSingleConv2;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion short pattern of 4 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSingleConv3;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion short pattern of 5 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSingleConv4;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion short pattern of 6 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSingleConv5;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion short pattern of 7 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSingleConv6;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion short pattern of 8 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSingleConv7;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion short pattern of 9 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSingleConv8;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion Short pattern of 10 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSingleConv9;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion Long pattern of 2 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSingleConv1;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion Long pattern of 3 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSingleConv2;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion Long pattern of 4 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSingleConv3;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion Long pattern of 5 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSingleConv4;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion Long pattern of 6 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSingleConv5;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion Long pattern of 7 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSingleConv6;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion Long pattern of 8 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSingleConv7;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion Long pattern of 9 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSingleConv8;
-
-    /**
-     * TextField for inputting the Single-Pin Conversion Long pattern of 10 pin in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSingleConv9;
-
-    /**
-     * TextField for inputting the Multiple-Pin Conversion Short pattern of 4-7 split in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortMultipleConv1;
-
-    /**
-     * TextField for inputting the Multiple-Pin Conversion Short pattern of 6-10 split in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortMultipleConv2;
-
-    /**
-     * TextField for inputting the Multiple-Pin Conversion Short pattern of 3-6-10 split in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortMultipleConv3;
-
-    /**
-     * TextField for inputting the Multiple-Pin Conversion Short pattern of 2-4-7 split in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortMultipleConv4;
-
-    /**
-     * TextField for inputting the Multiple-Pin Conversion Short pattern of 2-8 split in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortMultipleConv5;
-
-    /**
-     * TextField for inputting the Multiple-Pin Conversion Short pattern of 3-9 split in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortMultipleConv6;
-
-    /**
-     * TextField for inputting the Multiple-Pin Conversion Short pattern of 3-6-9-10 split in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortMultipleConv7;
-
-    /**
-     * TextField for inputting the Multiple-Pin Conversion Short pattern of 2-4-7-8 split in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortMultipleConv8;
-
-    /**
-     * TextField for inputting the Multiple-Pin Conversion Short pattern of 2-4-5 split in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortMultipleConv9;
-
-    /**
-     * TextField for inputting the Multiple-Pin Conversion Short pattern of 3-5-6 split in the Accuracy Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortMultipleConv10;
-
-    /**
-     * TextField for inputting the Quickness to the pocket Short pattern in the Versatility Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortQuicknessToPocket;
-
-    /**
-     * TextField for inputting the Quickness to the pocket Long pattern in the Versatility Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongQuicknessToPocket;
-
-    /**
-     * TextField for inputting the Quickness to the pocket with 3 Board Adjustment Short pattern in the Versatility Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortQuicknessToPocket3Board;
-
-    /**
-     * TextField for inputting the Quickness to the pocket with 5 Board Adjustment Short pattern in the Versatility Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortQuicknessToPocket5Board;
-
-    /**
-     * TextField for inputting the Quickness to the pocket with 3 Board Adjustment Long pattern in the Versatility Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongQuicknessToPocket3Board;
-
-    /**
-     * TextField for inputting the Quickness to the pocket with 5 Board Adjustment Long pattern in the Versatility Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongQuicknessToPocket5Board;
-
-    /**
-     * TextField for inputting the Angle into the pocket Short pattern for shot 1 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortEntryAngle1;
-
-    /**
-     * TextField for inputting the Angle into the pocket Short pattern for shot 2 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortEntryAngle2;
-
-    /**
-     * TextField for inputting the Angle into the pocket Short pattern for shot 3 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortEntryAngle3;
-
-    /**
-     * TextField for inputting the Angle into the pocket Short pattern for shot 4 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortEntryAngle4;
-
-    /**
-     * TextField for inputting the Angle into the pocket Short pattern for shot 5 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortEntryAngle5;
-
-    /**
-     * TextField for inputting the Angle into the pocket Short pattern for shot 6 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortEntryAngle6;
-
-    /**
-     * TextField for inputting the Angle into the pocket Short pattern for shot 7 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortEntryAngle7;
-
-    /**
-     * TextField for inputting the Angle into the pocket Short pattern for shot 8 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortEntryAngle8;
-
-    /**
-     * TextField for inputting the Angle into the pocket Short pattern for shot 9 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortEntryAngle9;
-
-    /**
-     * TextField for inputting the Angle into the pocket Short pattern for shot 10 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortEntryAngle10;
-
-    /**
-     * TextField for inputting the Angle into the pocket Long pattern for shot 1 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongEntryAngle1;
-
-    /**
-     * TextField for inputting the Angle into the pocket Long pattern for shot 2 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongEntryAngle2;
-
-    /**
-     * TextField for inputting the Angle into the pocket Long pattern for shot 3 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongEntryAngle3;
-
-    /**
-     * TextField for inputting the Angle into the pocket Long pattern for shot 4 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongEntryAngle4;
-
-    /**
-     * TextField for inputting the Angle into the pocket Long pattern for shot 5 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongEntryAngle5;
-
-    /**
-     * TextField for inputting the Angle into the pocket Long pattern for shot 6 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongEntryAngle6;
-
-    /**
-     * TextField for inputting the Angle into the pocket Long pattern for shot 7 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongEntryAngle7;
-
-    /**
-     * TextField for inputting the Angle into the pocket Long pattern for shot 8 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongEntryAngle8;
-
-    /**
-     * TextField for inputting the Angle into the pocket Long pattern for shot 9 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongEntryAngle9;
-
-    /**
-     * TextField for inputting the Angle into the pocket Long pattern for shot 10 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongEntryAngle10;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Short pattern for shot 1 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeedConsistency1;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Short pattern for shot 2 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeedConsistency2;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Short pattern for shot 3 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeedConsistency3;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Short pattern for shot 4 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeedConsistency4;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Short pattern for shot 5 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeedConsistency5;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Short pattern for shot 6 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeedConsistency6;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Short pattern for shot 7 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeedConsistency7;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Short pattern for shot 8 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeedConsistency8;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Short pattern for shot 9 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeedConsistency9;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Short pattern for shot 10 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeedConsistency10;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Long pattern for shot 1 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeedConsistency1;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Long pattern for shot 2 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeedConsistency2;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Long pattern for shot 3 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeedConsistency3;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Long pattern for shot 4 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeedConsistency4;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Long pattern for shot 5 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeedConsistency5;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Long pattern for shot 6 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeedConsistency6;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Long pattern for shot 7 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeedConsistency7;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Long pattern for shot 8 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeedConsistency8;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Long pattern for shot 9 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeedConsistency9;
-
-    /**
-     * TextField for inputting the Ball Speed Consistency Long pattern for shot 10 in the Repeatability Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeedConsistency10;
-
-    /**
-     * TextField for inputting the Ball Speed on release short pattern for shot 1 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeed1;
-
-    /**
-     * TextField for inputting the Ball Speed on release short pattern for shot 2 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeed2;
-
-    /**
-     * TextField for inputting the Ball Speed on release short pattern for shot 3 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeed3;
-
-    /**
-     * TextField for inputting the Ball Speed on release short pattern for shot 4 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeed4;
-
-    /**
-     * TextField for inputting the Ball Speed on release short pattern for shot 5 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeed5;
-
-    /**
-     * TextField for inputting the Ball Speed on release short pattern for shot 6 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeed6;
-
-    /**
-     * TextField for inputting the Ball Speed on release short pattern for shot 7 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeed7;
-
-    /**
-     * TextField for inputting the Ball Speed on release short pattern for shot 8 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeed8;
-
-    /**
-     * TextField for inputting the Ball Speed on release short pattern for shot 9 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeed9;
-
-    /**
-     * TextField for inputting the Ball Speed on release short pattern for shot 10 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfShortSpeed10;
-
-    /**
-     * TextField for inputting the Ball Speed on release Long pattern for shot 1 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeed1;
-
-    /**
-     * TextField for inputting the Ball Speed on release Long pattern for shot 2 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeed2;
-
-    /**
-     * TextField for inputting the Ball Speed on release Long pattern for shot 3 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeed3;
-
-    /**
-     * TextField for inputting the Ball Speed on release Long pattern for shot 4 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeed4;
-
-    /**
-     * TextField for inputting the Ball Speed on release Long pattern for shot 5 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeed5;
-
-    /**
-     * TextField for inputting the Ball Speed on release Long pattern for shot 6 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeed6;
-
-    /**
-     * TextField for inputting the Ball Speed on release Long pattern for shot 7 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeed7;
-
-    /**
-     * TextField for inputting the Ball Speed on release Long pattern for shot 8 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeed8;
-
-    /**
-     * TextField for inputting the Ball Speed on release Long pattern for shot 9 in the Power Domain of the IBSSN tab
-     */
-    @FXML
-    TextFieldRequired txfLongSpeed9;
 
+    //**************************************************
+    // IBSSN
+    //**************************************************
     /**
-     * TextField for inputting the Ball Speed on release Long pattern for shot 10 in the Power Domain of the IBSSN tab
+     * TextField for the target accuracy on the IBSSN Tab
      */
     @FXML
-    TextFieldRequired txfLongSpeed10;
+    TextFieldRequired txfTargetAccuracy;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Short pattern for shot 1 in the Power Domain of the IBSSN tab
+     * Label for points earned from the target accuracy on the IBSSN tab
      */
     @FXML
-    TextFieldRequired txfShortRevRate1;
+    Label lblTargetAccuracyPoints;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Short pattern for shot 2 in the Power Domain of the IBSSN tab
+     * TextField for the pocket percentage on the IBSSN Tab
      */
     @FXML
-    TextFieldRequired txfShortRevRate2;
+    TextFieldRequired txfPocketPercentage;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Short pattern for shot 3 in the Power Domain of the IBSSN tab
+     * Label for points earned from the target accuracy on the IBSSN tab
      */
     @FXML
-    TextFieldRequired txfShortRevRate3;
+    Label lblPocketPercentagePoints;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Short pattern for shot 4 in the Power Domain of the IBSSN tab
+     * TextField for the single pin conversion on the IBSSN Tab
      */
     @FXML
-    TextFieldRequired txfShortRevRate4;
+    TextFieldRequired txfSinglePinConversion;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Short pattern for shot 5 in the Power Domain of the IBSSN tab
+     * Label for points earned from the single pin conversion on the IBSSN tab
      */
     @FXML
-    TextFieldRequired txfShortRevRate5;
+    Label lblSinglePinConversionPoints;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Short pattern for shot 6 in the Power Domain of the IBSSN tab
+     * TextField for the multiple pin conversion on the IBSSN Tab
      */
     @FXML
-    TextFieldRequired txfShortRevRate6;
+    TextFieldRequired txfMultiPinConversion;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Short pattern for shot 7 in the Power Domain of the IBSSN tab
+     * Label for points earned from the multiple pin conversion on the IBSSN tab
      */
     @FXML
-    TextFieldRequired txfShortRevRate7;
+    Label lblMultiPinConversionPoints;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Short pattern for shot 8 in the Power Domain of the IBSSN tab
+     * TextField for the how quick to the pocket on the IBSSN Tab
      */
     @FXML
-    TextFieldRequired txfShortRevRate8;
+    TextFieldRequired txfQuickToPocket;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Short pattern for shot 9 in the Power Domain of the IBSSN tab
+     * Label for points earned from the how quick to the pocket on the IBSSN tab
      */
     @FXML
-    TextFieldRequired txfShortRevRate9;
+    Label lblQuickToPocketPoints;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Short pattern for shot 10 in the Power Domain of the IBSSN tab
+     * TextField for the lane adjustment to pocket on the IBSSN Tab
      */
     @FXML
-    TextFieldRequired txfShortRevRate10;
+    TextFieldRequired txfLaneAdjToPocket;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Long pattern for shot 1 in the Power Domain of the IBSSN tab
+     * Label for points earned from the lane adjustment to pocket on the IBSSN tab
      */
     @FXML
-    TextFieldRequired txfLongRevRate1;
+    Label lblLaneAdjToPocketPoints;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Long pattern for shot 2 in the Power Domain of the IBSSN tab
+     * TextField for the entry angle into the pocket on the IBSSN Tab
      */
     @FXML
-    TextFieldRequired txfLongRevRate2;
+    TextFieldRequired txfEntryAngleIntoPocket;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Long pattern for shot 3 in the Power Domain of the IBSSN tab
+     * Label for points earned from the entry angle into the pocket on the IBSSN tab
      */
     @FXML
-    TextFieldRequired txfLongRevRate3;
+    Label lblEntryAngleIntoPocketPoints;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Long pattern for shot 4 in the Power Domain of the IBSSN tab
+     * TextField for the ball speed consistency on the IBSSN Tab
      */
     @FXML
-    TextFieldRequired txfLongRevRate4;
+    TextFieldRequired txfBallSpeedConsistency;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Long pattern for shot 5 in the Power Domain of the IBSSN tab
+     * Label for points earned from the ball speed consistency on the IBSSN tab
      */
     @FXML
-    TextFieldRequired txfLongRevRate5;
+    Label lblBallSpeedConsistencyPoints;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Long pattern for shot 6 in the Power Domain of the IBSSN tab
+     * TextField for the ball speed at release on the IBSSN Tab
      */
     @FXML
-    TextFieldRequired txfLongRevRate6;
+    TextFieldRequired txfBallSpeedAtRelease;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Long pattern for shot 7 in the Power Domain of the IBSSN tab
+     * Label for points earned from the ball speed at release on the IBSSN tab
      */
     @FXML
-    TextFieldRequired txfLongRevRate7;
+    Label lblBallSpeedAtReleasePoints;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Long pattern for shot 8 in the Power Domain of the IBSSN tab
+     * TextField for the rev rate at release on the IBSSN Tab
      */
     @FXML
-    TextFieldRequired txfLongRevRate8;
+    TextFieldRequired txfRevRateAtRelease;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Long pattern for shot 9 in the Power Domain of the IBSSN tab
+     * Label for points earned from the rev rate at release on the IBSSN tab
      */
     @FXML
-    TextFieldRequired txfLongRevRate9;
+    Label lblRevRateAtReleasePoints;
 
     /**
-     * TextField for inputting the Ball Rev Rate on release Long pattern for shot 10 in the Power Domain of the IBSSN tab
+     * Label to hold the total number of points the bowler received
      */
     @FXML
-    TextFieldRequired txfLongRevRate10;
-
-
+    Label lblTotalPoints;
 
 
     //Other variables
@@ -2762,6 +1971,7 @@ public class BowlerController implements Initializable {
         initializeYBalance();
         initializeFMS();
         initializeFitnessData();
+        initializeIBSSNData();
         //Create validation regex for all TextFieldRequired
         /*
         //Name contains at least two letters.
@@ -2788,6 +1998,7 @@ public class BowlerController implements Initializable {
         ResultSet rsYBal = Database.searchQuery("SELECT * FROM YBalance WHERE ID=" + id + ";");
         ResultSet rsFitData = Database.searchQuery("SELECT * FROM FitnessData WHERE ID=" + id + ";");
         ResultSet rsParQ = Database.searchQuery("SELECT * FROM ParQ WHERE ID=" + id + ";");
+        ResultSet rsIBSSN = Database.searchQuery("SELECT * FROM IBSSN WHERE ID=" + id + ";");
 
         System.out.println("Fetched Data Succesfully");
 
@@ -2797,6 +2008,7 @@ public class BowlerController implements Initializable {
             rsYBal.next();
             rsFitData.next();
             rsParQ.next();
+            rsIBSSN.next();
 
             /*
              * Following code sets athlete data
@@ -3023,6 +2235,19 @@ public class BowlerController implements Initializable {
             }
             txtParQuest7.setText(rsParQ.getString(8));
 
+            //set text fields in IBSSN tab
+            txfTargetAccuracy.setText(rsIBSSN.getString(2));
+            txfPocketPercentage.setText(rsIBSSN.getString(3));
+            txfSinglePinConversion.setText(rsIBSSN.getString(4));
+            txfMultiPinConversion.setText(rsIBSSN.getString(5));
+            txfQuickToPocket.setText(rsIBSSN.getString(6));
+            txfLaneAdjToPocket.setText(rsIBSSN.getString(7));
+            txfEntryAngleIntoPocket.setText(rsIBSSN.getString(8));
+            txfBallSpeedConsistency.setText(rsIBSSN.getString(9));
+            txfBallSpeedAtRelease.setText(rsIBSSN.getString(10));
+            txfRevRateAtRelease.setText(rsIBSSN.getString(11));
+            createIBSSNData(); //run this to set the labels to the right points
+
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -3170,6 +2395,36 @@ public class BowlerController implements Initializable {
         for (TextFieldRequired txf : getAllTextFieldRequired(vbEstAerActRoot)) {
             txf.setRequired(true);
         }
+    }
+
+    /**
+     * Initializes all the required fields for the IBSSNt tab.
+     * It sets all the regex expressions for the textfields to avoid invalid input.
+     *
+     * @author Joshua Bolstad
+     */
+    private void initializeIBSSNData() {
+        txfTargetAccuracy.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Target Accuracy can only contain digits or decimal.");
+        txfPocketPercentage.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Pocket Percentage can only contain digits or decimal.");
+        txfSinglePinConversion.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Single Pin Conversion can only contain digits or decimal.");
+        txfMultiPinConversion.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Multiple Pin Conversion can only contain digits or decimal.");
+        txfQuickToPocket.setValidation("^[0-9]\\d*(\\.\\d+)?$", "How Quick to the Pocket can only contain digits or decimal.");
+        txfLaneAdjToPocket.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Lane Adjustment to Pocket can only contain digits or decimal.");
+        txfEntryAngleIntoPocket.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Entry Angle Into Pocket can only contain digits or decimal.");
+        txfBallSpeedConsistency.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Ball Speed Consistency can only contain digits or decimal.");
+        txfBallSpeedAtRelease.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Ball Speed at Release can only contain digits or decimal.");
+        txfRevRateAtRelease.setValidation("^[0-9]\\d*(\\.\\d+)?$", "Rev Rate at Release can only contain digits or decimal.");
+
+        txfTargetAccuracy.setRequired(true);
+        txfPocketPercentage.setRequired(true);
+        txfSinglePinConversion.setRequired(true);
+        txfMultiPinConversion.setRequired(true);
+        txfQuickToPocket.setRequired(true);
+        txfLaneAdjToPocket.setRequired(true);
+        txfEntryAngleIntoPocket.setRequired(true);
+        txfBallSpeedConsistency.setRequired(true);
+        txfBallSpeedAtRelease.setRequired(true);
+        txfRevRateAtRelease.setRequired(true);
     }
 
     /**
@@ -4280,6 +3535,59 @@ public class BowlerController implements Initializable {
     }
 
     /**
+     * Validates the data in all the fields in the IBSSN tab
+     *
+     * @return True if the information entered is valid and false otherwise
+     */
+    private boolean validateTabIBSSN() {
+        boolean flag = true;
+
+        //ensure all text fields have data
+        if(txfTargetAccuracy.getText().equals("")){
+            flag = false;
+        }
+        if(txfPocketPercentage.getText().equals("")){
+            flag = false;
+        }
+        if(txfSinglePinConversion.getText().equals("")){
+            flag = false;
+        }
+        if(txfMultiPinConversion.getText().equals("")){
+            flag = false;
+        }
+        if(txfQuickToPocket.getText().equals("")){
+            flag = false;
+        }
+        if(txfLaneAdjToPocket.getText().equals("")){
+            flag = false;
+        }
+        if(txfEntryAngleIntoPocket.getText().equals("")){
+            flag = false;
+        }
+        if(txfBallSpeedConsistency.getText().equals("")){
+            flag = false;
+        }
+        if(txfBallSpeedAtRelease.getText().equals("")){
+            flag = false;
+        }
+        if(txfRevRateAtRelease.getText().equals("")){
+            flag = false;
+        }
+
+        if (flag) {
+            //No errors
+            tabIBSSN.getStyleClass().clear();
+            tabIBSSN.getStyleClass().addAll("tab-valid", "tab");
+        } else {
+            //Errors
+            tabIBSSN.getStyleClass().clear();
+            tabIBSSN.getStyleClass().addAll("tab-invalid", "tab");
+        }
+
+        return flag;
+    }
+
+    /**
      * Validates the data in a certain tab
      *
      * @param index The tab you want to check with 0 being the Demographics tab, 1 being the Y-Balance test tab, and so on for all tabs
@@ -4309,7 +3617,7 @@ public class BowlerController implements Initializable {
                 flag = validateTabParQ();
                 break;
             case 5:
-                flag = true;
+                flag = validateTabIBSSN();
                 break;
             case 6:
                 break;
@@ -4335,7 +3643,7 @@ public class BowlerController implements Initializable {
      */
     private boolean validateTabs() {
 
-        if (validateDemographics() && validateTabYBalanceTest() && validateFMS() && validateTabFitnessData() && validateTabParQ()) {
+        if (validateDemographics() && validateTabYBalanceTest() && validateFMS() && validateTabFitnessData() && validateTabParQ() && validateTabIBSSN()) {
             btnFinish.setDisable(false);
             return true;
         }
@@ -4366,6 +3674,7 @@ public class BowlerController implements Initializable {
             createFMS();
             createYBalance();
             createParQ();
+            createIBSSNData();
 
             if (tmp == null) {
                 createFitnessData(null);
@@ -4396,7 +3705,7 @@ public class BowlerController implements Initializable {
 
     /**
      * Ran when the fill in data button is clicked
-     * @param e
+     * @param e Action event
      */
     @FXML
     private void testingData(ActionEvent e) throws SQLException {
@@ -4500,6 +3809,7 @@ public class BowlerController implements Initializable {
             ResultSet rsYBal = Database.searchQuery("SELECT * FROM Athlete a, YBalance y  " + sqlend + " and y.id = a.id;");
             ResultSet rsFitData = Database.searchQuery("SELECT * FROM Athlete a, FitnessData f  " + sqlend + ";");
             ResultSet rsParQ = Database.searchQuery("SELECT * FROM Athlete a, ParQ p  " + sqlend + " and a.id = p.id;");
+            ResultSet rsIBSSN = Database.searchQuery("SELECT * FROM Athlete a, IBSSN i " + sqlend + " and a.id = i.id");
 
             System.out.println("Fetched Data Succesfully");
 
@@ -4512,6 +3822,7 @@ public class BowlerController implements Initializable {
                     rsYBal.next();
                     rsFitData.next();
                     rsParQ.next();
+                    rsIBSSN.next();
 
                     /*
                      * Following code sets athlete data
@@ -4987,9 +4298,50 @@ public class BowlerController implements Initializable {
                         }
                     }
 
-
                     if (txtParQuest7.getText().equals("")) {
                         txtParQuest7.setText(rsParQ.getString(8 + 18));
+                    }
+
+
+                    //IBSSN data
+                    if (txfTargetAccuracy.getText().equals("")){
+                        txfTargetAccuracy.setText(rsIBSSN.getString(2 + 18));
+                    }
+
+                    if (txfPocketPercentage.getText().equals("")){
+                        txfPocketPercentage.setText(rsIBSSN.getString(3 + 18));
+                    }
+
+                    if (txfMultiPinConversion.getText().equals("")){
+                        txfSinglePinConversion.setText(rsIBSSN.getString(4 + 18));
+                    }
+
+                    if (txfMultiPinConversion.getText().equals("")){
+                        txfSinglePinConversion.setText(rsIBSSN.getString(5 + 18));
+                    }
+
+                    if (txfQuickToPocket.getText().equals("")){
+                        txfQuickToPocket.setText(rsIBSSN.getString(6 + 18));
+                    }
+
+                    if (txfLaneAdjToPocket.getText().equals("")){
+                        txfLaneAdjToPocket.setText(rsIBSSN.getString(7 + 18));
+                    }
+
+                    if (txfEntryAngleIntoPocket.getText().equals("")){
+                        txfEntryAngleIntoPocket.setText(rsIBSSN.getString(8 + 18));
+                    }
+
+                    if (txfBallSpeedConsistency.getText().equals("")){
+                        txfBallSpeedConsistency.setText(rsIBSSN.getString(9 + 18));
+                    }
+
+                    if (txfBallSpeedAtRelease.getText().equals("")){
+                        txfBallSpeedAtRelease.setText(rsIBSSN.getString(10 + 18));
+                    }
+
+                    if (txfRevRateAtRelease.getText().equals("")){
+                        txfRevRateAtRelease.setText(rsIBSSN.getString(11 + 18));
                     }
 
                 } catch (Exception ex) {
@@ -5590,6 +4942,48 @@ public class BowlerController implements Initializable {
 
         ParQ temp = new ParQ(q1Ans, q2Ans, q3Ans, q4Ans, q5Ans, q6Ans, q7Ans);
         temp.addRow(viewInfo, DBindex);
+    }
+
+    /**
+     * Create IBSSN object from the information inside of the IBSSN tab
+     */
+    public void createIBSSNData(){
+        //get info from the text boxes, create the IBSSN object, and then display the points earned
+        //get info from the text boxes
+        double targetAccuracy = Double.parseDouble(txfTargetAccuracy.getText());
+        double pocketPercentage = Double.parseDouble(txfPocketPercentage.getText());
+        double singlePinConversion = Double.parseDouble(txfSinglePinConversion.getText());
+        double multiPinConversion = Double.parseDouble(txfMultiPinConversion.getText());
+        int quickToPocket = Integer.parseInt(txfQuickToPocket.getText());
+        int laneAdjustToPocket = Integer.parseInt(txfLaneAdjToPocket.getText());
+        double entryAngleIntoPocket = Double.parseDouble(txfEntryAngleIntoPocket.getText());
+        double ballSpeedConsistency = Double.parseDouble(txfBallSpeedConsistency.getText());
+        double ballSpeedAtRelease = Double.parseDouble(txfBallSpeedAtRelease.getText());
+        double revRateAtRelease = Double.parseDouble(txfRevRateAtRelease.getText());
+        int gender;
+        if(radMale.isSelected()){
+            gender = 1;
+        } else {
+            gender = 0;
+        }
+
+        //create the IBSSN object
+        IBSSN temp = new IBSSN(targetAccuracy, pocketPercentage, singlePinConversion, multiPinConversion, quickToPocket,
+                                laneAdjustToPocket, entryAngleIntoPocket, ballSpeedConsistency, ballSpeedAtRelease, gender, revRateAtRelease);
+        temp.addRow(viewInfo, DBindex);
+
+        //display the points earned
+        lblTargetAccuracyPoints.setText(temp.calculateTargetAccuracyPoints() + " points");
+        lblPocketPercentagePoints.setText(temp.calculatePocketPercentagePoints() + " points");
+        lblSinglePinConversionPoints.setText(temp.calculateSinglePinSparePoints() + " points");
+        lblMultiPinConversionPoints.setText(temp.calculateMultiPinSparePoints() + " points");
+        lblQuickToPocketPoints.setText(temp.calculateNoAdjustVersatilityPoints() + " points");
+        lblLaneAdjToPocketPoints.setText(temp.calculateLaneAdjustVersatilityPoints() + " points");
+        lblEntryAngleIntoPocketPoints.setText(temp.calculateEntryAnglePoints() + " points");
+        lblBallSpeedConsistencyPoints.setText(temp.calculateBallSpeedConsistPoints() + " points");
+        lblBallSpeedAtReleasePoints.setText(temp.calculateBallSpeedReleasePoints() + " points");
+        lblRevRateAtReleasePoints.setText(temp.calculateRevRateReleasePoints() + " points");
+        lblTotalPoints.setText(temp.getTotalPoints() + " points");
     }
 
     /**

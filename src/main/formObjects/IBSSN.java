@@ -117,18 +117,16 @@ public class IBSSN {
         if (viewInfo == false) {
             String sql;
             sql = "INSERT INTO IBSSN VALUES ("
-                    + "null, ";
-            sql.concat(targetAccuracy + ", " + pocketPercentage + ", " + singlePinSpareConv +
+                    + "null, " + targetAccuracy + ", " + pocketPercentage + ", " + singlePinSpareConv +
                     ", " + multiplePinSpareConv + ", " + avgThrowsToPocket + ", " + avgThrowsToPocketAdjusted + 
-                    ", " + entryAngle + "," + ballSpeedConsistency +", " + ballSpeed + ", " + gender + ", " + revRate);
+                    ", " + entryAngle + "," + ballSpeedConsistency +", " + ballSpeed + ", " + gender + ", " + revRate + ");";
 
             Database.executeUpdate(sql);
         }
         if (viewInfo == true) {
             String sql;
-            sql = "UPDATE IBSSN SET ";
-            
-            sql.concat("targetAccuracy = " + targetAccuracy +
+            sql = "UPDATE IBSSN SET " +
+                    "targetAccuracy = " + targetAccuracy +
                     ", pocketPercentage = " + pocketPercentage +
                     ", singlePinSpareConv = " + singlePinSpareConv +
                     ", multiplePinSpareConv = " + multiplePinSpareConv +
@@ -139,9 +137,7 @@ public class IBSSN {
                     ", ballSpeed = " + ballSpeed +
                     ", gender = " + gender +
                     ", revRate = " + revRate +
-            		", ");
-                       
-            sql.concat(" WHERE ID = " + DBindex + ";");
+                    " WHERE ID = " + DBindex + ";";
 
             Database.executeUpdate(sql);
         }
@@ -153,23 +149,29 @@ public class IBSSN {
      * @return An integer between 1-10 of how many points they earned
      */
     public int calculateTargetAccuracyPoints(){
-    	
     	//find which section it fits in and assign points
         int earnedPoints = 0;
-        double ranges[] = {6.1, 5.7, 5.3, 5.0, 4.5, 3.8, 3.4, 3.0, 1.8};
 
-        if(targetAccuracy < ranges[0]){
+        if(targetAccuracy < 1.8){
+            earnedPoints = 10;
+        } else if (1.8 <= targetAccuracy && targetAccuracy < 2.9 ){
+            earnedPoints = 9;
+        } else if (2.9 <= targetAccuracy && targetAccuracy < 3.3 ){
+            earnedPoints = 8;
+        } else if (3.3 <= targetAccuracy && targetAccuracy < 3.7 ){
+            earnedPoints = 7;
+        } else if (3.7 <= targetAccuracy && targetAccuracy < 4.4 ){
+            earnedPoints = 6;
+        } else if (4.4 <= targetAccuracy && targetAccuracy < 4.9 ){
+            earnedPoints = 5;
+        } else if (4.9 <= targetAccuracy && targetAccuracy < 5.2 ){
+            earnedPoints = 4;
+        } else if (5.2 <= targetAccuracy && targetAccuracy < 5.6 ){
+            earnedPoints = 3;
+        } else if (5.6 <= targetAccuracy && targetAccuracy < 6.1 ){
+            earnedPoints = 2;
+        } else if (6.1 <= targetAccuracy){
             earnedPoints = 1;
-        } else {
-            for(int i = 0; i < 8; i++){
-                if(ranges[i] <= targetAccuracy && targetAccuracy < ranges[i+1]){
-                    earnedPoints = i + 2;
-                    break;
-                }
-            }
-            if(ranges[8] < targetAccuracy){
-                earnedPoints = 10;
-            }
         }
 
         return earnedPoints;
@@ -233,8 +235,8 @@ public class IBSSN {
         int pointsEarned = 1;
         int lowerBound = 0;
         int upperBound = 50;
-        for(int i = 0; i < 10; i++){
-            if(lowerBound <= multiplePinSpareConv && upperBound < multiplePinSpareConv){
+        for(int i = 0; i < 9; i++){
+            if(lowerBound <= multiplePinSpareConv && multiplePinSpareConv < upperBound){
                 //if it is between the bounds, break from the for loop
                 break;
             } else {
@@ -242,6 +244,10 @@ public class IBSSN {
                 upperBound += 5;
                 pointsEarned++;
             }
+        }
+
+        if(pointsEarned > 10){
+            pointsEarned = 10;
         }
 
         return pointsEarned;
@@ -253,7 +259,15 @@ public class IBSSN {
      * @return An integer between 1-10 of how many points they earned
      */
     public int calculateNoAdjustVersatilityPoints(){
-        return (10-avgThrowsToPocket);
+        int pointsEarned;
+
+        if(avgThrowsToPocket >= 10){
+            pointsEarned = 1;
+        } else {
+            pointsEarned = (11-avgThrowsToPocket);
+        }
+
+        return pointsEarned;
     }
 
     /**
@@ -263,7 +277,15 @@ public class IBSSN {
      * @return An integer between 1-10 of how many points they earned
      */
     public int calculateLaneAdjustVersatilityPoints() {
-    	return (10-avgThrowsToPocketAdjusted);
+        int pointsEarned;
+
+        if(avgThrowsToPocketAdjusted >= 10){
+            pointsEarned = 1;
+        } else {
+            pointsEarned = (11-avgThrowsToPocketAdjusted);
+        }
+
+        return pointsEarned;
     }
 
     /**
@@ -338,7 +360,6 @@ public class IBSSN {
      * @return An integer between 1-10 of how many points they earned
      */
     public int calculateBallSpeedReleasePoints(){
-
         //determine which speed section this falls into
         double speedRanges[][] = {{15.3, 15.6, 16.0, 16.4, 16.8, 17.1, 17.5}, //women's range
                                   {16.3, 16.8, 17.4, 17.8, 18.4, 18.8, 19.0}};//men's range

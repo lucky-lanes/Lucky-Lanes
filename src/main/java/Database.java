@@ -210,12 +210,9 @@ public class Database {
             state.execute(sql);
             System.out.println("Created Par-Q table");
 
-            sql = "CREATE TABLE IBSSN (ID INT PRIMARY KEY AUTO_INCREMENT, ";
-            sql.concat("targetAccuracy double, pocketPercentage double, singlePinSpareConv double, multiplePinSpareConv double, "
+            sql = "CREATE TABLE IBSSN (ID INT PRIMARY KEY AUTO_INCREMENT, targetAccuracy double, pocketPercentage double, singlePinSpareConv double, multiplePinSpareConv double, "
             		+ "avgThrowsToPocket int, avgThrowsToPocketAdjusted int, entryAngle double, ballSpeedConsistency double, "
-            		+ "ballSpeed double, gender int, revRate double");
-            
-            sql.concat(");");
+            		+ "ballSpeed double, gender int, revRate double);";
 
             state.execute(sql);
             System.out.println("Created IBSSN table");
