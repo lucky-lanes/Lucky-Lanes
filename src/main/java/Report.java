@@ -49,6 +49,11 @@ public class Report {
      * Array to hold all ParQ objects of the bowlers
      */
     ArrayList<ParQ> parQ;
+    
+    /**
+     * Array to hold all IBSSN objects of the bowlers
+     */
+    ArrayList<IBSSN> ibssn;
     private Executor exec;
 
     /**
@@ -61,6 +66,7 @@ public class Report {
         yBalance = new ArrayList<>();
         fitnessData = new ArrayList<>();
         parQ = new ArrayList<>();
+        ibssn = new ArrayList<>();
 
         exec = Executors.newCachedThreadPool(runnable ->
         {
@@ -82,8 +88,6 @@ public class Report {
 
     /**
      * This method uses the HTML class to generate the output file.
-     *
-     * @throws IOException
      */
     public void toDocs() throws IOException {
         System.out.println("Saving Documents");
@@ -97,13 +101,15 @@ public class Report {
             Athlete athOut = athlete.get(i);
             FitnessTest ftdOut = fitnessData.get(i);
             YBalance ybOut = yBalance.get(i);
-            ParQ parqOut = parQ.get(i);            
+            ParQ parqOut = parQ.get(i); 
+            IBSSN ibssnOut = ibssn.get(i);
             String athString = athOut.toPDF();            
             String fmsString = fmsOut.toPDF();
             String yBString = ybOut.toPDF();
             String ftdString = ftdOut.toPDF();
             String parqString = parqOut.toPDF();
-            String allPDF = athString + "|" + fmsString + "|" + yBString + "|" + ftdString + "|" + parqString;
+            String ibssnString = ibssnOut.toPDF();
+            String allPDF = athString + "|" + fmsString + "|" + yBString + "|" + ftdString + "|" + parqString + "|" + ibssnString;
             
             if(ids.size() > 1) {
             	dc.createPDF(allPDF, true);
@@ -144,12 +150,14 @@ public class Report {
             ResultSet rsYBal = Database.searchQuery("SELECT * FROM YBalance WHERE ID=" + id + ";");
             ResultSet rsFitData = Database.searchQuery("SELECT * FROM FitnessData WHERE ID=" + id + ";");
             ResultSet rsParQ = Database.searchQuery("SELECT * FROM ParQ WHERE ID=" + id + ";");
+            ResultSet rsIBSSN = Database.searchQuery("SELECT * FROM IBSSN WHERE ID=" + id + ";");
 
             fms.add(fetchFMS(rsFMS));
             athlete.add(fetchAthlete(rsAth));
             fitnessData.add(fetchFitnessTest(rsFitData));
             yBalance.add(fetchYBalance(rsYBal));
             parQ.add(fetchParQ(rsParQ));
+            ibssn.add(fetchIBSSN(rsIBSSN));
 
             System.out.println("Fetched Data Succesfully");
         }
@@ -433,6 +441,35 @@ public class Report {
 
 
             temp = (new ParQ(q1Ans, q2Ans, q3Ans, q4Ans, q5Ans, q6Ans, q7Ans));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return temp;
+    }
+    
+    private IBSSN fetchIBSSN(ResultSet rs) {
+        IBSSN temp = null;
+
+        try {
+            if (!rs.next()) {
+
+            }
+
+            double targetAccuracy = rs.getDouble("targetAccuracy");
+            double pocketPercentage = rs.getDouble("pocketPercentage");
+            double singlePinSpareConv = rs.getDouble("singlePinSpareConv");
+            double multiplePinSpareConv = rs.getDouble("multiplePinSpareConv");
+            int avgThrowsToPocket = rs.getInt("avgThrowsToPocket");
+            int avgThrowsToPocketAdjusted = rs.getInt("avgThrowsToPocketAdjusted");
+            double entryAngle = rs.getDouble("entryAngle");
+            double ballSpeedConsistency = rs.getDouble("ballSpeedConsistency");
+            double ballSpeed = rs.getDouble("ballSpeed");
+            int gender = rs.getInt("gender");
+            double revRate = rs.getDouble("revRate");
+
+            temp = (new IBSSN(targetAccuracy, pocketPercentage, singlePinSpareConv, multiplePinSpareConv, avgThrowsToPocket, 
+            		avgThrowsToPocketAdjusted, entryAngle, ballSpeedConsistency, ballSpeed, gender, revRate));
 
         } catch (SQLException ex) {
             Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
