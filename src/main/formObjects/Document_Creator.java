@@ -525,6 +525,7 @@ public class Document_Creator {
         cell = row.createCell(30, split[87]);
         cell.setFontSize(12);
         row = table.createRow(20);
+        
         //Information from the Fitness Testing Data Sheet tab, under the Anthropometrics section
         cell = row.createCell(100, "Anthropometrics");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
@@ -585,6 +586,7 @@ public class Document_Creator {
         cell = row.createCell(30, split[98]);
         cell.setFontSize(12);
         row = table.createRow(20);
+        
         //Information from the Fitness Testing Data Sheet tab, under the Skinfold section
         cell = row.createCell(100, "Skinfold ");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
@@ -625,6 +627,7 @@ public class Document_Creator {
         cell = row.createCell(30, split[105]);
         cell.setFontSize(12);
         row = table.createRow(20);
+        
         //Information from the Fitness Testing Data Sheet tab, under the Sit & Reach section
         cell = row.createCell(100, "Sit & Reach");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
@@ -655,6 +658,7 @@ public class Document_Creator {
         cell = row.createCell(30, split[110]);
         cell.setFontSize(12);
         row = table.createRow(20);
+        
         //Information from the Fitness Testing Data Sheet tab, under the Muscle Strength & Endurance & Power
         cell = row.createCell(100, "Muscle & Strength");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
@@ -830,7 +834,107 @@ public class Document_Creator {
         cell.setFontSize(12);
         cell = row.createCell(30, split[143]);
         cell.setFontSize(12);
-
+        
+        
+        System.out.println("split 143 is: " + split[143]);
+        System.out.println("split 143 is: " + split[144]);
+        System.out.println("split 143 is: " + split[145]);
+        System.out.println("split 143 is: " + split[146]);
+        System.out.println("split 143 is: " + split[147]);
+        System.out.println("split 143 is: " + split[148]);
+        
+        //Info from the IBSSN tab
+        row = table.createRow(20);
+        cell = row.createCell(100, "IBSSN Values and Scores");
+        cell.setFont(PDType1Font.HELVETICA_BOLD);
+        cell.setFontSize(15);
+        row = table.createRow(20);
+        cell = row.createCell(50, "Test");
+        cell.setFont(PDType1Font.HELVETICA_BOLD);
+        cell.setFontSize(12);
+        cell = row.createCell(25, "Raw Score");
+        cell.setFont(PDType1Font.HELVETICA_BOLD);
+        cell.setFontSize(12);
+        cell = row.createCell(25, "Final IBSSN Score");
+        cell.setFont(PDType1Font.HELVETICA_BOLD);
+        cell.setFontSize(12);
+        row = table.createRow(20);
+        cell = row.createCell(50, "Target Accuracy: ");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[145]);
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[146]);
+        cell.setFontSize(12);
+        row = table.createRow(20);
+        cell = row.createCell(50, "Pocket Percentage: ");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[147] + "%");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[148]);
+        cell.setFontSize(12);
+        row = table.createRow(20);
+        cell = row.createCell(50, "Single Pin Spare Percentage: ");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[149] + "%");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[150]);
+        cell.setFontSize(12);
+        row = table.createRow(20);
+        cell = row.createCell(50, "Multiple Pin Spare Percentage: ");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[151] + "%");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[152]);
+        cell.setFontSize(12);
+        row = table.createRow(20);
+        cell = row.createCell(50, "How Quickly to Pocket: ");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[153] + " shots");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[154]);
+        cell.setFontSize(12);
+        row = table.createRow(20);
+        cell = row.createCell(50, "How Quickly to Pocket - Adjusted: ");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[155] + " shots");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[156]);
+        cell.setFontSize(12);
+        row = table.createRow(20);
+        cell = row.createCell(50, "Ball Speed Consistency: ");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[157]);
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[158]);
+        cell.setFontSize(12);
+        row = table.createRow(20);
+        cell = row.createCell(50, "Entry Angle: ");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[159]);
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[160]);
+        cell.setFontSize(12);
+        row = table.createRow(20);
+        cell = row.createCell(50, "Ball Speed at Release: ");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[161]);
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[162]);
+        cell.setFontSize(12);
+        row = table.createRow(20);
+        cell = row.createCell(50, "Rev Rate: ");
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[163]);
+        cell.setFontSize(12);
+        cell = row.createCell(25, split[164]);
+        cell.setFontSize(12);
+        row = table.createRow(20);
+        cell = row.createCell(50, "Final IBSSN Score");
+        cell.setFont(PDType1Font.HELVETICA_BOLD);
+        cell.setFontSize(12);
+        cell = row.createCell(50, split[165]);
+        cell.setFontSize(12);
+     
         table.draw();
 
         contentStream.endText();

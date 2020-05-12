@@ -4983,7 +4983,8 @@ public class BowlerController implements Initializable {
         lblBallSpeedConsistencyPoints.setText(temp.calculateBallSpeedConsistPoints() + " points");
         lblBallSpeedAtReleasePoints.setText(temp.calculateBallSpeedReleasePoints() + " points");
         lblRevRateAtReleasePoints.setText(temp.calculateRevRateReleasePoints() + " points");
-        lblTotalPoints.setText(temp.getTotalPoints() + " points");
+        int totalPoints[] = temp.getTotalPoints();
+        lblTotalPoints.setText(totalPoints[10] + " points");
     }
 
     /**

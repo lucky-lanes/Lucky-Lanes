@@ -66,9 +66,9 @@ public class IBSSN {
     private double revRate = 0;
 
     /**
-     * Holds the total points earned from the IBSSN test
+     * Array that holds the total points earned from the IBSSN tests, as well as the combined total.
      */
-    private int totalPoints;
+    private int[] totalPoints = new int[11];
 
     /**
      * Constructor method for the IBSSN object
@@ -418,22 +418,28 @@ public class IBSSN {
      * </p>
      */
     public void setTotalPoints(){
-        int totalPointsEarned = 0;
-        totalPointsEarned += calculateTargetAccuracyPoints();
-        totalPointsEarned += calculatePocketPercentagePoints();
-        totalPointsEarned += calculateSinglePinSparePoints();
-        totalPointsEarned += calculateMultiPinSparePoints();
-        totalPointsEarned += calculateNoAdjustVersatilityPoints();
-        totalPointsEarned += calculateLaneAdjustVersatilityPoints();
-        totalPointsEarned += calculateEntryAnglePoints();
-        totalPointsEarned += calculateBallSpeedConsistPoints();
-        totalPointsEarned += calculateBallSpeedReleasePoints();
-        totalPointsEarned += calculateRevRateReleasePoints();
+        for(int i = 0; i < 11; i++) {
+        	totalPoints[i] = 0;
+        }
+    	
+        totalPoints[0] += calculateTargetAccuracyPoints();
+        totalPoints[1] += calculatePocketPercentagePoints();
+        totalPoints[2] += calculateSinglePinSparePoints();
+        totalPoints[3] += calculateMultiPinSparePoints();
+        totalPoints[4] += calculateNoAdjustVersatilityPoints();
+        totalPoints[5] += calculateLaneAdjustVersatilityPoints();
+        totalPoints[6] += calculateEntryAnglePoints();
+        totalPoints[7] += calculateBallSpeedConsistPoints();
+        totalPoints[8] += calculateBallSpeedReleasePoints();
+        totalPoints[9] += calculateRevRateReleasePoints();
+        
+        for(int i = 0; i < 10; i++) {
+        	totalPoints[10] += totalPoints[i];
+        }
 
-        this.totalPoints = totalPointsEarned;
     }
     
-    public int getTotalPoints() {
+    public int[] getTotalPoints() {
     	return totalPoints;
     }
     
@@ -487,9 +493,13 @@ public class IBSSN {
      * @return A string containing all of the information of the IBSSN test. Each field is separated by a "|" character
      */
     public String toPDF() {
-        String pdf = "IBSSN|" + this.targetAccuracy + "|" + this.pocketPercentage + "|" + this.singlePinSpareConv + "|" 
-        		+ this.multiplePinSpareConv + "|" + this.avgThrowsToPocket + "|" + this.avgThrowsToPocketAdjusted + "|" 
-        		+ this.ballSpeedConsistency + "|" + this.entryAngle + "|" + this.ballSpeed + "|" + this.revRate;
+    	setTotalPoints();
+        String pdf = "IBSSN|" + this.targetAccuracy + "|" + this.totalPoints[0] + "|" + this.pocketPercentage + "|" + this.totalPoints[1] + "|" + 
+        		+ this.singlePinSpareConv + "|" + this.totalPoints[2] + "|" + this.multiplePinSpareConv + "|" + this.totalPoints[3] + "|" 
+        		+ this.avgThrowsToPocket + "|" + this.totalPoints[4] + "|" + this.avgThrowsToPocketAdjusted + "|" + this.totalPoints[5] + "|"
+        		+ this.ballSpeedConsistency + "|" + this.totalPoints[6] +  "|" + this.entryAngle + "|" + this.totalPoints[7] + "|" 
+        		+ this.ballSpeed + "|" + this.totalPoints[8] + "|" + this.revRate + "|" + this.totalPoints[9] + "|" + this.totalPoints[10];
+        
         return pdf;
     }
 }
