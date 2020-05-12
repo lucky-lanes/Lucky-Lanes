@@ -99,7 +99,8 @@ public class ShowFormsController implements Initializable {
      */
     @FXML
     private void acsi(ActionEvent event) {
-        handle("./src/main/DocumentsPDF/ACSI.pdf");
+    	String pdfName = System.getProperty("user.dir") + "/src/main/DocumentsPDF/ACSI.pdf"; 
+       	handle(pdfName);
     }
 
     /**
@@ -107,7 +108,8 @@ public class ShowFormsController implements Initializable {
      */
     @FXML
     private void bowlerAssessment(ActionEvent event) {
-        handle("./src/main/DocumentsPDF/Bowler_Assessment.pdf");
+    	String pdfName = System.getProperty("user.dir") + "/src/main/DocumentsPDF/Bowler_Assessment.pdf"; 
+       	handle(pdfName);
     }
 
     /**
@@ -115,8 +117,8 @@ public class ShowFormsController implements Initializable {
      */
     @FXML
     private void bowlingQuestion(ActionEvent event) {
-        handle("./src/main/DocumentsPDF/Bowling_IQ_Topics.pdf");
-
+    	String pdfName = System.getProperty("user.dir") + "/src/main/DocumentsPDF/Bowling_IQ_Topics.pdf"; 
+       	handle(pdfName);
     }
 
     /**
@@ -124,7 +126,8 @@ public class ShowFormsController implements Initializable {
      */
     @FXML
     private void mbti(ActionEvent event) {
-        handle("./src/main/DocumentsPDF/MBTI_Personality_Type_Test.pdf");
+    	String pdfName = System.getProperty("user.dir") + "/src/main/DocumentsPDF/MBTI_Personality_Type_Test.pdf"; 
+       	handle(pdfName);
     }
     
     /**
@@ -132,7 +135,8 @@ public class ShowFormsController implements Initializable {
      */
     @FXML
     private void ibssn(ActionEvent event) {
-        handle("./src/main/DocumentsPDF/IBSSN_International_Bowling_Skill_Score_Number.xlsx");
+    	String filename = System.getProperty("user.dir") + "/src/main/DocumentsPDF/IBSSN_International_Bowling_Skill_Score_Number.xlsx"; 
+       	handle(filename);
     }
     
     /**
@@ -140,7 +144,8 @@ public class ShowFormsController implements Initializable {
      */
     @FXML
     private void ybalance(ActionEvent event) {
-        handle("./src/main/DocumentsPDF/Y_Balance_Test.pdf");
+    	String pdfName = System.getProperty("user.dir") + "/src/main/DocumentsPDF/Y_Balance_Test.pdf"; 
+       	handle(pdfName);
     }
 
     /**
