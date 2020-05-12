@@ -835,14 +835,6 @@ public class Document_Creator {
         cell = row.createCell(30, split[143]);
         cell.setFontSize(12);
         
-        
-        System.out.println("split 143 is: " + split[143]);
-        System.out.println("split 143 is: " + split[144]);
-        System.out.println("split 143 is: " + split[145]);
-        System.out.println("split 143 is: " + split[146]);
-        System.out.println("split 143 is: " + split[147]);
-        System.out.println("split 143 is: " + split[148]);
-        
         //Info from the IBSSN tab
         row = table.createRow(20);
         cell = row.createCell(100, "IBSSN Values and Scores");
@@ -929,10 +921,11 @@ public class Document_Creator {
         cell = row.createCell(25, split[164]);
         cell.setFontSize(12);
         row = table.createRow(20);
-        cell = row.createCell(50, "Final IBSSN Score");
+        cell = row.createCell(80, "Final IBSSN Score");
         cell.setFont(PDType1Font.HELVETICA_BOLD);
+        cell.setAlign(HorizontalAlignment.RIGHT);
         cell.setFontSize(12);
-        cell = row.createCell(50, split[165]);
+        cell = row.createCell(20, split[165]);
         cell.setFontSize(12);
      
         table.draw();
