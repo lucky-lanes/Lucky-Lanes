@@ -33,6 +33,8 @@ You'll need to install the following libraries into your project (these librarie
    1. Download the zipped folder titled LuckyLanes. 
    2. Make sure that the folders titled src with folders title main and DocumentsPDF inside the src folder.
    3. Make sure that the src folder and the JAR File are inside the LuckyLanes Folder.
+
+[Setup Video for Jar File Use](https://drive.google.com/drive/u/3/folders/1Hl_rNmPjIei2WYsT1fumofl10czmwujY)
         
 ## Usage
  ```java
