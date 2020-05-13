@@ -1,5 +1,7 @@
 # LuckyLanes
-This project is for the LuckyLanes bowling alley. Using Java and JavaFX. 
+This project is for the LuckyLanes bowling alley to keep track of specific athlete data entered by a user and stored in a local
+database. The user can view athlete's data, manipulate athlete's data, view printable forms for data gathering, and 
+print out athlete's data. The application uses Java and JavaFX. 
 
 ## Setup For IDE Use
 You'll need to install the following libraries into your project (these libraries are in the google drive)
