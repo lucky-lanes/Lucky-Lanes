@@ -177,7 +177,9 @@ public class LuckyLanes extends Application {
      *
      * @param args the command line arguments
      */
-    public static void main(String[] args) {        
+    public static void main(String[] args) {  
+        Login_Form.getForm(); //new call for Login_Form 
+        
     	Database.createDatabase("~/LuckyLanes");
         launch(args);
     }
