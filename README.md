@@ -50,6 +50,9 @@ one later. There are a couple databases that are inside the the project files fr
 ## Complete documentation
 [Documentation Station](https://docs.google.com/document/d/1CYt3Xl13mugHgATuaXxcm7oLQJDwlJRIyBNsAmsLcEI/edit#)
 
+## Dynamo Proposal
+https://onedrive.live.com/view.aspx?resid=CAA42815A644A89C!2621&ithint=file%2cdocx&authkey=!APhi9NG0GIarfG4
+
 ## Known problems 
 1. when using the included TheFinalTest.mv.db database there is a problem creating questions for the test. they do not
 show up in update questions.
