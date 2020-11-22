@@ -19,8 +19,7 @@ public class Login_Form extends javax.swing.JFrame {
     /**
      * This method is called from within the constructor to initialize the form.
      */
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Form Code">                          
+    @SuppressWarnings("unchecked")                       
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -40,6 +39,7 @@ public class Login_Form extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         incorrectone = new javax.swing.JLabel();
         incorrecttwo = new javax.swing.JLabel();
+        Signup = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,7 +62,7 @@ public class Login_Form extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(82, 122, 150));
@@ -108,8 +108,9 @@ public class Login_Form extends javax.swing.JFrame {
 
         accesslevel.setBackground(new java.awt.Color(255, 255, 255));
         accesslevel.setForeground(new java.awt.Color(0, 0, 0));
-        accesslevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select User", "Athlete ", "Coach", "Admin" }));
+        accesslevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Athlete ", "Coach", "Admin" }));
         accesslevel.setToolTipText("");
+        accesslevel.setPreferredSize(new java.awt.Dimension(87, 24));
         accesslevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accesslevelActionPerformed(evt);
@@ -129,12 +130,21 @@ public class Login_Form extends javax.swing.JFrame {
         incorrecttwo.setBackground(new java.awt.Color(255, 255, 255));
         incorrecttwo.setForeground(new java.awt.Color(255, 255, 255));
 
+        Signup.setBackground(new java.awt.Color(255, 255, 255));
+        Signup.setForeground(new java.awt.Color(0, 0, 0));
+        Signup.setText("Sign up");
+        Signup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SignupMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -147,18 +157,24 @@ public class Login_Form extends javax.swing.JFrame {
                         .addComponent(username, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(accesslevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(accesslevel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(incorrectone))
-                .addGap(60, 60, 60))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Signup)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addContainerGap()
+                .addComponent(Signup)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -180,7 +196,7 @@ public class Login_Form extends javax.swing.JFrame {
                 .addComponent(incorrectone)
                 .addGap(0, 0, 0)
                 .addComponent(incorrecttwo)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -210,46 +226,57 @@ public class Login_Form extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }                     
+
+    private void SignupMouseClicked(java.awt.event.MouseEvent evt) {                                    
+        Create_Account_Form.getCreateForm();  // Call to open Create account form 
+        dispose(); // close the active window    
+    }                                   
 
     private void accesslevelActionPerformed(java.awt.event.ActionEvent evt) {                                            
         System.out.println("event: " + evt.getActionCommand().equals("comboBoxChanged"));
         if(evt.getActionCommand().equals("comboBoxChanged")){
-          System.out.println("item selected: " + accesslevel.getSelectedItem()); // returns the selected item 
+            System.out.println("item selected: " + accesslevel.getSelectedItem());        // returns the selected item
         }else{
-           
+
         }
     }                                           
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {                                   
-        //if login is valid = true then go to next methods else false error message trigger 
-        boolean valid = false;   
-        
+        //if login is valid = true then go to next methods else false error message trigger
+        boolean valid = false;
+
         //check if password and username are valid...pass boolean below
         System.out.println("username: " + username.getText());
         System.out.println("password: " + password.getText());
+        System.out.println("accesslevel: " + accesslevel.getSelectedItem());
+        
         if(valid){
-           //run app for that item selected 
-           
-           incorrectone.setText("");
-           incorrecttwo.setText("");
-        
+            //run app for that item selected
+
+            incorrectone.setText("");
+            incorrecttwo.setText("");
+
         }else{
-           incorrectone.setText("The username or password you");
-           incorrecttwo.setText("entered is incorrect.");
+            incorrectone.setText("The username or password you");
+            incorrecttwo.setText("entered is incorrect.");
         }
-        
+
     }                                  
 
     private void passwordFocusGained(java.awt.event.FocusEvent evt) {                                     
-        password.setText("");   
+        password.setText("");       
     }                                    
 
     private void usernameFocusGained(java.awt.event.FocusEvent evt) {                                     
         username.setText("");   
     }                                    
+                                
 
-    public static void getForm() { //main run
+    /**
+     * main run
+     */
+     public static void getForm() { 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -266,7 +293,6 @@ public class Login_Form extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login_Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -276,8 +302,9 @@ public class Login_Form extends javax.swing.JFrame {
         });
         
     }
-    
+
     // Variables declaration - do not modify                     
+    private javax.swing.JButton Signup;
     private javax.swing.JComboBox<String> accesslevel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
