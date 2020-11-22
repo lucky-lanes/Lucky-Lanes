@@ -39,7 +39,7 @@ public class Login_Form extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         incorrectone = new javax.swing.JLabel();
         incorrecttwo = new javax.swing.JLabel();
-        Signup = new javax.swing.JButton();
+        signup = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,12 +130,12 @@ public class Login_Form extends javax.swing.JFrame {
         incorrecttwo.setBackground(new java.awt.Color(255, 255, 255));
         incorrecttwo.setForeground(new java.awt.Color(255, 255, 255));
 
-        Signup.setBackground(new java.awt.Color(255, 255, 255));
-        Signup.setForeground(new java.awt.Color(0, 0, 0));
-        Signup.setText("Sign up");
-        Signup.addMouseListener(new java.awt.event.MouseAdapter() {
+        signup.setBackground(new java.awt.Color(255, 255, 255));
+        signup.setForeground(new java.awt.Color(0, 0, 0));
+        signup.setText("Sign up");
+        signup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SignupMouseClicked(evt);
+                signupMouseClicked(evt);
             }
         });
 
@@ -166,14 +166,14 @@ public class Login_Form extends javax.swing.JFrame {
                 .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Signup)
+                .addComponent(signup)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Signup)
+                .addComponent(signup)
                 .addGap(26, 26, 26)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -228,7 +228,7 @@ public class Login_Form extends javax.swing.JFrame {
         pack();
     }                     
 
-    private void SignupMouseClicked(java.awt.event.MouseEvent evt) {                                    
+    private void signupMouseClicked(java.awt.event.MouseEvent evt) {                                    
         Create_Account_Form.getCreateForm();  // Call to open Create account form 
         dispose(); // close the active window    
     }                                   
@@ -304,7 +304,7 @@ public class Login_Form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton Signup;
+    private javax.swing.JButton signup;
     private javax.swing.JComboBox<String> accesslevel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
