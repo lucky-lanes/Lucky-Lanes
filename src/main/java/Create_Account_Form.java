@@ -1,4 +1,4 @@
-*
+/*
  * Create_Account_Form allows the user to send a request 
  * for signup to an admin or coach 
  */
