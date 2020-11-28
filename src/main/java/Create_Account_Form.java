@@ -278,11 +278,12 @@ public class Create_Account_Form extends javax.swing.JFrame {
     }                                       
 
     private void createaccountMouseClicked(java.awt.event.MouseEvent evt) {                                           
-        //After create account button is clicked 
-        
-        System.out.println("username: " + createusername.getText());
-        System.out.println("password: " + String.valueOf(createpassword.getPassword()));
-        System.out.println("Email: " + createemail.getText());
+        //After create account button is clicked
+
+        // leave commented unless debugging for security
+//        System.out.println("username: " + createusername.getText());
+//        System.out.println("password: " + String.valueOf(createpassword.getPassword()));
+//        System.out.println("Email: " + createemail.getText());
 
         boolean valid = AuthenticationController.newAccount(createusername.getText(), createpassword.getPassword(),
                 "", createemail.getText());

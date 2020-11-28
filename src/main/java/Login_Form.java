@@ -249,9 +249,10 @@ public class Login_Form extends javax.swing.JFrame {
         boolean valid = false;
 
         //check if password and username are valid...pass boolean below
-        System.out.println("username: " + username.getText());
-        System.out.println("password: " + String.valueOf(password.getPassword()));
-        System.out.println("accesslevel: " + accesslevel.getSelectedItem());
+        // leave commented unless debugging for security
+//        System.out.println("username: " + username.getText());
+//        System.out.println("password: " + String.valueOf(password.getPassword()));
+//        System.out.println("accesslevel: " + accesslevel.getSelectedItem());
 
         valid = AuthenticationController.Authenticate(username.getText(), password.getPassword(),
                 accesslevel.getSelectedItem().toString());
