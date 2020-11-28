@@ -4,6 +4,8 @@
  */
 package main.java;
 
+import main.java.controllers.AuthenticationController;
+
 /*
  *
  * @author Zach
@@ -279,10 +281,18 @@ public class Create_Account_Form extends javax.swing.JFrame {
         //After create account button is clicked 
         
         System.out.println("username: " + createusername.getText());
-        System.out.println("password: " + createpassword.getText());
+        System.out.println("password: " + String.valueOf(createpassword.getPassword()));
         System.out.println("Email: " + createemail.getText());
-        
-        pendingverif.setText(" Account pending verification");       
+
+        boolean valid = AuthenticationController.newAccount(createusername.getText(), createpassword.getPassword(),
+                "", createemail.getText());
+
+        if (valid) {
+            pendingverif.setText(" Account Created.");
+        }
+        else {
+            pendingverif.setText(" Account creation failed, username already taken.");
+        }
     }                                          
 
     private void signinbackMouseClicked(java.awt.event.MouseEvent evt) {                                        

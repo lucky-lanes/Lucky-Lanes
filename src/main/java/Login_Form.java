@@ -3,6 +3,8 @@
  */
 package main.java;
 
+import main.java.controllers.AuthenticationController;
+
 /**
  *
  * @author Zach
@@ -108,7 +110,7 @@ public class Login_Form extends javax.swing.JFrame {
 
         accesslevel.setBackground(new java.awt.Color(255, 255, 255));
         accesslevel.setForeground(new java.awt.Color(0, 0, 0));
-        accesslevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Athlete ", "Coach", "Admin" }));
+        accesslevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Athlete", "Coach", "Admin" }));
         accesslevel.setToolTipText("");
         accesslevel.setPreferredSize(new java.awt.Dimension(87, 24));
         accesslevel.addActionListener(new java.awt.event.ActionListener() {
@@ -242,20 +244,23 @@ public class Login_Form extends javax.swing.JFrame {
         }
     }                                           
 
-    private void loginMouseClicked(java.awt.event.MouseEvent evt) {                                   
+    private void loginMouseClicked(java.awt.event.MouseEvent evt) {
         //if login is valid = true then go to next methods else false error message trigger
         boolean valid = false;
 
         //check if password and username are valid...pass boolean below
         System.out.println("username: " + username.getText());
-        System.out.println("password: " + password.getText());
+        System.out.println("password: " + String.valueOf(password.getPassword()));
         System.out.println("accesslevel: " + accesslevel.getSelectedItem());
-        
+
+        valid = AuthenticationController.Authenticate(username.getText(), password.getPassword(),
+                accesslevel.getSelectedItem().toString());
+
         if(valid){
             //run app for that item selected
 
-            incorrectone.setText("");
-            incorrecttwo.setText("");
+            incorrectone.setText("Authentication Successful");
+            incorrecttwo.setText("Welcome, " + AuthenticationController.activeUser);
 
         }else{
             incorrectone.setText("The username or password you");

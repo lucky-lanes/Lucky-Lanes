@@ -1,5 +1,7 @@
 package main.java;
 
+import org.h2.command.Prepared;
+
 import java.io.*;
 import java.sql.*;
 import java.util.Properties;
@@ -143,9 +145,9 @@ public class Database {
             // create a database of the following credentials
             conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
-            // add in athlete table
             state = conn.createStatement();
 
+            // add in athlete table
             sql = "CREATE TABLE ATHLETE (ID INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255), "
                     + "date VARCHAR(255), dateOfBirth VARCHAR(255), address VARCHAR(255), city VARCHAR(255), "
                     + "state VARCHAR(255), zip int, phone VARCHAR(255), school VARCHAR(255), "
@@ -154,6 +156,13 @@ public class Database {
 
             state.execute(sql);
             System.out.println("Created a Athlete table.");
+
+            // add table for Authentication Data
+            sql = "CREATE TABLE AUTHENTICATION (ID INT PRIMARY KEY AUTO_INCREMENT, username VARCHAR(256), "
+                    + "password VARCHAR(256), salt VARCHAR(256), authLevel VARCHAR(256), email VARCHAR(256));";
+
+            state.execute(sql);
+            System.out.println("Created an authentication table.");
 
             sql = "CREATE TABLE FMS (ID INT PRIMARY KEY AUTO_INCREMENT, "
                     + "deepSquatRaw int, deepSquatFinal int,"
@@ -302,6 +311,38 @@ public class Database {
             // execute the SQL statement
             state = conn.createStatement();
             state.executeUpdate(sql);
+
+            // close the database
+            close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * Acts like execute update, but allows for non-string arguments to be passed through and in place of '?' in
+     * the insert, update, and delete functions.
+     *
+     * Currently designed for specifically two inputs, was originally built for saving passwords as bytes, but saved
+     * despite ultimately not going that route in case a future case where non-string data needs to be added.
+     *
+     * ideally, var1 and var2 would be any object(s) in an array, such that the function scales with number of ? inputs
+     *
+     * @param sql An SQL insert, update, or delete statement that will be executed on the database
+     */
+    public static void executeAsyncUpdate(String sql, String var1, String var2) {
+        System.out.println("THE ON EXECUTE: " + URL);
+
+        try {
+            // connect
+            connect();
+
+            // execute the SQL statement
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,var1);
+            pstmt.setString(2,var2);
+            pstmt.executeUpdate();
+            pstmt.close();
 
             // close the database
             close();
