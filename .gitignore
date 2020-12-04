@@ -1,3 +1,15 @@
 /build/
 /dist/
 /nbproject/private/
+config.properties
+nbproject/build-impl.xml
+nbproject/build-impl.xml~
+nbproject/genfiles.properties
+nbproject/jfx-impl.xml
+nbproject/jfx-impl_backup_12.xml
+nbproject/private/private.properties
+nbproject/private/private.xml
+nbproject/project.properties
+nbproject/project.xml
+nbproject/UPDATED.TXT
+Trace.txt

@@ -46,6 +46,10 @@ public class TakeQuestionnaireController implements Initializable {
      */
     @FXML
     VBox table;
+    
+    @FXML
+    Label testname;
+    
     //TableView table;
     @FXML
     ProgressIndicator progressIndicator;
@@ -92,7 +96,7 @@ public class TakeQuestionnaireController implements Initializable {
     ToggleGroup toggle[];
     int Answers[][];
     
-    String test = "QUIZ1";
+    String test = "QUIZ2";
     
     //ArrayList<String> Questions = new ArrayList<String>();
 
@@ -182,7 +186,7 @@ public class TakeQuestionnaireController implements Initializable {
                             ResultSet rs = Database.searchQuery(SQL);
                             // 2nd result set only for getting row count
                             ResultSet rs1 = Database.searchQuery(SQL);
-
+                            testname.setText(test);
                             
                             int i=0;
 
@@ -190,6 +194,7 @@ public class TakeQuestionnaireController implements Initializable {
                             // getting row count
                             Answers = new int[rs1.getRow()][];
                             toggle = new ToggleGroup[rs1.getRow()];
+                            Label spacer;
 
                             // gets data from result set and adds elements to page
                             while(rs.next()) {
@@ -198,6 +203,8 @@ public class TakeQuestionnaireController implements Initializable {
 
                                 table.getChildren().add(Questions);
                                 toggle[i] = new ToggleGroup();
+                                spacer = new Label();
+                                spacer.setMinWidth(300);
                                 
                                 for(int j=0;j<rs.getMetaData().getColumnCount()-2;j++)
                                 {
@@ -206,6 +213,7 @@ public class TakeQuestionnaireController implements Initializable {
                                     Choices.setToggleGroup(toggle[i]);
                                     table.getChildren().add(Choices);
                                 }
+                                table.getChildren().add(spacer);
                             }
 
                             
