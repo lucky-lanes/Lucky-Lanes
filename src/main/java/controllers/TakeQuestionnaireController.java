@@ -46,10 +46,6 @@ public class TakeQuestionnaireController implements Initializable {
      */
     @FXML
     VBox table;
-    
-    @FXML
-    Label testname;
-    
     //TableView table;
     @FXML
     ProgressIndicator progressIndicator;
@@ -96,7 +92,7 @@ public class TakeQuestionnaireController implements Initializable {
     ToggleGroup toggle[];
     int Answers[][];
     
-    String test = "QUIZ2";
+    String test = "QUIZ1";
     
     //ArrayList<String> Questions = new ArrayList<String>();
 
@@ -181,13 +177,12 @@ public class TakeQuestionnaireController implements Initializable {
                     public void run() {
                         data = FXCollections.observableArrayList();
                            System.out.println("here1");
-                          
                         try {
                             String SQL = "SELECT * FROM TEST__"+test;
                             ResultSet rs = Database.searchQuery(SQL);
                             // 2nd result set only for getting row count
                             ResultSet rs1 = Database.searchQuery(SQL);
-                            testname.setText(test);
+
                             
                             int i=0;
 
@@ -195,14 +190,12 @@ public class TakeQuestionnaireController implements Initializable {
                             // getting row count
                             Answers = new int[rs1.getRow()][];
                             toggle = new ToggleGroup[rs1.getRow()];
-                            Label spacer;
-                          
 
                             // gets data from result set and adds elements to page
                             while(rs.next()) {
 
                                 Questions = new Label(rs.getString(2));
-                                spacer = new Label();
+
                                 table.getChildren().add(Questions);
                                 toggle[i] = new ToggleGroup();
                                 
@@ -213,9 +206,8 @@ public class TakeQuestionnaireController implements Initializable {
                                     Choices.setToggleGroup(toggle[i]);
                                     table.getChildren().add(Choices);
                                 }
-                                table.getChildren().add(spacer);
                             }
-                            //table.setSpacing(5);
+
                             
                         } catch (SQLException ex) {
                             //Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, ex);
