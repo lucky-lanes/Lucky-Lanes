@@ -226,7 +226,7 @@ public class ManageQuestionsController implements Initializable {
     @FXML
     private void takeQuestionnaire(ActionEvent event) {
 
-        String fxml = "/main/resources/view/takeQuestionnaire.fxml";
+        String fxml = "/main/resources/view/selectQuestionnaire.fxml";
 
         AnchorPane root;
         try {
@@ -247,7 +247,7 @@ public class ManageQuestionsController implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
 
-            TakeQuestionnaireController newAthlete = (TakeQuestionnaireController) ((Initializable) loader.getController());
+            SelectQuestionnaireController newAthlete = (SelectQuestionnaireController) ((Initializable) loader.getController());
             newAthlete.setStage(stage);
             newAthlete.setPreScene(preScene);
 
