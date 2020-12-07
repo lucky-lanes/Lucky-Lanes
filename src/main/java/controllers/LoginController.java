@@ -18,9 +18,12 @@ import main.java.LuckyLanes;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+//import main.java.controllers.AuthenticationController;
+
+
 /**
  * @author Mario
- * @deprecated FXML Controller class
  * <p>
  * This class handles the interaction from the user in the Administration scene.
  */
@@ -45,6 +48,9 @@ public class LoginController implements Initializable {
 
     @FXML
     PasswordField txfPassword;
+    
+    @FXML
+    TextField createemail;   // new field for email remove
 
     /**
      *
@@ -113,6 +119,7 @@ public class LoginController implements Initializable {
         this.app = app;
     }
 
+    
     /**
      * @param event Action event
      */
@@ -126,11 +133,20 @@ public class LoginController implements Initializable {
      */
     @FXML
     private void authenticateUser(ActionEvent event) {
-        if (txfPassword.getText().equals("admin") && txfUsername.getText().equals("admin")) {
+        
+        
+        boolean valid = false;
+    
+        valid = AuthenticationController.Authenticate(txfUsername.getText(), txfPassword.getText().toCharArray());
+        
+         System.out.println(valid + " ### valid ### ");
+        
+        if(valid){
             //Go to admin scene.
             lblMsgError.setVisible(false);
             this.app.gotoAdmin();
-        } else {
+            
+        }else{
             //Invalid password or username.
             lblMsgError.setText("Invalid username or password");
             lblMsgError.setVisible(true);
@@ -141,7 +157,7 @@ public class LoginController implements Initializable {
      * @param event Action event
      */
     @FXML
-    private void demo(ActionEvent event) {
-        this.app.gotoAdmin();
+    private void signUpEvent(ActionEvent event) { 
+        this.app.gotoSignup();     
     }
 }
