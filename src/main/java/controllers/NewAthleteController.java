@@ -72,7 +72,7 @@ public class NewAthleteController implements Initializable {
      *
      * @param stage The window.
      */
-    protected void setStage(Stage stage) {
+    public void setStage(Stage stage) {
         preTitle = stage.getTitle();
         this.stage = stage;
         this.stage.setTitle(title);
@@ -187,7 +187,7 @@ public class NewAthleteController implements Initializable {
      *
      * @param pre The previous scene.
      */
-    protected void setPreScene(Scene pre) {
+    public void setPreScene(Scene pre) {
         preScene = pre;
     }
 
@@ -204,5 +204,5 @@ public class NewAthleteController implements Initializable {
         stage.setScene(preScene);
         stage.sizeToScene();
         stage.setTitle(preTitle);
-    }
+    }  
 }
