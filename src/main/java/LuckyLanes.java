@@ -18,6 +18,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.EventType;
+import javafx.stage.WindowEvent;
+import main.java.controllers.AthleteMenuController;
+import main.java.controllers.NewAthleteController;
+
+import main.java.controllers.SignUpController; // new 
 
 
 /**
@@ -78,12 +84,13 @@ public class LuckyLanes extends Application {
             });
 
             //Replace the content of the stage.
-            //gotoLogin();
+            
             primaryStage.initStyle(StageStyle.DECORATED);
-            gotoAdmin();
-
+            gotoLoadDatabase();
+            gotoLogin();
+            
             //Starts the application.
-            //primaryStage.show();
+            primaryStage.show();
         } catch (Exception ex) {
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         }
@@ -94,6 +101,7 @@ public class LuckyLanes extends Application {
      */
     public void gotoLogin() {
         try {
+            
             LoginController root = (LoginController) replaceSceneContent("/main/resources/view/Login.fxml");
 
             //Create listeners once the root is displayed.
@@ -101,16 +109,99 @@ public class LuckyLanes extends Application {
 
             //Send current instance of the application class to the login controller.
             root.setApp(this);
-
             stage.setResizable(true);
             stage.sizeToScene();
+            stage.show();   
+            
         } catch (IOException ex) {
             Logger.getLogger(LuckyLanes.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    
+     /**
+     * This method changes the stage's content to show the SignUp scene.
+     */
+    public void gotoSignup() {
+        try {
+            
+            SignUpController root = (SignUpController) replaceSceneContent("/main/resources/view/SignUp.fxml");
 
+            //Create listeners once the root is displayed.
+            root.createListeners();
+
+            //Send current instance of the application class to the login controller.
+            root.setApp(this);
+            stage.setResizable(true);
+            stage.sizeToScene();
+            stage.show();   
+            
+        } catch (IOException ex) {
+            Logger.getLogger(LuckyLanes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+     /**
+     * This method changes the stage's content to show the NewAthleteMenu scene.
+     */
+    public void gotoAthleteMenu() {
+        
+        String fxml = "/main/resources/view/newAthlete.fxml";
+
+        AnchorPane root;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            InputStream in = LuckyLanes.class.getResourceAsStream(fxml);
+
+            loader.setBuilderFactory(new JavaFXBuilderFactory());
+            loader.setLocation(LuckyLanes.class.getResource(fxml));
+
+            try {
+                root = (AnchorPane) loader.load(in);
+            } finally {
+                in.close();
+            }
+
+            //Stage stage = new Stage();
+            Scene preScene = stage.getScene();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            NewAthleteController newAthlete = (NewAthleteController) ((Initializable) loader.getController());
+            newAthlete.setStage(stage);
+            newAthlete.setPreScene(preScene);
+
+            stage.setOnCloseRequest((WindowEvent we) ->
+            {
+                //((OLD)) ((Stage) (((Node) (event.getSource())).getScene().getWindow())).show(); ((OLD))
+                ((Stage) (stage.getScene()).getWindow()).show();
+            });
+
+            // ((OLD))  Hide this current window (if this is what you want)          ((OLD))
+            // ((OLD))  ((Node) (event.getSource())).getScene().getWindow().hide();  ((OLD))
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+     /**
+     * This method loads the database before login menu
+     */
+    public void gotoLoadDatabase() {
+        try {
+           AdminController root = (AdminController) replaceSceneContent("/main/resources/view/admin.fxml");
+           root.loadDatabase(); 
+           
+        } catch (IOException ex) {
+            Logger.getLogger(LuckyLanes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     /**
      * This method changes the stage's content to show the admin scene.
      */
@@ -118,19 +209,15 @@ public class LuckyLanes extends Application {
         try {
             AdminController root = (AdminController) replaceSceneContent("/main/resources/view/admin.fxml");
 
-            //LoginController root =(LoginController) replaceSceneContent("Login.fxml");
-            //root.createListeners();
-
             //Send current instance of the application class to the login controller.
             root.setApp(this);
             root.setStage(stage);
             stage.setResizable(true);
             stage.sizeToScene();
-
-            //root.loadDatabase();
-
-            stage.show();
-            root.loadDatabase();
+            
+            System.out.println();
+            //stage.hide();
+             stage.show();  
         } catch (IOException ex) {
             Logger.getLogger(LuckyLanes.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -172,15 +259,14 @@ public class LuckyLanes extends Application {
         return (Initializable) loader.getController();
     }
 
+    
     /**
      * Creates the database and launches the JavaFX runtime and the JavaFX Application
      *
      * @param args the command line arguments
      */
     public static void main(String[] args) {  
-        Login_Form.getForm(); //new call for Login_Form 
-        
-    	Database.createDatabase("~/LuckyLanes");
+        Database.createDatabase("~/LuckyLanes");
         launch(args);
     }
 
@@ -195,6 +281,3 @@ public class LuckyLanes extends Application {
         // Save file
     }
 }
-
-
-
