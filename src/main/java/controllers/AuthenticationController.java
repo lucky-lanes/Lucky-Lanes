@@ -100,13 +100,8 @@ public class AuthenticationController
 //        System.out.println(b64_String(hash_pass));
 //        System.out.println(salt);
 
-//        String sql = "INSERT INTO Authentication (username, password, salt, authLevel, email) VALUES ('"
-//                + username + "', " + b64_String(hash_pass) + ", " + b64_String(salt) + ", '" + authL + "', '" + email
-//                + "');";
-
-//, authLevel, email
         String sql = "INSERT INTO Authentication (username, password, salt, authLevel) VALUES ('"
-                + username + "', " + "?, " + "?, '" + authL + "');"; //", '" +  "', '" + email +
+                + username + "', " + "?, " + "?, '" + authL + "');";
 
         Database.executeAsyncUpdate(sql, b64_String(hash_pass), salt);
 
