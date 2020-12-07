@@ -139,8 +139,8 @@ public class SignUpController implements Initializable {
     @FXML
     private void authenticateUser(ActionEvent event) {
         
-        boolean valid = AuthenticationController.newAccount(txfUsername.getText(), txfPassword.getText().toCharArray());
-        //,"", createemail.getText()
+        boolean valid = AuthenticationController.newAccount(txfUsername.getText(), txfPassword.getText().toCharArray(),
+                "Athlete");
 
         if (valid) {
            lblMsgError.setVisible(false);
@@ -149,7 +149,7 @@ public class SignUpController implements Initializable {
         else {
            // pendingverif.setText(" Account creation failed, username already taken.");
              //Invalid password or username.
-            lblMsgError.setText("Account creation failed, username already taken.");
+            lblMsgError.setText("Account creation failed or username already taken.");
             lblMsgError.setVisible(true);
         }
     }

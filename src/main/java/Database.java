@@ -1,5 +1,6 @@
 package main.java;
 
+import main.java.controllers.AuthenticationController;
 import org.h2.command.Prepared;
 
 import java.io.*;
@@ -159,10 +160,16 @@ public class Database {
 
             // add table for Authentication Data
             sql = "CREATE TABLE AUTHENTICATION (ID INT PRIMARY KEY AUTO_INCREMENT, username VARCHAR(256), "
-                    + "password VARCHAR(256), salt VARCHAR(256), authLevel VARCHAR(256), email VARCHAR(256));";
+                    + "password VARCHAR(256), salt VARCHAR(256), authLevel VARCHAR(256));";
 
             state.execute(sql);
             System.out.println("Created an authentication table.");
+
+            AuthenticationController.newAccount("admin","defaultPassword".toCharArray(),"Admin");
+            System.out.println("Created default admin account with credentials:");
+            System.out.println("username: admin");
+            System.out.println("password: defaultPassword");
+            System.out.println("It is strongly recommended to change this password.");
 
             sql = "CREATE TABLE FMS (ID INT PRIMARY KEY AUTO_INCREMENT, "
                     + "deepSquatRaw int, deepSquatFinal int,"
@@ -329,9 +336,13 @@ public class Database {
      * ideally, var1 and var2 would be any object(s) in an array, such that the function scales with number of ? inputs
      *
      * @param sql An SQL insert, update, or delete statement that will be executed on the database
+     *
+     *            passes a boolean variable to make sure no error occurred.
      */
-    public static void executeAsyncUpdate(String sql, String var1, String var2) {
+    public static boolean executeAsyncUpdate(String sql, String var1, String var2) {
         System.out.println("THE ON EXECUTE: " + URL);
+
+        boolean updated = false;
 
         try {
             // connect
@@ -346,9 +357,12 @@ public class Database {
 
             // close the database
             close();
+            updated = true;
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            updated = false;
         }
+        return updated;
     }
 
     /**

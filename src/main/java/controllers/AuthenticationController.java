@@ -25,7 +25,7 @@ public class AuthenticationController
     /**
      * Authenticates a user by comparing entered username/password to records in database
      **/
-    public static boolean Authenticate(String username, char[] password)//, String authLevelOverride
+    public static boolean Authenticate(String username, char[] password)
     {
         Database.connect();
 
@@ -55,8 +55,7 @@ public class AuthenticationController
                     {
                         activeUserID = rsAuth.getInt("ID");
                         activeUser = row_user;
-//                        if (authLevelOverride.equals(""))
-//                        authLevel = rsAuth.getString("authLevel");
+                        authLevel = rsAuth.getString("authLevel");
                         isAuth = true;
                     }
 
@@ -77,7 +76,7 @@ public class AuthenticationController
     /**
      * Adds a new account to the database
      **/
-    public static boolean newAccount(String username, char[] password)//, String authL, String email
+    public static boolean newAccount(String username, char[] password, String authL)//, String authL, String email
     {
         Database.connect();
         ResultSet rsAuth = Database.searchQuery("SELECT * FROM Authentication;");
@@ -106,8 +105,8 @@ public class AuthenticationController
 //                + "');";
 
 //, authLevel, email
-        String sql = "INSERT INTO Authentication (username, password, salt) VALUES ('"
-                + username + "', " + "?" + ", " + "?" +  "');"; //", '" + authL + "', '" + email +
+        String sql = "INSERT INTO Authentication (username, password, salt, authLevel) VALUES ('"
+                + username + "', " + "?, " + "?, '" + authL + "');"; //", '" +  "', '" + email +
 
         Database.executeAsyncUpdate(sql, b64_String(hash_pass), salt);
 
