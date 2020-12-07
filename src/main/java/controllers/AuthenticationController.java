@@ -25,7 +25,7 @@ public class AuthenticationController
     /**
      * Authenticates a user by comparing entered username/password to records in database
      **/
-    public static boolean Authenticate(String username, char[] password, String authLevelOverride)
+    public static boolean Authenticate(String username, char[] password)//, String authLevelOverride
     {
         Database.connect();
 
@@ -46,17 +46,17 @@ public class AuthenticationController
                     byte[] entered_pass_hash = getPasswordHash(password, string_B64(row_salt), 10000);
 
                       // leave commented unless debugging for security
-//                    System.out.println(String.valueOf(password));
-//                    System.out.println(b64_String(entered_pass_hash));
-//                    System.out.println(row_passhash);
-//                    System.out.println(row_salt);
+                    System.out.println(String.valueOf(password));
+                    System.out.println(b64_String(entered_pass_hash));
+                    System.out.println(row_passhash);
+                    System.out.println(row_salt);
 
                     if(row_passhash.equals(b64_String(entered_pass_hash)))
                     {
                         activeUserID = rsAuth.getInt("ID");
                         activeUser = row_user;
-                        if (authLevelOverride.equals(""))
-                            authLevel = rsAuth.getString("authLevel");
+//                        if (authLevelOverride.equals(""))
+//                        authLevel = rsAuth.getString("authLevel");
                         isAuth = true;
                     }
 
@@ -77,7 +77,7 @@ public class AuthenticationController
     /**
      * Adds a new account to the database
      **/
-    public static boolean newAccount(String username, char[] password, String authL, String email)
+    public static boolean newAccount(String username, char[] password)//, String authL, String email
     {
         Database.connect();
         ResultSet rsAuth = Database.searchQuery("SELECT * FROM Authentication;");
@@ -105,8 +105,9 @@ public class AuthenticationController
 //                + username + "', " + b64_String(hash_pass) + ", " + b64_String(salt) + ", '" + authL + "', '" + email
 //                + "');";
 
-        String sql = "INSERT INTO Authentication (username, password, salt, authLevel, email) VALUES ('"
-                + username + "', " + "?" + ", " + "?" + ", '" + authL + "', '" + email + "');";
+//, authLevel, email
+        String sql = "INSERT INTO Authentication (username, password, salt) VALUES ('"
+                + username + "', " + "?" + ", " + "?" +  "');"; //", '" + authL + "', '" + email +
 
         Database.executeAsyncUpdate(sql, b64_String(hash_pass), salt);
 
