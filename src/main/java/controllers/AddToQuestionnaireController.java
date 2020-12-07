@@ -306,72 +306,13 @@ public class AddToQuestionnaireController implements Initializable {
     }
 
     /**
-     * Opens the Edit Questons window when the open button is clicked for a question
-     *
-     * @param id ID of the question
+     * Creates table in database that holds the selected questions
+     * 
+     * table naming format = "TEST__'name_of_test'"
      */
-    public void editQuestion(String id) {
-        String fxml = "/main/resources/view/EditQuestions.fxml";
-
-        AnchorPane root;
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            InputStream in = LuckyLanes.class.getResourceAsStream(fxml);
-
-            loader.setBuilderFactory(new JavaFXBuilderFactory());
-            loader.setLocation(LuckyLanes.class.getResource(fxml));
-
-            try {
-                root = (AnchorPane) loader.load(in);
-            } finally {
-                in.close();
-            }
-
-
-            preScene = stage.getScene();
-            stage.setScene(new Scene(root));
-            stage.show();
-
-            EditQuestionsController newAthlete = (EditQuestionsController) ((Initializable) loader.getController());
-            newAthlete.setFromRecord(id);
-            newAthlete.setStage(stage);
-            newAthlete.setPreScene(preScene);
-
-            stage.setOnCloseRequest((WindowEvent we) ->
-            {
-                //((OLD)) ((Stage) (((Node) (event.getSource())).getScene().getWindow())).show(); ((OLD))
-                ((Stage) (stage.getScene()).getWindow()).show();
-            });
-
-            // ((OLD))  Hide this current window (if this is what you want)          ((OLD))
-            // ((OLD))  ((Node) (event.getSource())).getScene().getWindow().hide();  ((OLD))
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     
-    public void addToTable(String id) {
-        System.out.println(id);
-        Database.connect();
-        //Fix statement to work for questions
-        ResultSet questionInfo = Database.searchQuery("SELECT * FROM QUESTION WHERE ID=" + id + ";");
-        
-        try {
-            questionInfo.next();
-            //System.out.println(questionInfo.getString(1));
-            String Question = questionInfo.getString(2);
-            String Answer1 = questionInfo.getString(3);
-            String Answer2 = questionInfo.getString(5);
-            String Answer3 = questionInfo.getString(7);
-            String Answer4 = questionInfo.getString(9);
-            
-        }
-        catch (Exception e) {
-
-        } finally {
-            Database.close();
-        }
-    }
+    
+    
     
     @FXML
     public void createTable() {
@@ -383,12 +324,12 @@ public class AddToQuestionnaireController implements Initializable {
         else
         {
             Database.connect();
-            System.out.println("1");
+
             String sql ="DROP TABLE IF EXISTS TEST__"+getTableName().toUpperCase()+";";
             Database.executeUpdate(sql);
-            sql = "CREATE TABLE TEST__"+getTableName().toUpperCase()+" (ID INT PRIMARY KEY AUTO_INCREMENT, Question VARCHAR(255), Option1 VARCHAR(255), Option2 VARCHAR(255), Option3 VARCHAR(255), Option4 VARCHAR(255));";
+            sql = "CREATE TABLE TEST__"+getTableName().toUpperCase()+" (ID INT PRIMARY KEY AUTO_INCREMENT, QUESTIONID int);";
             Database.executeUpdate(sql);
-            System.out.println("2");
+
             try{
                 Database.close();
             }catch(Exception e){
@@ -398,27 +339,10 @@ public class AddToQuestionnaireController implements Initializable {
             try{
                 for(int i=0;i<Questions.size();i++)
                 {
-                    Database.connect();
-                    System.out.println(Questions.get(i));
-                    ResultSet questionInfo = Database.searchQuery("SELECT * FROM QUESTION WHERE ID=" + Questions.get(i) + ";");
-                    questionInfo.next();
-                    //System.out.println(questionInfo.getString(1));
-                    String mainQuestion = questionInfo.getString(2);
-                    System.out.println(mainQuestion);
-                    String option1 = questionInfo.getString(3);
-                    System.out.println(option1);
-                    String option2 = questionInfo.getString(5);
-                    System.out.println(option2);
-                    String option3 = questionInfo.getString(7);
-                    System.out.println(option3);
-                    String option4 = questionInfo.getString(9);
-                    System.out.println(option4);
+                    
                     sql = "INSERT INTO TEST__"+getTableName().toUpperCase()+" VALUES (null,"
-                        + "'" + mainQuestion + "',"
-                        + "'" + option1 + "',"
-                        + "'" + option2 + "',"
-                        + "'" + option3 + "',"
-                        + "'" + option4 + "');";
+                        + "'" + Questions.get(i) + "');";
+                        
                         System.out.println(sql);
                         Database.executeUpdate(sql);
                         Database.close();

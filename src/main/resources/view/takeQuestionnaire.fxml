@@ -50,7 +50,7 @@
                                   <RowConstraints maxHeight="80.0" minHeight="0.0" prefHeight="80.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button fx:id="btnSubmit" mnemonicParsing="false" prefHeight="38.0" prefWidth="133.0" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Button fx:id="btnSubmit" onAction="#submitTest" mnemonicParsing="false" prefHeight="38.0" prefWidth="133.0" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <Button mnemonicParsing="false" onAction="#goBack" prefHeight="38.0" prefWidth="133.0" text="Go Back" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>

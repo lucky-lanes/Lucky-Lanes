@@ -13,3 +13,10 @@ nbproject/project.properties
 nbproject/project.xml
 nbproject/UPDATED.TXT
 Trace.txt
+nbproject/build-impl.xml
+nbproject/genfiles.properties
+nbproject/project.properties
+nbproject/project.xml
+TestDatabase.mv.db
+TestDatabase.trace.db
+Trace.txt
