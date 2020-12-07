@@ -133,7 +133,7 @@ public class SelectQuestionnaireController implements Initializable {
         System.out.println("Running");
 
         // prepare SQL statement
-        String SQL = "SELECT ID FROM TEST";
+        String SQL = "SELECT ID, TESTNAME FROM TEST";
 
         // grab the result set of the equation
         //ResultSet rs = Database.searchQuery(SQL);
@@ -224,7 +224,7 @@ public class SelectQuestionnaireController implements Initializable {
                                             // Creates an action to open a new instance of the BowlerController with inserted Values
                                             EventHandler<ActionEvent> open = e -> {
                                                 ObservableList<String> tempID = getTableView().getItems().get(getIndex());
-                                                editQuestion(tempID.get(0));
+                                                editQuestion(tempID.get(1));
                                             };
                                             btn.setOnAction(open);
                                         }
@@ -313,7 +313,7 @@ public class SelectQuestionnaireController implements Initializable {
             stage.show();
 
             TakeQuestionnaireController newAthlete = (TakeQuestionnaireController) ((Initializable) loader.getController());
-            /*newAthlete.setFromRecord(id);*/
+            newAthlete.setFromRecord(id);
             newAthlete.setStage(stage);
             newAthlete.setPreScene(preScene);
 
@@ -351,4 +351,3 @@ public class SelectQuestionnaireController implements Initializable {
         stage.close();
     }
 }
-
