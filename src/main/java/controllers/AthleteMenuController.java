@@ -301,4 +301,12 @@ public class AthleteMenuController implements Initializable {
         stage.setTitle(preTitle);
         stage.close();
     }
+
+    public void createListeners() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setApp(LuckyLanes aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
