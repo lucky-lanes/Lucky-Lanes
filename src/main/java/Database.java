@@ -233,7 +233,15 @@ public class Database {
             System.out.println("Created a IQ AND Psych Test table");
 
             sql = "CREATE TABLE TEST (ID INT PRIMARY KEY AUTO_INCREMENT, "
-                    + "QuestionId INT);";
+                    + "TestName VARCHAR(255));";
+
+            state.execute(sql);
+            System.out.println("Created TEST table");
+            
+            sql = "CREATE TABLE ANSWER (ID INT PRIMARY KEY AUTO_INCREMENT, "
+                    + "TestId INT,"
+                    + "AnswersName VARCHAR(255),"
+                    + "TestTaker VARCHAR (255));";
 
             state.execute(sql);
             System.out.println("Created TEST table");

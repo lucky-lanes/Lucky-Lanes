@@ -309,6 +309,9 @@ public class AddToQuestionnaireController implements Initializable {
      * Creates table in database that holds the selected questions
      * 
      * table naming format = "TEST__'name_of_test'"
+     * 
+     * adds line to TEST table to reference created table
+     * line holds the id of the test as well as the name of the table created
      */
     
     
@@ -330,11 +333,7 @@ public class AddToQuestionnaireController implements Initializable {
             sql = "CREATE TABLE TEST__"+getTableName().toUpperCase()+" (ID INT PRIMARY KEY AUTO_INCREMENT, QUESTIONID int);";
             Database.executeUpdate(sql);
 
-            try{
-                Database.close();
-            }catch(Exception e){
-            Database.close();
-            }
+
             
             try{
                 for(int i=0;i<Questions.size();i++)
@@ -345,8 +344,10 @@ public class AddToQuestionnaireController implements Initializable {
                         
                         System.out.println(sql);
                         Database.executeUpdate(sql);
-                        Database.close();
+                        
                 }
+                sql ="INSERT INTO TEST VALUES (null, \'TEST__" + getTableName() + "\');";
+                Database.executeUpdate(sql);
                 try{
                     Database.close();
                 }catch(Exception e){

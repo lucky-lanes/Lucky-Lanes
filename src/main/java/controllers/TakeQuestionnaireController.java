@@ -292,6 +292,14 @@ public class TakeQuestionnaireController implements Initializable {
         stage.close();
     }
     
+    /**
+    *called when you click submit on takeQuestionnaire screen
+    * 
+    *adds a line to the ANSWER table in database that holds the testid of the test taken,
+    * the name of the table created to hold questions and answers, and the test taker
+    *
+    * creates table in database that holds the questionid's and answers to them
+    */
     @FXML
     private void submitTest() {
         
@@ -307,11 +315,7 @@ public class TakeQuestionnaireController implements Initializable {
             sql = "CREATE TABLE ANSWER__"+test+" (ID INT PRIMARY KEY AUTO_INCREMENT, QUESTIONID int, ANSWER VARCHAR(255));";
             Database.executeUpdate(sql);
 
-            try{
-                Database.close();
-            }catch(Exception e){
-            Database.close();
-            }
+           
             
             try{
                for(int i=0;i<QuestionID.length;i++)
@@ -323,11 +327,20 @@ public class TakeQuestionnaireController implements Initializable {
                         System.out.println(sql);
                         Database.executeUpdate(sql);
                }
+               Database.connect();
+               ResultSet testID = Database.searchQuery("SELECT ID FROM TEST WHERE TESTNAME = \'TEST__"+test+"\';");
+               testID.next();
+               sql ="INSERT INTO ANSWER VALUES (null, "+testID.getString(1)+",\'ANSWER__" + test + "\', \'Andrew\');";
+               System.out.println(sql);
+               
+               Database.executeUpdate(sql);
+               Database.close();
             }catch(Exception e){
-            
-            }    
-        
-        
+                
+            }  
+        Database.close();   
+        //Database.executeUpdate("DROP TABLE TEST");
+       
         btnSubmit.setText("Test Submitted");
     }
 }
