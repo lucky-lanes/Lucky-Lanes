@@ -110,6 +110,34 @@ public class AuthenticationController
     }
 
     /**
+     * function should be called when moving back to the login/sign up screen.
+     */
+    public static void logOut()
+    {
+        AuthenticationController.isAuth = true;
+        AuthenticationController.activeUserID = -1;
+        AuthenticationController.activeUser = "";
+        AuthenticationController.authLevel = "None";
+    }
+
+    /**
+     * User enters old password to change to a new password
+     */
+    public static void changePassword(char[] oldPass, char[] newPass)
+    {
+        if (Authenticate(AuthenticationController.activeUser, oldPass))
+        {
+            Database.connect();
+            String salt = generateSalt();
+            byte[] hash_pass = getPasswordHash(newPass, string_B64(salt), 10000);
+
+            String sql = "UPDATE Authentication SET password = ?, salt = ? " +
+                    "WHERE username = " + AuthenticationController.activeUser.toString() + ";";
+            Database.executeAsyncUpdate(sql, b64_String(hash_pass), salt);
+        }
+    }
+
+    /**
      * helper function to convert a password to a hash along with a given salt
      **/
     private static byte[] getPasswordHash(char[] password, byte[] salt, int iterations)

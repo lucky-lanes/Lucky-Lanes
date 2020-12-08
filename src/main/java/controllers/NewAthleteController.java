@@ -204,5 +204,5 @@ public class NewAthleteController implements Initializable {
         stage.setScene(preScene);
         stage.sizeToScene();
         stage.setTitle(preTitle);
-    }  
+    }
 }
