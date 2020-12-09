@@ -1,6 +1,7 @@
 package main.java.controllers;
 
 import javafx.application.Platform;
+import javafx.scene.text.Font;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -30,6 +31,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.ArrayList;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 
@@ -40,7 +42,7 @@ import javafx.scene.layout.VBox;
  *
  * @author Mario
  */
-public class TakeQuestionnaireController implements Initializable {
+public class ResultsController implements Initializable {
     /**
      * Table to hold the questions
      */
@@ -49,6 +51,9 @@ public class TakeQuestionnaireController implements Initializable {
     
     @FXML
     Label testname;
+    
+    @FXML
+    Label titleSlide;
     
     //TableView table;
     @FXML
@@ -84,7 +89,7 @@ public class TakeQuestionnaireController implements Initializable {
      */
     
     private String nameOfTable = null;
-    protected final String title = "Take Questionnaire";
+    protected final String title = "Results";
     
    
     @FXML
@@ -95,9 +100,10 @@ public class TakeQuestionnaireController implements Initializable {
     
     RadioButton Choices[];
     ToggleGroup toggle[];
-    String Answers[];
+    Label Answers[];
     
-    String test = "QUIZ4";
+    String test;
+    String user;
     
     //ArrayList<String> Questions = new ArrayList<String>();
 
@@ -111,7 +117,7 @@ public class TakeQuestionnaireController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         {
             // TODO
-
+            System.out.println("init " + test);
             exec = Executors.newCachedThreadPool(runnable ->
             {
                 Thread t = new Thread(runnable);
@@ -149,9 +155,8 @@ public class TakeQuestionnaireController implements Initializable {
    
 
         System.out.println("Running");
-
-        // prepare SQL statement
-        String SQL = "SELECT * FROM TEST__"+test;
+        
+        
 
         // grab the result set of the equation
         //ResultSet rs = Database.searchQuery(SQL);
@@ -171,63 +176,65 @@ public class TakeQuestionnaireController implements Initializable {
                
                 //Platform.runlater is used to update an UI control inside a different thread.
                 Platform.runLater(new Runnable() {
+                    
                     @Override
                     public void run() {
                         data = FXCollections.observableArrayList();
-                           
+                        
+                        // prepare SQL statement
+                        String SQL = "SELECT q.QUESTION, a.ANSWER FROM ANSWER__"+test+""+user + " a, QUESTION q where a.QUESTIONID = q.ID";  
+                        
+                        titleSlide.setText(user);
+                        testname.setText(test);
+                        
                         try {
                             
-                            String SQL = "SELECT * FROM TEST__"+test;
+                            //String SQL = "SELECT * FROM TEST__"+test;
                             ResultSet rs = Database.searchQuery(SQL);
                             // 2nd result set only for getting row count
                             ResultSet rs2 = Database.searchQuery(SQL);
-                            testname.setText(test);
+                            //testname.setText(test);
                           
                             int i=0;
 
                             rs2.last();
                             // getting row count
-                            Answers = new String[rs2.getRow()];
-                            toggle = new ToggleGroup[rs2.getRow()];
+                            Answers = new Label[rs2.getRow()];
+                            
                             Questions = new Label[rs2.getRow()];
-                            QuestionID = new int[rs2.getRow()];
-                            Choices = new RadioButton[4];
+                            
+                            
                             Label spacer;
+                            Label temp;
                            
                             // gets data from result set and adds elements to page
                             while(rs.next()) {
-                                System.out.println(rs.getString(1));
-                                QuestionID[i] = Integer.parseInt(rs.getString(2));
-                                ResultSet rs1 = Database.searchQuery("SELECT * FROM QUESTION WHERE ID = "+rs.getString(2));
-                                rs1.next();
-                                System.out.println(rs1.getString(2));
-                                Questions[i] = new Label(rs1.getString(2));
+                                 
+                                HBox hbox = new HBox(5);
+                                HBox ahbox = new HBox(5);
                                 
-                                table.getChildren().add(Questions[i]);
-                                toggle[i] = new ToggleGroup();
+                                temp = new Label("Question "+(i+1)+": ");
+                                temp.setFont(new Font("Georgia", 24));
+                                hbox.getChildren().add(temp);
+                                
+                                temp = new Label(rs.getString(1));
+                                temp.setFont(new Font("Georgia", 24));
+                                hbox.getChildren().add(temp);
+                                
+                                temp = new Label("Answer: ");
+                                temp.setFont(new Font("Georgia", 24));
+                                ahbox.getChildren().add(temp);
+                                
+                                temp = new Label(rs.getString(2));
+                                temp.setFont(new Font("Georgia", 24));
+                                ahbox.getChildren().add(temp);
+                                
+                                table.getChildren().add(hbox);
+                                table.getChildren().add(ahbox);
+                                
                                 spacer = new Label();
                                 spacer.setMinWidth(300);
-                                
-                               
-                                    Choices[0] = new RadioButton();
-                                    Choices[1] = new RadioButton();
-                                    Choices[2] = new RadioButton();
-                                    Choices[3] = new RadioButton();
-                                    Choices[0].setText(rs1.getString(3));
-                                    Choices[1].setText(rs1.getString(5));
-                                    Choices[2].setText(rs1.getString(7));
-                                    Choices[3].setText(rs1.getString(9));
-                                    Choices[0].setToggleGroup(toggle[i]);
-                                    Choices[1].setToggleGroup(toggle[i]);
-                                    Choices[2].setToggleGroup(toggle[i]);
-                                    Choices[3].setToggleGroup(toggle[i]);
-                                    table.getChildren().add(Choices[0]);
-                                    table.getChildren().add(Choices[1]);
-                                    table.getChildren().add(Choices[2]);
-                                    table.getChildren().add(Choices[3]);
-                                    
-                                
-                                table.getChildren().add(spacer);
+
                                 i++;
                                
                             }
@@ -280,6 +287,13 @@ public class TakeQuestionnaireController implements Initializable {
     protected void setPreScene(Scene pre) {
         preScene = pre;
     }
+    
+    
+    protected void setTest(String quiz, String name){
+        System.out.println(quiz + " " + name);
+        this.test = quiz;
+        this.user = name;
+    }
 
     /**
      * Method called by the FXML after the user pushes the back button.
@@ -300,47 +314,7 @@ public class TakeQuestionnaireController implements Initializable {
     *
     * creates table in database that holds the questionid's and answers to them
     */
-    @FXML
-    private void submitTest() {
-        
-        for(int i = 0;i < toggle.length; i++){
-            RadioButton rb = (RadioButton) toggle[i].getSelectedToggle();
-            Answers[i] = rb.getText();
-        }
-        
-        Database.connect();
-
-            String sql ="DROP TABLE IF EXISTS ANSWER__"+test+""+ AuthenticationController.activeUser +";";
-            Database.executeUpdate(sql);
-            sql = "CREATE TABLE ANSWER__"+test+"" + AuthenticationController.activeUser + "(ID INT PRIMARY KEY AUTO_INCREMENT, QUESTIONID int, ANSWER VARCHAR(255));";
-            Database.executeUpdate(sql);
-
-           
-            
-            try{
-               for(int i=0;i<QuestionID.length;i++)
-               {
-                    sql = "INSERT INTO ANSWER__"+test+"" + AuthenticationController.activeUser + " VALUES (null,"
-                        + "'" + QuestionID[i] + "',"
-                            + "'" + Answers[i] + "');";
-                        
-                        System.out.println(sql);
-                        Database.executeUpdate(sql);
-               }
-               Database.connect();
-               ResultSet testID = Database.searchQuery("SELECT ID FROM TEST WHERE TESTNAME = \'TEST__"+test+"\';");
-               testID.next();
-               sql ="INSERT INTO ANSWER VALUES (null, "+testID.getString(1)+",\'ANSWER__" + test + ""+ AuthenticationController.activeUser + "\', \'"+ AuthenticationController.activeUser +"\');";
-               System.out.println(sql);
-               
-               Database.executeUpdate(sql);
-               Database.close();
-            }catch(Exception e){
-                
-            }  
-        Database.close();   
-        //Database.executeUpdate("DROP TABLE TEST");
-       
-        btnSubmit.setText("Test Submitted");
-    }
+    
+    
+    
 }

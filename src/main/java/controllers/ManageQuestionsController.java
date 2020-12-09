@@ -263,6 +263,47 @@ public class ManageQuestionsController implements Initializable {
             e.printStackTrace();
         }
     }
+    
+    @FXML
+    private void showResults(ActionEvent event) {
+
+        String fxml = "/main/resources/view/showResults.fxml";
+
+        AnchorPane root;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            InputStream in = LuckyLanes.class.getResourceAsStream(fxml);
+
+            loader.setBuilderFactory(new JavaFXBuilderFactory());
+            loader.setLocation(LuckyLanes.class.getResource(fxml));
+
+            try {
+                root = (AnchorPane) loader.load(in);
+            } finally {
+                in.close();
+            }
+
+            Stage stage = new Stage();
+            //preScene = stage.getScene();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            ShowResultsController newAthlete = (ShowResultsController) ((Initializable) loader.getController());
+            newAthlete.setStage(stage);
+            newAthlete.setPreScene(preScene);
+
+            stage.setOnCloseRequest((WindowEvent we) ->
+            {
+                //((OLD)) ((Stage) (((Node) (event.getSource())).getScene().getWindow())).show(); ((OLD))
+                ((Stage) (stage.getScene()).getWindow()).show();
+            });
+
+            // ((OLD))  Hide this current window (if this is what you want)          ((OLD))
+            // ((OLD))  ((Node) (event.getSource())).getScene().getWindow().hide();  ((OLD))
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Adds the previous scene into the object to allow the user to go back to it with the back button.

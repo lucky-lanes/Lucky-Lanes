@@ -14,12 +14,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600" prefWidth="600.0" style="-fx-background-color: #455660;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.ManageQuestionsController">
+<AnchorPane id="AnchorPane" prefHeight="600" prefWidth="600.0" style="-fx-background-color: #455660;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.ManageQuestionsController">
     <stylesheets>
         <URL value="@../../resources/css/newathlete.css" />
     </stylesheets>
@@ -35,7 +34,7 @@
                             <children>
                                 <AnchorPane>
                                     <children>
-                                        <GridPane alignment="CENTER" layoutX="14.0" layoutY="13.0" minWidth="640.0" prefHeight="370.0" prefWidth="640.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="13.0">
+                                        <GridPane alignment="CENTER" layoutX="14.0" layoutY="13.0" minWidth="640.0" prefHeight="522.0" prefWidth="640.0" AnchorPane.bottomAnchor="-140.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="13.0">
                                             <children>
                                                 <Button fx:id="btnAddQuestion" mnemonicParsing="false" onAction="#addQuestion">
                                                     <graphic>
@@ -102,12 +101,52 @@
                                        <graphic>
                                           <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                              <children>
-                                                <ImageView fitHeight="48.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../icons/pencil-edit-button.png" />
                                                    </image>
                                                 </ImageView>
                                                 <Label text="Take Questionnaire" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </graphic>
+                                    </Button>
+                                              <Button fx:id="btnBack" mnemonicParsing="false" onAction="#goBack" GridPane.rowIndex="2">
+                                       <graphic>
+                                                      <VBox alignment="CENTER">
+                                                          <children>
+                                                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+            
+                                                                                      <image>
+                                                                              <Image url="@../icons/back-button.png" />
+                                                                          </image>
+                                                              </ImageView>
+                                                              <Label text="Back" textFill="WHITE">
+                                                                  <font>
+                                                                      <Font size="23.0" />
+                                                                  </font>
+                                                              </Label>
+                                                          </children>
+                                                          <padding>
+                                                              <Insets bottom="0" />
+                                                          </padding>
+                                                      </VBox>
+                                       </graphic>
+                                              </Button>
+                                    <Button mnemonicParsing="false" onAction="#showResults" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <graphic>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../icons/questionaire.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label text="Results" textFill="WHITE">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -124,36 +163,11 @@
                                             <rowConstraints>
                                                 <RowConstraints maxHeight="212.0" minHeight="10.0" percentHeight="33.0" prefHeight="204.0" vgrow="SOMETIMES" />
                                                 <RowConstraints maxHeight="220.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="220.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                         </GridPane>
                                     </children>
                                 </AnchorPane>
-                                <VBox alignment="CENTER">
-                                    <HBox alignment="CENTER">
-                                        <Button fx:id="btnBack" mnemonicParsing="false" onAction="#goBack">
-                                            <graphic>
-                                                <VBox alignment="CENTER">
-                                                    <children>
-                                                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-
-                                                                    <image>
-                                                                        <Image url="@../icons/back-button.png" />
-                                                                    </image>
-                                                        </ImageView>
-                                                        <Label text="Back" textFill="WHITE">
-                                                            <font>
-                                                                <Font size="23.0" />
-                                                            </font>
-                                                        </Label>
-                                                    </children>
-                                                    <padding>
-                                                        <Insets bottom="0" />
-                                                    </padding>
-                                                </VBox>
-                                            </graphic>
-                                        </Button>
-                                    </HBox>
-                                </VBox>
                             </children>
                         </VBox>
                     </children>
