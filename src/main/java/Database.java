@@ -330,16 +330,14 @@ public class Database {
      * Acts like execute update, but allows for non-string arguments to be passed through and in place of '?' in
      * the insert, update, and delete functions.
      *
-     * Currently designed for specifically two inputs, was originally built for saving passwords as bytes, but saved
-     * despite ultimately not going that route in case a future case where non-string data needs to be added.
-     *
-     * ideally, var1 and var2 would be any object(s) in an array, such that the function scales with number of ? inputs
+     * vars is a String array, so that the function scales with number of ? inputs
      *
      * @param sql An SQL insert, update, or delete statement that will be executed on the database
+     * @param vars A list of Strings to insert into ?s in the sql statement.
      *
-     *            passes a boolean variable to make sure no error occurred.
+     * returns a boolean variable validating that no error occurred.
      */
-    public static boolean executeAsyncUpdate(String sql, String var1, String var2) {
+    public static boolean executeAsyncUpdate(String sql, String[] vars) {
         System.out.println("THE ON EXECUTE: " + URL);
 
         boolean updated = false;
@@ -350,8 +348,9 @@ public class Database {
 
             // execute the SQL statement
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1,var1);
-            pstmt.setString(2,var2);
+            for (int i=0; i<vars.length; i++) {
+                pstmt.setString(i+1,vars[i]);
+            }
             pstmt.executeUpdate();
             pstmt.close();
 
