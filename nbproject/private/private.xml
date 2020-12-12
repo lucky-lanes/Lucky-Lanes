@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Drew/Documents/GitHub/Lucky-Lanes/src/main/java/controllers/SelectQuestionnaireController.java</file>
             <file>file:/C:/Users/Drew/Documents/GitHub/Lucky-Lanes/src/main/java/controllers/ShowResultsController.java</file>
-            <file>file:/C:/Users/Drew/Documents/GitHub/Lucky-Lanes/src/main/java/controllers/AuthenticationController.java</file>
-            <file>file:/C:/Users/Drew/Documents/GitHub/Lucky-Lanes/src/main/resources/view/Results.fxml</file>
-            <file>file:/C:/Users/Drew/Documents/GitHub/Lucky-Lanes/src/main/java/controllers/ResultsController.java</file>
-            <file>file:/C:/Users/Drew/Documents/GitHub/Lucky-Lanes/src/main/resources/view/ManageQuestions.fxml</file>
+            <file>file:/C:/Users/Drew/Documents/GitHub/Lucky-Lanes/src/main/java/controllers/AddToQuestionnaireController.java</file>
+            <file>file:/C:/Users/Drew/Documents/GitHub/Lucky-Lanes/src/main/java/controllers/ManageQuestionsController.java</file>
             <file>file:/C:/Users/Drew/Documents/GitHub/Lucky-Lanes/src/main/java/controllers/TakeQuestionnaireController.java</file>
-            <file>file:/C:/Users/Drew/Documents/GitHub/Lucky-Lanes/src/main/resources/view/takeQuestionnaire.fxml</file>
-            <file>file:/C:/Users/Drew/Documents/GitHub/Lucky-Lanes/src/main/resources/view/showResults.fxml</file>
         </group>
     </open-files>
 </project-private>

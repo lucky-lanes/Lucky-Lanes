@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package main.java.controllers;
 
 import javafx.application.Platform;
@@ -29,18 +34,16 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-import java.util.ArrayList;
 
 
 /**
- * FXML Controller class
- * <p>
- * This is the controller for the window that appears when you click the Update Questions button
  *
- * @author Mario
+ * @author potte
  */
-public class AddToQuestionnaireController implements Initializable {
-    /**
+public class SelectQuestionnaireController implements Initializable {
+    
+    
+        /**
      * Table to hold the questions
      */
     @FXML
@@ -76,16 +79,7 @@ public class AddToQuestionnaireController implements Initializable {
     /**
      * The current screen's title
      */
-    
-    private String nameOfTable = null;
-    protected final String title = "Add Questions";
-    
-    @FXML
-    TextField tableName;
-    @FXML
-    Button btnCreate;
-    
-    ArrayList<String> Questions = new ArrayList<String>();
+    protected final String title = "Select Qustionnare";
 
     /**
      * Initializes the controller class.
@@ -96,7 +90,8 @@ public class AddToQuestionnaireController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         {
-        
+            // TODO
+
             exec = Executors.newCachedThreadPool(runnable ->
             {
                 Thread t = new Thread(runnable);
@@ -131,13 +126,14 @@ public class AddToQuestionnaireController implements Initializable {
      */
     @FXML
     public void buildData(/*ActionEvent e*/) {
-      
+        //table.getItems().clear();
+
         table.getColumns().clear();
 
         System.out.println("Running");
 
         // prepare SQL statement
-        String SQL = "SELECT ID, Question FROM QUESTION";
+        String SQL = "SELECT ID, TESTNAME FROM TEST";
 
         // grab the result set of the equation
         //ResultSet rs = Database.searchQuery(SQL);
@@ -212,7 +208,7 @@ public class AddToQuestionnaireController implements Initializable {
                              * Create Separate column to insert a button for each record to view more information
                              * @author JacobMatuszak
                              */
-                            TableColumn editCol = new TableColumn("View/Edit/Delete");
+                            TableColumn editCol = new TableColumn("Take");
                             editCol.setStyle("-fx-alignment: CENTER;");
 
                             // Create a new cellFactory to allow buttons to be created in a column
@@ -222,31 +218,15 @@ public class AddToQuestionnaireController implements Initializable {
                                 @Override
                                 public TableCell<ObservableList, String> call(final TableColumn param) {
                                     final TableCell<ObservableList, String> cell = new TableCell<ObservableList, String>() {
-                                        private final Button btn = new Button("Add");
+                                        private final Button btn = new Button("Take");
 
                                         {
                                             // Creates an action to open a new instance of the BowlerController with inserted Values
-                                           
-                                            btn.setOnAction((e -> {
-                                                if(btn.getText().equals("Add"))
-                                                {
-                                                    btn.setText("Remove");
-                                                    
-                                                    ObservableList<String> tempID = getTableView().getItems().get(getIndex());
-                                                    Questions.add(tempID.get(0));
-                                                }
-                                                else
-                                                {
-                                                    btn.setText("Add");
-                                                    ObservableList<String> tempID = getTableView().getItems().get(getIndex());
-                                                    int i=0;
-                                                    while(!tempID.get(0).equals(Questions.get(i)))
-                                                        i++;
-                                                    Questions.remove(i);
-                                                    
-                                                }
-                                                
-                                            }));
+                                            EventHandler<ActionEvent> open = e -> {
+                                                ObservableList<String> tempID = getTableView().getItems().get(getIndex());
+                                                editQuestion(tempID.get(1));
+                                            };
+                                            btn.setOnAction(open);
                                         }
 
                                         @Override
@@ -285,7 +265,7 @@ public class AddToQuestionnaireController implements Initializable {
 
         databaseQuery.setOnFailed(error ->
         {
-   
+            //databaseQuery.getException().printStackTrace();
             //Abandon the ship.
             System.out.println("Women and kids first");     //Titanic 2 anyone?
         });
@@ -306,88 +286,48 @@ public class AddToQuestionnaireController implements Initializable {
     }
 
     /**
-     * Creates table in database that holds the selected questions
-     * 
-     * table naming format = "TEST__'name_of_test'"
-     * 
-     * adds line to TEST table to reference created table
-     * line holds the id of the test as well as the name of the table created
+     * Opens the Edit Questons window when the open button is clicked for a question
+     *
+     * @param id ID of the question
      */
-    
-    
-    
-    
-    @FXML
-    public void createTable() {
-        setTableName(tableName.getText());
-        if(getTableName().equals(""))
-        {
-            btnCreate.setText("Text Empty");
-        }
-        else
-        {
-            
+    public void editQuestion(String id) {
+        String fxml = "/main/resources/view/takeQuestionnaire.fxml";
 
-            String sql ="DROP TABLE IF EXISTS TEST__"+getTableName().toUpperCase()+";";
-            Database.executeUpdate(sql);
-            sql = "CREATE TABLE TEST__"+getTableName().toUpperCase()+" (ID INT PRIMARY KEY AUTO_INCREMENT, QUESTIONID int);";
-            Database.executeUpdate(sql);
+        AnchorPane root;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            InputStream in = LuckyLanes.class.getResourceAsStream(fxml);
 
+            loader.setBuilderFactory(new JavaFXBuilderFactory());
+            loader.setLocation(LuckyLanes.class.getResource(fxml));
 
-            
-            try{
-                for(int i=0;i<Questions.size();i++)
-                {
-                    
-                    sql = "INSERT INTO TEST__"+getTableName().toUpperCase()+" VALUES (null,"
-                        + "'" + Questions.get(i) + "');";
-                        
-                        System.out.println(sql);
-                        Database.executeUpdate(sql);
-                        
-                }
-                
-               Database.connect();
-               ResultSet tableCheck = Database.searchQuery("SELECT * FROM TEST");
-               String testCase = "TEST__"+getTableName();
-               String check = "YES";
-               while(tableCheck.next()){
-                   System.out.println(tableCheck.getString(2));
-                   if(tableCheck.getString(2).equals(testCase))
-                    {
-                        check = "NO";
-                        break;
-                    }
-                   
-                   
-               }
-
-               if(check.equals("YES"))
-                {
-                        //if current user hasnt already taken this test, line puts entry into answers table for seach by results page
-                    sql ="INSERT INTO TEST VALUES (null, \'TEST__" + getTableName() + "\');"; 
-                    System.out.println(sql);
-               
-                    Database.executeUpdate(sql);  
-                }
-                
-                
-               
+            try {
+                root = (AnchorPane) loader.load(in);
+            } finally {
+                in.close();
             }
-            catch (Exception e){
-                
-            }
-            Database.close();
-            btnCreate.setText("Table Created");
+
+            //Stage stage = new Stage();
+            preScene = stage.getScene();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            TakeQuestionnaireController newAthlete = (TakeQuestionnaireController) ((Initializable) loader.getController());
+            newAthlete.setFromRecord(id);
+            newAthlete.setStage(stage);
+            newAthlete.setPreScene(preScene);
+
+            stage.setOnCloseRequest((WindowEvent we) ->
+            {
+                //((OLD)) ((Stage) (((Node) (event.getSource())).getScene().getWindow())).show(); ((OLD))
+                ((Stage) (stage.getScene()).getWindow()).show();
+            });
+
+            // ((OLD))  Hide this current window (if this is what you want)          ((OLD))
+            // ((OLD))  ((Node) (event.getSource())).getScene().getWindow().hide();  ((OLD))
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    }
-    
-    public void setTableName(String name) {
-        this.nameOfTable = name;
-    }
-    
-    public String getTableName() {
-        return nameOfTable;
     }
 
     /**

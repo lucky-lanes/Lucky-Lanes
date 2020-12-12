@@ -29,3 +29,12 @@ nbproject/private/private.xml
 TestDatabase.mv.db
 TestDatabase.trace.db
 Trace.txt
+config.properties
+nbproject/build-impl.xml
+nbproject/genfiles.properties
+nbproject/private/private.xml
+nbproject/project.properties
+nbproject/project.xml
+TestDatabase.mv.db
+TestDatabase.trace.db
+Trace.txt

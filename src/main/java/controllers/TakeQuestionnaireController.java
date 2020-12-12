@@ -97,8 +97,14 @@ public class TakeQuestionnaireController implements Initializable {
     ToggleGroup toggle[];
     String Answers[];
     
-    String test = "QUIZ4";
+    String test;
     
+    public void setFromRecord(String id){
+         test = id;
+         Database.connect();
+     }
+
+
     //ArrayList<String> Questions = new ArrayList<String>();
 
     /**
@@ -151,7 +157,7 @@ public class TakeQuestionnaireController implements Initializable {
         System.out.println("Running");
 
         // prepare SQL statement
-        String SQL = "SELECT * FROM TEST__"+test;
+        String SQL = "SELECT * FROM "+test;
 
         // grab the result set of the equation
         //ResultSet rs = Database.searchQuery(SQL);
@@ -177,7 +183,7 @@ public class TakeQuestionnaireController implements Initializable {
                            
                         try {
                             
-                            String SQL = "SELECT * FROM TEST__"+test;
+                            String SQL = "SELECT * FROM "+test;
                             ResultSet rs = Database.searchQuery(SQL);
                             // 2nd result set only for getting row count
                             ResultSet rs2 = Database.searchQuery(SQL);
@@ -302,38 +308,64 @@ public class TakeQuestionnaireController implements Initializable {
     */
     @FXML
     private void submitTest() {
-        
+        //gets selected radio button and saves to answers array
         for(int i = 0;i < toggle.length; i++){
             RadioButton rb = (RadioButton) toggle[i].getSelectedToggle();
             Answers[i] = rb.getText();
         }
         
         Database.connect();
-
-            String sql ="DROP TABLE IF EXISTS ANSWER__"+test+""+ AuthenticationController.activeUser +";";
+            //overwrites old results if taking test again
+            String sql ="DROP TABLE IF EXISTS ANSWER__"+test.substring(6)+""+ AuthenticationController.activeUser +";";
             Database.executeUpdate(sql);
-            sql = "CREATE TABLE ANSWER__"+test+"" + AuthenticationController.activeUser + "(ID INT PRIMARY KEY AUTO_INCREMENT, QUESTIONID int, ANSWER VARCHAR(255));";
+            
+            //creates a table on database using the name of the test and name of current user
+            sql = "CREATE TABLE ANSWER__"+test.substring(6)+"" + AuthenticationController.activeUser + "(ID INT PRIMARY KEY AUTO_INCREMENT, QUESTIONID int, ANSWER VARCHAR(255));";
             Database.executeUpdate(sql);
 
            
-            
+            //inputs question names and answers into newly created table
             try{
                for(int i=0;i<QuestionID.length;i++)
                {
-                    sql = "INSERT INTO ANSWER__"+test+"" + AuthenticationController.activeUser + " VALUES (null,"
+                    sql = "INSERT INTO ANSWER__"+test.substring(6)+"" + AuthenticationController.activeUser + " VALUES (null,"
                         + "'" + QuestionID[i] + "',"
                             + "'" + Answers[i] + "');";
                         
                         System.out.println(sql);
                         Database.executeUpdate(sql);
                }
-               Database.connect();
-               ResultSet testID = Database.searchQuery("SELECT ID FROM TEST WHERE TESTNAME = \'TEST__"+test+"\';");
-               testID.next();
-               sql ="INSERT INTO ANSWER VALUES (null, "+testID.getString(1)+",\'ANSWER__" + test + ""+ AuthenticationController.activeUser + "\', \'"+ AuthenticationController.activeUser +"\');";
-               System.out.println(sql);
                
-               Database.executeUpdate(sql);
+               //gets id of test taken for input into answers table
+               Database.connect();
+               ResultSet testID = Database.searchQuery("SELECT ID FROM TEST WHERE TESTNAME = \'"+test+"\';");
+               testID.next();
+               
+               //checks if entry for this test and current user already exists in answers table to stop multiple entries of same test user combo
+               ResultSet tableCheck = Database.searchQuery("SELECT * FROM ANSWER");
+               String testCase = "ANSWER__"+test.substring(6)+AuthenticationController.activeUser;
+               String check = "YES";
+               while(tableCheck.next()){
+                   System.out.println(tableCheck.getString(3));
+                   if(tableCheck.getString(3).equals(testCase))
+                    {
+                        check = "NO";
+                        break;
+                    }
+                   
+                   
+               }
+
+               if(check.equals("YES"))
+                    {
+                        //if current user hasnt already taken this test, line puts entry into answers table for seach by results page
+                        sql ="INSERT INTO ANSWER VALUES (null, "+testID.getString(1)+",\'ANSWER__" + test.substring(6) + ""+ AuthenticationController.activeUser + "\', \'"+ AuthenticationController.activeUser +"\');";
+                        System.out.println(sql);
+               
+                        Database.executeUpdate(sql);  
+                    }
+               
+                    
                Database.close();
             }catch(Exception e){
                 
