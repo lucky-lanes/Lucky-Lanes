@@ -210,50 +210,9 @@ public class AthleteMenuController implements Initializable {
         if (result.isPresent()){
             System.out.println("Your choice: " + result.get());
             boolean valid = AuthenticationController.changeAuthLevel(Integer.parseInt(id), result.get());
-            System.out.println("Operation Successful: " + valid);
+            System.out.println(valid);
         }
     }
-    
-     /**
-     * This methods is to delete a user account from the database 
-     *
-     * @param event
-     */
-    @FXML
-    private void  deleteAccountInfo(ActionEvent event) throws SQLException {
-        System.out.println(id);
-
-        boolean valid = false;
-        List<String> choices = new ArrayList<>();
-        choices.add("Yes");
-        choices.add("No");
-
-        ChoiceDialog<String> dialog = new ChoiceDialog<>("No", choices);
-        dialog.setTitle("Delete Account Info");
-         dialog.setContentText("Are you Sure?");
-
-        // get the response value.
-        Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()){
-            System.out.println("Your choice: " + result.get());
-            if (result.get().equals("Yes"))
-            {
-                valid = AuthenticationController.deleteAccount(Integer.parseInt(id));
-            }
-            System.out.println("Operation Successful: " + valid);
-        }
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     /**
      * This is an injected method used by JAVAFX,
@@ -263,7 +222,7 @@ public class AthleteMenuController implements Initializable {
      *
      * @param event
      */
-    @FXML
+    @FXML  
     private void bowlTest(ActionEvent event) {
         String fxml = "/main/resources/view/bowlTest.fxml";
 
