@@ -221,8 +221,27 @@ public class AthleteMenuController implements Initializable {
      */
     @FXML
     private void  deleteAccountInfo(ActionEvent event) throws SQLException {
-        // action needed 
-       
+        System.out.println(id);
+
+        boolean valid = false;
+        List<String> choices = new ArrayList<>();
+        choices.add("Yes");
+        choices.add("No");
+
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("No", choices);
+        dialog.setTitle("Delete Account Info");
+         dialog.setContentText("Are you Sure?");
+
+        // get the response value.
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()){
+            System.out.println("Your choice: " + result.get());
+            if (result.get().equals("Yes"))
+            {
+                valid = AuthenticationController.deleteAccount(Integer.parseInt(id));
+            }
+            System.out.println("Operation Successful: " + valid);
+        }
     }
     
     
