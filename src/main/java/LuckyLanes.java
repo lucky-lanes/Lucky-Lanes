@@ -11,31 +11,19 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.java.controllers.AdminController;
 import main.java.controllers.LoginController;
-
-import java.awt.Color;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.EventType;
 import javafx.stage.WindowEvent;
-import main.java.controllers.AthleteMenuController;
-
-import static main.java.controllers.AuthenticationController.changeAuthLevel;
-
-import static main.java.controllers.AuthenticationController.newAccount;
-
-
+import main.java.controllers.AuthorityAthleteController;
 import main.java.controllers.NewAthleteController;
-
-import main.java.controllers.SignUpController; // new 
-
+import main.java.controllers.SignUpController; 
 
 /**
  * This is the main class to start the application.
  *
- * @author Mario
+ * @authors Zach Mario
  */
 public class LuckyLanes extends Application {
     /**
@@ -228,7 +216,28 @@ public class LuckyLanes extends Application {
             Logger.getLogger(LuckyLanes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    /*
+     * This method changes the stage's content to show the Authority for Athlete scene.
+     */
+    public void gotoAuthorityAthlete() {
+        try {
+            AuthorityAthleteController  root = (AuthorityAthleteController) replaceSceneContent("/main/resources/view/authorityAthlete.fxml");
 
+            //Send current instance of the application class to the login controller.
+            root.setApp(this);
+            root.setStage(stage);
+            stage.setResizable(true);
+            stage.sizeToScene();
+            
+            System.out.println();
+            //stage.hide();
+             stage.show();  
+        } catch (IOException ex) {
+            Logger.getLogger(LuckyLanes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     //LOOK AT FXML LOGIN DEMO SAMPLE IN NETBEANS
 
     /**
@@ -264,7 +273,6 @@ public class LuckyLanes extends Application {
 
         return (Initializable) loader.getController();
     }
-
     
     /**
      * Creates the database and launches the JavaFX runtime and the JavaFX Application
@@ -274,16 +282,6 @@ public class LuckyLanes extends Application {
     public static void main(String[] args) {  
         //Database.createDatabase("~/LuckyLanes");
         launch(args);
-        
-//        newAccount(String username, char[] password, String authL);
-//        newAccount("JakeKrueger", "Jake".toCharArray(), "Athlete");
-//        newAccount("GreysonChristel", "Greyson".toCharArray(), "Athlete");
-//        newAccount("BrettSaley", "Brett".toCharArray(), "Athlete");
-//        newAccount("TaylorONeil", "Taylor".toCharArray(), "Admin");
-//        changeAuthLevel("Jake Krueger", "Athlete");
-//        changeAuthLevel("Greyson Christel", "Athlete");
-//        changeAuthLevel("Brett Saley", "Athlete");
-//        changeAuthLevel("Taylor ONeil", "Admin");
     }
 
     /**
