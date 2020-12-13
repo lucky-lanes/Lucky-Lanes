@@ -1,11 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package main.java.controllers;
+
+//import main.resources.view.*;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -15,19 +24,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import main.java.LuckyLanes;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 
 //import main.java.controllers.AuthenticationController;
 
-
 /**
- * @author Mario
- * <p>
- * This class handles the interaction from the user in the Administration scene.
+ * FXML Controller class
+ *
+ * @author Zach
  */
-public class LoginController implements Initializable {
+public class SignUpController implements Initializable {
+
     //Application used to go back to main scene.
     private LuckyLanes app;
 
@@ -50,7 +56,7 @@ public class LoginController implements Initializable {
     PasswordField txfPassword;
     
     @FXML
-    TextField createemail;   // new field for email remove
+    TextField createemail;   // new field for email 
 
     /**
      *
@@ -119,7 +125,6 @@ public class LoginController implements Initializable {
         this.app = app;
     }
 
-    
     /**
      * @param event Action event
      */
@@ -134,21 +139,17 @@ public class LoginController implements Initializable {
     @FXML
     private void authenticateUser(ActionEvent event) {
         
-        
-        boolean valid = false;
-    
-        valid = AuthenticationController.Authenticate(txfUsername.getText(), txfPassword.getText().toCharArray());
-        
-         System.out.println(valid + " ### valid ### ");
-        
-        if(valid){
-            //Go to admin scene.
-            lblMsgError.setVisible(false);
-            this.app.gotoAdmin();
-            
-        }else{
-            //Invalid password or username.
-            lblMsgError.setText("Invalid username or password");
+        boolean valid = AuthenticationController.newAccount(txfUsername.getText(), txfPassword.getText().toCharArray(),
+                "Athlete");
+
+        if (valid) {
+           lblMsgError.setVisible(false);
+           this.app.gotoAthleteMenu();
+        }
+        else {
+           // pendingverif.setText(" Account creation failed, username already taken.");
+             //Invalid password or username.
+            lblMsgError.setText("Account creation failed or username already taken.");
             lblMsgError.setVisible(true);
         }
     }
@@ -157,7 +158,8 @@ public class LoginController implements Initializable {
      * @param event Action event
      */
     @FXML
-    private void signUpEvent(ActionEvent event) { 
-        this.app.gotoSignup();     
+    private void loginEvent(ActionEvent event) {
+        this.app.gotoLogin();
     }
+    
 }

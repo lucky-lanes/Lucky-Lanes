@@ -24,8 +24,9 @@ public class AuthenticationController
 
     /**
      * Authenticates a user by comparing entered username/password to records in database
+     * returns a boolean confirming that the operation was successful
      **/
-    public static boolean Authenticate(String username, char[] password, String authLevelOverride)
+    public static boolean Authenticate(String username, char[] password)
     {
         Database.connect();
 
@@ -46,17 +47,16 @@ public class AuthenticationController
                     byte[] entered_pass_hash = getPasswordHash(password, string_B64(row_salt), 10000);
 
                       // leave commented unless debugging for security
-//                    System.out.println(String.valueOf(password));
-//                    System.out.println(b64_String(entered_pass_hash));
-//                    System.out.println(row_passhash);
-//                    System.out.println(row_salt);
+                    System.out.println(String.valueOf(password));
+                    System.out.println(b64_String(entered_pass_hash));
+                    System.out.println(row_passhash);
+                    System.out.println(row_salt);
 
                     if(row_passhash.equals(b64_String(entered_pass_hash)))
                     {
                         activeUserID = rsAuth.getInt("ID");
                         activeUser = row_user;
-                        if (authLevelOverride.equals(""))
-                            authLevel = rsAuth.getString("authLevel");
+                        authLevel = rsAuth.getString("authLevel");
                         isAuth = true;
                     }
 
@@ -76,9 +76,11 @@ public class AuthenticationController
 
     /**
      * Adds a new account to the database
+     * returns a boolean confirming that the operation was successful
      **/
-    public static boolean newAccount(String username, char[] password, String authL, String email)
+    public static boolean newAccount(String username, char[] password, String authL)//, String authL, String email
     {
+        boolean valid = false;
         Database.connect();
         ResultSet rsAuth = Database.searchQuery("SELECT * FROM Authentication;");
         try {
@@ -101,17 +103,72 @@ public class AuthenticationController
 //        System.out.println(b64_String(hash_pass));
 //        System.out.println(salt);
 
-//        String sql = "INSERT INTO Authentication (username, password, salt, authLevel, email) VALUES ('"
-//                + username + "', " + b64_String(hash_pass) + ", " + b64_String(salt) + ", '" + authL + "', '" + email
-//                + "');";
+        String sql = "INSERT INTO Authentication (username, password, salt, authLevel) VALUES ('"
+                + username + "', " + "?, " + "?, '" + authL + "');";
 
-        String sql = "INSERT INTO Authentication (username, password, salt, authLevel, email) VALUES ('"
-                + username + "', " + "?" + ", " + "?" + ", '" + authL + "', '" + email + "');";
-
-        Database.executeAsyncUpdate(sql, b64_String(hash_pass), salt);
+        String[] vars = new String[2];
+        vars[0] = b64_String(hash_pass);
+        vars[1] = salt;
+        valid = Database.executeAsyncUpdate(sql, vars);
 
         Database.close();
-        return true;
+        return valid;
+    }
+
+    /**
+     * function should be called when moving back to the login/sign up screen.
+     * This simply cleans up the global variables to be sure that nothing can go horribly wrong.
+     */
+    public static void logOut()
+    {
+        isAuth = false;
+        activeUserID = -1;
+        activeUser = "";
+        authLevel = "None";
+    }
+
+    /**
+     * Function must be called by an admin, to change a new account to an admin or coach
+     * returns a boolean confirming that the operation was successful
+     */
+    public static boolean changeAuthLevel(String user, String newAuthL)
+    {
+        boolean valid = false;
+        if (authLevel == "Admin")
+        {
+            Database.connect();
+            String sql = "UPDATE Authentication SET authLevel = ? " + "WHERE username = " + user.toString() + ";";
+
+            String[] vars = new String[1];
+            vars[0] = newAuthL;
+            valid = Database.executeAsyncUpdate(sql, vars);
+        }
+        Database.close();
+        return valid;
+    }
+
+    /**
+     * User enters old password to change to a new password
+     * returns a boolean confirming that the operation was successful
+     */
+    public static boolean changePassword(char[] oldPass, char[] newPass)
+    {
+        boolean valid = false;
+        if (Authenticate(activeUser, oldPass))
+        {
+            Database.connect();
+            String salt = generateSalt();
+            byte[] hash_pass = getPasswordHash(newPass, string_B64(salt), 10000);
+
+            String sql = "UPDATE Authentication SET password = ?, salt = ? " +
+                    "WHERE username = " + activeUser.toString() + ";";
+
+            String[] vars = new String[2];
+            vars[0] = b64_String(hash_pass);
+            vars[1] = salt;
+            valid = Database.executeAsyncUpdate(sql, vars);
+        }
+        return valid;
     }
 
     /**

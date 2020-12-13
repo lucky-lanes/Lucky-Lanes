@@ -6,30 +6,31 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="480.0" minWidth="640.0" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #453660;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="480.0" minWidth="640.0" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #453660;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.SignUpController">
     <children>
         <BorderPane id="body" fx:id="root" layoutX="1.0" minHeight="480.0" minWidth="640.0" prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <stylesheets>
-                <URL value="@../../resources/css/login.css" />
+                <URL value="@../../resources/css/signup.css" />
             </stylesheets>
             <center>
                 <AnchorPane minHeight="480.0" minWidth="640.0" prefHeight="480.0" prefWidth="640.0" BorderPane.alignment="CENTER">
                     <children>
                         <VBox id="container" alignment="CENTER" minHeight="480.0" minWidth="640.0" prefHeight="480.0" prefWidth="640.0" spacing="10.0" style="-fx-background-color: #455660;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="/main/resources/images/logo.png" />
-                                    </image>
-                                </ImageView>
-                                <Label id="lblMsgError" fx:id="lblMsgError" alignment="CENTER" prefHeight="44.0" prefWidth="589.0" textFill="#ff0000e7" visible="false">
+                        <Label id="lblMsgError" fx:id="lblMsgError1" alignment="CENTER" prefHeight="47.0" prefWidth="436.0" text="Create your Account" textFill="#ffffffe8">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                           <padding>
+                              <Insets top="25.0" />
+                           </padding>
+                        </Label>
+                                <Label id="lblMsgError" fx:id="lblMsgError" alignment="CENTER" prefHeight="44.0" prefWidth="514.0" textFill="#ff0000e7" visible="false">
                                     <font>
                                         <Font size="15.0" />
                                     </font>
@@ -59,7 +60,7 @@
                                         </AnchorPane>
                                         <AnchorPane prefHeight="185.0" prefWidth="200.0">
                                             <children>
-                                                <Button fx:id="btnLogin" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#authenticateUser" text="Login" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <Button fx:id="btnLogin" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#authenticateUser" text="Create account " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                     <font>
                                                         <Font size="19.0" />
                                                     </font>
@@ -68,7 +69,7 @@
                                         </AnchorPane>
                                     </children>
                                 </VBox>
-                                <Button mnemonicParsing="false" onAction="#signUpEvent" text="Create account" />
+                                <Button mnemonicParsing="false" onAction="#loginEvent" text="Sign in instead" />
                             </children>
                         </VBox>
                     </children>
@@ -76,4 +77,8 @@
             </center>
         </BorderPane>
     </children>
+    
+    
+    
+    
 </AnchorPane>
