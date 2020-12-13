@@ -165,6 +165,13 @@ public class Database {
             state.execute(sql);
             System.out.println("Created an authentication table.");
 
+            // add table for Team Data
+            sql = "CREATE TABLE TEAMS (ID INT PRIMARY KEY AUTO_INCREMENT, team_name VARCHAR(256)," +
+                    "coach VARCHAR(256));";
+
+            state.execute(sql);
+            System.out.println("Created a teams table.");
+
             AuthenticationController.newAccount("admin","defaultPassword".toCharArray(),"Admin");
             System.out.println("Created default admin account with credentials:");
             System.out.println("username: admin");
