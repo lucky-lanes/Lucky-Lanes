@@ -28,6 +28,11 @@ public class AuthenticationController
      **/
     public static boolean Authenticate(String username, char[] password)
     {
+        // This is a sanity check to make sure that the static variables are always reset before login
+        if (isAuth) {
+            System.out.println("A user is already authorized, logout was not properly executed.");
+            isAuth = false;
+        }
         Database.connect();
 
         ResultSet rsAuth = Database.searchQuery("SELECT * FROM Authentication;");
@@ -62,7 +67,7 @@ public class AuthenticationController
 
                     System.out.println("isAuth: " + isAuth);
                     System.out.println("current user: " + activeUser);
-                    return true;
+                    return isAuth;
                 }
             }
         } catch (SQLException throwables) {
@@ -134,10 +139,28 @@ public class AuthenticationController
     public static boolean changeAuthLevel(String user, String newAuthL)
     {
         boolean valid = false;
-        if (authLevel == "Admin")
+        if (authLevel.equals("Admin"))
         {
             Database.connect();
-            String sql = "UPDATE Authentication SET authLevel = ? " + "WHERE username = " + user.toString() + ";";
+            String sql = "UPDATE Authentication SET authLevel = ? " + "WHERE username = " + user + ";";
+
+            String[] vars = new String[1];
+            vars[0] = newAuthL;
+            valid = Database.executeAsyncUpdate(sql, vars);
+        }
+        Database.close();
+        return valid;
+    }
+    /**
+     * above function overloaded for authlevel assignment by username OR id.
+     */
+    public static boolean changeAuthLevel(int user, String newAuthL)
+    {
+        boolean valid = false;
+        if (authLevel.equals("Admin"))
+        {
+            Database.connect();
+            String sql = "UPDATE Authentication SET authLevel = ? " + "WHERE ID = " + user + ";";
 
             String[] vars = new String[1];
             vars[0] = newAuthL;

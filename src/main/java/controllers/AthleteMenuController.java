@@ -26,7 +26,6 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.ChoiceDialog;
-import static main.java.controllers.AuthenticationController.changeAuthLevel;
 
 /**
  * FXML Controller class for AthleteMenu.fxml
@@ -194,13 +193,7 @@ public class AthleteMenuController implements Initializable {
     @FXML
     private void  AuthorityAssignmentInfo(ActionEvent event) throws SQLException {
         
-        //System.out.println(id);
-        
-        Database.connect();
-        ResultSet rsAUTHEN = Database.searchQuery("SELECT * FROM AUTHENTICATION WHERE ID=" + id + ";");
-        
-        
-        Database.close();
+        System.out.println(id);
         
         List<String> choices = new ArrayList<>();
         choices.add("Admin");
@@ -209,17 +202,16 @@ public class AthleteMenuController implements Initializable {
 
         ChoiceDialog<String> dialog = new ChoiceDialog<>("Athlete", choices);
         dialog.setTitle("Authority Assignment Info");
-        dialog.setHeaderText("Authority Assignment:" + rsAUTHEN.toString());
+//        dialog.setHeaderText("Authority Assignment:" + rsAUTHEN.toString());
        // dialog.setContentText("Choose your:");
 
         // get the response value.
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()){
             System.out.println("Your choice: " + result.get());
+            boolean valid = AuthenticationController.changeAuthLevel(Integer.parseInt(id), result.get());
+            System.out.println(valid);
         }
-
-        //changeAuthLevel(rsAUTHEN, result.toString());
-        
     }
     
     
