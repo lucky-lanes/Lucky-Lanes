@@ -1,3 +1,6 @@
+/*
+ * This file lets users login to the database based on athority of their account
+ */
 package main.java.controllers;
 
 import javafx.application.Platform;
@@ -14,16 +17,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import main.java.LuckyLanes;
-
 import java.net.URL;
 import java.util.ResourceBundle;
+import static main.java.controllers.AuthenticationController.authLevel;
 
 
 //import main.java.controllers.AuthenticationController;
 
 
 /**
- * @author Mario
+ * @author Zach
  * <p>
  * This class handles the interaction from the user in the Administration scene.
  */
@@ -134,17 +137,28 @@ public class LoginController implements Initializable {
     @FXML
     private void authenticateUser(ActionEvent event) {
         
-        
         boolean valid = false;
     
         valid = AuthenticationController.Authenticate(txfUsername.getText(), txfPassword.getText().toCharArray());
         
-         System.out.println(valid + " ### valid ### ");
+        System.out.println(valid + " ### valid ### ");
         
         if(valid){
-            //Go to admin scene.
-            lblMsgError.setVisible(false);
-            this.app.gotoAdmin();
+            if(authLevel.equals("Athlete")){
+                //Go to Athlete scene.
+                lblMsgError.setVisible(false);
+                this.app.gotoAuthorityAthlete();
+            }
+            if(authLevel.equals("Admin")){
+                //Go to admin scene.
+                lblMsgError.setVisible(false);
+                this.app.gotoAdmin();
+            }
+            if(authLevel.equals("Coach")){
+                //Go to admin scene.
+                lblMsgError.setVisible(false);
+                //this.app.gotoAdmin();
+            }
             
         }else{
             //Invalid password or username.
