@@ -21,6 +21,12 @@ import java.util.logging.Logger;
 import javafx.event.EventType;
 import javafx.stage.WindowEvent;
 import main.java.controllers.AthleteMenuController;
+
+import static main.java.controllers.AuthenticationController.changeAuthLevel;
+
+import static main.java.controllers.AuthenticationController.newAccount;
+
+
 import main.java.controllers.NewAthleteController;
 
 import main.java.controllers.SignUpController; // new 
@@ -266,8 +272,18 @@ public class LuckyLanes extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {  
-        Database.createDatabase("~/LuckyLanes");
+        //Database.createDatabase("~/LuckyLanes");
         launch(args);
+        
+//        newAccount(String username, char[] password, String authL);
+//        newAccount("JakeKrueger", "Jake".toCharArray(), "Athlete");
+//        newAccount("GreysonChristel", "Greyson".toCharArray(), "Athlete");
+//        newAccount("BrettSaley", "Brett".toCharArray(), "Athlete");
+//        newAccount("TaylorONeil", "Taylor".toCharArray(), "Admin");
+//        changeAuthLevel("Jake Krueger", "Athlete");
+//        changeAuthLevel("Greyson Christel", "Athlete");
+//        changeAuthLevel("Brett Saley", "Athlete");
+//        changeAuthLevel("Taylor ONeil", "Admin");
     }
 
     /**
