@@ -166,6 +166,7 @@ public class Database {
             System.out.println("Created an authentication table.");
 
             AuthenticationController.newAccount("admin","defaultPassword".toCharArray(),"Admin");
+            AuthenticationController.newAccount("test","pass".toCharArray(),"Athlete");
             System.out.println("Created default admin account with credentials:");
             System.out.println("username: admin");
             System.out.println("password: defaultPassword");
