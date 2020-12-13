@@ -19,9 +19,14 @@ import java.io.InputStream;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.ChoiceDialog;
+import static main.java.controllers.AuthenticationController.changeAuthLevel;
 
 /**
  * FXML Controller class for AthleteMenu.fxml
@@ -180,6 +185,58 @@ public class AthleteMenuController implements Initializable {
         }
     }
 
+    
+    /**
+     * This methods is to assign the user authority
+     *
+     * @param event
+     */
+    @FXML
+    private void  AuthorityAssignmentInfo(ActionEvent event) throws SQLException {
+        
+        //System.out.println(id);
+        
+        Database.connect();
+        ResultSet rsAUTHEN = Database.searchQuery("SELECT * FROM AUTHENTICATION WHERE ID=" + id + ";");
+        
+        
+        Database.close();
+        
+        List<String> choices = new ArrayList<>();
+        choices.add("Admin");
+        choices.add("Athlete");
+        choices.add("Coach");
+
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("Athlete", choices);
+        dialog.setTitle("Authority Assignment Info");
+        dialog.setHeaderText("Authority Assignment:" + rsAUTHEN.toString());
+       // dialog.setContentText("Choose your:");
+
+        // get the response value.
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()){
+            System.out.println("Your choice: " + result.get());
+        }
+
+        //changeAuthLevel(rsAUTHEN, result.toString());
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * This is an injected method used by JAVAFX,
      * It creates a new stage to display the form to take the questionaire
