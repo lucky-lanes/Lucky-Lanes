@@ -214,9 +214,16 @@ public class AthleteMenuController implements Initializable {
         }
     }
     
-    
-    
-    
+     /**
+     * This methods is to delete a user account from the database 
+     *
+     * @param event
+     */
+    @FXML
+    private void  deleteAccountInfo(ActionEvent event) throws SQLException {
+        // action needed 
+       
+    }
     
     
     
