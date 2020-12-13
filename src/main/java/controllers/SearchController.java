@@ -33,6 +33,10 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static main.java.controllers.AuthenticationController.authLevel;
+
 
 /**
  * FXML Controller class for Search.fxml
@@ -311,19 +315,38 @@ public class SearchController implements Initializable {
 
         System.out.println("Running");
 
-        // prepare SQL statement
-        String SQL = "SELECT ID,name, address, school,age, gender FROM athlete WHERE "
-                + "(UPPER(name) LIKE UPPER('%" + txtName.getText() + "%') or name is null) "
-                + "and (UPPER(address) LIKE UPPER('%" + txtAddress.getText() + "%') or address is null) "
-                + "and (UPPER(state) LIKE UPPER('%" + txtState.getText() + "%') or state is null) "
-                + "and (UPPER(city) LIKE UPPER('%" + txtCity.getText() + "%') or city is null) "
-                + "and (zip LIKE ('%" + txtZip.getText() + "%') or zip is null) "
-                + "and (UPPER(school) LIKE UPPER('%" + txtSchool.getText() + "%') or school is null) "
-                + "and (UPPER(primarysport) LIKE UPPER('%" + txtSport.getText() + "%') or primarysport is null) "
-                + "and (ID LIKE ('%" + txtID.getText() + "') or ID is null) "; // data to grab
+         //prepare SQL statement
+//        String SQL = "SELECT ID,name, address, school,age, gender FROM athlete WHERE"
+//                + "(UPPER(name) LIKE UPPER('%" + txtName.getText() + "%') or name is null) "
+//                + "and (UPPER(address) LIKE UPPER('%" + txtAddress.getText() + "%') or address is null) "
+//                + "and (UPPER(state) LIKE UPPER('%" + txtState.getText() + "%') or state is null) "
+//                + "and (UPPER(city) LIKE UPPER('%" + txtCity.getText() + "%') or city is null) "
+//                + "and (zip LIKE ('%" + txtZip.getText() + "%') or zip is null) "
+//                + "and (UPPER(school) LIKE UPPER('%" + txtSchool.getText() + "%') or school is null) "
+//                + "and (UPPER(primarysport) LIKE UPPER('%" + txtSport.getText() + "%') or primarysport is null) "
+//                + "and (ID LIKE ('%" + txtID.getText() + "') or ID is null) "; // data to grab
+//        
+        
+         String SQL = "SELECT * FROM Authentication";
+         //String SQL = "SELECT * FROM athlete";
+        
+//        String SQL = "SELECT athlete.ID,athlete.name, athlete.address, athlete.school,athlete.age,athlete.gender, Authentication.authLevel"
+//                + "FROM athlete WHERE"
+//                + "(UPPER(name) LIKE UPPER('%" + txtName.getText() + "%') or name is null) "
+//                + "and (UPPER(address) LIKE UPPER('%" + txtAddress.getText() + "%') or address is null) "
+//                + "and (UPPER(state) LIKE UPPER('%" + txtState.getText() + "%') or state is null) "
+//                + "and (UPPER(city) LIKE UPPER('%" + txtCity.getText() + "%') or city is null) "
+//                + "and (zip LIKE ('%" + txtZip.getText() + "%') or zip is null) "
+//                + "and (UPPER(school) LIKE UPPER('%" + txtSchool.getText() + "%') or school is null) "
+//                + "and (UPPER(primarysport) LIKE UPPER('%" + txtSport.getText() + "%') or primarysport is null) "
+//                + "and (ID LIKE ('%" + txtID.getText() + "') or ID is null) " // data to grab"
+//                +"RIGHT JOIN Authentication ON athlete.ID = Authentication.ID";
+//        
+//        
 
         // grab the result set of the equation
-        //ResultSet rs = Database.searchQuery(SQL);
+       // ResultSet rs = Database.searchQuery(SQL);
+       
 
         Task<Void> databaseQuery = new Task<Void>() {
 
@@ -438,6 +461,7 @@ public class SearchController implements Initializable {
                             editCol.setCellFactory(cellFactory);
 
                             table.getColumns().add(editCol);
+                            
                         } catch (SQLException ex) {
                             //Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -471,7 +495,7 @@ public class SearchController implements Initializable {
         // start converting the result set into tableview
         exec.execute(databaseQuery);
     }
-
+   
     /**
      * This is the method ran for an athlete when the Open button on their line is clicked
      * It will open up the athlete's menu
