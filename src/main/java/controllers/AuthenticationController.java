@@ -2,9 +2,7 @@ package main.java.controllers;
 
 import javax.crypto.*;
 import javax.crypto.spec.PBEKeySpec;
-
 import main.java.Database;
-
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
@@ -75,7 +73,6 @@ public class AuthenticationController
         } finally {
             Database.close();
         }
-
         return isAuth;
     }
 
@@ -103,10 +100,10 @@ public class AuthenticationController
         String salt = generateSalt();
         byte[] hash_pass = getPasswordHash(password, string_B64(salt), 10000);
 
-        //  leave commented unless debugging for security
-//        System.out.println(String.valueOf(password));
-//        System.out.println(b64_String(hash_pass));
-//        System.out.println(salt);
+        //leave commented unless debugging for security
+       //System.out.println(String.valueOf(password));
+      //System.out.println(b64_String(hash_pass));
+     //System.out.println(salt);
 
         String sql = "INSERT INTO Authentication (username, password, salt, authLevel) VALUES ('"
                 + username + "', " + "?, " + "?, '" + authL + "');";
@@ -151,6 +148,8 @@ public class AuthenticationController
         Database.close();
         return valid;
     }
+    
+    
     /**
      * above function overloaded for authlevel assignment by username OR id.
      */
