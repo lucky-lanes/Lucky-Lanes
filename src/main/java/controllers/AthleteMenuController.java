@@ -210,7 +210,7 @@ public class AthleteMenuController implements Initializable {
         if (result.isPresent()){
             System.out.println("Your choice: " + result.get());
             boolean valid = AuthenticationController.changeAuthLevel(Integer.parseInt(id), result.get());
-            System.out.println(valid);
+            System.out.println("Operation Successful: " + valid);
         }
     }
     

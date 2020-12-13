@@ -154,17 +154,36 @@ public class AuthenticationController
     /**
      * above function overloaded for authlevel assignment by username OR id.
      */
-    public static boolean changeAuthLevel(int user, String newAuthL)
+    public static boolean changeAuthLevel(int userID, String newAuthL)
     {
         boolean valid = false;
         if (authLevel.equals("Admin"))
         {
             Database.connect();
-            String sql = "UPDATE Authentication SET authLevel = ? " + "WHERE ID = " + user + ";";
+            String sql = "UPDATE Authentication SET authLevel = ? " + "WHERE ID = " + userID + ";";
 
             String[] vars = new String[1];
             vars[0] = newAuthL;
             valid = Database.executeAsyncUpdate(sql, vars);
+        }
+        Database.close();
+        return valid;
+    }
+
+
+    /**
+     * as admin, delete an account via its userID
+     */
+    public static boolean deleteAccount(int userID)
+    {
+        boolean valid = false;
+        if (authLevel.equals("Admin"))
+        {
+            Database.connect();
+            String sql = "DELETE FROM Authentication WHERE ID = " + userID + ";";
+
+            Database.executeUpdate(sql);
+            valid = true; // might not be representative if executeUpdate fails
         }
         Database.close();
         return valid;
