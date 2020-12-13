@@ -134,7 +134,7 @@ public class ShowResultsController implements Initializable {
         if(AuthenticationController.authLevel.equals("Admin") || AuthenticationController.authLevel.equals("Coach"))
             SQL = "SELECT t.TESTNAME, a.TESTTAKER from TEST t, ANSWER a where a.TESTID = t.ID";
         else
-            SQL = "SELECT t.TESTNAME, a.TESTTAKER from TEST t, ANSWER a where a.TESTID = t.ID AND a.TESTTAKER = \""+AuthenticationController.activeUser+"\"";
+            SQL = "SELECT t.TESTNAME, a.TESTTAKER from TEST t, ANSWER a where a.TESTID = t.ID AND a.TESTTAKER = \'"+AuthenticationController.activeUser+"\'";
 
         // grab the result set of the equation
         //ResultSet rs = Database.searchQuery(SQL);

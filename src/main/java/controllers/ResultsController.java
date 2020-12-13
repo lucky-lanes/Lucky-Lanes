@@ -102,8 +102,8 @@ public class ResultsController implements Initializable {
     ToggleGroup toggle[];
     Label Answers[];
     
-    String test;
-    String user;
+    private String test;
+    private String user;
     
     //ArrayList<String> Questions = new ArrayList<String>();
 
@@ -293,6 +293,19 @@ public class ResultsController implements Initializable {
         System.out.println(quiz + " " + name);
         this.test = quiz;
         this.user = name;
+    }
+    
+    /**
+     * Deletes results table from database
+     *
+     */
+    @FXML
+    private void deleteTable() {
+        String SQL = "DELETE FROM ANSWER WHERE ANSWERSNAME = \'ANSWER__"+test+""+user+"\'";
+        Database.executeUpdate(SQL);
+        SQL = "DROP TABLE \"ANSWER__"+test.toUpperCase()+""+user.toUpperCase()+"\"";
+        Database.executeUpdate(SQL);
+        stage.close();
     }
 
     /**

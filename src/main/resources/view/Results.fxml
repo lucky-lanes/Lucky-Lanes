@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.ResultsController">
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.ResultsController">
     <stylesheets>
         <URL value="@../../resources/css/search.css" />
     </stylesheets>
@@ -51,6 +51,7 @@
                                 </rowConstraints>
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#goBack" prefHeight="38.0" prefWidth="133.0" text="Go Back" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Button mnemonicParsing="false" onAction="#deleteTable" prefHeight="38.0" prefWidth="133.0" text="Delete Results" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                                     </children>

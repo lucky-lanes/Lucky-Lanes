@@ -42,3 +42,8 @@ config.properties
 TestDatabase.mv.db
 TestDatabase.trace.db
 Trace.txt
+nbproject/private/private.xml
+TestDatabase.mv.db
+TestDatabase.trace.db
+Trace.txt
+nbproject/private/private.xml
