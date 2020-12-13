@@ -144,6 +144,48 @@
                                                       </VBox>
                                                    </graphic>
                                                 </Button>
+                                    <Button fx:id="btnAthleteInfo21" layoutX="331.0" layoutY="151.0" mnemonicParsing="false" onAction="#AuthorityAssignmentInfo">
+                                       <graphic>
+                                          <VBox alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../icons/pencil-edit-button.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label text=" Authority Assignment" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="15.0" />
+                                             </padding>
+                                          </VBox>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="btnAthleteInfo22" mnemonicParsing="false" onAction="#deleteAccountInfo" GridPane.rowIndex="1">
+                                       <graphic>
+                                          <VBox alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../icons/pencil-edit-button.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label text="Delete Account" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="15.0" />
+                                             </padding>
+                                          </VBox>
+                                       </graphic>
+                                    </Button>
                                             </children>
                                             <columnConstraints>
                                                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
