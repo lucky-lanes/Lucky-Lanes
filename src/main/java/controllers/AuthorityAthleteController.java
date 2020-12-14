@@ -1,3 +1,6 @@
+/*
+ * This file is for controlling the authority of Athletes 
+ */
 package main.java.controllers;
 
 import javafx.event.ActionEvent;
@@ -26,19 +29,15 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.ChoiceDialog;
+import static main.java.controllers.AuthenticationController.logOut;
 
 /**
- * FXML Controller class for AthleteMenu.fxml
- * <p>
- * This is the controller for displaying the options to either take the questionaire, 
- * view/edit athlete info, or take the psych test. Opened when you click open on an athlete
- * in the Search Athletes window
- * The form that this is for is when you start up the application, click Search 
- * Athletes, and then click open on a bowler
+ * FXML Controller class
  *
- * @author Mario
+ * @author Zach
  */
-public class AthleteMenuController implements Initializable {
+public class AuthorityAthleteController implements Initializable {
+
     @FXML
     Button btnBowlTest;
     /**
@@ -48,11 +47,7 @@ public class AthleteMenuController implements Initializable {
     /**
      * The previous screen's scene while using the back button.
      */
-    private Scene preScene;
-    /**
-     * The to be next scene
-     */
-    private Scene nextScene;   
+    private Scene preScene; 
     /**
      * The previous screen's minimum height.
      */
@@ -73,6 +68,8 @@ public class AthleteMenuController implements Initializable {
      * The bowler's ID
      */
     String id;
+    
+    private LuckyLanes app;
 
     /**
      * Initializes the controller class.
@@ -117,13 +114,13 @@ public class AthleteMenuController implements Initializable {
     public void setId(String id) {
         this.id = id;
     }
-
+    
     /**
      * Puts things in the current window. Changes the scene to the current one.
      *
      * @param stage The window.
      */
-    protected void setStage(Stage stage) {
+    public void setStage(Stage stage) {
         preTitle = stage.getTitle();
         this.stage = stage;
         this.stage.setTitle(title);
@@ -183,25 +180,6 @@ public class AthleteMenuController implements Initializable {
             e.printStackTrace();
         }
     }
-    
-   /**
-     * This methods is to assign the user delete Account Info
-     * as admin, delete an account via its userID
-     * @param event
-     */
-    @FXML
-    private void deleteAccountInfo(ActionEvent event) throws SQLException {
-        
-//        if (AuthenticationController.authLevel.equals("Admin"))
-//        {
-//            Database.connect();
-//            String sql = "DELETE FROM Authentication WHERE ID = " + id + ";";
-//
-//            Database.executeUpdate(sql);
-//        }
-//        Database.close();
-    }
-    
     /**
      * This methods is to assign the user authority
      *
@@ -219,7 +197,7 @@ public class AthleteMenuController implements Initializable {
 
         ChoiceDialog<String> dialog = new ChoiceDialog<>("Athlete", choices);
         dialog.setTitle("Authority Assignment Info");
-//        dialog.setHeaderText("Authority Assignment:" + rsAUTHEN.toString());
+       //dialog.setHeaderText("Authority Assignment:" + rsAUTHEN.toString());
        // dialog.setContentText("Choose your:");
 
         // get the response value.
@@ -281,6 +259,52 @@ public class AthleteMenuController implements Initializable {
 
     /**
      * This is an injected method used by JAVAFX,
+     * It creates a new stage to display the form to show the printable forms.
+     * <p>
+     * Ran when the Printable Forms button is clicked
+     */
+    @FXML
+    private void showForms(ActionEvent event) {
+        String fxml = "/main/resources/view/showForms.fxml";
+
+        AnchorPane root;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            InputStream in = LuckyLanes.class.getResourceAsStream(fxml);
+
+            loader.setBuilderFactory(new JavaFXBuilderFactory());
+            loader.setLocation(LuckyLanes.class.getResource(fxml));
+
+            try {
+                root = (AnchorPane) loader.load(in);
+            } finally {
+                in.close();
+            }
+
+            //Stage stage = new Stage();
+            preScene = stage.getScene();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            ShowFormsController newAthlete = (ShowFormsController) ((Initializable) loader.getController());
+            newAthlete.setStage(stage);
+            newAthlete.setPreScene(preScene);
+
+            stage.setOnCloseRequest((WindowEvent we) ->
+            {
+                //((OLD)) ((Stage) (((Node) (event.getSource())).getScene().getWindow())).show(); ((OLD))
+                ((Stage) (stage.getScene()).getWindow()).show();
+            });
+
+            // ((OLD))  Hide this current window (if this is what you want)          ((OLD))
+            // ((OLD))  ((Node) (event.getSource())).getScene().getWindow().hide();  ((OLD))
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * This is an injected method used by JAVAFX,
      * It creates a new stage to display the form to take the psych test
      * <p>
      * Ran when the Psych Test button is clicked
@@ -333,31 +357,33 @@ public class AthleteMenuController implements Initializable {
      *
      * @param pre The previous scene.
      */
-    protected void setPreScene(Scene pre) {
+    public void setPreScene(Scene pre) {
         preScene = pre;
     }
-
+    
     /**
-     * Method called by the FXML after the user pushes the back button.
-     * It sets the scene to the previous one.
+    * @param app Current application
+    */
+    public void setApp(LuckyLanes app) {
+        this.app = app;
+    }
+    
+    /**
+     * Method called by the FXML after the user pushes the logout button.
+     * It sets the scene to the login menu.
      *
      * @throws IOException
      */
     @FXML
-    private void goBack() throws IOException {
+    private void gologOut() throws IOException {
+        
+        logOut();
         stage.setMinHeight(preMinHeight);
         stage.setMinWidth(preMinWidth);
         stage.setScene(preScene);
         stage.sizeToScene();
         stage.setTitle(preTitle);
         stage.close();
-    }
-
-    public void createListeners() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setApp(LuckyLanes aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        this.app.gotoLogin();
+    }  
 }

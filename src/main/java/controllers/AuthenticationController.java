@@ -2,9 +2,7 @@ package main.java.controllers;
 
 import javax.crypto.*;
 import javax.crypto.spec.PBEKeySpec;
-
 import main.java.Database;
-
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
@@ -28,6 +26,11 @@ public class AuthenticationController
      **/
     public static boolean Authenticate(String username, char[] password)
     {
+        // This is a sanity check to make sure that the static variables are always reset before login
+        if (isAuth) {
+            System.out.println("A user is already authorized, logout was not properly executed.");
+            isAuth = false;
+        }
         Database.connect();
 
         ResultSet rsAuth = Database.searchQuery("SELECT * FROM Authentication;");
@@ -47,10 +50,10 @@ public class AuthenticationController
                     byte[] entered_pass_hash = getPasswordHash(password, string_B64(row_salt), 10000);
 
                       // leave commented unless debugging for security
-                    System.out.println(String.valueOf(password));
-                    System.out.println(b64_String(entered_pass_hash));
-                    System.out.println(row_passhash);
-                    System.out.println(row_salt);
+//                    System.out.println(String.valueOf(password));
+//                    System.out.println(b64_String(entered_pass_hash));
+//                    System.out.println(row_passhash);
+//                    System.out.println(row_salt);
 
                     if(row_passhash.equals(b64_String(entered_pass_hash)))
                     {
@@ -62,7 +65,7 @@ public class AuthenticationController
 
                     System.out.println("isAuth: " + isAuth);
                     System.out.println("current user: " + activeUser);
-                    return true;
+                    return isAuth;
                 }
             }
         } catch (SQLException throwables) {
@@ -70,7 +73,6 @@ public class AuthenticationController
         } finally {
             Database.close();
         }
-
         return isAuth;
     }
 
@@ -98,10 +100,10 @@ public class AuthenticationController
         String salt = generateSalt();
         byte[] hash_pass = getPasswordHash(password, string_B64(salt), 10000);
 
-        //  leave commented unless debugging for security
-//        System.out.println(String.valueOf(password));
-//        System.out.println(b64_String(hash_pass));
-//        System.out.println(salt);
+        //leave commented unless debugging for security
+       //System.out.println(String.valueOf(password));
+      //System.out.println(b64_String(hash_pass));
+     //System.out.println(salt);
 
         String sql = "INSERT INTO Authentication (username, password, salt, authLevel) VALUES ('"
                 + username + "', " + "?, " + "?, '" + authL + "');";
@@ -134,14 +136,53 @@ public class AuthenticationController
     public static boolean changeAuthLevel(String user, String newAuthL)
     {
         boolean valid = false;
-        if (authLevel == "Admin")
+        if (authLevel.equals("Admin"))
         {
             Database.connect();
-            String sql = "UPDATE Authentication SET authLevel = ? " + "WHERE username = " + user.toString() + ";";
+            String sql = "UPDATE Authentication SET authLevel = ? " + "WHERE username = " + user + ";";
 
             String[] vars = new String[1];
             vars[0] = newAuthL;
             valid = Database.executeAsyncUpdate(sql, vars);
+        }
+        Database.close();
+        return valid;
+    }
+    
+    
+    /**
+     * above function overloaded for authlevel assignment by username OR id.
+     */
+    public static boolean changeAuthLevel(int userID, String newAuthL)
+    {
+        boolean valid = false;
+        if (authLevel.equals("Admin"))
+        {
+            Database.connect();
+            String sql = "UPDATE Authentication SET authLevel = ? " + "WHERE ID = " + userID + ";";
+
+            String[] vars = new String[1];
+            vars[0] = newAuthL;
+            valid = Database.executeAsyncUpdate(sql, vars);
+        }
+        Database.close();
+        return valid;
+    }
+
+
+    /**
+     * as admin, delete an account via its userID
+     */
+    public static boolean deleteAccount(int userID)
+    {
+        boolean valid = false;
+        if (authLevel.equals("Admin"))
+        {
+            Database.connect();
+            String sql = "DELETE FROM Authentication WHERE ID = " + userID + ";";
+
+            Database.executeUpdate(sql);
+            valid = true; // might not be representative if executeUpdate fails
         }
         Database.close();
         return valid;

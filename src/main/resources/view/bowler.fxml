@@ -21,6 +21,140 @@
                          tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="-6.0"
                          AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                     <tabs>
+                        <Tab id="tab" fx:id="tabParQ" text="Medical Survey">
+                            <content>
+                                <ScrollPane fitToWidth="true" hbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+                                    <content>
+                                        <VBox alignment="CENTER" spacing="31">
+                                            <children>
+                                                <VBox alignment="CENTER" spacing="5">
+                                                    <Label text="Par-Q and You">
+                                                        <font>
+                                                            <Font name="System Bold" size="20"/>
+                                                        </font>
+                                                    </Label>
+                                                    <Separator opacity="1" maxWidth="150.0"/>
+                                                </VBox>
+                                                <VBox alignment="CENTER" spacing="5">
+                                                    <Label text="Has your doctor ever said that you have a heart condition and that you should only do physical activity recommended by a doctor?">
+                                                        <font>
+                                                            <Font name="System Bold" size="12.0"/>
+                                                        </font>
+                                                    </Label>
+                                                    <HBox alignment="CENTER">
+                                                        <ToggleButton fx:id="tbParQ1Yes" mnemonicParsing="false"
+                                                                      text="Yes">
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="tgParQuest1"/>
+                                                            </toggleGroup>
+                                                        </ToggleButton>
+                                                        <ToggleButton fx:id="tbParQ1No" mnemonicParsing="false"
+                                                                      text="No" toggleGroup="$tgParQuest1"/>
+                                                    </HBox>
+                                                </VBox>
+                                                <VBox alignment="CENTER" spacing="5">
+                                                    <Label text="Do you feel pain in your chest when you do physical activity?">
+                                                        <font>
+                                                            <Font name="System Bold" size="12.0"/>
+                                                        </font>
+                                                    </Label>
+                                                    <HBox alignment="CENTER">
+                                                        <ToggleButton fx:id="tbParQ2Yes" mnemonicParsing="false"
+                                                                      text="Yes">
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="tgParQuest2"/>
+                                                            </toggleGroup>
+                                                        </ToggleButton>
+                                                        <ToggleButton fx:id="tbParQ2No" mnemonicParsing="false"
+                                                                      text="No" toggleGroup="$tgParQuest2"/>
+                                                    </HBox>
+                                                </VBox>
+                                                <VBox alignment="CENTER" spacing="5">
+                                                    <Label text="In the past month, have you had chest pain when you are not doing physical activity?">
+                                                        <font>
+                                                            <Font name="System Bold" size="12.0"/>
+                                                        </font>
+                                                    </Label>
+                                                    <HBox alignment="CENTER">
+                                                        <ToggleButton fx:id="tbParQ3Yes" mnemonicParsing="false"
+                                                                      text="Yes">
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="tgParQuest3"/>
+                                                            </toggleGroup>
+                                                        </ToggleButton>
+                                                        <ToggleButton fx:id="tbParQ3No" mnemonicParsing="false"
+                                                                      text="No" toggleGroup="$tgParQuest3"/>
+                                                    </HBox>
+                                                </VBox>
+                                                <VBox alignment="CENTER" spacing="5">
+                                                    <Label text="Do you lose your balance because of dizziness or do you ever lose Consciousness?">
+                                                        <font>
+                                                            <Font name="System Bold" size="12.0"/>
+                                                        </font>
+                                                    </Label>
+                                                    <HBox alignment="CENTER">
+                                                        <ToggleButton fx:id="tbParQ4Yes" mnemonicParsing="false"
+                                                                      text="Yes">
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="tgParQuest4"/>
+                                                            </toggleGroup>
+                                                        </ToggleButton>
+                                                        <ToggleButton fx:id="tbParQ4No" mnemonicParsing="false"
+                                                                      text="No" toggleGroup="$tgParQuest4"/>
+                                                    </HBox>
+                                                </VBox>
+                                                <VBox alignment="CENTER" spacing="5">
+                                                    <Label text="Do you have a bone or joint problem (for example, back, neck, knee, or hip) that could be made worse by a change in your physical activity?"
+                                                           textAlignment="CENTER" wrapText="true">
+                                                        <font>
+                                                            <Font name="System Bold" size="12.0"/>
+                                                        </font>
+                                                    </Label>
+                                                    <HBox alignment="CENTER">
+                                                        <ToggleButton fx:id="tbParQ5Yes" mnemonicParsing="false"
+                                                                      text="Yes">
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="tgParQuest5"/>
+                                                            </toggleGroup>
+                                                        </ToggleButton>
+                                                        <ToggleButton fx:id="tbParQ5No" mnemonicParsing="false"
+                                                                      text="No" toggleGroup="$tgParQuest5"/>
+                                                    </HBox>
+                                                </VBox>
+                                                <VBox alignment="CENTER" spacing="5">
+                                                    <Label text="Is your doctor currently prescribing drugs (for example, water pills) for your blood pressure or heart condition?">
+                                                        <font>
+                                                            <Font name="System Bold" size="12.0"/>
+                                                        </font>
+                                                    </Label>
+                                                    <HBox alignment="CENTER">
+                                                        <ToggleButton fx:id="tbParQ6Yes" mnemonicParsing="false"
+                                                                      text="Yes">
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="tgParQuest6"/>
+                                                            </toggleGroup>
+                                                        </ToggleButton>
+                                                        <ToggleButton fx:id="tbParQ6No" mnemonicParsing="false"
+                                                                      text="No" toggleGroup="$tgParQuest6"/>
+                                                    </HBox>
+                                                </VBox>
+                                                <VBox alignment="CENTER" spacing="5">
+                                                    <Label text="Do you know any other reason why you should not do physical activity?">
+                                                        <font>
+                                                            <Font name="System Bold" size="12.0"/>
+                                                        </font>
+                                                    </Label>
+                                                    <HBox alignment="CENTER">
+                                                        <TextArea fx:id="txtParQuest7" focusTraversable="fase"
+                                                                  wrapText="true" prefHeight="100.0" prefWidth="500.0"/>
+                                                    </HBox>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
                         <Tab id="tab" fx:id="tabDemographics" text="Demographics">
                             <content>
                                 <VBox alignment="CENTER" layoutX="28.0" layoutY="20.0" prefHeight="466.0"
@@ -3234,140 +3368,6 @@
                                 </ScrollPane>
                             </content>
                         </Tab>
-                        <Tab id="tab" fx:id="tabParQ" text="Medical Survey">
-                            <content>
-                                <ScrollPane fitToWidth="true" hbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
-                                    <content>
-                                        <VBox alignment="CENTER" spacing="31">
-                                            <children>
-                                                <VBox alignment="CENTER" spacing="5">
-                                                    <Label text="Par-Q and You">
-                                                        <font>
-                                                            <Font name="System Bold" size="20"/>
-                                                        </font>
-                                                    </Label>
-                                                    <Separator opacity="1" maxWidth="150.0"/>
-                                                </VBox>
-                                                <VBox alignment="CENTER" spacing="5">
-                                                    <Label text="Has your doctor ever said that you have a heart condition and that you should only do physical activity recommended by a doctor?">
-                                                        <font>
-                                                            <Font name="System Bold" size="12.0"/>
-                                                        </font>
-                                                    </Label>
-                                                    <HBox alignment="CENTER">
-                                                        <ToggleButton fx:id="tbParQ1Yes" mnemonicParsing="false"
-                                                                      text="Yes">
-                                                            <toggleGroup>
-                                                                <ToggleGroup fx:id="tgParQuest1"/>
-                                                            </toggleGroup>
-                                                        </ToggleButton>
-                                                        <ToggleButton fx:id="tbParQ1No" mnemonicParsing="false"
-                                                                      text="No" toggleGroup="$tgParQuest1"/>
-                                                    </HBox>
-                                                </VBox>
-                                                <VBox alignment="CENTER" spacing="5">
-                                                    <Label text="Do you feel pain in your chest when you do physical activity?">
-                                                        <font>
-                                                            <Font name="System Bold" size="12.0"/>
-                                                        </font>
-                                                    </Label>
-                                                    <HBox alignment="CENTER">
-                                                        <ToggleButton fx:id="tbParQ2Yes" mnemonicParsing="false"
-                                                                      text="Yes">
-                                                            <toggleGroup>
-                                                                <ToggleGroup fx:id="tgParQuest2"/>
-                                                            </toggleGroup>
-                                                        </ToggleButton>
-                                                        <ToggleButton fx:id="tbParQ2No" mnemonicParsing="false"
-                                                                      text="No" toggleGroup="$tgParQuest2"/>
-                                                    </HBox>
-                                                </VBox>
-                                                <VBox alignment="CENTER" spacing="5">
-                                                    <Label text="In the past month, have you had chest pain when you are not doing physical activity?">
-                                                        <font>
-                                                            <Font name="System Bold" size="12.0"/>
-                                                        </font>
-                                                    </Label>
-                                                    <HBox alignment="CENTER">
-                                                        <ToggleButton fx:id="tbParQ3Yes" mnemonicParsing="false"
-                                                                      text="Yes">
-                                                            <toggleGroup>
-                                                                <ToggleGroup fx:id="tgParQuest3"/>
-                                                            </toggleGroup>
-                                                        </ToggleButton>
-                                                        <ToggleButton fx:id="tbParQ3No" mnemonicParsing="false"
-                                                                      text="No" toggleGroup="$tgParQuest3"/>
-                                                    </HBox>
-                                                </VBox>
-                                                <VBox alignment="CENTER" spacing="5">
-                                                    <Label text="Do you lose your balance because of dizziness or do you ever lose Consciousness?">
-                                                        <font>
-                                                            <Font name="System Bold" size="12.0"/>
-                                                        </font>
-                                                    </Label>
-                                                    <HBox alignment="CENTER">
-                                                        <ToggleButton fx:id="tbParQ4Yes" mnemonicParsing="false"
-                                                                      text="Yes">
-                                                            <toggleGroup>
-                                                                <ToggleGroup fx:id="tgParQuest4"/>
-                                                            </toggleGroup>
-                                                        </ToggleButton>
-                                                        <ToggleButton fx:id="tbParQ4No" mnemonicParsing="false"
-                                                                      text="No" toggleGroup="$tgParQuest4"/>
-                                                    </HBox>
-                                                </VBox>
-                                                <VBox alignment="CENTER" spacing="5">
-                                                    <Label text="Do you have a bone or joint problem (for example, back, neck, knee, or hip) that could be made worse by a change in your physical activity?"
-                                                           textAlignment="CENTER" wrapText="true">
-                                                        <font>
-                                                            <Font name="System Bold" size="12.0"/>
-                                                        </font>
-                                                    </Label>
-                                                    <HBox alignment="CENTER">
-                                                        <ToggleButton fx:id="tbParQ5Yes" mnemonicParsing="false"
-                                                                      text="Yes">
-                                                            <toggleGroup>
-                                                                <ToggleGroup fx:id="tgParQuest5"/>
-                                                            </toggleGroup>
-                                                        </ToggleButton>
-                                                        <ToggleButton fx:id="tbParQ5No" mnemonicParsing="false"
-                                                                      text="No" toggleGroup="$tgParQuest5"/>
-                                                    </HBox>
-                                                </VBox>
-                                                <VBox alignment="CENTER" spacing="5">
-                                                    <Label text="Is your doctor currently prescribing drugs (for example, water pills) for your blood pressure or heart condition?">
-                                                        <font>
-                                                            <Font name="System Bold" size="12.0"/>
-                                                        </font>
-                                                    </Label>
-                                                    <HBox alignment="CENTER">
-                                                        <ToggleButton fx:id="tbParQ6Yes" mnemonicParsing="false"
-                                                                      text="Yes">
-                                                            <toggleGroup>
-                                                                <ToggleGroup fx:id="tgParQuest6"/>
-                                                            </toggleGroup>
-                                                        </ToggleButton>
-                                                        <ToggleButton fx:id="tbParQ6No" mnemonicParsing="false"
-                                                                      text="No" toggleGroup="$tgParQuest6"/>
-                                                    </HBox>
-                                                </VBox>
-                                                <VBox alignment="CENTER" spacing="5">
-                                                    <Label text="Do you know any other reason why you should not do physical activity?">
-                                                        <font>
-                                                            <Font name="System Bold" size="12.0"/>
-                                                        </font>
-                                                    </Label>
-                                                    <HBox alignment="CENTER">
-                                                        <TextArea fx:id="txtParQuest7" focusTraversable="fase"
-                                                                  wrapText="true" prefHeight="100.0" prefWidth="500.0"/>
-                                                    </HBox>
-                                                </VBox>
-                                            </children>
-                                        </VBox>
-                                    </content>
-                                </ScrollPane>
-                            </content>
-                        </Tab>
                         <Tab id="tab" fx:id="tabAssessment" text="Bowler Assessment">
                             <content>
                                 <ScrollPane fx:id="spBowlerAssessment" fitToWidth="true" hbarPolicy="NEVER" minHeight="520.0"
@@ -5392,8 +5392,3 @@
         </AnchorPane>
     </center>
 </BorderPane>
-
-
-
-
-

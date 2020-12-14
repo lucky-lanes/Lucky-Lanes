@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This file lets the new user create an account on the database
  */
 package main.java.controllers;
 
@@ -9,7 +7,6 @@ package main.java.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -56,7 +53,7 @@ public class SignUpController implements Initializable {
     PasswordField txfPassword;
     
     @FXML
-    TextField createemail;   // new field for email 
+    TextField createemail;   // field for email not used
 
     /**
      *
@@ -153,7 +150,7 @@ public class SignUpController implements Initializable {
             lblMsgError.setVisible(true);
         }
     }
-
+    
     /**
      * @param event Action event
      */
