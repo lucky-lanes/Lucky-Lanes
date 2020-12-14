@@ -190,17 +190,16 @@ public class AthleteMenuController implements Initializable {
      * @param event
      */
     @FXML
-    private void  deleteAccountInfo(ActionEvent event) throws SQLException {
+    private void deleteAccountInfo(ActionEvent event) throws SQLException {
         
-        if (authLevel.equals("Admin"))
-        {
-            Database.connect();
-            String sql = "DELETE FROM Authentication WHERE ID = " + id + ";";
-
-            Database.executeUpdate(sql);
-        }
-        Database.close();
-       
+//        if (AuthenticationController.authLevel.equals("Admin"))
+//        {
+//            Database.connect();
+//            String sql = "DELETE FROM Authentication WHERE ID = " + id + ";";
+//
+//            Database.executeUpdate(sql);
+//        }
+//        Database.close();
     }
     
     /**

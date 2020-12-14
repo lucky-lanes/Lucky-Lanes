@@ -50,10 +50,10 @@ public class AuthenticationController
                     byte[] entered_pass_hash = getPasswordHash(password, string_B64(row_salt), 10000);
 
                       // leave commented unless debugging for security
-                    System.out.println(String.valueOf(password));
-                    System.out.println(b64_String(entered_pass_hash));
-                    System.out.println(row_passhash);
-                    System.out.println(row_salt);
+//                    System.out.println(String.valueOf(password));
+//                    System.out.println(b64_String(entered_pass_hash));
+//                    System.out.println(row_passhash);
+//                    System.out.println(row_salt);
 
                     if(row_passhash.equals(b64_String(entered_pass_hash)))
                     {
