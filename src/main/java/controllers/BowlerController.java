@@ -35,6 +35,8 @@ import java.util.*;
 import java.util.concurrent.Executor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -1933,6 +1935,15 @@ public class BowlerController implements Initializable {
      */
     private boolean viewInfo = false;
     /*
+    
+    /*
+    *  boolean bindings to hold user at medical survey
+    */
+    BooleanBinding validateForm = Bindings.createBooleanBinding(
+                () -> validateTabParQ() == true
+        );
+    
+    /*
     ChangeListener<String> textFieldListener = (observable, oldValue, newValue) -> {
         
         //allow user to press the Finish button
@@ -1972,6 +1983,7 @@ public class BowlerController implements Initializable {
         initializeFMS();
         initializeFitnessData();
         initializeIBSSNData();
+        btnNext.disableProperty().bind(validateForm);
         //Create validation regex for all TextFieldRequired
         /*
         //Name contains at least two letters.
@@ -2234,6 +2246,7 @@ public class BowlerController implements Initializable {
                 tbParQ6No.setSelected(true);
             }
             txtParQuest7.setText(rsParQ.getString(8));
+            
 
             //set text fields in IBSSN tab
             txfTargetAccuracy.setText(rsIBSSN.getString(2));
@@ -2507,6 +2520,11 @@ public class BowlerController implements Initializable {
             if (isSuccessful())
                 validateTabs();
         };
+        
+        ChangeListener<String> textFieldListenerMedical = (ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (isSuccessful())
+                validateTabs();
+        };
 
         /*Demographics Changes*/
         //textfields
@@ -2618,7 +2636,7 @@ public class BowlerController implements Initializable {
         txfWallsit.textProperty().addListener(textFieldListener);
 
         //Medical Survey Changes (currently missing changes to answers of questions)
-        txtParQuest7.textProperty().addListener(textFieldListener);
+        txtParQuest7.textProperty().addListener(textFieldListenerMedical);
     }
 
     /**

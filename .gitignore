@@ -47,3 +47,13 @@ TestDatabase.mv.db
 TestDatabase.trace.db
 Trace.txt
 nbproject/private/private.xml
+Trace.txt
+TestDatabase.trace.db
+TestDatabase.mv.db
+src/main/java/controllers/BowlerController.java
+nbproject/project.xml
+nbproject/project.properties
+nbproject/private/private.xml
+nbproject/genfiles.properties
+nbproject/build-impl.xml
+config.properties
