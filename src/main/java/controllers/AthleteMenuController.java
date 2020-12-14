@@ -183,7 +183,25 @@ public class AthleteMenuController implements Initializable {
             e.printStackTrace();
         }
     }
+    
+   /**
+     * This methods is to assign the user delete Account Info
+     * as admin, delete an account via its userID
+     * @param event
+     */
+    @FXML
+    private void  deleteAccountInfo(ActionEvent event) throws SQLException {
+        
+        if (authLevel.equals("Admin"))
+        {
+            Database.connect();
+            String sql = "DELETE FROM Authentication WHERE ID = " + id + ";";
 
+            Database.executeUpdate(sql);
+        }
+        Database.close();
+       
+    }
     
     /**
      * This methods is to assign the user authority
