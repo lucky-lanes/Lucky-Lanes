@@ -315,7 +315,7 @@ public class SelectQuestionnaireController implements Initializable {
             stage.show();
 
             TakeQuestionnaireController newAthlete = (TakeQuestionnaireController) ((Initializable) loader.getController());
-            newAthlete.setFromRecord(id);
+            newAthlete.setFromRecord("TEST__"+id);
             newAthlete.setStage(stage);
             newAthlete.setPreScene(preScene);
 

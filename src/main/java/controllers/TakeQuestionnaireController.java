@@ -187,7 +187,7 @@ public class TakeQuestionnaireController implements Initializable {
                             ResultSet rs = Database.searchQuery(SQL);
                             // 2nd result set only for getting row count
                             ResultSet rs2 = Database.searchQuery(SQL);
-                            testname.setText(test);
+                            testname.setText(test.substring(6));
                           
                             int i=0;
 

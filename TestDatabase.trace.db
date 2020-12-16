@@ -309,3 +309,9 @@ org.h2.message.DbException: The connection was not closed by the application and
 Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
 	... 17 more
+2020-12-16 13:07:07 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUIZ1" not found; SQL statement:
+SELECT * FROM Quiz1 [42102-197]
+2020-12-16 13:07:07 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "QUIZ1" not found; SQL statement:
+SELECT * FROM Quiz1 [42102-197]
