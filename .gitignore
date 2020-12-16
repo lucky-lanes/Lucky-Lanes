@@ -61,3 +61,7 @@ nbproject/build-impl.xml
 nbproject/genfiles.properties
 nbproject/project.properties
 nbproject/project.xml
+nbproject/private/private.xml
+TestDatabase.mv.db
+TestDatabase.trace.db
+Trace.txt

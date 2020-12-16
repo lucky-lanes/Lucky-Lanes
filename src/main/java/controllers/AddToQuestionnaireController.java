@@ -95,8 +95,9 @@ public class AddToQuestionnaireController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        {
-        
+        {   
+            
+            
             exec = Executors.newCachedThreadPool(runnable ->
             {
                 Thread t = new Thread(runnable);

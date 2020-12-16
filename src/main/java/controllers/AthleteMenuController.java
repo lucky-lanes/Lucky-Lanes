@@ -241,10 +241,9 @@ public class AthleteMenuController implements Initializable {
      */
     @FXML  
     private void bowlTest(ActionEvent event) {
-        String fxml = "/main/resources/view/bowlTest.fxml";
+        String fxml = "/main/resources/view/selectQuestionnaire.fxml";
 
         AnchorPane root;
-
         try {
             FXMLLoader loader = new FXMLLoader();
             InputStream in = LuckyLanes.class.getResourceAsStream(fxml);
@@ -258,22 +257,23 @@ public class AthleteMenuController implements Initializable {
                 in.close();
             }
 
-            //Stage stage = new Stage();
-            preScene = stage.getScene();
+            Stage stage = new Stage();
+            //preScene = stage.getScene();
             stage.setScene(new Scene(root));
             stage.show();
 
-            BowlTestController newBowler = (BowlTestController) ((Initializable) loader.getController());
-            newBowler.setId(id);
-            newBowler.updateScore(id);
-            System.out.println(id);
-            newBowler.setStage(stage);
-            newBowler.setPreScene(preScene);
+            SelectQuestionnaireController newAthlete = (SelectQuestionnaireController) ((Initializable) loader.getController());
+            newAthlete.setStage(stage);
+            newAthlete.setPreScene(preScene);
 
             stage.setOnCloseRequest((WindowEvent we) ->
             {
+                //((OLD)) ((Stage) (((Node) (event.getSource())).getScene().getWindow())).show(); ((OLD))
                 ((Stage) (stage.getScene()).getWindow()).show();
             });
+
+            // ((OLD))  Hide this current window (if this is what you want)          ((OLD))
+            // ((OLD))  ((Node) (event.getSource())).getScene().getWindow().hide();  ((OLD))
         } catch (IOException e) {
             e.printStackTrace();
         }
