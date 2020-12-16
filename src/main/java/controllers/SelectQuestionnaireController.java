@@ -193,6 +193,8 @@ public class SelectQuestionnaireController implements Initializable {
 
                                 for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
                                     //Iterate Column
+                                    if(i == 2)
+                                        row.add(rs.getString(i).substring(6));
                                     row.add(rs.getString(i));
                                 }
 
