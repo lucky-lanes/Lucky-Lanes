@@ -42,14 +42,12 @@
                                                         </font>
                                                     </Label>
                                                     <HBox alignment="CENTER">
-                                                        <ToggleButton fx:id="tbParQ1Yes" mnemonicParsing="false"
-                                                                      text="Yes">
+                                                        <ToggleButton fx:id="tbParQ1Yes" mnemonicParsing="false" text="Yes">
                                                             <toggleGroup>
                                                                 <ToggleGroup fx:id="tgParQuest1"/>
                                                             </toggleGroup>
                                                         </ToggleButton>
-                                                        <ToggleButton fx:id="tbParQ1No" mnemonicParsing="false"
-                                                                      text="No" toggleGroup="$tgParQuest1"/>
+                                                        <ToggleButton fx:id="tbParQ1No" mnemonicParsing="false" text="No" toggleGroup="$tgParQuest1"/>
                                                     </HBox>
                                                 </VBox>
                                                 <VBox alignment="CENTER" spacing="5">
@@ -59,14 +57,12 @@
                                                         </font>
                                                     </Label>
                                                     <HBox alignment="CENTER">
-                                                        <ToggleButton fx:id="tbParQ2Yes" mnemonicParsing="false"
-                                                                      text="Yes">
+                                                        <ToggleButton fx:id="tbParQ2Yes" mnemonicParsing="false" text="Yes">
                                                             <toggleGroup>
                                                                 <ToggleGroup fx:id="tgParQuest2"/>
                                                             </toggleGroup>
                                                         </ToggleButton>
-                                                        <ToggleButton fx:id="tbParQ2No" mnemonicParsing="false"
-                                                                      text="No" toggleGroup="$tgParQuest2"/>
+                                                        <ToggleButton fx:id="tbParQ2No" mnemonicParsing="false" text="No" toggleGroup="$tgParQuest2"/>
                                                     </HBox>
                                                 </VBox>
                                                 <VBox alignment="CENTER" spacing="5">
@@ -93,14 +89,12 @@
                                                         </font>
                                                     </Label>
                                                     <HBox alignment="CENTER">
-                                                        <ToggleButton fx:id="tbParQ4Yes" mnemonicParsing="false"
-                                                                      text="Yes">
+                                                        <ToggleButton fx:id="tbParQ4Yes" mnemonicParsing="false" text="Yes">
                                                             <toggleGroup>
                                                                 <ToggleGroup fx:id="tgParQuest4"/>
                                                             </toggleGroup>
                                                         </ToggleButton>
-                                                        <ToggleButton fx:id="tbParQ4No" mnemonicParsing="false"
-                                                                      text="No" toggleGroup="$tgParQuest4"/>
+                                                        <ToggleButton fx:id="tbParQ4No" mnemonicParsing="false" text="No" toggleGroup="$tgParQuest4"/>
                                                     </HBox>
                                                 </VBox>
                                                 <VBox alignment="CENTER" spacing="5">
@@ -117,8 +111,7 @@
                                                                 <ToggleGroup fx:id="tgParQuest5"/>
                                                             </toggleGroup>
                                                         </ToggleButton>
-                                                        <ToggleButton fx:id="tbParQ5No" mnemonicParsing="false"
-                                                                      text="No" toggleGroup="$tgParQuest5"/>
+                                                        <ToggleButton fx:id="tbParQ5No" mnemonicParsing="false" text="No" toggleGroup="$tgParQuest5"/>
                                                     </HBox>
                                                 </VBox>
                                                 <VBox alignment="CENTER" spacing="5">
@@ -128,14 +121,12 @@
                                                         </font>
                                                     </Label>
                                                     <HBox alignment="CENTER">
-                                                        <ToggleButton fx:id="tbParQ6Yes" mnemonicParsing="false"
-                                                                      text="Yes">
+                                                        <ToggleButton fx:id="tbParQ6Yes" mnemonicParsing="false" text="Yes">
                                                             <toggleGroup>
                                                                 <ToggleGroup fx:id="tgParQuest6"/>
                                                             </toggleGroup>
                                                         </ToggleButton>
-                                                        <ToggleButton fx:id="tbParQ6No" mnemonicParsing="false"
-                                                                      text="No" toggleGroup="$tgParQuest6"/>
+                                                        <ToggleButton fx:id="tbParQ6No" mnemonicParsing="false" text="No" toggleGroup="$tgParQuest6"/>
                                                     </HBox>
                                                 </VBox>
                                                 <VBox alignment="CENTER" spacing="5">
@@ -145,8 +136,7 @@
                                                         </font>
                                                     </Label>
                                                     <HBox alignment="CENTER">
-                                                        <TextArea fx:id="txtParQuest7" focusTraversable="fase"
-                                                                  wrapText="true" prefHeight="100.0" prefWidth="500.0"/>
+                                                        <TextArea fx:id="txtParQuest7" focusTraversable="fase" wrapText="true" prefHeight="100.0" prefWidth="500.0"/>
                                                     </HBox>
                                                 </VBox>
                                             </children>
@@ -155,7 +145,7 @@
                                 </ScrollPane>
                             </content>
                         </Tab>
-                        <Tab id="tab" fx:id="tabDemographics" text="Demographics">
+                        <Tab id="tab" disable="true" fx:id="tabDemographics" text="Demographics">
                             <content>
                                 <VBox alignment="CENTER" layoutX="28.0" layoutY="20.0" prefHeight="466.0"
                                       prefWidth="751.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0"
@@ -335,7 +325,7 @@
                                 </VBox>
                             </content>
                         </Tab>
-                        <Tab fx:id="tabYBalance" text="Y-Balance Test">
+                        <Tab fx:id="tabYBalance" disable="true" text="Y-Balance Test">
                             <content>
                                 <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="1244.0"
                                             prefViewportHeight="528.0" prefViewportWidth="800.0" prefWidth="800.0">
@@ -965,7 +955,7 @@
                                 </ScrollPane>
                             </content>
                         </Tab>
-                        <Tab id="tab" fx:id="tabFMS" text="FMS Score Sheet">
+                        <Tab id="tab" disable="true" fx:id="tabFMS" text="FMS Score Sheet">
                             <content>
                                 <VBox fx:id="vbFMSRoot" alignment="CENTER">
                                     <children>
@@ -2009,7 +1999,7 @@
                                 </VBox>
                             </content>
                         </Tab>
-                        <Tab id="tab" fx:id="tabFitnessData" text="Fitness Testing Data Sheet">
+                        <Tab id="tab" disable="true" fx:id="tabFitnessData" text="Fitness Testing Data Sheet">
                             <content>
                                 <ScrollPane fx:id="spDataSheet" fitToWidth="true" hbarPolicy="NEVER" minHeight="520.0"
                                             minWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
@@ -3368,7 +3358,7 @@
                                 </ScrollPane>
                             </content>
                         </Tab>
-                        <Tab id="tab" fx:id="tabAssessment" text="Bowler Assessment">
+                        <Tab id="tab" disable="true" fx:id="tabAssessment" text="Bowler Assessment">
                             <content>
                                 <ScrollPane fx:id="spBowlerAssessment" fitToWidth="true" hbarPolicy="NEVER" minHeight="520.0"
                                             minWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
@@ -5020,7 +5010,7 @@
                                 </ScrollPane>
                             </content>
                         </Tab>
-                        <Tab id="tab" fx:id="tabIBSSN" text="IBSSN">
+                        <Tab id="tab" disable="true" fx:id="tabIBSSN" text="IBSSN">
                             <content>
                                 <ScrollPane fx:id="spIBSSN" fitToWidth="true" hbarPolicy="NEVER" minHeight="300.0"
                                         minWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
@@ -5385,7 +5375,7 @@
                             </children>
                         </HBox>
                         <Button layoutX="520.0" layoutY="14.0" mnemonicParsing="false" onAction="#testingData"
-                                text="Fill In Data"/>
+                                text="Test Med Lock"/>
                     </children>
                 </AnchorPane>
             </children>
