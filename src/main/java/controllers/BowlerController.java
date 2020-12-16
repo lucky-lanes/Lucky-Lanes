@@ -105,6 +105,11 @@ public class BowlerController implements Initializable {
      */
     @FXML
     Tab tabFitnessData;
+     /**
+     * The tab for the Fitness Data form
+     */
+    @FXML
+    Tab tabAssessment;
     /**
      * The tab for the Par-Q form
      */
@@ -1061,6 +1066,7 @@ public class BowlerController implements Initializable {
      */
     @FXML
     TextArea txtParQuest7;
+    
     /**
      * The scroll pane that the Fitness Testing Data Sheet tab items are on
      */
@@ -1939,12 +1945,14 @@ public class BowlerController implements Initializable {
         if (newValue != oldValue){
             System.out.println("Test");
         }
+
     };
     
     txfName.addListener(textFieldListener);
     
     textFieldListener.changed(null, null, textField.getText());
     */
+   
 
     /**
      * Initializes the controller class.
@@ -2202,6 +2210,12 @@ public class BowlerController implements Initializable {
 
             // Medical Survey
             // Always retrieves Q1 as false?
+             if (rsParQ.getBoolean(1)) {
+                tbParQ1Yes.setSelected(true);
+            } else {
+                tbParQ1No.setSelected(true);
+            }
+             //added the above part
             if (rsParQ.getBoolean(2)) {
                 tbParQ1Yes.setSelected(true);
             } else {
@@ -2233,6 +2247,10 @@ public class BowlerController implements Initializable {
                 tbParQ6No.setSelected(true);
             }
             txtParQuest7.setText(rsParQ.getString(8));
+            
+            
+           
+            
 
             //set text fields in IBSSN tab
             txfTargetAccuracy.setText(rsIBSSN.getString(2));
@@ -3391,6 +3409,7 @@ public class BowlerController implements Initializable {
             //Red shadow effect
             txfDeepSquat.setStyle("-fx-effect: dropshadow( gaussian , rgba(212, 27, 27,1) , 10,0,0,0 );");
             //txfAddress.setStyle("-fx-effect: dropshadow( gaussian , rgba(212, 27, 27,1) , 10,0,0,0 );");
+
             return false;
         }*/
         return flag;
@@ -3707,648 +3726,72 @@ public class BowlerController implements Initializable {
      */
     @FXML
     private void testingData(ActionEvent e) throws SQLException {
+        
+       boolean medlock = false;
+        // Medical Survey
 
-        String height = "";
-        String weight = "";
-        String age = "";
-        int h = 0;
-        int w = 0;
-        int a = 0;
-
-        if (txfHeight.getText().equals("") && txfAge.getText().equals("") && txfWeight.getText().equals("")) {
-            showMessageDialog(null, "Fill in data uses age, height, and weight to search for similar athletes. \n please enter one, or all of these, to use this function.");
-
+        if (tbParQ1Yes.isSelected() || tbParQ1No.isSelected()) {
+            medlock = true;
         } else {
-
-            if (txfAge.getText().equals("")) {
-            } else {
-                age = txfAge.getText();
-                a = Integer.parseInt(age);
-            }
-            if (txfHeight.getText().equals("")) {
-            } else {
-                height = txfHeight.getText();
-                h = Integer.parseInt(height);
-            }
-            if (txfWeight.getText().equals("")) {
-            } else {
-                weight = txfWeight.getText();
-                w = Integer.parseInt(weight);
-            }
-
-            //user_name.getText().trim().isEmpty()
-            if (txfName.getText().equals("")) {
-                txfName.setText("Enter Name");
-            } else {
-                //nothing
-            }
-
-            if (txfAddress.getText().equals("")) {
-                txfAddress.setText("Enter School");
-            }
-
-            if (!radMale.isSelected() && !radFemale.isSelected()) {
-                radMale.setSelected(true);
-            } else {
-                //nothing
-            }
-
-            //table.getColumns().clear();
-            System.out.println("Running");
-
-            String hRange = " a.height > " + (h - 5) + " AND a.height < " + (h + 5);
-            String wRange = " a.weight > " + (w - 10) + " AND a.weight < " + (w + 10);
-            String aRange = " a.age > " + (a - 3) + " AND a.age < " + (a + 3);
-
-            String sql = "SELECT * FROM athlete WHERE ";
-            String sqlend = " WHERE ";
-            if (txfHeight.getText().equals("")) {
-                //nothing
-            } else {
-                sql = sql + hRange;
-                sqlend = sqlend + hRange;
-                if (txfWeight.getText().equals("") && txfAge.getText().equals("")) {
-                    //nothihg
-                } else {
-                    sql = sql + " AND ";
-                    sqlend = sqlend + " AND ";
-                }
-            }
-            if (txfWeight.getText().equals("")) {
-                //nothing
-            } else {
-
-                sql = sql + wRange;
-                sqlend = sqlend + wRange;
-                if (txfAge.getText().equals("")) {
-                    //nothihg
-                } else {
-                    sql = sql + " AND ";
-                    sqlend = sqlend + " AND ";
-                }
-
-            }
-            if (txfAge.getText().equals("")) {
-                //nothing
-            } else {
-
-                sql = sql + aRange;
-                sqlend = sqlend + aRange;
-            }
-
-            System.out.println("Query : " + sql);
-
-            dominance.getToggles().get(0).setSelected(true);
-            System.out.println(sqlend);
-            Database.connect();
-
-            ResultSet rsFMS = Database.searchQuery("SELECT * FROM Athlete a, FMS f " + sqlend + " and f.id = a.id;");
-            ResultSet rsAth = Database.searchQuery("SELECT * FROM Athlete a " + sqlend + ";");
-            ResultSet rsYBal = Database.searchQuery("SELECT * FROM Athlete a, YBalance y  " + sqlend + " and y.id = a.id;");
-            ResultSet rsFitData = Database.searchQuery("SELECT * FROM Athlete a, FitnessData f  " + sqlend + ";");
-            ResultSet rsParQ = Database.searchQuery("SELECT * FROM Athlete a, ParQ p  " + sqlend + " and a.id = p.id;");
-            ResultSet rsIBSSN = Database.searchQuery("SELECT * FROM Athlete a, IBSSN i " + sqlend + " and a.id = i.id");
-
-            System.out.println("Fetched Data Succesfully");
-
-            if (rsAth.next() == false) {
-                showMessageDialog(null, "No athletes found with a similar height, weight and age. Try removing  or changing \n one of these and searching again. (you can add it back after the data is filled) ");
-            } else {
-                try {
-                    rsFMS.next();
-                    rsAth.next();
-                    rsYBal.next();
-                    rsFitData.next();
-                    rsParQ.next();
-                    rsIBSSN.next();
-
-                    /*
-                     * Following code sets athlete data
-                     * These values can not have errors when importing, already validated when saved to database
-                     * Values saved as doubles must still be fixed and implemented
-                     */
-                    if (rsAth.getString(15).matches("Right")) {
-                        radDominance2Right.setSelected(true);
-                    } else {
-                        radDominance2Left.setSelected(true);
-                    }
-                    if (txfSchool.getText().equals("")) {
-                        txfSchool.setText("Enter School");
-                    }
-
-                    if (txfPrimaryPosition.getText().equals("")) {
-                        txfPrimaryPosition.setText("Enter Position");
-                    }
-                    if (txfPrimarySport.getText().equals("")) {
-                        txfPrimarySport.setText("Bowling");
-                    }
-                    if (txfHeight.getText().equals("")) {
-                        txfHeight.setText(rsAth.getString(11));
-                    }
-                    if (txfWeight.getText().equals("")) {
-                        txfWeight.setText(rsAth.getString(12));
-                    }
-
-                    if (txfAge.getText().equals("")) {
-                        txfAge.setText(rsAth.getString(13));
-                    }
-                    if (txfRightLimbLength.getText().equals("")) {
-                        txfRightLimbLength.setText(rsYBal.getString(2 + 18));
-                    }
-                    if (txfA1Right.getText().equals("")) {
-                        txfA1Right.setText(rsYBal.getString(27));
-                    }
-                    if (txfA2Right.getText().equals("")) {
-                        txfA2Right.setText(rsYBal.getString(28));
-                    }
-                    if (txfA3Right.getText().equals("")) {
-                        txfA3Right.setText(rsYBal.getString(29));
-                    }
-                    if (txfA1Left.getText().equals("")) {
-                        txfA1Left.setText(rsYBal.getString(30));
-                    }
-                    if (txfA2Left.getText().equals("")) {
-                        txfA2Left.setText(rsYBal.getString(31));
-                    }
-                    if (txfA3Left.getText().equals("")) {
-                        txfA3Left.setText(rsYBal.getString(32));
-                    }
-                    if (txfPM1Right.getText().equals("")) {
-                        txfPM1Right.setText(rsYBal.getString(33));
-                    }
-                    if (txfPM2Right.getText().equals("")) {
-                        txfPM2Right.setText(rsYBal.getString(34));
-                    }
-
-                    if (txfPM3Right.getText().equals("")) {
-                        txfPM3Right.setText(rsYBal.getString(35));
-                    }
-                    if (txfPL1Right.getText().equals("")) {
-                        txfPL1Right.setText(rsYBal.getString(21 + 18));
-                    }
-                    if (txfPL2Right.getText().equals("")) {
-                        txfPL2Right.setText(rsYBal.getString(22 + 18));
-                    }
-                    if (txfPL3Right.getText().equals("")) {
-                        txfPL3Right.setText(rsYBal.getString(23 + 18));
-                    }
-                    if (txfPM1Left.getText().equals("")) {
-                        txfPM1Left.setText(rsYBal.getString(18 + 18));
-                    }
-                    if (txfPM2Left.getText().equals("")) {
-                        txfPM2Left.setText(rsYBal.getString(19 + 18));
-                    }
-                    if (txfPM3Left.getText().equals("")) {
-                        txfPM3Left.setText(rsYBal.getString(20 + 18));
-                    }
-                    if (txfPL1Left.getText().equals("")) {
-                        txfPL1Left.setText(rsYBal.getString(24 + 18));
-                    }
-                    if (txfPL2Left.getText().equals("")) {
-                        txfPL2Left.setText(rsYBal.getString(25 + 18));
-                    }
-                    if (txfPL3Left.getText().equals("")) {
-                        txfPL3Left.setText(rsYBal.getString(26 + 18));
-                    }
-                    if (lblARight.getText().equals("")) {
-                        lblARight.setText(rsYBal.getString(3 + 18));
-                    }
-                    if (lblALeft.getText().equals("")) {
-                        lblALeft.setText(rsYBal.getString(4 + 18));
-                    }
-                    if (lblPMRight.getText().equals("")) {
-                        lblPMRight.setText(rsYBal.getString(5 + 18));
-                    }
-                    if (lblPLRight.getText().equals("")) {
-                        lblPLRight.setText(rsYBal.getString(7 + 18));
-                    }
-                    if (lblPMLeft.getText().equals("")) {
-                        lblPMLeft.setText(rsYBal.getString(6 + 18));
-                    }
-                    if (lblPLLeft.getText().equals("")) {
-                        lblPLLeft.setText(rsYBal.getString(8 + 18));
-                    }
-                    double PMMaxLeft = Double.parseDouble(maxValue(rsYBal.getString(18 + 18), rsYBal.getString(19 + 18), rsYBal.getString(20 + 18)));
-                    double PMMaxRight = Double.parseDouble(maxValue(rsYBal.getString(15 + 18), rsYBal.getString(16 + 18), rsYBal.getString(17 + 18)));
-                    double PLMaxLeft = Double.parseDouble(maxValue(rsYBal.getString(24 + 18), rsYBal.getString(25 + 18), rsYBal.getString(26 + 18)));
-                    double PLMaxRight = Double.parseDouble(maxValue(rsYBal.getString(21 + 18), rsYBal.getString(22 + 18), rsYBal.getString(23 + 18)));
-                    double AMaxLeft = Double.parseDouble(maxValue(rsYBal.getString(12 + 18), rsYBal.getString(13 + 18), rsYBal.getString(14 + 18)));
-                    double AMaxRight = Double.parseDouble(maxValue(rsYBal.getString(9 + 18), rsYBal.getString(10 + 18), rsYBal.getString(11 + 18)));
-
-                    if (lblADif.getText().equals("")) {
-                        lblADif.setText("" + (Math.max(AMaxLeft, AMaxRight) - Math.min(AMaxLeft, AMaxRight)));
-                    }
-                    if (lblPMDif.getText().equals("")) {
-                        lblPMDif.setText("" + (Math.max(PMMaxLeft, PMMaxRight) - Math.min(PMMaxLeft, PMMaxRight)));
-                    }
-                    if (lblPLDif.getText().equals("")) {
-                        lblPLDif.setText("" + (Math.max(PLMaxLeft, PLMaxRight) - Math.min(PLMaxLeft, PLMaxRight)));
-                    }
-                    if (lblCompositeLeft.getText().equals("")) {
-                        lblCompositeLeft.setText(rsYBal.getString(27 + 18));
-                    }
-                    if (lblCompositeRight.getText().equals("")) {
-                        lblCompositeRight.setText(rsYBal.getString(28 + 18));
-                    }
-
-                    // FMS Data
-                    // Comments are not being saved
-                    tgHurdleStepR.selectToggle(tgHurdleStepR.getToggles().get(rsFMS.getInt(5 + 18)));
-                    tgHurdleStepL.selectToggle(tgHurdleStepL.getToggles().get(rsFMS.getInt(4 + 18)));
-                    tgDeepSquat.selectToggle(tgDeepSquat.getToggles().get(rsFMS.getInt(2 + 18)));
-                    tgInlineLoungeL.selectToggle(tgInlineLoungeL.getToggles().get(rsFMS.getInt(7 + 18)));
-                    tgInlineLoungeR.selectToggle(tgInlineLoungeR.getToggles().get(rsFMS.getInt(8 + 18)));
-                    tgShoulderMobilityL.selectToggle(tgShoulderMobilityL.getToggles().get(rsFMS.getInt(10 + 18)));
-                    tgShoulderMobilityR.selectToggle(tgShoulderMobilityR.getToggles().get(rsFMS.getInt(11 + 18)));
-                    tgActiveStraightL.selectToggle(tgActiveStraightL.getToggles().get(rsFMS.getInt(15 + 18)));
-                    tgActiveStraightR.selectToggle(tgActiveStraightR.getToggles().get(rsFMS.getInt(16 + 18)));
-                    tgTrunkStability.selectToggle(tgTrunkStability.getToggles().get(rsFMS.getInt(18 + 18)));
-                    tgRotaryStabilityL.selectToggle(tgRotaryStabilityL.getToggles().get(rsFMS.getInt(21 + 18)));
-                    tgRotaryStabilityR.selectToggle(tgRotaryStabilityR.getToggles().get(rsFMS.getInt(22 + 18)));
-            
-            /* this should be inplace of lines 2430 - 2441 but it wont run properlt for me,
-                if someone else wants to take a look at what could be wrong...
-            
-            if(tgHurdleStepR.getSelectedToggle().equals(null)){
-            tgHurdleStepR.selectToggle(tgHurdleStepR.getToggles().get(rsFMS.getInt(5+18)));
-            }
-            if(tgHurdleStepL.getSelectedToggle().equals(null)){
-            tgHurdleStepL.selectToggle(tgHurdleStepL.getToggles().get(rsFMS.getInt(4+18)));
-            }
-            if(tgDeepSquat.getSelectedToggle().equals(null)){
-            tgDeepSquat.selectToggle(tgDeepSquat.getToggles().get(rsFMS.getInt(2+18)));            
-            }
-            if(tgInlineLoungeL.getSelectedToggle().equals(null)){
-            tgInlineLoungeL.selectToggle(tgInlineLoungeL.getToggles().get(rsFMS.getInt(7+18)));
-            }
-            if(tgInlineLoungeR.getSelectedToggle().equals(null)){
-            tgInlineLoungeR.selectToggle(tgInlineLoungeR.getToggles().get(rsFMS.getInt(8+18)));
-            }
-            if(tgShoulderMobilityL.getSelectedToggle().equals(null)){
-            tgShoulderMobilityL.selectToggle(tgShoulderMobilityL.getToggles().get(rsFMS.getInt(10+18)));
-            }
-            if(tgShoulderMobilityR.getSelectedToggle().equals(null)){
-            tgShoulderMobilityR.selectToggle(tgShoulderMobilityR.getToggles().get(rsFMS.getInt(11+18)));
-            }
-            if(tgActiveStraightL.getSelectedToggle().equals(null)){
-            tgActiveStraightL.selectToggle(tgActiveStraightL.getToggles().get(rsFMS.getInt(15+18)));
-            }
-            if(tgActiveStraightR.getSelectedToggle().equals(null)){
-            tgActiveStraightR.selectToggle(tgActiveStraightR.getToggles().get(rsFMS.getInt(16+18)));
-            }
-            if(tgTrunkStability.getSelectedToggle().equals(null)){
-            tgTrunkStability.selectToggle(tgTrunkStability.getToggles().get(rsFMS.getInt(18+18)));
-            }
-            if(tgRotaryStabilityL.getSelectedToggle().equals(null)){
-            tgRotaryStabilityL.selectToggle(tgRotaryStabilityL.getToggles().get(rsFMS.getInt(21+18)));
-            }
-            if(tgRotaryStabilityR.getSelectedToggle().equals(null)){
-            tgRotaryStabilityR.selectToggle(tgRotaryStabilityR.getToggles().get(rsFMS.getInt(22+18)));
-            }
-            */
-
-                    if (rsFMS.getBoolean(13 + 18)) {
-                        tgShoulderClearingL.selectToggle(tgShoulderClearingL.getToggles().get(1));
-                    } else {
-                        tgShoulderClearingL.selectToggle(tgShoulderClearingL.getToggles().get(0));
-                    }
-                    if (rsFMS.getBoolean(14 + 18)) {
-                        tgShoulderClearingR.selectToggle(tgShoulderClearingR.getToggles().get(1));
-                    } else {
-                        tgShoulderClearingR.selectToggle(tgShoulderClearingR.getToggles().get(0));
-                    }
-                    if (rsFMS.getBoolean(20 + 18)) {
-                        tgExtensionClearing.selectToggle(tgExtensionClearing.getToggles().get(1));
-                    } else {
-                        tgExtensionClearing.selectToggle(tgExtensionClearing.getToggles().get(0));
-                    }
-                    if (rsFMS.getBoolean(24 + 18)) {
-                        tgFlexionClearing.selectToggle(tgFlexionClearing.getToggles().get(1));
-                    } else {
-                        tgFlexionClearing.selectToggle(tgFlexionClearing.getToggles().get(0));
-                    }
-
-
-                    if (txfTrunkStability.getText().equals("")) {
-                        txfTrunkStability.setText(rsFMS.getString(19 + 18));
-                    }
-                    if (txfInlineLounge.getText().equals("")) {
-                        txfInlineLounge.setText(rsFMS.getString(9 + 18));
-                    }
-                    if (txfShoulderMobility.getText().equals("")) {
-                        txfShoulderMobility.setText(rsFMS.getString(12 + 18));
-                    }
-                    if (txfActiveStraight.getText().equals("")) {
-                        txfActiveStraight.setText(rsFMS.getString(17 + 18));
-                    }
-                    if (txfRotaryStability.getText().equals("")) {
-                        txfRotaryStability.setText(rsFMS.getString(23 + 18));
-                    }
-                    if (txfHurdleStep.getText().equals("")) {
-                        txfHurdleStep.setText(rsFMS.getString(4 + 18));
-                    }
-                    if (txfDeepSquat.getText().equals("")) {
-                        txfDeepSquat.setText(rsFMS.getString(3 + 18));
-                    }
-                    if (txfFMSTotal.getText().equals("")) {
-                        txfFMSTotal.setText(rsFMS.getString(25 + 18));
-                    }
-
-
-                    // Fitness Testing data
-                    // Found data is not being saved....
-                    if (txfRestingHR.getText().equals("")) {
-                        txfRestingHR.setText(rsFitData.getString(3 + 18));
-                    }
-                    if (txfRestingBPA.getText().equals("")) {
-                        txfRestingBPA.setText(rsFitData.getString(4 + 18));
-                    }
-                    if (txfRestingBPB.getText().equals("")) {
-                        txfRestingBPB.setText(rsFitData.getString(5 + 18));
-                    }
-                    if (txfBMI.getText().equals("")) {
-                        txfBMI.setText(rsFitData.getString(8 + 18));
-                    }
-                    if (txfPeakFLow1.getText().equals("")) {
-                        txfPeakFLow1.setText(rsFitData.getString(9 + 18));
-                    }
-                    if (txfPeakFLow2.getText().equals("")) {
-                        txfPeakFLow2.setText(rsFitData.getString(9 + 18));
-                    }
-                    if (txfWCirc.getText().equals("")) {
-                        txfWCirc.setText(rsFitData.getString(14 + 18));
-                    }
-                    if (txfHipCirc.getText().equals("")) {
-                        txfHipCirc.setText(rsFitData.getString(15 + 18));
-                    }
-                    if (txfMidTCirc.getText().equals("")) {
-                        txfMidTCirc.setText(rsFitData.getString(16 + 18));
-                    }
-                    if (txfFlexArmCirc.getText().equals("")) {
-                        txfFlexArmCirc.setText(rsFitData.getString(17 + 18));
-                    }
-                    if (txfAntThigh1.getText().equals("")) {
-                        txfAntThigh1.setText(rsFitData.getString(11 + 18));
-                    }
-                    if (txfAntThigh2.getText().equals("")) {
-                        txfAntThigh2.setText(rsFitData.getString(12 + 18));
-                    }
-                    if (txfAntThighAVG.getText().equals("")) {
-                        txfAntThighAVG.setText(rsFitData.getString(13 + 18));
-                    }
-                    if (txfHamCSA.getText().equals("")) {
-                        txfHamCSA.setText(rsFitData.getString(18 + 18));
-                    }
-                    if (txfQuadCSA.getText().equals("")) {
-                        txfQuadCSA.setText(rsFitData.getString(19 + 18));
-                    }
-                    if (txfTotalCSA.getText().equals("")) {
-                        txfTotalCSA.setText(rsFitData.getString(20 + 18));
-                    }
-                    if (txfStartDist.getText().equals("")) {
-                        txfStartDist.setText(rsFitData.getString(29 + 18));
-                    }
-                    if (txfEndDist1.getText().equals("")) {
-                        txfEndDist1.setText(rsFitData.getString(30 + 18));
-                    }
-                    if (txfEndDist2.getText().equals("")) {
-                        txfEndDist2.setText(rsFitData.getString(31 + 18));
-                    }
-                    if (txfEndDist3.getText().equals("")) {
-                        txfEndDist3.setText(rsFitData.getString(32 + 18));
-                    }
-                    if (txfFinalDist.getText().equals("")) {
-                        txfFinalDist.setText(rsFitData.getString(33 + 18));
-                    }
-                    if (txfHGR1.getText().equals("")) {
-                        txfHGR1.setText(rsFitData.getString(34 + 18));
-                    }
-                    if (txfHGR2.getText().equals("")) {
-                        txfHGR2.setText(rsFitData.getString(35 + 18));
-                    }
-                    if (txfHGR3.getText().equals("")) {
-                        txfHGR3.setText(rsFitData.getString(36 + 18));
-                    }
-                    if (txfHGL1.getText().equals("")) {
-                        txfHGL1.setText(rsFitData.getString(37 + 18));
-                    }
-                    if (txfHGL2.getText().equals("")) {
-                        txfHGL2.setText(rsFitData.getString(38 + 18));
-                    }
-                    if (txfHGL3.getText().equals("")) {
-                        txfHGL3.setText(rsFitData.getString(39 + 18));
-                    }
-                    if (txfProneTime.getText().equals("")) {
-                        txfProneTime.setText(rsFitData.getString(40 + 18));
-                    }
-                    if (txfKneeExtForceR1.getText().equals("")) {
-                        txfKneeExtForceR1.setText(rsFitData.getString(41 + 18));
-                    }
-                    if (txfKneeExtForceR2.getText().equals("")) {
-                        txfKneeExtForceR2.setText(rsFitData.getString(42 + 18));
-                    }
-                    if (txfKneeExtForceL1.getText().equals("")) {
-                        txfKneeExtForceL1.setText(rsFitData.getString(43 + 18));
-                    }
-                    if (txfKneeExtForceL2.getText().equals("")) {
-                        txfKneeExtForceL2.setText(rsFitData.getString(44 + 18));
-                    }
-                    if (txfJH1.getText().equals("")) {
-                        txfJH1.setText(rsFitData.getString(45 + 18));
-                    }
-                    if (txfJH2.getText().equals("")) {
-                        txfJH2.setText(rsFitData.getString(46 + 18));
-                    }
-                    if (txfMedPass1.getText().equals("")) {
-                        txfMedPass1.setText(rsFitData.getString(47 + 18));
-                    }
-                    if (txfMedPass2.getText().equals("")) {
-                        txfMedPass2.setText(rsFitData.getString(48 + 18));
-                    }
-                    if (txfVO2Max.getText().equals("")) {
-                        txfVO2Max.setText(rsFitData.getString(49 + 18));
-                    }
-                    if (txfPostVO2Max.getText().equals("")) {
-                        txfPostVO2Max.setText(rsFitData.getString(50 + 18));
-                    }
-                    if (txfPostHR.getText().equals("")) {
-                        txfPostHR.setText(rsFitData.getString(52 + 18));
-                    }
-                    if (txfRockportHR.getText().equals("")) {
-                        txfRockportHR.setText(rsFitData.getString(55 + 18));
-                    }
-
-                    Double walkSplit = rsFitData.getDouble(53 + 18);
-
-                    int min = walkSplit.intValue();
-                    Double dSec = (walkSplit - min) * 60;
-                    int sec = dSec.intValue();
-                    String time = "";
-                    if (min < 10) {
-                        time += "0" + min + ":";
-                    } else {
-                        time += min + ":";
-                    }
-                    if (sec < 10) {
-                        time += "0" + sec;
-                    } else {
-                        time += sec;
-                    }
-
-                    if (txfRockportTime.getText().equals("")) {
-                        txfRockportTime.setText(time);
-                    }
-
-                    if (txfRockportVO2Max.getText().equals("")) {
-                        txfRockportVO2Max.setText(rsFitData.getString(54 + 18));
-                    }
-                    if (txfWalkDistance.getText().equals("")) {
-                        txfWalkDistance.setText(rsFitData.getString(56 + 18));
-                    }
-                    if (txfWalkVO2.getText().equals("")) {
-                        txfWalkVO2.setText(rsFitData.getString(57 + 18));
-                    }
-                    if (txfBicep.getText().equals("")) {
-                        txfBicep.setText(rsFitData.getString(21 + 18));
-                    }
-                    if (txfTricep.getText().equals("")) {
-                        txfTricep.setText(rsFitData.getString(22 + 18));
-                    }
-                    if (txfSubscapular.getText().equals("")) {
-                        txfSubscapular.setText(rsFitData.getString(23 + 18));
-                    }
-                    if (txfAbdominal.getText().equals("")) {
-                        txfAbdominal.setText(rsFitData.getString(24 + 18));
-                    }
-                    if (txfSuprailiac.getText().equals("")) {
-                        txfSuprailiac.setText(rsFitData.getString(25 + 18));
-                    }
-                    if (txfThigh.getText().equals("")) {
-                        txfThigh.setText(rsFitData.getString(26 + 18));
-                    }
-                    if (txfPectoral.getText().equals("")) {
-                        txfPectoral.setText(rsFitData.getString(27 + 18));
-
-                    }
-                    if (txfWallsit.getText().equals("")) {
-                        txfWallsit.setText(rsFitData.getString(28 + 18));
-                    }
-
-
-                    // Medical Survey
-                    // Always retrieves Q1 as false?
-                    if (tbParQ1Yes.isSelected() || tbParQ1No.isSelected()) {
-                        //do nothing
-                    } else {
-                        if (rsParQ.getBoolean(2 + 18)) {
-                            tbParQ1Yes.setSelected(true);
-                        } else {
-                            tbParQ1No.setSelected(true);
-                        }
-                    }
-                    if (tbParQ2Yes.isSelected() || tbParQ2No.isSelected()) {
-                        //do nothing
-                    } else {
-                        if (rsParQ.getBoolean(3 + 18)) {
-                            tbParQ2Yes.setSelected(true);
-                        } else {
-                            tbParQ2No.setSelected(true);
-                        }
-                    }
-
-                    if (tbParQ3Yes.isSelected() || tbParQ3No.isSelected()) {
-                        //do nothing
-                    } else {
-                        if (rsParQ.getBoolean(4 + 18)) {
-                            tbParQ3Yes.setSelected(true);
-                        } else {
-                            tbParQ3No.setSelected(true);
-                        }
-                    }
-
-                    if (tbParQ4Yes.isSelected() || tbParQ4No.isSelected()) {
-                        //do nothing
-                    } else {
-                        if (rsParQ.getBoolean(5 + 18)) {
-                            tbParQ4Yes.setSelected(true);
-                        } else {
-                            tbParQ4No.setSelected(true);
-                        }
-                    }
-
-                    if (tbParQ5Yes.isSelected() || tbParQ5No.isSelected()) {
-                        //do nothing
-                    } else {
-                        if (rsParQ.getBoolean(6 + 18)) {
-                            tbParQ5Yes.setSelected(true);
-                        } else {
-                            tbParQ5No.setSelected(true);
-                        }
-                    }
-
-                    if (tbParQ6Yes.isSelected() || tbParQ6No.isSelected()) {
-                        //do nothing
-                    } else {
-                        if (rsParQ.getBoolean(7 + 18)) {
-                            tbParQ6Yes.setSelected(true);
-                        } else {
-                            tbParQ6No.setSelected(true);
-                        }
-                    }
-
-                    if (txtParQuest7.getText().equals("")) {
-                        txtParQuest7.setText(rsParQ.getString(8 + 18));
-                    }
-
-
-                    //IBSSN data
-                    if (txfTargetAccuracy.getText().equals("")){
-                        txfTargetAccuracy.setText(rsIBSSN.getString(2 + 18));
-                    }
-
-                    if (txfPocketPercentage.getText().equals("")){
-                        txfPocketPercentage.setText(rsIBSSN.getString(3 + 18));
-                    }
-
-                    if (txfMultiPinConversion.getText().equals("")){
-                        txfSinglePinConversion.setText(rsIBSSN.getString(4 + 18));
-                    }
-
-                    if (txfMultiPinConversion.getText().equals("")){
-                        txfSinglePinConversion.setText(rsIBSSN.getString(5 + 18));
-                    }
-
-                    if (txfQuickToPocket.getText().equals("")){
-                        txfQuickToPocket.setText(rsIBSSN.getString(6 + 18));
-                    }
-
-                    if (txfLaneAdjToPocket.getText().equals("")){
-                        txfLaneAdjToPocket.setText(rsIBSSN.getString(7 + 18));
-                    }
-
-                    if (txfEntryAngleIntoPocket.getText().equals("")){
-                        txfEntryAngleIntoPocket.setText(rsIBSSN.getString(8 + 18));
-                    }
-
-                    if (txfBallSpeedConsistency.getText().equals("")){
-                        txfBallSpeedConsistency.setText(rsIBSSN.getString(9 + 18));
-                    }
-
-                    if (txfBallSpeedAtRelease.getText().equals("")){
-                        txfBallSpeedAtRelease.setText(rsIBSSN.getString(10 + 18));
-                    }
-
-                    if (txfRevRateAtRelease.getText().equals("")){
-                        txfRevRateAtRelease.setText(rsIBSSN.getString(11 + 18));
-                    }
-
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                } finally {
-                    Database.close();
-                }
-            }
+            medlock = false;
         }
+        if (tbParQ2Yes.isSelected() || tbParQ2No.isSelected()) {
+            medlock = true;
+        } else {
+            medlock = false;
+        }
+
+        if (tbParQ3Yes.isSelected() || tbParQ3No.isSelected()) {
+            medlock = true;
+        } else {
+            medlock = false;
+        }
+
+        if (tbParQ4Yes.isSelected() || tbParQ4No.isSelected()) {
+            medlock = true;
+        } else {
+            medlock = false;
+        }
+
+        if (tbParQ5Yes.isSelected() || tbParQ5No.isSelected()) {
+            medlock = true;
+        } else {
+            medlock = false;
+        }
+
+        if (tbParQ6Yes.isSelected() || tbParQ6No.isSelected()) {
+            medlock = true;
+        } else { 
+            medlock = false;
+        }
+        if (txtParQuest7.getText().equals("")) {
+            medlock = false;
+        }else{
+            medlock = true; 
+        }           
+        if(medlock){
+            tabDemographics.setDisable(false);
+            tabYBalance.setDisable(false);
+            tabFMS.setDisable(false);
+            tabFitnessData.setDisable(false);
+            tabAssessment.setDisable(false);
+            tabIBSSN.setDisable(false);
+        }else{  
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Medical Survey Tab");
+            alert.setHeaderText(null);
+            alert.setContentText("Must complete Medical Survey!");
+//
+//            Optional<ButtonType> result = alert.showAndWait();
+//
+//            if (!result.isPresent() || result.get() == ButtonType.OK) {
+//                try {
+//                    //goBack();
+//                } catch (Exception ex) {
+//
+//                }
+//            }
+        }      
     }
 
     /**
