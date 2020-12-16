@@ -1878,6 +1878,7 @@ public class BowlerController implements Initializable {
     @FXML
     Label lblTotalPoints;
 
+    private boolean medlock = false;
 
     //Other variables
     /**
@@ -2646,22 +2647,80 @@ public class BowlerController implements Initializable {
     private void nextTab(ActionEvent event) {
         //validateTabs();
 
-        if (!validateTabs() && !errors[selectionModel.getSelectedIndex()]) {
-            //Message has been shown, set error flag to true;
-            errors[selectionModel.getSelectedIndex()] = true;
+        //boolean medlock = false;
+        // Medical Survey
 
-            if (showMissingInformationAlert()) {
-                return;
-            }
-
-        }
-
-        //Set a variable for the number of tabs in scene.
-        if (selectionModel.getSelectedIndex() == NUM_TAB - 1) {
-            selectionModel.select(0);
+        if (tbParQ1Yes.isSelected() || tbParQ1No.isSelected()) {
+            medlock = true;
         } else {
-            selectionModel.select(selectionModel.getSelectedIndex() + 1);
+            medlock = false;
         }
+        if (tbParQ2Yes.isSelected() || tbParQ2No.isSelected()) {
+            medlock = true;
+        } else {
+            medlock = false;
+        }
+
+        if (tbParQ3Yes.isSelected() || tbParQ3No.isSelected()) {
+            medlock = true;
+        } else {
+            medlock = false;
+        }
+
+        if (tbParQ4Yes.isSelected() || tbParQ4No.isSelected()) {
+            medlock = true;
+        } else {
+            medlock = false;
+        }
+
+        if (tbParQ5Yes.isSelected() || tbParQ5No.isSelected()) {
+            medlock = true;
+        } else {
+            medlock = false;
+        }
+
+        if (tbParQ6Yes.isSelected() || tbParQ6No.isSelected()) {
+            medlock = true;
+        } else { 
+            medlock = false;
+        }
+        if (txtParQuest7.getText().equals("")) {
+            medlock = false;
+        }else{
+            medlock = true; 
+        }           
+        if(medlock){
+            tabDemographics.setDisable(false);
+            tabYBalance.setDisable(false);
+            tabFMS.setDisable(false);
+            tabFitnessData.setDisable(false);
+            tabAssessment.setDisable(false);
+            tabIBSSN.setDisable(false);
+        }else{  
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Medical Survey Tab");
+            alert.setHeaderText(null);
+            alert.setContentText("Must complete Medical Survey!");
+        }
+        
+       if(medlock){
+            if (!validateTabs() && !errors[selectionModel.getSelectedIndex()]) {
+                //Message has been shown, set error flag to true;
+                errors[selectionModel.getSelectedIndex()] = true;
+
+                if (showMissingInformationAlert()) {
+                    return;
+                }
+
+            }
+            
+            //Set a variable for the number of tabs in scene.
+            if (selectionModel.getSelectedIndex() == NUM_TAB - 1) {
+                selectionModel.select(0);
+            } else {
+                selectionModel.select(selectionModel.getSelectedIndex() + 1);
+            }
+       }
     }
 
     /**
