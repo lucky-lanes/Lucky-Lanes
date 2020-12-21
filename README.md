@@ -1,10 +1,12 @@
 # LuckyLanes
-This project is for the LuckyLanes bowling alley to keep track of specific athlete data entered by a user and stored in a local
-database. The user can view athlete's data, manipulate athlete's data, view printable forms for data gathering, and 
+This project is for the LuckyLanes bowling alley to keep track of specific athlete data entered by users and stored in a local
+database. A user can create an account, log in, view athlete's data, manipulate athlete's data, view printable forms for data gathering, and 
 print out athlete's data. The application uses Java and JavaFX. 
 
 ## Setup For IDE Use
 You'll need to install the following libraries into your project (these libraries are in the google drive)
+(Note: libraries besides Java 8 are included in the github repository)
+
    1. pdfblox-2.0.17.jar
         1. This allows you to work with PDF documents, such as creation, manipulation, and extraction
         2. This is within the project by default but you may have to relink it on downloading the project from github
@@ -26,6 +28,7 @@ You'll need to install the following libraries into your project (these librarie
         2. This is up on the google drive for the project if you don't have a development environment that runs JavaFX and JavaFXML.
         3. This can be done through the properties settings of the project. 
  
+ 
 [Setup Video for netbeans](https://www.youtube.com/watch?v=RXoIOWlP0dY)<br>
 [Setup Video for Intellij](https://youtu.be/BkzNg47k8DQ)
 
@@ -43,9 +46,7 @@ import be.quodlibet.boxable.*;
 ```
 
 ## On launch
-A prompt will appear asking you to connect to a database, you have the option to dismiss this for the time being and add 
-one later. There are a couple databases that are inside the the project files from the repository named "TheFinalTest.mv.db" and "TestDatabases.mv.db". TestDatabases file has group members testing the program with data from themselves and TheFinalTest database has random people entered already. You can at any point switch databases or create new ones by using the settings
- drop down and clicking create new database or open existing database.
+A prompt will appear asking you to connect to a database if the program has not been run before. There is a test database called "TestDatabase.mv.db", or alternatively, a new database can be created. You can at later switch databases or create new ones by using the settings drop down and clicking create new database or open existing database. When a new database is created, a default admin account with the username "admin", and password "defaultPassword" is created. It is highly reccomended to change this password. (Note: UI functionality for changing password is not yet implemented) After setting up the database, you will then be prompted with the login screen. Here, you can login with a previously created account or the admin account. You can also switch to the Create Account screen. Depending on what account type you login as, you will be presented with different options.
 
 ## Complete documentation
 [Documentation Station](https://docs.google.com/document/d/1CYt3Xl13mugHgATuaXxcm7oLQJDwlJRIyBNsAmsLcEI/edit#)
@@ -53,13 +54,12 @@ one later. There are a couple databases that are inside the the project files fr
 ## Dynamo Proposal
 https://onedrive.live.com/view.aspx?resid=CAA42815A644A89C!2621&ithint=file%2cdocx&authkey=!APhi9NG0GIarfG4
 
-## Known problems 
-1. when using the included TheFinalTest.mv.db database there is a problem creating questions for the test. they do not
-show up in update questions.
-    1. This does not happen when you create a new database on your computer through the program.
-2. The Add New Athlete section adds another bowler profile when you click add new baseball athlete. 
-
-
+## Known problems, incomplete features
+- When creating a new acount, if you back out before finishing filling out the forms, the half created account is still added to the authorization table and should be removed.
+- When creating a new account, an attempt was made to lock data entry until the medical form was filled out. This does not work properly.
+- The delete account button is disabled, as it deletes rows from the Authorization table based off of Athlete table id. As of right now there is no consistent feature between the tables to align them. This also breaks the reassignment of authorization level of accounts. Ideally, deleting an account should remove ALL their data (not just in the Auth table or Athlete table, but all the associated form tables, which also may be presently unalignable.) 
+- The ability to change a password is not implemented (a function in AuthorizationController is built for it)
+- The system to handle coach accounts is not built. (There is code prepared in the TeamController class to handle some of this)
 
 ## License
 [Apache License](http://www.apache.org/licenses/)
