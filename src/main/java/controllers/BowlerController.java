@@ -190,6 +190,16 @@ public class BowlerController implements Initializable {
     @FXML
     TextFieldRequired txfWeight;
     /**
+     * The label for displaying height in imperial units(feet, inches)
+     */
+    @FXML
+    Label lblHeightImp;
+    /**
+     * The label for displaying the weight in imperial units(pounds)
+     */
+    @FXML
+    Label lblWeightImp;
+    /**
      * The options for gender on the demographics tab. I do not think this is used as the ToggleGroup tgGender seems to be
      * the one that is being used for gender
      */
@@ -2506,6 +2516,18 @@ public class BowlerController implements Initializable {
             if (isSuccessful())
                 validateTabs();
         };
+        
+        //For height and weight, update imperial unit display after changes
+        ChangeListener<String> heightFieldListener = (ObservableValue<? extends String> observable, String oldValue, String newValue) ->{
+        	if(isSuccessful())
+        		validateTabs();
+        		UpdateHeightImp();
+        };
+        ChangeListener<String> weightFieldListener = (ObservableValue<? extends String> observable, String oldValue, String newValue) ->{
+        	if(isSuccessful())
+        		validateTabs();
+        		UpdateWeightImp();
+        };
 
         /*Demographics Changes*/
         //textfields
@@ -2516,8 +2538,8 @@ public class BowlerController implements Initializable {
         txfPhone.textProperty().addListener(textFieldListener);
         txfSchool.textProperty().addListener(textFieldListener);
         txfAge.textProperty().addListener(textFieldListener);
-        txfHeight.textProperty().addListener(textFieldListener);
-        txfWeight.textProperty().addListener(textFieldListener);
+        txfHeight.textProperty().addListener(heightFieldListener);
+        txfWeight.textProperty().addListener(weightFieldListener);
         txfPrimaryPosition.textProperty().addListener(textFieldListener);
         txfPrimarySport.textProperty().addListener(textFieldListener);
         cbState.valueProperty().addListener(textFieldListener);
@@ -5009,5 +5031,19 @@ public class BowlerController implements Initializable {
      */
     protected void setUpViewWindow() {
         viewInfo = true;
+    }
+    
+    private void UpdateHeightImp() {
+    	double heightCm = Double.parseDouble(txfHeight.getText());
+    	double heightIn = heightCm / 2.54;
+    	String out = (int)(heightIn / 12) + " ft " + (int)(heightIn % 12) + " in ";
+    	lblHeightImp.setText(out);
+    }
+    
+    private void UpdateWeightImp() {
+    	double weightKg = Double.parseDouble(txfWeight.getText());
+    	double weightLbs = weightKg * 2.205;
+    	String out = (int)(weightLbs) + " lbs ";
+    	lblWeightImp.setText(out);
     }
 }

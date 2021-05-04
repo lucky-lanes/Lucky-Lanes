@@ -21,7 +21,211 @@
                          tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="-6.0"
                          AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                     <tabs>
-                        <Tab id="tab" fx:id="tabParQ" text="Medical Survey">
+                        <Tab id="tab" fx:id="tabDemographics" text="Demographics">
+                            <content>
+                                <VBox alignment="CENTER" layoutX="28.0" layoutY="20.0" prefHeight="466.0"
+                                      prefWidth="751.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0"
+                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                    <children>
+                                        <HBox alignment="CENTER">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="80.0" text="Name:">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <TextFieldRequired fx:id="txfName" prefHeight="25.0" prefWidth="283.0">
+                                                    <HBox.margin>
+                                                        <Insets right="25.0"/>
+                                                    </HBox.margin>
+                                                </TextFieldRequired>
+                                                <Label text="Date:">
+                                                    <HBox.margin>
+                                                        <Insets right="5.0"/>
+                                                    </HBox.margin>
+                                                </Label>
+                                                <Label fx:id="lblDate" prefHeight="17.0" prefWidth="105.0"
+                                                       text="Current Date">
+                                                    <HBox.margin>
+                                                        <Insets right="25.0"/>
+                                                    </HBox.margin>
+                                                </Label>
+                                                <Label text="DOB:">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <DatePicker fx:id="dpDate" prefHeight="25.0" prefWidth="205.0"
+                                                            promptText="mm/dd/yyyy"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="80.0" text="Address:">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <TextFieldRequired fx:id="txfAddress" prefHeight="25.0"
+                                                                   prefWidth="699.0"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="751.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="80.0" text="City:"/>
+                                                <TextFieldRequired fx:id="txfCity" prefHeight="25.0" prefWidth="137.0">
+                                                    <HBox.margin>
+                                                        <Insets right="15.0"/>
+                                                    </HBox.margin>
+                                                </TextFieldRequired>
+                                                <Label prefHeight="17.0" prefWidth="39.0" text="State:"/>
+                                                <ComboBox fx:id="cbState" prefWidth="150.0" promptText="Select State">
+                                                    <HBox.margin>
+                                                        <Insets right="15.0"/>
+                                                    </HBox.margin>
+                                                </ComboBox>
+                                                <Label prefHeight="17.0" prefWidth="22.0" text="Zip:"/>
+                                                <TextFieldRequired fx:id="txfZip" prefHeight="25.0" prefWidth="137.0">
+                                                    <HBox.margin>
+                                                        <Insets right="15.0"/>
+                                                    </HBox.margin>
+                                                </TextFieldRequired>
+                                                <Label prefHeight="17.0" prefWidth="42.0" text="Phone:"/>
+                                                <TextFieldRequired fx:id="txfPhone" prefHeight="25.0"
+                                                                   prefWidth="126.0"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="80.0" text="School:"/>
+                                                <TextFieldRequired fx:id="txfSchool" prefHeight="25.0"
+                                                                   prefWidth="699.0"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="751.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="50.0" text="Height:">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <TextFieldRequired fx:id="txfHeight" prefHeight="25.0" prefWidth="78.0">
+                                                    <HBox.margin>
+                                                        <Insets/>
+                                                    </HBox.margin>
+                                                </TextFieldRequired>
+                                                <Label text="cm">
+                                                    <HBox.margin>
+                                                        <Insets right="10.0"/>
+                                                    </HBox.margin>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="50.0" text="Weight:">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <TextFieldRequired fx:id="txfWeight" prefHeight="25.0" prefWidth="72.0">
+                                                    <HBox.margin>
+                                                        <Insets/>
+                                                    </HBox.margin>
+                                                </TextFieldRequired>
+                                                <Label text="kg">
+                                                    <HBox.margin>
+                                                        <Insets right="10.0"/>
+                                                    </HBox.margin>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="30.0" text="Age:">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <TextFieldRequired fx:id="txfAge" prefHeight="25.0" prefWidth="72.0">
+                                                    <HBox.margin>
+                                                        <Insets right="10.0"/>
+                                                    </HBox.margin>
+                                                </TextFieldRequired>
+                                                <Label prefHeight="17.0" prefWidth="55.0" text="Gender:">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <VBox alignment="CENTER_LEFT" prefHeight="50.0">
+                                                    <children>
+                                                        <RadioButton fx:id="radMale" mnemonicParsing="false"
+                                                                     text="Male">
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="tgGender"/>
+                                                            </toggleGroup>
+                                                        </RadioButton>
+                                                        <RadioButton fx:id="radFemale" mnemonicParsing="false"
+                                                                     text="Female" toggleGroup="$tgGender"/>
+                                                    </children>
+                                                    <HBox.margin>
+                                                        <Insets right="10.0"/>
+                                                    </HBox.margin>
+                                                </VBox>
+                                                <Label prefHeight="17.0" prefWidth="124.0" text="Hand/Leg Dominance:"/>
+                                                <VBox alignment="CENTER_LEFT" prefHeight="200.0">
+                                                    <children>
+                                                        <RadioButton fx:id="radDominanceRight" mnemonicParsing="false"
+                                                                     text="Right">
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="dominance"/>
+                                                            </toggleGroup>
+                                                        </RadioButton>
+                                                        <RadioButton fx:id="radDominanceLeft" mnemonicParsing="false"
+                                                                     text="Left" toggleGroup="$dominance"/>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="751.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="50.0" text="Height:">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="lblHeightImp" prefWidth="72.0" text="## ft ## in">
+                                                    <HBox.margin>
+                                                        <Insets right="30.0"/>
+                                                    </HBox.margin>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="50.0" text="Weight:">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="lblWeightImp" prefWidth="72.0" text="## lbs">
+                                                    <HBox.margin>
+                                                        <Insets right="430.0"/>
+                                                    </HBox.margin>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="741.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="80.0" text="Primary Sport:"/>
+                                                <TextFieldRequired fx:id="txfPrimarySport" prefHeight="25.0"
+                                                                   prefWidth="296.0">
+                                                    <HBox.margin>
+                                                        <Insets right="15.0"/>
+                                                    </HBox.margin>
+                                                </TextFieldRequired>
+                                                <Label prefHeight="17.0" prefWidth="102.0" text="Primary Position:"/>
+                                                <TextFieldRequired fx:id="txfPrimaryPosition" prefHeight="25.0"
+                                                                   prefWidth="286.0">
+                                                    <HBox.margin>
+                                                        <Insets/>
+                                                    </HBox.margin>
+                                                </TextFieldRequired>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+                                                <Tab id="tab" fx:id="tabParQ" text="Medical Survey">
                             <content>
                                 <ScrollPane fitToWidth="true" hbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
                                     <content>
@@ -153,186 +357,6 @@
                                         </VBox>
                                     </content>
                                 </ScrollPane>
-                            </content>
-                        </Tab>
-                        <Tab id="tab" fx:id="tabDemographics" text="Demographics">
-                            <content>
-                                <VBox alignment="CENTER" layoutX="28.0" layoutY="20.0" prefHeight="466.0"
-                                      prefWidth="751.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
-                                    <children>
-                                        <HBox alignment="CENTER">
-                                            <children>
-                                                <Label prefHeight="17.0" prefWidth="80.0" text="Name:">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0"/>
-                                                    </font>
-                                                </Label>
-                                                <TextFieldRequired fx:id="txfName" prefHeight="25.0" prefWidth="283.0">
-                                                    <HBox.margin>
-                                                        <Insets right="25.0"/>
-                                                    </HBox.margin>
-                                                </TextFieldRequired>
-                                                <Label text="Date:">
-                                                    <HBox.margin>
-                                                        <Insets right="5.0"/>
-                                                    </HBox.margin>
-                                                </Label>
-                                                <Label fx:id="lblDate" prefHeight="17.0" prefWidth="105.0"
-                                                       text="Current Date">
-                                                    <HBox.margin>
-                                                        <Insets right="25.0"/>
-                                                    </HBox.margin>
-                                                </Label>
-                                                <Label text="DOB:">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0"/>
-                                                    </font>
-                                                </Label>
-                                                <DatePicker fx:id="dpDate" prefHeight="25.0" prefWidth="205.0"
-                                                            promptText="mm/dd/yyyy"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
-                                            <children>
-                                                <Label prefHeight="17.0" prefWidth="80.0" text="Address:">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0"/>
-                                                    </font>
-                                                </Label>
-                                                <TextFieldRequired fx:id="txfAddress" prefHeight="25.0"
-                                                                   prefWidth="699.0"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="751.0">
-                                            <children>
-                                                <Label prefHeight="17.0" prefWidth="80.0" text="City:"/>
-                                                <TextFieldRequired fx:id="txfCity" prefHeight="25.0" prefWidth="137.0">
-                                                    <HBox.margin>
-                                                        <Insets right="15.0"/>
-                                                    </HBox.margin>
-                                                </TextFieldRequired>
-                                                <Label prefHeight="17.0" prefWidth="39.0" text="State:"/>
-                                                <ComboBox fx:id="cbState" prefWidth="150.0" promptText="Select State">
-                                                    <HBox.margin>
-                                                        <Insets right="15.0"/>
-                                                    </HBox.margin>
-                                                </ComboBox>
-                                                <Label prefHeight="17.0" prefWidth="22.0" text="Zip:"/>
-                                                <TextFieldRequired fx:id="txfZip" prefHeight="25.0" prefWidth="137.0">
-                                                    <HBox.margin>
-                                                        <Insets right="15.0"/>
-                                                    </HBox.margin>
-                                                </TextFieldRequired>
-                                                <Label prefHeight="17.0" prefWidth="42.0" text="Phone:"/>
-                                                <TextFieldRequired fx:id="txfPhone" prefHeight="25.0"
-                                                                   prefWidth="126.0"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
-                                            <children>
-                                                <Label prefHeight="17.0" prefWidth="80.0" text="School:"/>
-                                                <TextFieldRequired fx:id="txfSchool" prefHeight="25.0"
-                                                                   prefWidth="699.0"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="751.0">
-                                            <children>
-                                                <Label prefHeight="17.0" prefWidth="80.0" text="Height:">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0"/>
-                                                    </font>
-                                                </Label>
-                                                <TextFieldRequired fx:id="txfHeight" prefHeight="25.0" prefWidth="78.0">
-                                                    <HBox.margin>
-                                                        <Insets/>
-                                                    </HBox.margin>
-                                                </TextFieldRequired>
-                                                <Label text="cm">
-                                                    <HBox.margin>
-                                                        <Insets right="10.0"/>
-                                                    </HBox.margin>
-                                                </Label>
-                                                <Label prefHeight="17.0" prefWidth="50.0" text="Weight:">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0"/>
-                                                    </font>
-                                                </Label>
-                                                <TextFieldRequired fx:id="txfWeight" prefHeight="25.0" prefWidth="72.0">
-                                                    <HBox.margin>
-                                                        <Insets/>
-                                                    </HBox.margin>
-                                                </TextFieldRequired>
-                                                <Label text="kg">
-                                                    <HBox.margin>
-                                                        <Insets right="10.0"/>
-                                                    </HBox.margin>
-                                                </Label>
-                                                <Label prefHeight="17.0" prefWidth="30.0" text="Age:">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0"/>
-                                                    </font>
-                                                </Label>
-                                                <TextFieldRequired fx:id="txfAge" prefHeight="25.0" prefWidth="72.0">
-                                                    <HBox.margin>
-                                                        <Insets right="10.0"/>
-                                                    </HBox.margin>
-                                                </TextFieldRequired>
-                                                <Label prefHeight="17.0" prefWidth="55.0" text="Gender:">
-                                                    <font>
-                                                        <Font name="System Bold" size="12.0"/>
-                                                    </font>
-                                                </Label>
-                                                <VBox alignment="CENTER_LEFT" prefHeight="50.0">
-                                                    <children>
-                                                        <RadioButton fx:id="radMale" mnemonicParsing="false"
-                                                                     text="Male">
-                                                            <toggleGroup>
-                                                                <ToggleGroup fx:id="tgGender"/>
-                                                            </toggleGroup>
-                                                        </RadioButton>
-                                                        <RadioButton fx:id="radFemale" mnemonicParsing="false"
-                                                                     text="Female" toggleGroup="$tgGender"/>
-                                                    </children>
-                                                    <HBox.margin>
-                                                        <Insets right="10.0"/>
-                                                    </HBox.margin>
-                                                </VBox>
-                                                <Label prefHeight="17.0" prefWidth="124.0" text="Hand/Leg Dominance:"/>
-                                                <VBox alignment="CENTER_LEFT" prefHeight="200.0">
-                                                    <children>
-                                                        <RadioButton fx:id="radDominanceRight" mnemonicParsing="false"
-                                                                     text="Right">
-                                                            <toggleGroup>
-                                                                <ToggleGroup fx:id="dominance"/>
-                                                            </toggleGroup>
-                                                        </RadioButton>
-                                                        <RadioButton fx:id="radDominanceLeft" mnemonicParsing="false"
-                                                                     text="Left" toggleGroup="$dominance"/>
-                                                    </children>
-                                                </VBox>
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="741.0">
-                                            <children>
-                                                <Label prefHeight="17.0" prefWidth="80.0" text="Primary Sport:"/>
-                                                <TextFieldRequired fx:id="txfPrimarySport" prefHeight="25.0"
-                                                                   prefWidth="296.0">
-                                                    <HBox.margin>
-                                                        <Insets right="15.0"/>
-                                                    </HBox.margin>
-                                                </TextFieldRequired>
-                                                <Label prefHeight="17.0" prefWidth="102.0" text="Primary Position:"/>
-                                                <TextFieldRequired fx:id="txfPrimaryPosition" prefHeight="25.0"
-                                                                   prefWidth="286.0">
-                                                    <HBox.margin>
-                                                        <Insets/>
-                                                    </HBox.margin>
-                                                </TextFieldRequired>
-                                            </children>
-                                        </HBox>
-                                    </children>
-                                </VBox>
                             </content>
                         </Tab>
                         <Tab fx:id="tabYBalance" text="Y-Balance Test">
@@ -2484,7 +2508,7 @@
                                                                     <children>
                                                                         <HBox prefHeight="25.0" prefWidth="736.0">
                                                                             <children>
-                                                                                <Label text="All measurements are in milimeters (Willsit measurement is in cm)"
+                                                                                <Label text="All measurements are in millimeters"
                                                                                        underline="true">
                                                                                     <font>
                                                                                         <Font size="14.0"/>
@@ -2616,28 +2640,6 @@
                                                                                     </HBox.margin>
                                                                                     <children>
                                                                                         <Label text="mm"/>
-                                                                                    </children>
-                                                                                </VBox>
-                                                                                <Label text="Wallsit:">
-                                                                                    <font>
-                                                                                        <Font name="System Bold"
-                                                                                              size="12.0"/>
-                                                                                    </font>
-                                                                                </Label>
-                                                                                <TextFieldRequired fx:id="txfWallsit"
-                                                                                                   prefHeight="25.0"
-                                                                                                   prefWidth="78.0">
-                                                                                    <HBox.margin>
-                                                                                        <Insets/>
-                                                                                    </HBox.margin>
-                                                                                </TextFieldRequired>
-                                                                                <VBox alignment="CENTER_LEFT"
-                                                                                      prefHeight="50.0">
-                                                                                    <HBox.margin>
-                                                                                        <Insets right="15.0"/>
-                                                                                    </HBox.margin>
-                                                                                    <children>
-                                                                                        <Label text="cm"/>
                                                                                     </children>
                                                                                 </VBox>
                                                                             </children>
@@ -2875,7 +2877,37 @@
                                                                                         <Insets/>
                                                                                     </HBox.margin>
                                                                                 </TextFieldRequired>
-                                                                                <Label text="seconds"/>
+                                                                               <VBox alignment="CENTER_LEFT"
+                                                                                      prefHeight="50.0">
+                                                                                    <HBox.margin>
+                                                                                        <Insets right="15.0"/>
+                                                                                    </HBox.margin>
+                                                                                    <children>
+                                                                                        <Label text="seconds"/>
+                                                                                    </children>
+                                                                                </VBox>
+                                                                                <Label text="Wall Sit:">
+                                                                                    <font>
+                                                                                        <Font name="System Bold"
+                                                                                              size="12.0"/>
+                                                                                    </font>
+                                                                                </Label>
+                                                                                <TextFieldRequired fx:id="txfWallsit"
+                                                                                                   prefHeight="25.0"
+                                                                                                   prefWidth="78.0">
+                                                                                    <HBox.margin>
+                                                                                        <Insets/>
+                                                                                    </HBox.margin>
+                                                                                </TextFieldRequired>
+                                                                                <VBox alignment="CENTER_LEFT"
+                                                                                      prefHeight="50.0">
+                                                                                    <HBox.margin>
+                                                                                        <Insets right="15.0"/>
+                                                                                    </HBox.margin>
+                                                                                    <children>
+                                                                                        <Label text="seconds"/>
+                                                                                    </children>
+                                                                                </VBox>
                                                                             </children>
                                                                         </HBox>
                                                                         <HBox alignment="CENTER_LEFT" layoutY="151.0"
