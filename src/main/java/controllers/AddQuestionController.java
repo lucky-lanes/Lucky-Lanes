@@ -12,6 +12,7 @@ import main.java.Database;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
 /**
@@ -154,23 +155,28 @@ public class AddQuestionController implements Initializable {
 
         //questionObj.saveToDataBase();
         //This will save the question and the answers into the database
-        String sql = "INSERT INTO QUESTION VALUES (null,"
-                + "'" + mainQuestion.getText() + "'" + ","
-                + "'" + option1.getText() + "'" + ","
-                + "'" + option1Value.isSelected() + "'" + ","
-                + "'" + option2.getText() + "'" + ","
-                + "'" + option2Value.isSelected() + "'" + ","
-                + "'" + option3.getText() + "'" + ","
-                + "'" + option3Value.isSelected() + "'" + ","
-                + "'" + option4.getText() + "'" + ","
-                + "'" + option4Value.isSelected() + "'" + ");";
-        System.out.println(sql);
-        Database.executeUpdate(sql);
-
+        String sql = "INSERT INTO QUESTION VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
         try {
+        	Database.connect();
+        	PreparedStatement pstmt = Database.conn.prepareStatement(sql);
+        	
+        	pstmt.setString(1, mainQuestion.getText());
+        	pstmt.setString(2, option1.getText());
+        	pstmt.setBoolean(3, option1Value.isSelected());
+        	pstmt.setString(4, option2.getText());
+        	pstmt.setBoolean(5, option2Value.isSelected());
+        	pstmt.setString(6, option3.getText());
+        	pstmt.setBoolean(7, option3Value.isSelected());
+        	pstmt.setString(8, option4.getText());
+        	pstmt.setBoolean(9, option4Value.isSelected());
+        	
+        	pstmt.execute();
+        	Database.close();
             goBack();
         } catch (Exception e) {
             System.out.print("failed");
+            e.printStackTrace();
         }
     }
 

@@ -1,6 +1,7 @@
 package main.java.controllers;
 
 import javafx.application.Platform;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -28,6 +29,7 @@ import main.java.Report;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -313,15 +315,27 @@ public class SearchController implements Initializable {
 
         //prepare SQL statement
         String SQL = "SELECT ID,name, address, school,age, gender FROM athlete WHERE"
-                + "(UPPER(name) LIKE UPPER('%" + txtName.getText() + "%') or name is null) "
-                + "and (UPPER(address) LIKE UPPER('%" + txtAddress.getText() + "%') or address is null) "
-                + "and (UPPER(state) LIKE UPPER('%" + txtState.getText() + "%') or state is null) "
-                + "and (UPPER(city) LIKE UPPER('%" + txtCity.getText() + "%') or city is null) "
-                + "and (zip LIKE ('%" + txtZip.getText() + "%') or zip is null) "
-                + "and (UPPER(school) LIKE UPPER('%" + txtSchool.getText() + "%') or school is null) "
-                + "and (UPPER(primarysport) LIKE UPPER('%" + txtSport.getText() + "%') or primarysport is null) "
-                + "and (ID LIKE ('%" + txtID.getText() + "') or ID is null) "; // data to grab
+                + "(UPPER(name) LIKE UPPER(?) or name is null) "
+                + "or (UPPER(address) LIKE UPPER(?) or address is null) "
+                + "or (UPPER(state) LIKE UPPER(?) or state is null) "
+                + "or (UPPER(city) LIKE UPPER(?) or city is null) "
+                + "or (zip LIKE (?) or zip is null) "
+                + "or (UPPER(school) LIKE UPPER(?) or school is null) "
+                + "or (UPPER(primarysport) LIKE UPPER(?) or primarysport is null) "
+                + "or (ID LIKE (?) or ID is null) "; // parameterized sql string
         
+        String[] vars = {
+              txtName.getText(),
+              txtAddress.getText(),
+              txtState.getText(),
+              txtCity.getText(),
+              txtZip.getText(),
+              txtSchool.getText(),
+              txtSport.getText(),
+              txtID.getText()
+        };
+        
+
         
         //The code below is for testing 
         
@@ -358,8 +372,13 @@ public class SearchController implements Initializable {
 
                 //Platform.runlater is used to update an UI control inside a different thread.
                 Database.connect();
-
-                ResultSet rs = Database.searchQuery(SQL);
+                PreparedStatement pstmt = Database.conn.prepareStatement(SQL);
+                for (int i=0; i<vars.length; i++) {
+                	vars[i] = vars[i].length() > 0?vars[i]:null;
+                    pstmt.setString(i+1,vars[i]);
+                }
+                
+                ResultSet rs = pstmt.executeQuery();
                 /*
                 rs.last();
                 int rsLen = rs.getRow();
@@ -472,7 +491,7 @@ public class SearchController implements Initializable {
 
         databaseQuery.setOnFailed(error ->
         {
-            //databaseQuery.getException().printStackTrace();
+            databaseQuery.getException().printStackTrace();
             //Abandon the ship.
             System.out.println("Women and kids first");     //Titanic 2 anyone?
         });

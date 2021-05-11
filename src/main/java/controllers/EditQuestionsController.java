@@ -12,6 +12,7 @@ import main.java.Database;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -233,19 +234,36 @@ public class EditQuestionsController implements Initializable {
         option3V = option3Value.isSelected();
         o4 = option4.getText();
         option4V = option4Value.isSelected();
-        Database.executeUpdate("UPDATE QUESTION SET Question = '" + mainQ + "'"
-                + " ,Option1 = '" + o1 + "'" +
-                " ,Option2 = '" + o2 + "'" +
-                " ,Option3 = '" + o3 + "'" +
-                " ,Option4 = '" + o4 + "'" +
-                " ,Option1Value = '" + option1V + "'" +
-                " ,Option2Value = '" + option2V + "'" +
-                " ,Option3Value = '" + option3V + "'" +
-                " ,Option4Value = '" + option4V + "'" +
-                "WHERE ID=" + id);
+        String sql = "UPDATE QUESTION SET Question = ?"
+        		+ " ,Option1 = ?"
+        		+ " ,Option2 = ?"
+        		+ " ,Option3 = ?"
+        		+ " ,Option4 = ?"
+        		+ " ,Option1Value = ?"
+        		+ " ,Option2Value = ?"
+        		+ " ,Option3Value = ?"
+        		+ " ,Option4Value = ?"
+        		+ "WHERE ID = ?";
 
         try {
             Database.connect();
+            
+            PreparedStatement pstmt = Database.conn.prepareStatement(sql);
+            
+            pstmt.setString(1, mainQ);
+            pstmt.setString(2, o1);
+            pstmt.setString(3, o2);
+            pstmt.setString(4, o3);
+            pstmt.setString(5, o4);
+            
+            pstmt.setBoolean(6, option1V);
+            pstmt.setBoolean(7, option2V);
+            pstmt.setBoolean(8, option3V);
+            pstmt.setBoolean(9, option4V);
+            pstmt.setString(10, id);
+           
+            pstmt.executeQuery();
+            
             ResultSet questionInfo = Database.searchQuery("SELECT * FROM TEST WHERE QuestionId=" + id1 + ";");
             //questionInfo.next();  
             if (questionInfo.first()) {
@@ -261,7 +279,7 @@ public class EditQuestionsController implements Initializable {
             } else {
                 if (addToTest.isSelected()) {
                     //question is not in the db. Add to DB
-                    String sql = "INSERT INTO TEST VALUES (null, " + id1 + ");";
+                    sql = "INSERT INTO TEST VALUES (null, " + id1 + ");";
                     Database.executeUpdate(sql);
                 } else {
                     //Question not in database
