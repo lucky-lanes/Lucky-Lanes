@@ -60,6 +60,8 @@ https://onedrive.live.com/view.aspx?resid=CAA42815A644A89C!2621&ithint=file%2cdo
 - The delete account button is disabled, as it deletes rows from the Authorization table based off of Athlete table id. As of right now there is no consistent feature between the tables to align them. This also breaks the reassignment of authorization level of accounts. Ideally, deleting an account should remove ALL their data (not just in the Auth table or Athlete table, but all the associated form tables, which also may be presently unalignable.) 
 - The ability to change a password is not implemented (a function in AuthorizationController is built for it)
 - The system to handle coach accounts is not built. (There is code prepared in the TeamController class to handle some of this)
+- Need follow this link to set up database pointers —> [Guide for AWS setup] (https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Connecting.Java.html)
+- Entire system is vulnerable to SQL injections, next team will have to use prepared statements to check for injections.  However, we have already accomplished this in some of the classes. 
 
 ## License
 [Apache License](http://www.apache.org/licenses/)
