@@ -27,6 +27,9 @@ You'll need to install the following libraries into your project (these librarie
         1. This is the development Environment we have standardized for the project
         2. This is up on the google drive for the project if you don't have a development environment that runs JavaFX and JavaFXML.
         3. This can be done through the properties settings of the project. 
+
+   5. Under your IDE src you will all the contents/folders under the src folder in the masterfile, then import all other files into the project
+   6. ALSO you will need JavaFX installed and imported as an added library
  
  
 [Setup Video for netbeans](https://www.youtube.com/watch?v=RXoIOWlP0dY)<br>
